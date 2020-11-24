@@ -3,6 +3,8 @@
 
 PRAGMA foreign_keys = ON;
 
+-- Drop Tables --
+
 DROP TABLE IF EXISTS person;
 DROP TABLE IF EXISTS client;
 DROP TABLE IF EXISTS employee;
@@ -19,6 +21,8 @@ DROP TABLE IF EXISTS material;
 DROP TABLE IF EXISTS quantity;
 DROP TABLE IF EXISTS materialManagement;
 
+-- Create Tables --
+
 CREATE TABLE person (
     id integer PRIMARY KEY AUTOINCREMENT,
     name text NOT NULL,
@@ -26,10 +30,15 @@ CREATE TABLE person (
     phone_number text NOT NULL -- e.g. +351935556768
 );
 
+CREATE TABLE insurance (
+    insurance_code integer PRIMARY KEY
+);
+
 CREATE TABLE client (
     id integer PRIMARY KEY REFERENCES person,
     birth_date text NOT NULL, -- format dd-mm-yyyy
-    tax_number integer UNIQUE
+    tax_number integer UNIQUE,
+    insurance_code integer REFERENCES insurance
 );
 
 CREATE TABLE employee (
@@ -81,10 +90,6 @@ CREATE TABLE service (
     specialty_type text NOT NULL REFERENCES specialty
 );
 
-CREATE TABLE insurance (
-    insurance_code integer PRIMARY KEY
-);
-
 CREATE TABLE discount (
     insurance_code integer REFERENCES insurance,
     service_name text REFERENCES service,
@@ -109,6 +114,8 @@ CREATE TABLE materialManagement (
     material_name text REFERENCES material,
     PRIMARY KEY(dental_auxiliar, material_name)
 );
+
+-- Insert Data --
 
 INSERT INTO person VALUES(1, 'Raquel Pires', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351921555422');
 INSERT INTO person VALUES(2, 'Miguel Paredes', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351929255572');
@@ -145,13 +152,147 @@ INSERT INTO dentalAuxiliary VALUES (5);
 INSERT INTO dentalAuxiliary VALUES (6);
 INSERT INTO dentalAuxiliary VALUES (7);
 
-INSERT INTO client VALUES (8, '15-06-1987', 204996503);
-INSERT INTO client VALUES (9, '27-01-1999', 249869900);
-INSERT INTO client VALUES (10, '03-12-1995', 232895775);
-INSERT INTO client VALUES (11, '14-07-1982', 278402062);
-INSERT INTO client VALUES (12, '08-08-1972', 219225133);
-INSERT INTO client VALUES (13, '31-01-1970', NULL);
-INSERT INTO client VALUES (14, '03-02-2007', 226969886);
-INSERT INTO client VALUES (15, '05-11-2005', NULL);
-INSERT INTO client VALUES (16, '05-11-2005', NULL);
-INSERT INTO client VALUES (17, '09-07-1964', 204398754);
+INSERT INTO insurance VALUES (123);
+INSERT INTO insurance VALUES (456);
+
+INSERT INTO client VALUES (8, '15-06-1987', 204996503, 123);
+INSERT INTO client VALUES (9, '27-01-1999', 249869900, 456);
+INSERT INTO client VALUES (10, '03-12-1995', 232895775, NULL);
+INSERT INTO client VALUES (11, '14-07-1982', 278402062, 456);
+INSERT INTO client VALUES (12, '08-08-1972', 219225133, NULL);
+INSERT INTO client VALUES (13, '31-01-1970', NULL, 456);
+INSERT INTO client VALUES (14, '03-02-2007', 226969886, 456);
+INSERT INTO client VALUES (15, '05-11-2005', NULL, 123);
+INSERT INTO client VALUES (16, '05-11-2005', NULL, 123);
+INSERT INTO client VALUES (17, '09-07-1964', 204398754, NULL);
+
+INSERT INTO specialty VALUES ('general');
+INSERT INTO specialty VALUES ('orthodontics');
+INSERT INTO specialty VALUES ('pediatric');
+INSERT INTO specialty VALUES ('prosthodontics');
+INSERT INTO specialty VALUES ('endodontics');
+
+INSERT INTO appointment VALUES (1, '03-01-2020', '10h00', 2, 40, 8, 2, 'general');
+INSERT INTO appointment VALUES (2, '03-01-2020', '11h30', 1, 48, 9, 1, 'general');
+INSERT INTO appointment VALUES (3, '10-01-2020', '11h00', 1, 3220, 9, 1, 'orthodontics');
+INSERT INTO appointment VALUES (4, '12-03-2020', '9h00', 1, 9, 9, 1, 'orthodontics');
+INSERT INTO appointment VALUES (5, '03-05-2020', '17h00', 2, 60, 10, 2, 'general');
+INSERT INTO appointment VALUES (6, '08-05-2020', '9h00', 1, 9, 9, 1, 'orthodontics');
+INSERT INTO appointment VALUES (7, '08-05-2020', '14h00', 2, 81, 11, 2, 'prosthodontics');
+INSERT INTO appointment VALUES (8, '10-07-2020', '11h00', 1, 9, 9, 1, 'orthodontics');
+INSERT INTO appointment VALUES (9, '10-07-2020', '15h00', 1, 60, 12, 1, 'general');
+INSERT INTO appointment VALUES (10, '10-07-2020', '15h00', 2, 48, 13, 2, 'general');
+INSERT INTO appointment VALUES (11, '12-09-2020', '09h00', 2, 54, 8, 2, 'general');
+INSERT INTO appointment VALUES (12, '14-09-2020', '09h00', 1, 3360, 14, 1, 'orthodontics');
+INSERT INTO appointment VALUES (13, '15-09-2020', '10h00', 1, 9, 9, 1, 'orthodontics');
+INSERT INTO appointment VALUES (14, '15-10-2020', '15h00', 2, 30, 15, 2, 'pediatric');
+INSERT INTO appointment VALUES (15, '15-10-2020', '16h00', 2, 30, 16, 2, 'pediatric');
+INSERT INTO appointment VALUES (16, '10-11-2020', '11h00', 1, 9, 9, 1, 'orthodontics');
+INSERT INTO appointment VALUES (17, '14-11-2020', '09h00', 1, 9, 14, 1, 'orthodontics');
+INSERT INTO appointment VALUES (18, '14-11-2020', '11h00', 2, 800, 17, 2, 'endodontics');
+INSERT INTO appointment VALUES (19, '24-11-2020', '17h00', 2, 800, 10, 2, 'endodontics');
+INSERT INTO appointment VALUES (20, '27-11-2020', '11h00', 2, 800, 12, 2, 'endodontics');
+INSERT INTO appointment VALUES (21, '25-12-2020', '15h00', 2, NULL, 15, 2, 'pediatric');
+INSERT INTO appointment VALUES (22, '25-12-2020', '16h00', 2, NULL, 16, 2, 'pediatric');
+INSERT INTO appointment VALUES (23, '28-12-2020', '14h00', 2, NULL, 11, 2, 'prosthodontics');
+INSERT INTO appointment VALUES (24, '12-01-2021', '11h00', 1, NULL, 9, 1, 'orthodontics');
+INSERT INTO appointment VALUES (25, '17-01-2021', '09h00', 1, NULL, 14, 1, 'orthodontics');
+INSERT INTO appointment VALUES (26, '02-02-2021', '16h00', 2, NULL, 10, 2, 'general');
+
+INSERT INTO auxiliariesAssigned VALUES (1, 4);
+INSERT INTO auxiliariesAssigned VALUES (2, 3);
+INSERT INTO auxiliariesAssigned VALUES (3, 3);
+INSERT INTO auxiliariesAssigned VALUES (3, 4);
+INSERT INTO auxiliariesAssigned VALUES (4, 3);
+INSERT INTO auxiliariesAssigned VALUES (5, 3);
+INSERT INTO auxiliariesAssigned VALUES (6, 4);
+INSERT INTO auxiliariesAssigned VALUES (7, 3);
+INSERT INTO auxiliariesAssigned VALUES (7, 5);
+INSERT INTO auxiliariesAssigned VALUES (8, 4);
+INSERT INTO auxiliariesAssigned VALUES (8, 6);
+INSERT INTO auxiliariesAssigned VALUES (9, 6);
+INSERT INTO auxiliariesAssigned VALUES (10, 5);
+INSERT INTO auxiliariesAssigned VALUES (11, 3);
+INSERT INTO auxiliariesAssigned VALUES (12, 4);
+INSERT INTO auxiliariesAssigned VALUES (13, 5);
+INSERT INTO auxiliariesAssigned VALUES (14, 6);
+INSERT INTO auxiliariesAssigned VALUES (15, 7);
+INSERT INTO auxiliariesAssigned VALUES (16, 3);
+INSERT INTO auxiliariesAssigned VALUES (17, 4);
+INSERT INTO auxiliariesAssigned VALUES (18, 5);
+INSERT INTO auxiliariesAssigned VALUES (19, 6);
+INSERT INTO auxiliariesAssigned VALUES (20, 7);
+INSERT INTO auxiliariesAssigned VALUES (21, 3);
+INSERT INTO auxiliariesAssigned VALUES (22, 4);
+INSERT INTO auxiliariesAssigned VALUES (23, 5);
+INSERT INTO auxiliariesAssigned VALUES (24, 6);
+INSERT INTO auxiliariesAssigned VALUES (25, 7);
+INSERT INTO auxiliariesAssigned VALUES (26, 3);
+
+INSERT INTO record VALUES (8, 1, 'Everything normal in the check up.');
+INSERT INTO record VALUES (9, 2, 'Everything ready for the braces placement.');
+INSERT INTO record VALUES (9, 3, 'Schedule check up appointment in two months.');
+INSERT INTO record VALUES (9, 4, 'Good progress in the frontal teeth.');
+INSERT INTO record VALUES (10, 5, 'Everything normal in the check up. Only come back in the next year if not feeling any pain.');
+INSERT INTO record VALUES (9, 6, 'Frontal teeths are looking good. Started using elastic braces. Come back in two months.');
+INSERT INTO record VALUES (11, 7, 'X-ray shows insufficient jaw bone for lower implant.');
+INSERT INTO record VALUES (9, 8, 'Come back in two months.');
+INSERT INTO record VALUES (12, 9, NULL);
+INSERT INTO record VALUES (13, 10, NULL);
+INSERT INTO record VALUES (8, 11, NULL);
+INSERT INTO record VALUES (14, 12, 'Invisible alligners placed.');
+INSERT INTO record VALUES (9, 13, 'Good improval on the right lateral teeth. Come back in two months.');
+INSERT INTO record VALUES (15, 14, 'Healthy and strong teeth.');
+INSERT INTO record VALUES (16, 15, 'Healthy and strong teeth but need to be better cleaned.');
+INSERT INTO record VALUES (9, 16, 'The braces were tightened a lot. In case of more pain you can take Brufen. Come back in two months.');
+INSERT INTO record VALUES (14, 17, 'Great improval in the left canine teath which was the major problem.');
+INSERT INTO record VALUES (17, 18, 'In case of inflamation you can take Brufen and try to avoid chewing with the tooth.');
+INSERT INTO record VALUES (10, 19, 'Complicated procedure as there were more damage than expected. In case of inflamation you can take Brufen and try to avoid chewing with the tooth.');
+INSERT INTO record VALUES (12, 20, 'In case of inflamation you can take Brufen and try to avoid chewing with the tooth.');
+INSERT INTO record VALUES (15, 21, NULL);
+INSERT INTO record VALUES (16, 22, NULL);
+INSERT INTO record VALUES (11, 23, NULL);
+INSERT INTO record VALUES (9, 24, NULL);
+INSERT INTO record VALUES (14, 25, NULL);
+INSERT INTO record VALUES (10, 26, NULL);
+
+INSERT INTO service VALUES ('check up', 40, 'general');
+INSERT INTO service VALUES ('check up and clean', 60, 'general');
+INSERT INTO service VALUES ('metal braces placement', 4600, 'orthodontics');
+INSERT INTO service VALUES ('ceramic braces placement', 5000, 'orthodontics');
+INSERT INTO service VALUES ('invisible aligners', 4800, 'orthodontics');
+INSERT INTO service VALUES ('braces maintenance', 10, 'orthodontics');
+INSERT INTO service VALUES ('dental cleanings', 50, 'pediatric');
+INSERT INTO service VALUES ('initial implant assessment', 90, 'prosthodontics');
+INSERT INTO service VALUES ('single dental implant', 1700, 'prosthodontics');
+INSERT INTO service VALUES ('three adjacent teeth replacement', 4000, 'prosthodontics');
+INSERT INTO service VALUES ('all upper teeth replacement', 6200, 'prosthodontics');
+INSERT INTO service VALUES ('all lower teeth replacement', 5500, 'prosthodontics');
+INSERT INTO service VALUES ('root canal treatment', 800, 'endodontics');
+
+INSERT INTO discount VALUES (123, 'check up', 0);
+INSERT INTO discount VALUES (123, 'check up and clean', 10);
+INSERT INTO discount VALUES (123, 'metal braces placement', 20);
+INSERT INTO discount VALUES (123, 'ceramic braces placement', 20);
+INSERT INTO discount VALUES (123, 'invisible aligners', 20);
+INSERT INTO discount VALUES (123, 'braces maintenance', 0);
+INSERT INTO discount VALUES (123, 'dental cleanings', 40);
+INSERT INTO discount VALUES (123, 'initial implant assessment', 0);
+INSERT INTO discount VALUES (123, 'single dental implant', 10);
+INSERT INTO discount VALUES (123, 'three adjacent teeth replacement', 10);
+INSERT INTO discount VALUES (123, 'all upper teeth replacement', 20);
+INSERT INTO discount VALUES (123, 'all lower teeth replacement', 20);
+INSERT INTO discount VALUES (123, 'root canal treatment', 20);
+INSERT INTO discount VALUES (456, 'check up', 10);
+INSERT INTO discount VALUES (456, 'check up and clean', 20);
+INSERT INTO discount VALUES (456, 'metal braces placement', 30);
+INSERT INTO discount VALUES (456, 'ceramic braces placement', 30);
+INSERT INTO discount VALUES (456, 'invisible aligners', 30);
+INSERT INTO discount VALUES (456, 'braces maintenance', 10);
+INSERT INTO discount VALUES (456, 'dental cleanings', 20);
+INSERT INTO discount VALUES (456, 'initial implant assessment', 10);
+INSERT INTO discount VALUES (456, 'single dental implant', 20);
+INSERT INTO discount VALUES (456, 'three adjacent teeth replacement', 20);
+INSERT INTO discount VALUES (456, 'all upper teeth replacement', 30);
+INSERT INTO discount VALUES (456, 'all lower teeth replacement', 30);
+INSERT INTO discount VALUES (456, 'root canal treatment', 30);
