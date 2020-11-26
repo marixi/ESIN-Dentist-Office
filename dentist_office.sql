@@ -99,7 +99,7 @@ CREATE TABLE discount (
 
 CREATE TABLE material (
     name text PRIMARY KEY,
-    quantity_in_stock NOT NULL CHECK(quantity_in_stock >= 0)
+    quantity_in_stock integer NOT NULL CHECK(quantity_in_stock >= 0)
 );
 
 CREATE TABLE quantity (
@@ -117,13 +117,13 @@ CREATE TABLE materialManagement (
 
 -- Insert Data --
 
-INSERT INTO person VALUES(1, 'Raquel Pires', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351921555422');
-INSERT INTO person VALUES(2, 'Miguel Paredes', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351929255572');
-INSERT INTO person VALUES(3, 'Joana Fonseca', 'Rua Caminho Cruz 21 4440-689 Valongo, Porto', '+351965559111');
-INSERT INTO person VALUES(4, 'Ricardo Brioso', 'Rua Tapada Marinha 77 4455-459 Perafita, Porto', '+351929155587');
-INSERT INTO person VALUES(5, 'Sara Fernandes', 'Rua Nossa Senhora Graça 90 4620-135 Lousada, Porto', '+351921555869');
-INSERT INTO person VALUES(6, 'Lara Guerreiro', 'Rua Heróis Ultramar 94 4640-210 Monte Alegra, Porto', '+351921555935');
-INSERT INTO person VALUES(7, 'Erica Freitas', 'Avenida Júlio Saúl Dias 53 4560-800 Portela, Porto', '+351225555669');
+INSERT INTO person VALUES (1, 'Raquel Pires', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351921555422');
+INSERT INTO person VALUES (2, 'Miguel Paredes', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351929255572');
+INSERT INTO person VALUES (3, 'Joana Fonseca', 'Rua Caminho Cruz 21 4440-689 Valongo, Porto', '+351965559111');
+INSERT INTO person VALUES (4, 'Ricardo Brioso', 'Rua Tapada Marinha 77 4455-459 Perafita, Porto', '+351929155587');
+INSERT INTO person VALUES (5, 'Sara Fernandes', 'Rua Nossa Senhora Graça 90 4620-135 Lousada, Porto', '+351921555869');
+INSERT INTO person VALUES (6, 'Lara Guerreiro', 'Rua Heróis Ultramar 94 4640-210 Monte Alegra, Porto', '+351921555935');
+INSERT INTO person VALUES (7, 'Erica Freitas', 'Avenida Júlio Saúl Dias 53 4560-800 Portela, Porto', '+351225555669');
 INSERT INTO person VALUES (8, 'Clara Tavares', 'Rua Âncora 77 4400-095 Vila Nova de Gaia, Porto', '+351935556768');
 INSERT INTO person VALUES (9, 'Francisco Amaral', 'Rua Comércio Porto 42 4500-532 Porto, Porto', '+351922555524');
 INSERT INTO person VALUES (10, 'Andreia Baptista', 'Rua Patrão Caramelho 111 4485-330 Labruge, Porto', '+351915555347');
@@ -276,7 +276,7 @@ INSERT INTO discount VALUES (123, 'metal braces placement', 20);
 INSERT INTO discount VALUES (123, 'ceramic braces placement', 20);
 INSERT INTO discount VALUES (123, 'invisible aligners', 20);
 INSERT INTO discount VALUES (123, 'braces maintenance', 0);
-INSERT INTO discount VALUES (123, 'dental cleanings', 40);
+INSERT INTO discount VALUES (123, 'dental cleaning', 40);
 INSERT INTO discount VALUES (123, 'initial implant assessment', 0);
 INSERT INTO discount VALUES (123, 'single dental implant', 10);
 INSERT INTO discount VALUES (123, 'three adjacent teeth replacement', 10);
@@ -296,3 +296,119 @@ INSERT INTO discount VALUES (456, 'three adjacent teeth replacement', 20);
 INSERT INTO discount VALUES (456, 'all upper teeth replacement', 30);
 INSERT INTO discount VALUES (456, 'all lower teeth replacement', 30);
 INSERT INTO discount VALUES (456, 'root canal treatment', 30);
+
+INSERT INTO material VALUES ('Dental Examination Mirror',70);
+INSERT INTO material VALUES ('Probe',80);
+INSERT INTO material VALUES ('Scanning Probe',85);
+INSERT INTO material VALUES ('Forceps',52);
+INSERT INTO material VALUES ('Pliers',47);
+INSERT INTO material VALUES ('Turbines',10);
+INSERT INTO material VALUES ('Micromotors',15);
+INSERT INTO material VALUES ('Straight Handpiece',12);
+INSERT INTO material VALUES ('Contra-Angle Handpiece',12);
+INSERT INTO material VALUES ('Light Curing Dental Lamps',23);
+INSERT INTO material VALUES ('Latex gloves',450);
+INSERT INTO material VALUES ('Dental Composites',104);
+INSERT INTO material VALUES ('Orthodontics Metal Braces',127);
+INSERT INTO material VALUES ('Orthodontics Ceramic Braces',127);
+INSERT INTO material VALUES ('Orthodontics Elastic',300);
+INSERT INTO material VALUES ('Orthodontics Clear Aligners',22);
+INSERT INTO material VALUES ('Dental Sutures',47);
+INSERT INTO material VALUES ('Endodontic Instruments',0);
+
+INSERT INTO quantity VALUES ('metal braces placement','Pliers',1);
+INSERT INTO quantity VALUES ('metal braces placement','Forceps',2);
+INSERT INTO quantity VALUES ('metal braces placement','Straight Handpiece',1);
+INSERT INTO quantity VALUES ('metal braces placement','Contra-Angle Handpiece',1);
+INSERT INTO quantity VALUES ('metal braces placement','Latex gloves',4);
+INSERT INTO quantity VALUES ('metal braces placement','Orthodontics Metal Braces',32);
+INSERT INTO quantity VALUES ('metal braces placement','Orthodontics Elastic',34);
+INSERT INTO quantity VALUES ('metal braces placement','Dental Composites',2);
+INSERT INTO quantity VALUES ('check up and clean','Dental Examination Mirror',1);
+INSERT INTO quantity VALUES ('check up and clean','Probe',2);
+INSERT INTO quantity VALUES ('check up and clean','Turbines',3);
+INSERT INTO quantity VALUES ('check up and clean','Micromotors',2);
+INSERT INTO quantity VALUES ('check up and clean','Straight Handpiece',1);
+INSERT INTO quantity VALUES ('check up and clean','Contra-Angle Handpiece',2);
+INSERT INTO quantity VALUES ('check up and clean','Latex gloves',4);
+INSERT INTO quantity VALUES ('check up','Dental Examination Mirror',1);
+INSERT INTO quantity VALUES ('check up','Straight Handpiece',1);
+INSERT INTO quantity VALUES ('check up','Latex gloves',4);
+INSERT INTO quantity VALUES ('ceramic braces placement','Pliers',1);
+INSERT INTO quantity VALUES ('ceramic braces placement','Forceps',2);
+INSERT INTO quantity VALUES ('ceramic braces placement','Straight Handpiece',1);
+INSERT INTO quantity VALUES ('ceramic braces placement','Contra-Angle Handpiece',1);
+INSERT INTO quantity VALUES ('ceramic braces placement','Latex gloves',4);
+INSERT INTO quantity VALUES ('ceramic braces placement','Orthodontics Ceramic Braces',32);
+INSERT INTO quantity VALUES ('ceramic braces placement','Orthodontics Elastic',34);
+INSERT INTO quantity VALUES ('ceramic braces placement','Dental Composites',2);
+INSERT INTO quantity VALUES ('invisible aligners','Forceps',2);
+INSERT INTO quantity VALUES ('invisible aligners','Latex gloves',4);
+INSERT INTO quantity VALUES ('invisible aligners','Dental Composites',2);
+INSERT INTO quantity VALUES ('invisible aligners','Orthodontics Clear Aligners',2);
+INSERT INTO quantity VALUES ('invisible aligners','Dental Examination Mirror',1);
+INSERT INTO quantity VALUES ('invisible aligners','Dental Composites',2);
+INSERT INTO quantity VALUES ('braces maintenance','Pliers',1);
+INSERT INTO quantity VALUES ('braces maintenance','Forceps',2);
+INSERT INTO quantity VALUES ('braces maintenance','Straight Handpiece',1);
+INSERT INTO quantity VALUES ('braces maintenance','Contra-Angle Handpiece',1);
+INSERT INTO quantity VALUES ('braces maintenance','Latex gloves',4);
+INSERT INTO quantity VALUES ('dental cleaning','Probe',2);
+INSERT INTO quantity VALUES ('dental cleaning','Turbines',3);
+INSERT INTO quantity VALUES ('dental cleaning','Micromotors',2);
+INSERT INTO quantity VALUES ('dental cleaning','Straight Handpiece',1);
+INSERT INTO quantity VALUES ('dental cleaning','Contra-Angle Handpiece',2);
+INSERT INTO quantity VALUES ('dental cleaning','Latex gloves',4);
+INSERT INTO quantity VALUES ('initial implant assessment','Latex gloves',4);
+INSERT INTO quantity VALUES ('initial implant assessment','Dental Examination Mirror',1);
+INSERT INTO quantity VALUES ('initial implant assessment','Endodontic Instruments',5);
+INSERT INTO quantity VALUES ('initial implant assessment','Probe',1);
+INSERT INTO quantity VALUES ('single dental implant','Probe',1);
+INSERT INTO quantity VALUES ('single dental implant','Forceps',2);
+INSERT INTO quantity VALUES ('single dental implant','Pliers',1);
+INSERT INTO quantity VALUES ('single dental implant','Endodontic Instruments',2);
+INSERT INTO quantity VALUES ('single dental implant','Dental Composites',2);
+INSERT INTO quantity VALUES ('three adjacent teeth replacement','Pliers',1);
+INSERT INTO quantity VALUES ('three adjacent teeth replacement','Forceps',2);
+INSERT INTO quantity VALUES ('three adjacent teeth replacement','Dental Sutures',2);
+INSERT INTO quantity VALUES ('three adjacent teeth replacement','Latex gloves',4);
+INSERT INTO quantity VALUES ('three adjacent teeth replacement','Endodontic Instruments',3);
+INSERT INTO quantity VALUES ('three adjacent teeth replacement','Dental Composites',3);
+INSERT INTO quantity VALUES ('all upper teeth replacement','Pliers',1);
+INSERT INTO quantity VALUES ('all upper teeth replacement','Forceps',2);
+INSERT INTO quantity VALUES ('all upper teeth replacement','Dental Sutures',2);
+INSERT INTO quantity VALUES ('all upper teeth replacement','Latex gloves',6);
+INSERT INTO quantity VALUES ('all upper teeth replacement','Endodontic Instruments',8);
+INSERT INTO quantity VALUES ('all upper teeth replacement','Dental Composites',30);
+INSERT INTO quantity VALUES ('all lower teeth replacement','Pliers',1);
+INSERT INTO quantity VALUES ('all lower teeth replacement','Forceps',2);
+INSERT INTO quantity VALUES ('all lower teeth replacement','Dental Sutures',2);
+INSERT INTO quantity VALUES ('all lower teeth replacement','Latex gloves',6);
+INSERT INTO quantity VALUES ('all lower teeth replacement','Endodontic Instruments',8);
+INSERT INTO quantity VALUES ('all lower teeth replacement','Dental Composites',30);
+INSERT INTO quantity VALUES ('root canal treatment','Probe',1);
+INSERT INTO quantity VALUES ('root canal treatment','Forceps',2);
+INSERT INTO quantity VALUES ('root canal treatment','Dental Sutures',1);
+INSERT INTO quantity VALUES ('root canal treatment','Endodontic Instruments',2);
+INSERT INTO quantity VALUES ('root canal treatment','Dental Examination Mirror',1);
+INSERT INTO quantity VALUES ('root canal treatment','Contra-Angle Handpiece',1);
+INSERT INTO quantity VALUES ('root canal treatment','Light Curing Dental Lamps',1);
+
+INSERT INTO materialManagement VALUES (3,'Dental Examination Mirror');
+INSERT INTO materialManagement VALUES (3,'Probe');
+INSERT INTO materialManagement VALUES (3,'Scanning Probe');
+INSERT INTO materialManagement VALUES (3,'Forceps');
+INSERT INTO materialManagement VALUES (4,'Pliers');
+INSERT INTO materialManagement VALUES (4,'Turbines');
+INSERT INTO materialManagement VALUES (4,'Micromotors');
+INSERT INTO materialManagement VALUES (4,'Straight Handpiece');
+INSERT INTO materialManagement VALUES (5,'Contra-Angle Handpiece');
+INSERT INTO materialManagement VALUES (5,'Light Curing Dental Lamps');
+INSERT INTO materialManagement VALUES (5,'Latex gloves');
+INSERT INTO materialManagement VALUES (6,'Dental Composites');
+INSERT INTO materialManagement VALUES (6,'Orthodontics Metal Braces');
+INSERT INTO materialManagement VALUES (6,'Orthodontics Ceramic Braces');
+INSERT INTO materialManagement VALUES (6,'Orthodontics Elastic');
+INSERT INTO materialManagement VALUES (7,'Orthodontics Clear Aligners');
+INSERT INTO materialManagement VALUES (7,'Dental Sutures');
+INSERT INTO materialManagement VALUES (7,'Endodontic Instruments');
