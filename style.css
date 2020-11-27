@@ -1,4 +1,5 @@
-/* Style */
+/* Dentist Office - Style */
+/* Authors: Duarte Rodrigues, Mariana Xavier */
 
 
 /* Header */
@@ -25,6 +26,8 @@ body > header li {
     background-color: white;
     text-align: center;
     list-style-type: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
 }
 
 body > header a {
@@ -36,45 +39,9 @@ body > header li:hover {
     font-weight: bold;
 }
 
-body > header li > a:hover { 
-    font-weight: bold;
-}
-
 body > header h1, h2 {
     padding-top: 1em;
     padding-left: 1em;
-}
-
-body > header h2 {
-    margin: 1em;
-    padding-top: 5em;
-
-}
-
-body > header img:nth-child(2) {
-    width: 120em;
-    height: 120em;
-}
-
-#first {
-    padding: 0;
-}
-
-#first a {
-    color: black;
-}
-
-#first h2 {
-    background-color:  rgba(96, 185, 201, 0.932);
-    margin: 0;
-    padding: 10px;
-}
-
-/* Fonts */
-
-ul li {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.5em;
 }
 
 body > header h1 {
@@ -83,20 +50,74 @@ body > header h1 {
 }
 
 body > header h2 {
+    margin: 1em;
+    padding-top: 5em;
     font-family: 'Bookman';
 }
 
-#first {
-    font-family: Arial, Helvetica, sans-serif; 
+body > header img:nth-child(2) {
+    width: 120em;
+    height: 120em;
 }
 
-#icons img {
-    width: 1.5fr;
-    height: 10em;
+/* Section with id="first" */
+
+#first {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif; 
+    color: black;
 }
+
+#first a {
+    color: black;
+}
+
+#first h2 {
+    background-color: rgba(96, 185, 201, 0.932);
+    margin: 0;
+    padding: 10px;
+}
+
+/* Section with id="services" */
 
 #services h1 {
     font-size: 3em;
+    margin-bottom: 0.3em;
+    text-align: center;
+}
+
+#services > p {
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 4em;
+}
+
+#icons img {
+    height: 10em;
+}
+
+#titles {
+    padding: 0;
+}
+
+#titles h2:first-child {
+    padding-left: 5.9em;
+}
+
+#titles h2:nth-child(2) {
+    padding-left: 7.7em;
+}
+
+#titles h2:nth-child(3) {
+    padding-left: 7em;
+}
+
+#titles h2:nth-child(4) {
+    padding-left: 6.5em;
+}
+
+#titles h2:last-child {
+    padding-left: 5em;
 }
 
 #description p {
@@ -105,23 +126,23 @@ body > header h2 {
     text-align: center;
 }
 
-#description p:first-child {
+#description:first-child {
     padding-left: 2em;
 }
 
-#description p:nth-child(2) {
+#description:nth-child(2) {
     margin-left: 1.5em;
 }
 
-#description p:nth-child(3) {
+#description:nth-child(3) {
     margin-left: 1.5em;
 }
 
-#description p:nth-child(4) {
+#description:nth-child(4) {
     margin-left: 1.2em;
 }
 
-#description p:last-child {
+#description:last-child {
     margin-right: 5em;
 }
 
@@ -147,4 +168,42 @@ body > header h2 {
 
 .prices input:hover {
     font-weight: bold;
+}
+
+/* Section with id="team" */
+
+#team h1 {
+    font-size: 3em;
+    margin-bottom: 0.3em;
+    text-align: center;
+}
+
+#team > p {
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+#team h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+#dentist1 {
+    position: left;
+}
+
+#dentist2 {
+    position: left;
+    width: 500px;
+    height: 334px;
+}
+
+/* Section with id="contacts" */
+
+#contacts h1 {
+    font-size: 3em;
+    margin-bottom: 0.3em;
+    text-align: center;
 }

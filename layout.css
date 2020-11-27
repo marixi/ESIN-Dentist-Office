@@ -1,4 +1,5 @@
-/* Layout */
+/* Dentist Office - Layout */
+/* Authors: Duarte Rodrigues, Mariana Xavier */
 
 /* Main Layout */
 
@@ -49,8 +50,6 @@ body > header h2 {
     grid-row: 2;
 }
 
-/* Navigation Layout */
-
 body > header ul {
     display: flex;
     flex-direction: row;
@@ -61,46 +60,22 @@ body > header li {
     flex: 1;
 }
 
-/* First */
-
-#first {
-    text-align: center;
-}
-
-/* Language Layout */
-
-body > header > div.language {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* First */
+/* Layout of section with id="service" */
 
 #services {
     display: grid;
-    grid-template-rows: [start] auto [desc] auto [images] auto [titles] auto [description] auto [end];
+    grid-template-rows: [start] auto [desc] auto [images] auto [titles] auto [description] auto [prices] auto [end];
 }
 
 #services h1 {
     grid-row: start/desc;
-    margin-bottom: 0.3em;
 }
 
-#services p:first-child {
+#services > p {
     grid-row: desc/images;
 }
 
-#services h1 {
-    text-align: center;
-}
-
-#services p {
-    text-align: center;
-}
-
 #icons {
-    margin-top: 4em;
     grid-row: images/titles;
     display: flex;
     flex-direction: row;
@@ -111,32 +86,18 @@ body > header > div.language {
     grid-row: titles/description;
     display: flex;
     flex-direction: row;
-    padding: 0;
-}
-
-#titles h2:first-child {
-    padding-left: 5.9em;
-}
-
-#titles h2:nth-child(2) {
-    padding-left: 7.7em;
-}
-
-#titles h2:nth-child(3) {
-    padding-left: 7em;
-}
-
-#titles h2:nth-child(4) {
-    padding-left: 6.5em;
-}
-
-#titles h2:last-child {
-    padding-left: 5em;
 }
 
 #description {
-    grid-row: description/end;
+    grid-row: description/prices;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
+
+.prices {
+    grid-row: prices/end;
+}
+
+/* Section with id="team" */
+
