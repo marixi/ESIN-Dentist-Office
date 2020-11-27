@@ -1,0 +1,150 @@
+/* Style */
+
+
+/* Header */
+
+body > header {
+    background-color: white;
+    color: rgb(14, 183, 212);
+}
+
+body > header img:first-child {
+    width: 15em;
+    height: 10em;
+    position: top left;
+    padding-right: 17.4em;
+}
+ 
+body > header ul {
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+body > header li {
+    background-color: white;
+    text-align: center;
+    list-style-type: none;
+}
+
+body > header a {
+    color: rgb(14, 183, 212);
+    text-decoration: none;
+}
+
+body > header li:hover {
+    font-weight: bold;
+}
+
+body > header li > a:hover { 
+    font-weight: bold;
+}
+
+body > header h1, h2 {
+    padding-top: 1em;
+    padding-left: 1em;
+}
+
+body > header h2 {
+    margin: 1em;
+    padding-top: 5em;
+
+}
+
+body > header img:nth-child(2) {
+    width: 120em;
+    height: 120em;
+}
+
+#first {
+    padding: 0;
+}
+
+#first a {
+    color: black;
+}
+
+#first h2 {
+    background-color:  rgba(96, 185, 201, 0.932);
+    margin: 0;
+    padding: 10px;
+}
+
+/* Fonts */
+
+ul li {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+}
+
+body > header h1 {
+    font-family: 'Bookman';
+    font-size: 3em;
+}
+
+body > header h2 {
+    font-family: 'Bookman';
+}
+
+#first {
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+#icons img {
+    width: 1.5fr;
+    height: 10em;
+}
+
+#services h1 {
+    font-size: 3em;
+}
+
+#description p {
+    max-width: 15em;
+    padding: 0;
+    text-align: center;
+}
+
+#description p:first-child {
+    padding-left: 2em;
+}
+
+#description p:nth-child(2) {
+    margin-left: 1.5em;
+}
+
+#description p:nth-child(3) {
+    margin-left: 1.5em;
+}
+
+#description p:nth-child(4) {
+    margin-left: 1.2em;
+}
+
+#description p:last-child {
+    margin-right: 5em;
+}
+
+.prices {
+    margin-top: 4em;
+    background-color: rgba(96, 185, 201, 0.932);
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.prices input {
+    background-color: white;
+    border: 2px solid rgb(57, 124, 136);
+    color: rgb(57, 124, 136);
+    padding: 0.2em 0.5em;
+    border-radius: 0.5em;
+    text-align: center;
+    font-size: 1em;
+    display: inline;
+    margin-bottom: 1em;
+}
+
+.prices input:hover {
+    font-weight: bold;
+}
