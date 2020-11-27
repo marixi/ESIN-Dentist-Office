@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- header division -->
+    <div class="home-header-nav-block">
+        <p></p>
+
+        <!-- CSS para depois por na altura certa -->
+        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/clinic-dentist-logo-design-template-b50334fbd73aa7dda35d2013c9eee01c_screen.jpg?ts=1561476516"
+            alt="Dentist Clinic Logo">
+
+        <!-- Header com a lista do que se podem fazer na pag -->
+        <!-- CSS para fazer o smooth scroll transition para baixo -->
+        <div class="home-header-nav">
+            <ul class="">
+                <li class="Service" title="Our available services and price listing">Services</li>
+
+                <li class="Team" title="Meet the best team to take care of you">Meet the Team </li>
+
+                <li class="Contacts" title="Feel free to contact us!"> <span>Contacts</span> </li>
+
+                <li class="Log in"><a href="/ESIN-Dentist-Office/Login.html" class="Log in"><span>Log In</span></a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- vou eixar isto aqui mas vai ser provavelmente uma imagem de bandeiras, que com css pomos como icons -->
+        <div class="language">
+            <a href="/ESIN-Dentist-Office/change-lang/pt_PT">PT</a>
+            <a href="/ESIN-Dentist-Office/change-lang/en_GB">EN</a>
+        </div>
+
+
+
+        <p></p>
+    </div>
+
+    <p></p>
+    <!-- nao sei até que ponto isto nao vai ser uma imagem com fundo transparente, mas se nao for então é texto para 
+    estar por cima de outra imagem... CSS again -->
+    <!-- Clinic name and attractive photo division -->
+    <div>
+        <img src="https://broadforddental.com.au/wp-content/uploads/2020/06/dental-clinic-seymour.jpg"
+            alt="A crew happy to give you the perfect smile.">
+        <h1> Clinic Name</h1>
+        <h3> Slogan below</h3>
+        <p></p>
+    </div>
+    <p></p>
+    <h2> First Appointment? <ins>Contact Us!!</ins> </h2>
+    <p></p>
+
+    <!-- Services division -->
+    <div>
+        <h1> Services</h1>
+        <p>Our clinic offer the best treatments from dental cleanings to orthodontic correction braces, as well as
+            endodontic services, like teeth replacement.</p> <br>
+
+        <!-- Por uma unordered list a ir buscar por php/query à database os services possiveis. -->
+
+        <p>Our clinic offers you some insurance options that will make your smile cost less. You can see how much you
+            can save in the price listings.</p>
+
+        <!-- para correr php tem de ser com o container do docker -->
+        <form action="ServicePrice.php" method="post">
+            <button formaction="ServicePrice.php" formmethod="post">Price List</button>
+        </form>
+
+    </div>
+
+    <!-- team division -->
+    <div>
+        <h1>Meet the Team</h1>
+        <div>
+            <h2>Dentists</h2>
+        </div>
+        <div>
+            <h2>Auxiliars</h2>
+        </div>
+
+    </div>
+
+    <!-- Contacts division -->
+    <div>
+        <h1> Contacts</h1>
+    </div>
+
+</body>
+
+
+</html>
