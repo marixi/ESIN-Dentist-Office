@@ -15,12 +15,14 @@
 <body>
     <!-- <div id="static_back"> deixa isto para já
         <img src="https://static.vecteezy.com/system/resources/previews/000/625/953/non_2x/soft-abstract-background-in-light-colors-vector.jpg" alt="background image" >
-</div> -->
+    </div> -->
+
     <!-- Header -->
     <header>
-        <a href='Homepage.html' title="Home"> <img
-                src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/clinic-dentist-logo-design-template-b50334fbd73aa7dda35d2013c9eee01c_screen.jpg?ts=1561476516"
-                alt="Dentist Clinic Logo" href='Homepage.html'> </a>
+        <a href='Homepage.html' title="Home">
+            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/clinic-dentist-logo-design-template-b50334fbd73aa7dda35d2013c9eee01c_screen.jpg?ts=1561476516"
+                alt="Dentist Clinic Logo">
+        </a>
         <nav>
             <ul>
                 <li><a href='Homepage.html' title="Home"> Home </a></li>
@@ -45,13 +47,13 @@
     <section id="services">
         <h1> Services </h1>
         <p> Our clinic offers the best dental treatments with the most recent, inovative and reliable approaches. </p>
-        <section id="icons">
+        <div id="icons">
             <img src="https://www.flaticon.com/svg/static/icons/svg/1446/1446775.svg" alt="General">
             <img src="https://www.flaticon.com/svg/static/icons/svg/1446/1446788.svg" alt="Orthodontics">
             <img src="https://www.flaticon.com/svg/static/icons/svg/871/871309.svg" alt="Pediatric">
             <img src="https://www.flaticon.com/svg/static/icons/svg/1446/1446784.svg" alt="Prosthodontics">
             <img src="https://www.flaticon.com/svg/static/icons/svg/1446/1446798.svg" alt="Endodontics">
-        </section>
+        </div>
         <div id="titles">
             <h2> General </h2>
             <h2> Orthodontics </h2>
@@ -60,8 +62,7 @@
             <h2> Endodontics </h2>
         </div>
         <div id="description">
-            <p> We can perform your regular check up and cleaning rotines to keep your mouth healthy and teeth strong.
-            </p>
+            <p> We can perform your regular check up and cleaning rotines to keep your mouth healthy and teeth strong. </p>
             <p> Crooked teeth? Not anymore! Come and see the different options we have to fit your own needs. </p>
             <p> We know what all those candies do to the so called "milk-teeth"! Come and find out about our ludic and
                 pedagogical space to keep the little ones distracted on the appointments. </p>
@@ -70,7 +71,7 @@
             <p> The teeth is way beyond what you can see. Lets not allow for the root canal to bring any more
                 disconfort. </p>
         </div>
-        <div class="prices">
+        <div id="prices">
             <p> See below how much each of our services cost. But don't worry, we have plenty agreements with insurance
                 companies to make your smile smile cost less! </p>
             <form action="ServicePrice.php" method="post">
@@ -83,30 +84,26 @@
     <section id="team">
         <div id="teamTitle">
             <h1> Meet the Team </h1><br>
-            <p> Meet our experienced dentists and staff who are ready to assist you with all of your dental care needs.
-            </p>
+            <p> Meet our experienced dentists and staff who are ready to assist you with all of your dental care needs. </p>
             <h2> Dentists </h2>
         </div>
-        <section id="Dentist_Photo">
+        <div id="dentistPhoto">
             <img src="https://sialorreia.files.wordpress.com/2017/12/shutterstock_6314948931.jpg"
                 alt="One of our dentists" id="dentist1">
             <img src="https://www.smilerestoration.com/images/female-dentist-sacramento.jpg"
                 alt="Another of our dentists" id="dentist2">
-        </section>
-
-        <div id="Dentist_Names">
+        </div>
+        <div id="dentistNames">
             <h3> Dr. Miguel Paredes </h3>
             <h3> Dr. Raquel Pires </h3>
         </div>
-
-        <div id="Dentist_Description">
+        <div id="dentistDescription">
             <p> Concluded the Integrated Master in Dental Medicine in the University of Porto and is the co-founder of
                 the
                 clinic. He will impress you with a high level of skill and technical abilities. He employs the latest
                 equipment and techniques to provide a predictable, pain-free and expedient experience. Dr. Miguel has a
                 warm
                 and caring bedside manner and is sensitive to his patients' needs. </p>
-
             <p> Concluded the Integrated Master in Dental Medicine in the University of Porto and is the co-founder of
                 the
                 clinic. She loves her profession and is dedicated to offering the best services possible. She is
@@ -116,19 +113,48 @@
                 courses
                 with Alloderm. </p>
         </div>
-        <div id="Auxiliar">
+        <div id="auxiliar">
             <h2> Auxiliars </h2>
             <img src="https://dimensionsofdentalhygiene.com/wp-content/uploads/2019/05/0519-w2-s2-5-dentists-looking-down-750x430.jpg"
                 alt="Our assistants">
-            <p> Together with the best Dentists, we have gathered a highly educated team of assistants (clockwise):
+            <p> Together with the best dentists we have gathered a highly educated team of assistants (clockwise):
                 Joana Fonseca, Ricardo Brioso, Sara Fernandes, Lara Guerreiro and Erica Freitas. </p>
         </div>
     </section>
 
-    <!-- Contacts sectiom -->
+    <!-- Contacts section -->
     <section id="contacts">
         <h1> Contacts</h1>
+        <div id="office">
+            <h3> Where to find us: </h3>
+            <p> Av. da Boavista 650, 4100-127 Porto </p>
+        </div>
+        <div id="schedule">
+            <h3> Open Hours: </h3>
+            <ul>
+                <li> Monday-Friday: 9am - 7pm </li>
+                <li> Saturday: 9am - 5pm </li>
+                <li> Sunday: closed </li>
+            </ul>
+        </div>
+        <div id="contactInfo">
+            <h3> Our Contacts: </h3>
+            <ul>
+                <li> Email: greatsmiles@denticare.com </li>
+                <li> Telephone: +351-921-555-102 </li>
+                <li> Facebook: www.facebook.com/clinique_denticare </li>
+            </ul>
+        </div>
+        <div id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3003.91712541639!2d-8.633627284621008!3d41.15815967928583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2465a744d11d17%3A0x269e6eb103409c!2sAv.%20da%20Boavista%20650%2C%20Porto!5e0!3m2!1spt-PT!2spt!4v1606685835889!5m2!1spt-PT!2spt" 
+                width="700" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+        </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Fake News, 2017</p>
+    </footer>
 
 </body>
 

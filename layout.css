@@ -1,5 +1,4 @@
 /* Dentist Office - Layout */
-
 /* Authors: Duarte Rodrigues, Mariana Xavier */
 
 /* Main Layout */
@@ -7,7 +6,6 @@
 body {
     margin: 0;
     padding: 0;
-    width: 100 vw;
     display: grid;
     grid-template-rows: [start] auto [first] auto [services] 10fr [end];
 }
@@ -24,7 +22,7 @@ body>header {
 
 body>header {
     display: grid;
-    grid-template-columns: [logo] 0.1fr [menu] auto [end];
+    grid-template-columns: [logo] 1fr [menu] 2fr [end];
     grid-template-rows: auto auto;
 }
 
@@ -33,13 +31,13 @@ body>header img:first-child {
     grid-row: 1;
 }
 
-body>header ul {
+body>header nav {
     grid-column: menu/end;
     grid-row: 1;
 }
 
-body>header img:nth-child(2) {
-    grid-column: logo/end;
+#beauty {
+    grid-column: menu/end;
     grid-row: 2;
 }
 
@@ -80,27 +78,86 @@ body>header li {
 
 #icons {
     grid-row: images/titles;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+#icons img:first-child {
+    grid-column: 1;
+}
+
+#icons img:nth-child(2) {
+    grid-column: 2;
+}
+
+#icons img:nth-child(3) {
+    grid-column: 3;
+}
+
+#icons img:nth-child(4) {
+    grid-column: 4;
+}
+
+#icons img:last-child {
+    grid-column: 5;
 }
 
 #titles {
     grid-row: titles/description;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+#titles h2:first-child {
+    grid-column: 1;
+}
+
+#titles h2:nth-child(2) {
+    grid-column: 2;
+}
+
+#titles h2:nth-child(3) {
+    grid-column: 3;
+}
+
+#titles h2:nth-child(4) {
+    grid-column: 4;
+}
+
+#titles h2:last-child {
+    grid-column: 5;
 }
 
 #description {
     grid-row: description/prices;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: justify;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
 }
 
-.prices {
+#description p:first-child {
+    grid-column: 1;
+}
+
+#description p:nth-child(2) {
+    grid-column: 2;
+}
+
+#description p:nth-child(3) {
+    grid-column: 3;
+}
+
+#description p:nth-child(4) {
+    grid-column: 4;
+}
+
+#description p:last-child {
+    grid-column: 5;
+}
+
+#prices {
     grid-row: prices/end;
 }
 
@@ -115,27 +172,62 @@ body>header li {
     grid-row: start/images;
 }
 
-#Dentist_Photo {
+#dentistPhoto {
     grid-row: images/dentist_names;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-#Dentist_Names {
+#dentistNames {
     grid-row: dentist_names/dentist_desc;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-#Dentist_Description {
+#dentistDescription {
     grid-row: dentist_desc/auxiliar;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-#Auxiliar {
+#auxiliar {
     grid-row: auxiliar/end;
 }
+
+/* Section with id="contacts" */
+
+#contacts {
+    display: grid;
+    grid-template-rows: [title] auto [place] auto [hours] auto [contacts] auto [end];
+    grid-template-columns: [info] 1fr [map] 1fr [end];
+}
+
+#contacts h1 {
+    grid-row: title/place;
+    grid-column: info/end;
+}
+
+#office {
+    grid-row: place/hours;
+    grid-column: info/map;
+}
+
+#schedule {
+    grid-row: hours/contacts;
+    grid-column: info/map;
+}
+
+#contactInfo {
+    grid-row: contacts/end;
+    grid-column: info/map;
+}
+
+#map {
+    grid-row: place/end;
+    grid-column: map/end;
+}
+
+/* Footer */
