@@ -18,7 +18,7 @@ body>header {
 }
 
 body>header img:first-child {
-    height: 10em;
+    height: 4em;
 }
 
 body>header ul {
@@ -249,3 +249,15 @@ body>header h2 {
 }
 
 /* Footer */
+
+footer {
+    background-color: #2A2F33;
+    padding: 1em;
+    color: white;
+    height: 1em;
+    font-size: 0.8em;
+}
+
+footer p {
+    margin: 0;
+}
