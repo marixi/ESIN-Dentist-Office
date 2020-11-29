@@ -1,79 +1,94 @@
 /* Dentist Office - Style */
-/* Authors: Duarte Rodrigues, Mariana Xavier */
 
+/* Authors: Duarte Rodrigues, Mariana Xavier */
 
 /* Header */
 
-body > header {
+/* This is here just for to say "what the hell is this" */
+
+html {
+    background: url(https://media.istockphoto.com/vectors/abstract-white-gray-background-with-clean-smooth-soft-wave-vector-vector-id915242162?k=6&m=915242162&s=170667a&w=0&h=4WM4DJV-ZH4vGMzR6MZ9FEHTHWEkW3EGcwXswC1MwlI=) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body>header {
     background-color: white;
     color: rgb(14, 183, 212);
 }
 
-body > header img:first-child {
-    width: 15em;
+body>header img:first-child {
     height: 10em;
     position: top left;
     padding-right: 17.4em;
 }
- 
-body > header ul {
+
+body>header ul {
     height: auto;
     margin: 0;
     padding: 0;
 }
 
-body > header li {
+body>header li {
     background-color: white;
     text-align: center;
     list-style-type: none;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5em;
+    border-right: 3px solid rgb(57, 124, 136);
 }
 
-body > header a {
+body>header ul :nth-child(5) {
+    border-right: 0px solid white;
+}
+
+body>header a {
     color: rgb(14, 183, 212);
     text-decoration: none;
 }
 
-body > header li:hover {
+body>header li:hover {
     font-weight: bold;
 }
 
-body > header h1, h2 {
+body>header h1, h2 {
     padding-top: 1em;
     padding-left: 1em;
 }
 
-body > header h1 {
+body>header h1 {
     font-family: 'Bookman';
     font-size: 3em;
 }
 
-body > header h2 {
+body>header h2 {
     margin: 1em;
     padding-top: 5em;
     font-family: 'Bookman';
 }
 
-body > header img:nth-child(2) {
-    width: 120em;
-    height: 120em;
+body>header #beauty {
+    width: 67em;
+    height: auto;
 }
 
 /* Section with id="first" */
 
 #first {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif; 
+    font-family: Arial, Helvetica, sans-serif;
     color: black;
 }
 
 #first a {
-    color: black;
+    color: white;
 }
 
 #first h2 {
     background-color: rgba(96, 185, 201, 0.932);
+    color: white;
     margin: 0;
     padding: 10px;
 }
@@ -82,11 +97,17 @@ body > header img:nth-child(2) {
 
 #services h1 {
     font-size: 3em;
+    margin-left: 13em;
+    margin-right: 13em;
     margin-bottom: 0.3em;
     text-align: center;
+    background: rgba(96, 185, 201, 0.932);
+    background-clip: content-box;
+    color: white;
+    border: 5px double rgb(57, 124, 136);
 }
 
-#services > p {
+#services>p {
     font-size: 1.3em;
     text-align: center;
     margin-bottom: 4em;
@@ -96,29 +117,32 @@ body > header img:nth-child(2) {
     height: 10em;
 }
 
+/* 
 #titles {
-    padding: 0;
+     padding: 0; 
 }
 
 #titles h2:first-child {
-    padding-left: 5.9em;
+    padding-left: 3.5em; /*5.9em;*
 }
 
 #titles h2:nth-child(2) {
-    padding-left: 7.7em;
+    padding-left: 5.6em;/*7.7em;*
 }
 
 #titles h2:nth-child(3) {
-    padding-left: 7em;
+    padding-left: 5em; /*7em;*
 }
 
 #titles h2:nth-child(4) {
-    padding-left: 6.5em;
+    padding-left: 2.5em; /*6.5em;*
 }
 
 #titles h2:last-child {
-    padding-left: 5em;
+    padding-left: 3em; /*5em;*
 }
+
+*/
 
 #description p {
     max-width: 15em;
@@ -172,38 +196,98 @@ body > header img:nth-child(2) {
 
 /* Section with id="team" */
 
-#team h1 {
-    font-size: 3em;
-    margin-bottom: 0.3em;
+#teamTitle {
     text-align: center;
 }
 
-#team > p {
+#team>#teamTitle>h1 {
+    font-size: 3em;
+    margin-left: 12.2em;
+    margin-right: 12.2em;
+    margin-bottom: 0.3em;
+    text-align: center;
+    background: rgba(96, 185, 201, 0.932);
+    background-clip: content-box;
+    color: white;
+    border: 5px double rgb(57, 124, 136);
+}
+
+#team>#teamTitle>p {
     font-size: 1.3em;
     text-align: center;
     margin-bottom: 2em;
 }
 
-#team h2 {
+#team>#teamTitle>h2 {
     font-size: 2em;
-    margin-bottom: 1em;
+    padding: 0;
+    /* margin-bottom: 1em; */
+    margin-left: 21em;
+    margin-right: 21em;
     text-align: center;
+    background: rgb(43, 202, 202);
+    background-clip: content-box;
+    color: white;
+    border: 2px solid rgb(57, 124, 136);
 }
 
 #dentist1 {
-    position: left;
+    width: 30em;
+    height: auto;
+    border-radius: 3em;
 }
 
 #dentist2 {
-    position: left;
-    width: 500px;
-    height: 334px;
+    width: 30em;
+    height: auto;
+    border-radius: 3em;
+}
+
+#Dentist_Description>p {
+    width: 25em;
+    text-align: justify;
+}
+
+#Auxiliar {
+    text-align: center;
+}
+
+#Auxiliar>h2 {
+    font-size: 2em;
+    padding: 0;
+    /* margin-bottom: 1em; */
+    margin-left: 21em;
+    margin-right: 21em;
+    text-align: center;
+    background: rgb(43, 202, 202);
+    background-clip: content-box;
+    color: white;
+    border: 2px solid rgb(57, 136, 136);
+}
+
+#Auxiliar>img {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3em;
+}
+
+#Auxiliar>p {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 40em;
 }
 
 /* Section with id="contacts" */
 
 #contacts h1 {
     font-size: 3em;
+    margin-left: 13.5em;
+    margin-right: 13.5em;
     margin-bottom: 0.3em;
     text-align: center;
+    background: rgba(96, 185, 201, 0.932);
+    background-clip: content-box;
+    color: white;
+    border: 5px double rgb(57, 124, 136);
 }

@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +11,16 @@
     <link href="layout.css" rel="stylesheet">
     <title> Dentist Office </title>
 </head>
+
 <body>
+    <!-- <div id="static_back"> deixa isto para já
+        <img src="https://static.vecteezy.com/system/resources/previews/000/625/953/non_2x/soft-abstract-background-in-light-colors-vector.jpg" alt="background image" >
+</div> -->
     <!-- Header -->
     <header>
-        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/clinic-dentist-logo-design-template-b50334fbd73aa7dda35d2013c9eee01c_screen.jpg?ts=1561476516"
-            alt="Dentist Clinic Logo">
+        <a href='Homepage.html' title="Home"> <img
+                src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/clinic-dentist-logo-design-template-b50334fbd73aa7dda35d2013c9eee01c_screen.jpg?ts=1561476516"
+                alt="Dentist Clinic Logo" href='Homepage.html'> </a>
         <nav>
             <ul>
                 <li><a href='Homepage.html' title="Home"> Home </a></li>
@@ -27,9 +33,9 @@
         <h1> Denticare Clinique </h1>
         <h2> Where your smile is art! </h2>
         <img src="https://cliniquedenticare.com/wp-content/uploads/2018/05/shutterstock_707850313.jpg"
-            alt="A crew happy to give you the perfect smile.">
+            alt="A crew happy to give you the perfect smile." id="beauty">
     </header>
-   
+
     <!-- First appointment section -->
     <section id="first">
         <h2> First Appointment? <a href=#contacts title="Contacts"> Contact Us! </a> </h2>
@@ -54,14 +60,19 @@
             <h2> Endodontics </h2>
         </div>
         <div id="description">
-            <p> We can perform your regular check up and cleaning rotines to keep your mouth healthy and teeth strong. </p>
+            <p> We can perform your regular check up and cleaning rotines to keep your mouth healthy and teeth strong.
+            </p>
             <p> Crooked teeth? Not anymore! Come and see the different options we have to fit your own needs. </p>
-            <p> We know what all those candies do to the so called "milk-teeth"! Come and find out about our ludic and pedagogical space to keep the little ones distracted on the appointments. </p>
-            <p> Using the most advanced technological means and materials of excellence, you won't even notice it's not a natural one. </p>
-            <p> The teeth is way beyond what you can see. Lets not allow for the root canal to bring any more disconfort. </p>
+            <p> We know what all those candies do to the so called "milk-teeth"! Come and find out about our ludic and
+                pedagogical space to keep the little ones distracted on the appointments. </p>
+            <p> Using the most advanced technological means and materials of excellence, you won't even notice it's not
+                a natural one. </p>
+            <p> The teeth is way beyond what you can see. Lets not allow for the root canal to bring any more
+                disconfort. </p>
         </div>
         <div class="prices">
-            <p> See below how much each of our services cost. But don't worry, we have plenty agreements with insurance companies to make your smile smile cost less! </p>
+            <p> See below how much each of our services cost. But don't worry, we have plenty agreements with insurance
+                companies to make your smile smile cost less! </p>
             <form action="ServicePrice.php" method="post">
                 <input type="submit" value="Price List">
             </form>
@@ -70,18 +81,48 @@
 
     <!-- Meet the team section -->
     <section id="team">
-        <h1> Meet the Team </h1>
-        <p> Meet our experienced dentists and staff who are ready to assist you with all of your dental care needs. </p>
-        <h2> Dentists </h2>
-        <img src="https://sialorreia.files.wordpress.com/2017/12/shutterstock_6314948931.jpg" alt="One of our dentists" id="dentist1">
-        <h3> Dr. Miguel Paredes </h3>
-        <p> Concluded the Integrated Master in Dental Medicine in the University of Porto and is the co-founder of the clinic. He will impress you with a high level of skill and technical abilities. He employs the latest equipment and techniques to provide a predictable, pain-free and expedient experience. Dr. Miguel has a warm and caring bedside manner and is sensitive to his patients' needs. </p>
-        <p></p><img src="https://www.smilerestoration.com/images/female-dentist-sacramento.jpg" alt="Another of our dentists" id="dentist2"> 
-        <h3> Dr. Raquel Pires </h3>
-        <p> Concluded the Integrated Master in Dental Medicine in the University of Porto and is the co-founder of the clinic. She loves her profession and is dedicated to offering the best services possible. She is certified with Invisilign from Align technology Inc. and she has completed the 3 year orthodontics and orthopedic dentofacial program from the International Dental Institute. She has also taken soft tissue grafting courses with Alloderm. </p>          
-        <h2> Auxiliars </h2>
-        <img src="https://dimensionsofdentalhygiene.com/wp-content/uploads/2019/05/0519-w2-s2-5-dentists-looking-down-750x430.jpg" alt="Our assistants">
-        <p> Joana Fonseca, Ricardo Brioso, Sara Fernandes, Lara Guerreiro and Erica Freitas </p>
+        <div id="teamTitle">
+            <h1> Meet the Team </h1><br>
+            <p> Meet our experienced dentists and staff who are ready to assist you with all of your dental care needs.
+            </p>
+            <h2> Dentists </h2>
+        </div>
+        <section id="Dentist_Photo">
+            <img src="https://sialorreia.files.wordpress.com/2017/12/shutterstock_6314948931.jpg"
+                alt="One of our dentists" id="dentist1">
+            <img src="https://www.smilerestoration.com/images/female-dentist-sacramento.jpg"
+                alt="Another of our dentists" id="dentist2">
+        </section>
+
+        <div id="Dentist_Names">
+            <h3> Dr. Miguel Paredes </h3>
+            <h3> Dr. Raquel Pires </h3>
+        </div>
+
+        <div id="Dentist_Description">
+            <p> Concluded the Integrated Master in Dental Medicine in the University of Porto and is the co-founder of
+                the
+                clinic. He will impress you with a high level of skill and technical abilities. He employs the latest
+                equipment and techniques to provide a predictable, pain-free and expedient experience. Dr. Miguel has a
+                warm
+                and caring bedside manner and is sensitive to his patients' needs. </p>
+
+            <p> Concluded the Integrated Master in Dental Medicine in the University of Porto and is the co-founder of
+                the
+                clinic. She loves her profession and is dedicated to offering the best services possible. She is
+                certified
+                with Invisilign from Align technology Inc. and she has completed the 3 year orthodontics and orthopedic
+                dentofacial program from the International Dental Institute. She has also taken soft tissue grafting
+                courses
+                with Alloderm. </p>
+        </div>
+        <div id="Auxiliar">
+            <h2> Auxiliars </h2>
+            <img src="https://dimensionsofdentalhygiene.com/wp-content/uploads/2019/05/0519-w2-s2-5-dentists-looking-down-750x430.jpg"
+                alt="Our assistants">
+            <p> Together with the best Dentists, we have gathered a highly educated team of assistants (clockwise):
+                Joana Fonseca, Ricardo Brioso, Sara Fernandes, Lara Guerreiro and Erica Freitas. </p>
+        </div>
     </section>
 
     <!-- Contacts sectiom -->
@@ -90,4 +131,5 @@
     </section>
 
 </body>
+
 </html>

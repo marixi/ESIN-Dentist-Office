@@ -1,62 +1,65 @@
 /* Dentist Office - Layout */
+
 /* Authors: Duarte Rodrigues, Mariana Xavier */
 
 /* Main Layout */
 
 body {
     margin: 0;
+    padding: 0;
+    width: 100 vw;
     display: grid;
     grid-template-rows: [start] auto [first] auto [services] 10fr [end];
 }
 
-body > header {
+body>header {
     grid-row: start/first;
 }
 
 #first {
-    grid-row: first/services; 
+    grid-row: first/services;
 }
 
 /* Header Layout */
 
-body > header {
+body>header {
     display: grid;
     grid-template-columns: [logo] 0.1fr [menu] auto [end];
     grid-template-rows: auto auto;
 }
 
-body > header img:first-child {
+body>header img:first-child {
     grid-column: logo/menu;
     grid-row: 1;
 }
 
-body > header ul {
+body>header ul {
     grid-column: menu/end;
     grid-row: 1;
- }
+}
 
-body > header img:nth-child(2) {
+body>header img:nth-child(2) {
     grid-column: logo/end;
     grid-row: 2;
 }
 
-body > header h1 {
+body>header h1 {
     grid-column: logo/menu;
     grid-row: 2;
 }
 
-body > header h2 {
+body>header h2 {
     grid-column: logo/menu;
     grid-row: 2;
 }
 
-body > header ul {
+body>header ul {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-body > header li {
+body>header li {
     flex: 1;
 }
 
@@ -71,7 +74,7 @@ body > header li {
     grid-row: start/desc;
 }
 
-#services > p {
+#services>p {
     grid-row: desc/images;
 }
 
@@ -79,20 +82,22 @@ body > header li {
     grid-row: images/titles;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 #titles {
     grid-row: titles/description;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
 #description {
     grid-row: description/prices;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    text-align: justify;
 }
 
 .prices {
@@ -101,3 +106,36 @@ body > header li {
 
 /* Section with id="team" */
 
+#team {
+    display: grid;
+    grid-template-rows: [start] auto [images] auto [dentist_names] auto [dentist_desc] auto [auxiliar] auto [end];
+}
+
+#teamTitle {
+    grid-row: start/images;
+}
+
+#Dentist_Photo {
+    grid-row: images/dentist_names;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#Dentist_Names {
+    grid-row: dentist_names/dentist_desc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#Dentist_Description {
+    grid-row: dentist_desc/auxiliar;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#Auxiliar {
+    grid-row: auxiliar/end;
+}
