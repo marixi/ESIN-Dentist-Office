@@ -7,8 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <link href="layout.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
     <title> Dentist Office </title>
 </head>
 
@@ -20,8 +20,7 @@
     <!-- Header -->
     <header>
         <a href='homepage.html' title="Home">
-            <img src="data:image/png;base64,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"
-                alt="Dentist Clinic Logo">
+            <img src="images/logo.png" alt="Dentist Clinic Logo">
         </a>
         <nav>
             <ul>
@@ -34,7 +33,7 @@
         </nav>
         <h1> Denticare Clinique </h1>
         <h2> Where your smile is art! </h2>
-        <img src="https://cliniquedenticare.com/wp-content/uploads/2018/05/shutterstock_707850313.jpg"
+        <img src="images/header.jpg"
             alt="A crew happy to give you the perfect smile." id="beauty">
     </header>
 
@@ -48,11 +47,11 @@
         <h1> Services </h1>
         <p> Our clinic offers the best dental treatments with the most recent, inovative and reliable approaches. </p>
         <div id="icons">
-            <img src="https://www.flaticon.com/svg/static/icons/svg/1446/1446775.svg" alt="General">
-            <img src="https://www.flaticon.com/svg/static/icons/svg/1446/1446788.svg" alt="Orthodontics">
-            <img src="https://www.flaticon.com/svg/static/icons/svg/871/871309.svg" alt="Pediatric">
-            <img src="https://www.flaticon.com/svg/static/icons/svg/1446/1446784.svg" alt="Prosthodontics">
-            <img src="https://www.flaticon.com/svg/static/icons/svg/1446/1446798.svg" alt="Endodontics">
+            <img src="images/general.svg" alt="General">
+            <img src="images/orthodontics.svg" alt="Orthodontics">
+            <img src="images/pediatric.svg" alt="Pediatric">
+            <img src="images/prosthodontics.svg" alt="Prosthodontics">
+            <img src="images/endodontics.svg" alt="Endodontics">
         </div>
         <div id="titles">
             <h2> General </h2>
@@ -88,9 +87,9 @@
             <h2> Dentists </h2>
         </div>
         <div id="dentistPhoto">
-            <img src="https://sialorreia.files.wordpress.com/2017/12/shutterstock_6314948931.jpg"
+            <img src="images/dentist1.jpg"
                 alt="One of our dentists" id="dentist1">
-            <img src="https://www.smilerestoration.com/images/female-dentist-sacramento.jpg"
+            <img src="images/dentist2.jpg"
                 alt="Another of our dentists" id="dentist2">
         </div>
         <div id="dentistNames">
@@ -115,7 +114,7 @@
         </div>
         <div id="auxiliar">
             <h2> Auxiliars </h2>
-            <img src="https://dimensionsofdentalhygiene.com/wp-content/uploads/2019/05/0519-w2-s2-5-dentists-looking-down-750x430.jpg"
+            <img src="images/auxiliars.jpg"
                 alt="Our assistants">
             <p> Together with the best dentists we have gathered a highly educated team of assistants (clockwise):
                 Joana Fonseca, Ricardo Brioso, Sara Fernandes, Lara Guerreiro and Erica Freitas. </p>
