@@ -27,7 +27,9 @@ CREATE TABLE person (
     id integer PRIMARY KEY AUTOINCREMENT,
     name text NOT NULL,
     address text,
-    phone_number text NOT NULL -- e.g. +351935556768
+    phone_number text NOT NULL, -- e.g. +351935556768
+    username text NOT NULL UNIQUE,
+    password text NOT NULL
 );
 
 CREATE TABLE insurance (
@@ -117,23 +119,23 @@ CREATE TABLE materialManagement (
 
 -- Insert Data --
 
-INSERT INTO person VALUES (1, 'Raquel Pires', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351921555422');
-INSERT INTO person VALUES (2, 'Miguel Paredes', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351929255572');
-INSERT INTO person VALUES (3, 'Joana Fonseca', 'Rua Caminho Cruz 21 4440-689 Valongo, Porto', '+351965559111');
-INSERT INTO person VALUES (4, 'Ricardo Brioso', 'Rua Tapada Marinha 77 4455-459 Perafita, Porto', '+351929155587');
-INSERT INTO person VALUES (5, 'Sara Fernandes', 'Rua Nossa Senhora Graça 90 4620-135 Lousada, Porto', '+351921555869');
-INSERT INTO person VALUES (6, 'Lara Guerreiro', 'Rua Heróis Ultramar 94 4640-210 Monte Alegra, Porto', '+351921555935');
-INSERT INTO person VALUES (7, 'Erica Freitas', 'Avenida Júlio Saúl Dias 53 4560-800 Portela, Porto', '+351225555669');
-INSERT INTO person VALUES (8, 'Clara Tavares', 'Rua Âncora 77 4400-095 Vila Nova de Gaia, Porto', '+351935556768');
-INSERT INTO person VALUES (9, 'Francisco Amaral', 'Rua Comércio Porto 42 4500-532 Porto, Porto', '+351922555524');
-INSERT INTO person VALUES (10, 'Andreia Baptista', 'Rua Patrão Caramelho 111 4485-330 Labruge, Porto', '+351915555347');
-INSERT INTO person VALUES (11, 'Martim Sousa', 'Rua Nossa Senhora Graça 44 4620-226 Sequeiros, Porto', '+351921555346');
-INSERT INTO person VALUES (12, 'Maria Esteves', 'Rua Alegria 39 4580-372 Seixoso, Porto', '+351915557534');
-INSERT INTO person VALUES (13, 'Pedro Neves', 'Rua Tapada Marinha 49 4455-184 Lavra, Porto', '+351929055523');
-INSERT INTO person VALUES (14, 'Yara Martins', 'Rua Oliveirinhas 58 4420-400 Valbom, Porto', '+351922555434');
-INSERT INTO person VALUES (15, 'Miguel Barros', 'Avenida Parque Gondarim 97 4405-796 Vila Nova de Gaia, Porto', '+351921555668');
-INSERT INTO person VALUES (16, 'Duarte Barros', 'Avenida Parque Gondarim 97 4405-796 Vila Nova de Gaia, Porto', '+351921555668');
-INSERT INTO person VALUES (17, 'Mariana Ramos', 'Travessa Pindelo do Falcão 84 4425-547 Maia, Porto', '+351921555595');
+INSERT INTO person VALUES (1, 'Raquel Pires', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351921555422', 'raquel.pires', 'rqpmed20');
+INSERT INTO person VALUES (2, 'Miguel Paredes', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351929255572', 'miguel.paredes', 'mgpmed20');
+INSERT INTO person VALUES (3, 'Joana Fonseca', 'Rua Caminho Cruz 21 4440-689 Valongo, Porto', '+351965559111', 'joana.fonseca', 'joaninha4440');
+INSERT INTO person VALUES (4, 'Ricardo Brioso', 'Rua Tapada Marinha 77 4455-459 Perafita, Porto', '+351929155587', 'ricardo.brioso', 'ricardo4Work');
+INSERT INTO person VALUES (5, 'Sara Fernandes', 'Rua Nossa Senhora Graça 90 4620-135 Lousada, Porto', '+351921555869', 'sara.fernandes', 'sara1347fer');
+INSERT INTO person VALUES (6, 'Lara Guerreiro', 'Rua Heróis Ultramar 94 4640-210 Monte Alegra, Porto', '+351921555935', 'lara.guerreiro', 'lGo17dr');
+INSERT INTO person VALUES (7, 'Erica Freitas', 'Avenida Júlio Saúl Dias 53 4560-800 Portela, Porto', '+351225555669', 'erica.freitas', 'brLdgr262');
+INSERT INTO person VALUES (8, 'Clara Tavares', 'Rua Âncora 77 4400-095 Vila Nova de Gaia, Porto', '+351935556768', 'clara.tavares', 'jBUDBKb164');
+INSERT INTO person VALUES (9, 'Francisco Amaral', 'Rua Comércio Porto 42 4500-532 Porto, Porto', '+351922555524', 'francisco.amaral', 'chico15M');
+INSERT INTO person VALUES (10, 'Andreia Baptista', 'Rua Patrão Caramelho 111 4485-330 Labruge, Porto', '+351915555347', 'andreia.baptista', 'gdVBU864M');
+INSERT INTO person VALUES (11, 'Martim Sousa', 'Rua Nossa Senhora Graça 44 4620-226 Sequeiros, Porto', '+351921555346', 'martim.sousa', 'martimPTPT1');
+INSERT INTO person VALUES (12, 'Maria Esteves', 'Rua Alegria 39 4580-372 Seixoso, Porto', '+351915557534', 'maria.esteves', 'm4riaEst');
+INSERT INTO person VALUES (13, 'Pedro Neves', 'Rua Tapada Marinha 49 4455-184 Lavra, Porto', '+351929055523', 'pedro.neves', 'letitSNOW22');
+INSERT INTO person VALUES (14, 'Yara Martins', 'Rua Oliveirinhas 58 4420-400 Valbom, Porto', '+351922555434', 'yara.martins', 'sbuiI7n');
+INSERT INTO person VALUES (15, 'Miguel Barros', 'Avenida Parque Gondarim 97 4405-796 Vila Nova de Gaia, Porto', '+351921555668', 'miguel.barros', 'cristianoRonaldo');
+INSERT INTO person VALUES (16, 'Duarte Barros', 'Avenida Parque Gondarim 97 4405-796 Vila Nova de Gaia, Porto', '+351921555668', 'duarte.barros', 'marega2561');
+INSERT INTO person VALUES (17, 'Mariana Ramos', 'Travessa Pindelo do Falcão 84 4425-547 Maia, Porto', '+351921555595', 'mariana.ramos', 'mab16JHVm');
 
 INSERT INTO employee VALUES (1, 6500, '01-01-2020');
 INSERT INTO employee VALUES (2, 6500, '01-01-2020');
