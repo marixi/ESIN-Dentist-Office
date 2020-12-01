@@ -79,7 +79,12 @@ body>header h2 {
 }
 
 #first a {
-    color: white;
+    color: rgb(255, 255, 255);
+    font-weight: normal ;
+}
+
+#first a:hover {
+    font-weight: bold ;
 }
 
 /* Section with id="services" */
