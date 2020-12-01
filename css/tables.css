@@ -1,7 +1,8 @@
 /* Tables */
 
 table {
-    margin: 2em 15em;
+    margin: 2em 17em;
+    border-collapse: collapse;
 }
 
 #tableTitle {
@@ -14,6 +15,10 @@ table {
     background-clip: content-box;
     color: white;
     border: 5px double rgb(57, 124, 136);
+}
+
+table tr:first-of-type {
+    background-color: #c0c0b5;
 }
 
 table th {
@@ -31,4 +36,8 @@ table td {
 
 table #price:after {
     content: "€";
+}
+
+tr:hover {
+    background-color: #dbdbd5;
 }

@@ -1,7 +1,7 @@
 <?php
     $dbh = new PDO('sqlite:sql/dentist_office.db');
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $stmt = $dbh->prepare('SELECT * FROM service');
+    $stmt = $dbh->prepare('SELECT * FROM service ORDER BY specialty_type');
     $stmt->execute();
 ?>
 
