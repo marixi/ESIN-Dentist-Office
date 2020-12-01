@@ -1,5 +1,7 @@
-/* Dentist */
+/* Dentist Office */
 /* Authors: Duarte Rodrigues, Mariana Xavier */
+
+/* CSS for displaying the personal information of the dentist */
 
 #dentistTitle {
     font-size: 3em;
@@ -13,19 +15,23 @@
     border: 5px double rgb(57, 124, 136);
 }
 
-#dentistInfo img {
-    margin-top: 4em;
-    margin-left: 8em;
+#dentistInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 3em 15em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: white;
     border: 3px solid rgb(3, 148, 173);
 }
 
-table {
-    float: right;
-    margin-right: 45em;
-    margin-top: 7em;
-    text-align: justify;
+#dentistInfo img {
+    padding-right: 2em;
 }
 
-table th, td {
-    padding-bottom: 1em;
+#info {
+    font-size: 1.2em;
+    padding-left: 2em;
+    padding-top: 1em;
 }

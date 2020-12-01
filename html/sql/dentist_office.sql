@@ -175,7 +175,7 @@ INSERT INTO specialty VALUES ('prosthodontics');
 INSERT INTO specialty VALUES ('endodontics');
 
 INSERT INTO appointment VALUES (1, '03-01-2020', '10h00', 2, 40, 8, 2, 'general');
-INSERT INTO appointment VALUES (2, '03-01-2020', '11h30', 1, 48, 9, 1, 'general');
+INSERT INTO appointment VALUES (2, '03-01-2020', '11h00', 1, 48, 9, 1, 'general');
 INSERT INTO appointment VALUES (3, '10-01-2020', '11h00', 1, 3220, 9, 1, 'orthodontics');
 INSERT INTO appointment VALUES (4, '12-03-2020', '9h00', 1, 9, 9, 1, 'orthodontics');
 INSERT INTO appointment VALUES (5, '03-05-2020', '17h00', 2, 60, 10, 2, 'general');

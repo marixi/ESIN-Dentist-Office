@@ -1,0 +1,30 @@
+/* Dentist Office */
+/* Authors: Duarte Rodrigues, Mariana Xavier */
+
+/* CSS for presenting the schedule of the dentist or auxiliary */
+
+#dentistSchedule h2 {
+    font-size: 2em;
+    font-weight: normal;
+    padding: 0;
+    margin-left: 21.5em;
+    margin-right: 21.5em;
+    margin-bottom: 3em;
+    text-align: center;
+    background: rgba(255, 255, 255, 0);
+    background-clip: content-box;
+    color: rgb(57, 124, 136);
+    border: 3px solid rgb(57, 124, 136);
+}
+
+#dentistSchedule label {
+    margin-left: 1em;
+    font-size: 1.2em;
+}
+
+#week {
+    margin-top: 0.5em;
+    margin-left: 1em;
+    width: 15em;
+    font-size: 1.2em;
+}
