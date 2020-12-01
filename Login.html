@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    <title>Login Page</title>
 </head>
+
 <body>
-    
+
+    <header>
+        <a href='homepage.html' title="Home">
+            <img src="images/Logo.png" alt="Dentist Clinic Logo" id="logo_img">
+        </a>
+    </header>
+
+    <h1> Denticare Login</h1>
+
+    <form action="credentials.php" method="POST">
+        <div class="input-field">
+            <input type="text" required="required">
+            <label>Username</label>
+        </div>
+        <div class="input-field">
+            <input class="pswrd" type="password" required="required">
+
+            <label>Password</label>
+        </div>
+        <div class="button">
+            <div class="inner">
+            </div>
+            <button>Submit</button>
+        </div>
+    </form>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <ul class="breadcrumb">
+            <li><a href="homepage.html">Home</a></li>
+            <li>Login</li>
+        </ul>
+        <p>&copy; Denticare Clinique, 2020</p>
+    </footer>
 </body>
+
 </html>

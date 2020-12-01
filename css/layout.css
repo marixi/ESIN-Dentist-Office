@@ -31,6 +31,7 @@ body>header {
 body>header img:first-child {
     grid-column: logo/menu;
     grid-row: 1;
+    justify-self: center;
 }
 
 body>header nav {
