@@ -1,0 +1,31 @@
+/* Dentist */
+/* Authors: Duarte Rodrigues, Mariana Xavier */
+
+#dentistTitle {
+    font-size: 3em;
+    margin-left: 13em;
+    margin-right: 13em;
+    margin-bottom: 0.3em;
+    text-align: center;
+    background: rgba(96, 185, 201, 0.932);
+    background-clip: content-box;
+    color: white;
+    border: 5px double rgb(57, 124, 136);
+}
+
+#dentistInfo img {
+    margin-top: 4em;
+    margin-left: 8em;
+    border: 3px solid rgb(3, 148, 173);
+}
+
+table {
+    float: right;
+    margin-right: 45em;
+    margin-top: 7em;
+    text-align: justify;
+}
+
+table th, td {
+    padding-bottom: 1em;
+}

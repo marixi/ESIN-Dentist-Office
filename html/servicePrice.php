@@ -1,3 +1,6 @@
+<!-- Dentist Office -->
+<!-- Authors: Duarte Rodrigues, Mariana Xavier -->
+
 <?php
     $dbh = new PDO('sqlite:sql/dentist_office.db');
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -7,6 +10,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +19,7 @@
     <link href="css/tables.css" rel="stylesheet">
     <title> Service Prices </title>
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -53,6 +58,10 @@
     
     <!-- Footer -->
     <footer>
+        <ul class="breadcrumb">
+            <li><a href="homepage.html">Home</a></li>
+            <li>Price List</li>
+        </ul>
         <p>&copy; Denticare Clinique, 2020</p>
     </footer>
 
