@@ -1,0 +1,5 @@
+
+*.bat
+*.ps1
+start-container.ps1
+stop-container.bat

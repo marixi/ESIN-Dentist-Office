@@ -27,6 +27,10 @@ body>header {
     grid-template-rows: auto auto;
 }
 
+header>nav {
+    align-self: center;
+}
+
 body>header img:first-child {
     grid-column: logo/menu;
     grid-row: 1;
