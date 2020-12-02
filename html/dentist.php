@@ -7,11 +7,16 @@
     $username = $_GET['username'];
     $password = $_GET['password'];
 
-    $stmt1 = $dbh->prepare('SELECT * FROM person JOIN employee USING (id) JOIN dentist USING (id) WHERE username = ? AND password = ?');
+    $stmt1 = $dbh->prepare('SELECT * FROM person 
+                            JOIN employee USING (id) 
+                            JOIN dentist USING (id) 
+                            WHERE username = ? AND password = ?');
     $stmt1->execute(array($username, $password));
     $row = $stmt1->fetch();
     
-    $stmt2 = $dbh->prepare('SELECT * FROM appointment JOIN person ON dentist_id=person.id WHERE username = ? AND password = ?');
+    $stmt2 = $dbh->prepare('SELECT * FROM appointment 
+                            JOIN person ON dentist_id=person.id 
+                            WHERE username = ? AND password = ?');
     $stmt2->execute(array($username, $password));
     $result = $stmt2->fetchAll();
 ?>
@@ -34,7 +39,7 @@
             <ul>
                 <li><a href='dentist.php' title="Profile"> Profile </a></li>
                 <li><a href=#dentistShedule title="Schedule"> Schedule </a></li>
-                <li><a href=#appointments title="Appointments"> Appointments </a></li>
+                <li><a href='dentistAppointments.php?id=<?php echo $row['id']?>' title="Appointments"> Appointments </a></li>
                 <li><a href=#maganeTeam title="Manage Team"> Manage Team </a></li>
                 <li><a href='homepage.html' title="Log Out"> Log Out </a></li>
             </ul>
@@ -57,8 +62,8 @@
     <section id="dentistSchedule">
         <h2> Schedule </h2>
         <label> Select a week: </label>
-        <form action="" method="post">
-            <input type="week" id="week" name="week" min="2020-W1" required="required">
+        <form action="#dentistSchedule" method="post">
+            <input type="week" id="week" name="week" min="2020-W1" required="required" value="<?php echo date('Y').'-W'.date('W');?>">
             <input type="submit" value="Update">
         </form>
         <?php
@@ -84,11 +89,15 @@
         function find_appointment($day, $hour, $result) {
             foreach ($result as $row) {
                 if ($row['date']==$day && $row['time']==$hour) {
-                    echo $row['app_id'];
+                    ?>
+                    <a href='dentistAppointment.php?id=<?php echo $row['id']?>#appointment' title="Appointment"> #<?php echo $row['app_id']; ?>: </a>
+                    <?php echo $row['specialty']; ?>
+                    <?php
                 }
             }
         }
         ?>
+        <h1 id="tableTitle"> Week <?php echo $week ?> </h1>
         <table id="scheduleTable">
             <tr>
                 <th> </th>
