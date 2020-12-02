@@ -1,0 +1,82 @@
+/* Dentist Office */
+/* Authors: Duarte Rodrigues, Mariana Xavier */
+
+/* CSS for displaying the personal information of the dentist */
+
+#dentistTitle {
+    font-size: 3em;
+    margin-left: 13em;
+    margin-right: 13em;
+    margin-bottom: 0.3em;
+    text-align: center;
+    background: rgba(96, 185, 201, 0.932);
+    background-clip: content-box;
+    color: white;
+    border: 5px double rgb(57, 124, 136);
+}
+
+#dentistInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 3em 15em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: white;
+    border: 3px solid rgb(3, 148, 173);
+}
+
+#dentistInfo img {
+    padding-right: 2em;
+}
+
+#info {
+    font-size: 1.2em;
+    padding-left: 2em;
+    padding-top: 1em;
+}
+
+#dentistSchedule h2 {
+    font-size: 2em;
+    font-weight: normal;
+    padding: 0;
+    margin-left: 21.5em;
+    margin-right: 21.5em;
+    margin-bottom: 3em;
+    text-align: center;
+    background: rgba(255, 255, 255, 0);
+    background-clip: content-box;
+    color: rgb(57, 124, 136);
+    border: 3px solid rgb(57, 124, 136);
+}
+
+#dentistSchedule label, form {
+    margin-left: 1em;
+    font-size: 1.2em;
+}
+
+table {
+    margin: 2em 27em;
+    border-collapse: collapse;
+}
+
+table tr:first-of-type th:not(:first-of-type) {
+    background-color: #c0c0b5;
+}
+
+table tr:not(:first-of-type) th {
+    background-color: #c0c0b5;
+}
+
+table tr:first-of-type th:first-of-type {
+    border-left: 0px;
+    border-top: 0px;
+}
+
+table th, td {
+    font-size: 1em;
+    border: 1px solid black;
+    width: 10em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
