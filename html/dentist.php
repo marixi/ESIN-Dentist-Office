@@ -11,9 +11,12 @@
     $stmt1->execute(array($username, $password));
     $row = $stmt1->fetch();
     
-    $stmt2 = $dbh->prepare('SELECT * FROM appointment JOIN person ON client_id=person.id WHERE username = ? AND password = ?');
+    $stmt2 = $dbh->prepare('SELECT * FROM appointment JOIN person ON dentist_id=person.id WHERE username = ? AND password = ?');
     $stmt2->execute(array($username, $password));
     $result = $stmt2->fetchAll();
+    echo '<pre>';
+    print_r($result);
+    echo '/<pre>';
 ?>
 
 <!DOCTYPE html>
@@ -83,9 +86,23 @@
             </tr>
             <tr>   
                 <th> 15:00 </th>
+                <td>
+                    <?php foreach ($result as $row) {
+                        if ($row['date']=='25-12-2020' && $row['time']=='15h00') {
+                            echo $row['id'];
+                        }
+                    } ?>
+                </td> 
             </tr>
             <tr>
                 <th> 16:00 </th>
+                <td>
+                    <?php foreach ($result as $row) {
+                        if ($row['date']=='28-12-2020' && $row['time']='16h00') {
+                            echo $row['id'];
+                        }
+                    } ?>
+                </td> 
             </tr>
             <tr>
                 <th> 17:00 </th>
