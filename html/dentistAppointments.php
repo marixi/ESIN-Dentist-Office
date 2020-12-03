@@ -24,6 +24,8 @@
                             WHERE dentist_id = ?');
     $stmt3->execute(array($id));
     $record = $stmt3->fetchAll();
+
+    $stmt4 = $dbh->prepare('INSERT INTO record (observations) VALUES (?) WHERE appointment_id=?');
 ?>
 
 
@@ -56,7 +58,7 @@
     <!-- Sectiom to display the information about the dentist -->
     <h1 id="dentistTitle"> Dentist </h1>
     <section id="dentistInfo">
-        <img src="images/<?php echo $row['username'] ?>.png" alt="Dr.<?php echo $row['name'] ?>">
+        <img src="images/<?php echo $row['username'] ?>.jpg" alt="Dr.<?php echo $row['name'] ?>">
         <div id="info">
             <p> <strong> Name: </strong> <?php echo $row['name'] ?> </p>
             <p> <strong> Address: </strong> <?php echo $row['address'] ?> </p>
@@ -80,10 +82,19 @@
                             <li> <strong> Time: </strong> <?php echo $app['time'] ?> </li> 
                             <li> <strong> Specialty: </strong> <?php echo $app['specialty'] ?> </li>
                         </ul>
-                        <form action="" method="post"> 
+                        <form action=" " method="post"> 
                             <p><strong>Observations:</strong></p>
                             <textArea name="observations" rows="5" cols="50"><?php foreach($record as $obs) { if ($obs['appointment_id'] == $app['app_id']) { echo $obs['observations']; } } ?></textArea>
                             <input type="submit" value="Update">
+                            <?php
+                                if (isset($_POST['Update'])) {
+                                    $changed_obs = $_POST['observations'];
+                                    echo $changed_obs;
+                                    $id_to_change = $obs['appointment_id'];
+                                    echo $id_to_change;
+                                    $stmt4->execute(array($changed_obs, $id_to_change));
+                                }  
+                            ?>
                         </form>
                     </section>
                 <?php }
