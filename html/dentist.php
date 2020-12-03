@@ -49,7 +49,7 @@
     <!-- Sectiom to display the information about the dentist -->
     <h1 id="dentistTitle"> Dentist </h1>
     <section id="dentistInfo">
-        <img src="images/<?php echo $row['username'] ?>.png" alt="Dr.<?php echo $row['name'] ?>">
+        <img src="images/<?php echo $row['username'] ?>.jpg" alt="Dr.<?php echo $row['name'] ?>">
         <div id="info">
             <p> <strong> Name: </strong> <?php echo $row['name'] ?> </p>
             <p> <strong> Address: </strong> <?php echo $row['address'] ?> </p>

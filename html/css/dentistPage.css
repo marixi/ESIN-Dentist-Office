@@ -28,6 +28,8 @@
 
 #dentistInfo img {
     padding-right: 2em;
+    height: 230px;
+    width:auto;
 }
 
 #info {
