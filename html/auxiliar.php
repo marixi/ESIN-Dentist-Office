@@ -47,7 +47,7 @@
     </header>
 
     <!-- Sectiom to display the information about the dentist -->
-    <h1 id="dentistTitle"> Dentist </h1>
+    <h1 id="dentistTitle"> Assistant </h1>
     <section id="dentistInfo">
         <img src="images/<?php echo $row['username'] ?>.jpg" alt="Dr.<?php echo $row['name'] ?>">
         <div id="info">
