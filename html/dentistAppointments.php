@@ -82,16 +82,14 @@
                             <li> <strong> Time: </strong> <?php echo $app['time'] ?> </li> 
                             <li> <strong> Specialty: </strong> <?php echo $app['specialty'] ?> </li>
                         </ul>
-                        <form action=" " method="post"> 
+                        <form action="dentistAppointments.php?id=<?php echo $id ?>" method="post"> 
                             <p><strong>Observations:</strong></p>
                             <textArea name="observations" rows="5" cols="50"><?php foreach($record as $obs) { if ($obs['appointment_id'] == $app['app_id']) { echo $obs['observations']; } } ?></textArea>
                             <input type="submit" value="Update">
                             <?php
+                                $changed_obs = $_POST['observations'];
+                                    $id_to_change = $app['app_id'];
                                 if (isset($_POST['Update'])) {
-                                    $changed_obs = $_POST['observations'];
-                                    echo $changed_obs;
-                                    $id_to_change = $obs['appointment_id'];
-                                    echo $id_to_change;
                                     $stmt4->execute(array($changed_obs, $id_to_change));
                                 }  
                             ?>
