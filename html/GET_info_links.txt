@@ -2,3 +2,4 @@ http://localhost:8080/dentist.php?username=raquel.pires&password=rqpmed20
 
 http://localhost:8080/dentist.php?username=miguel.paredes&password=mgpmed20
 
+http://localhost:8080/auxiliar.php?username=ricardo.brioso&password=ricardo4Work
