@@ -14,8 +14,8 @@
 
     $stmt2 = $dbh->prepare('SELECT * FROM appointment
                             JOIN person ON client_id=person.id
-                            /*ORDER BY app_id DESC*/
-                            WHERE dentist_id = ?');
+                            WHERE dentist_id = ?
+                            ORDER BY app_id DESC');
     $stmt2->execute(array($id));
     $result = $stmt2->fetchAll();
 
@@ -88,7 +88,7 @@
                             <input type="submit" value="Update">
                             <?php
                                 $changed_obs = $_POST['observations'];
-                                    $id_to_change = $app['app_id'];
+                                $id_to_change = $app['app_id'];
                                 if (isset($_POST['Update'])) {
                                     $stmt4->execute(array($changed_obs, $id_to_change));
                                 }  

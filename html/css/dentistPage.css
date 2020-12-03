@@ -83,6 +83,8 @@ table th, td {
     width: 20em;
     text-align: center;
     text-transform: capitalize;
+    color: black;
+    text-decoration: none;
 }
 
 table td:not(:empty) {
@@ -95,9 +97,4 @@ table td:not(:empty):hover {
 
 #tableTitle {
     text-align: center;
-}
-
-table > a {
-    color: black;
-    text-decoration: none;
 }

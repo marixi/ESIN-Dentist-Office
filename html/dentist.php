@@ -90,7 +90,7 @@
             foreach ($result as $row) {
                 if ($row['date']==$day && $row['time']==$hour) {
                     ?>
-                    <a href='dentistAppointment.php?id=<?php echo $row['id']?>#appointment' title="Appointment"> #<?php echo $row['app_id']; ?>: </a>
+                    <a href='dentistAppointment.php?id=<?php echo $row['id']?>#past' title="Appointment" style = "color: black; text-decoration:none;"> #<?php echo $row['app_id']; ?>: </a>
                     <?php echo $row['specialty']; ?>
                     <?php
                 }
