@@ -390,5 +390,5 @@ form>button {
 
 form>button:hover{
     background: -webkit-linear-gradient(right, #14c8e7, #33acac, #33acac, #14c8e7);
-    text
+    font-weight: bold;
 }
