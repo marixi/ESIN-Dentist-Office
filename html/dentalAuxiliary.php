@@ -1,24 +1,22 @@
-<!-- Dentist Office -->
-<!-- Authors: Duarte Rodrigues, Mariana Xavier -->
-
 <?php
+    session_start();
+
     $dbh = new PDO('sqlite:sql/dentist_office.db');
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $username = $_GET['username'];
-    $password = $_GET['password'];
+    $username = $_SESSION['username'];
 
     $stmt1 = $dbh->prepare('SELECT * FROM person 
                             JOIN employee USING (id) 
                             JOIN dentalAuxiliary USING (id) 
-                            WHERE username = ? AND password = ?');
-    $stmt1->execute(array($username, $password));
+                            WHERE username = ?');
+    $stmt1->execute(array($username));
     $row = $stmt1->fetch();
     
     $stmt2 = $dbh->prepare('SELECT * FROM auxiliariesAssigned
                             JOIN appointment ON appointment_id=app_id
                             JOIN person ON auxiliary_id=person.id
-                            WHERE username = ? AND password = ?');
-    $stmt2->execute(array($username, $password));
+                            WHERE username = ?');
+    $stmt2->execute(array($username));
     $result = $stmt2->fetchAll();
 ?>
 
@@ -35,14 +33,15 @@
 <body>
 <!-- Header -->
 <header>
-        <img src="images/logo.png" alt="Dentist Clinic Logo">
+        <a href='index.php' title="Home" >
+            <img src="images/logo.png" alt="Dentist Clinic Logo">
+        </a>
         <nav>
             <ul>
-                <li><a href='auxiliar.php' title="Profile"> Profile </a></li>
-                <li><a href=#dentistShedule title="Schedule"> Schedule </a></li>
-                <li><a href='dentistAppointments.php?id=<?php echo $row['id']?>' title="Appointments"> Appointments </a></li>
-                <li><a href=#maganeStock title="Manage Stock"> Manage Team </a></li>
-                <li><a href='index.html' title="Log Out"> Log Out </a></li>
+                <li><a href='dentalAuxiliary.php' title="Profile"> Profile </a></li>
+                <li><a href=#dentistSchedule title="Schedule"> Schedule </a></li>
+                <li><a href=# title="Material"> Manage Material </a></li>
+                <li><a href='action_logout.php' title="Log Out"> Log Out </a></li>
             </ul>
         </nav>
     </header>

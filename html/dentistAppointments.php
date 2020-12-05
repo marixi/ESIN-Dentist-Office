@@ -1,22 +1,21 @@
-<!-- Dentist Office -->
-<!-- Authors: Duarte Rodrigues, Mariana Xavier -->
-
 <?php
+    session_start();
+
     $dbh = new PDO('sqlite:sql/dentist_office.db');
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $id = $_GET['id'];
-    
+    $username = $_SESSION['username'];
+
     $stmt1 = $dbh->prepare('SELECT * FROM person
                             JOIN employee USING (id) 
-                            WHERE id = ?');
-    $stmt1->execute(array($id));
+                            WHERE username = ?');
+    $stmt1->execute(array($username));
     $row = $stmt1->fetch();
 
     $stmt2 = $dbh->prepare('SELECT * FROM appointment
                             JOIN person ON client_id=person.id
-                            WHERE dentist_id = ?
+                            WHERE username = ?
                             ORDER BY app_id DESC');
-    $stmt2->execute(array($id));
+    $stmt2->execute(array($username));
     $result = $stmt2->fetchAll();
 
     $stmt3 = $dbh->prepare('SELECT * FROM record
@@ -43,19 +42,21 @@
 <body>
     <!-- Header -->
     <header>
-        <img src="images/logo.png" alt="Dentist Clinic Logo">
+        <a href='index.php' title="Home" >
+            <img src="images/logo.png" alt="Dentist Clinic Logo">
+        </a>
         <nav>
             <ul>
-                <li><a href='dentist.php?username=<?php echo $row['username']?>&password=<?php echo $row['password']?>' title="Profile"> Profile </a></li>
-                <li><a href=#dentistShedule title="Schedule"> Schedule </a></li>
-                <li><a href='dentistAppointments.php?id=<?php echo $id ?>' title="Appointments"> Appointments </a></li>
+                <li><a href='dentist.php' title="Profile"> Profile </a></li>
+                <li><a href='dentist.php#dentistShedule' title="Schedule"> Schedule </a></li>
+                <li><a href='dentistAppointments.php' title="Appointments"> Appointments </a></li>
                 <li><a href=#maganeTeam title="Manage Team"> Manage Team </a></li>
-                <li><a href='index.html' title="Log Out"> Log Out </a></li>
+                <li><a href='action_logout.php' title="Log Out"> Log Out </a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Sectiom to display the information about the dentist -->
+    <!-- Section to display the information about the dentist -->
     <h1 id="dentistTitle"> Dentist </h1>
     <section id="dentistInfo">
         <img src="images/<?php echo $row['username'] ?>.jpg" alt="Dr.<?php echo $row['name'] ?>">
@@ -102,8 +103,8 @@
     <!-- Footer -->
     <footer>
         <ul class="breadcrumb">
-            <li>Profile</li>
-            <li>Schedule</li>
+            <li><a href='index.php'>Home</a></li>
+            <li><a href='dentist.php'>Profile</a></li>
             <li>Appointments</li>
         </ul>
         <p>&copy; Denticare Clinique, 2020</p>

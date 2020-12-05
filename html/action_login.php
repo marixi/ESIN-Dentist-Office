@@ -6,5 +6,5 @@
     
     $_SESSION['username'] = $username;
 
-    header('Location: dentist.php');
+    header('Location: action_decideProfile.php');
 ?>

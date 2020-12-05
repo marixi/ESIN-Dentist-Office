@@ -1,5 +1,6 @@
-<!-- Dentist Office -->
-<!-- Authors: Duarte Rodrigues, Mariana Xavier -->
+<?php
+    session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,16 +16,20 @@
 <body>
     <!-- Header -->
     <header>
-        <a href='index.html' title="Home" >
+        <a href='index.php' title="Home">
             <img src="images/Logo.png" alt="Dentist Clinic Logo" id="logo_img">
         </a>
         <nav>
             <ul>
-                <li><a href='index.html' title="Home"> Home </a></li>
+                <li><a href='index.php' title="Home"> Home </a></li>
                 <li><a href=#services title="Services"> Services </a></li>
                 <li><a href=#team title="Team"> Meet the Team </a></li>
                 <li><a href=#contacts title="Contacts"> Contacts </a></li>
-                <li><a href="login.html"> Log In </a></li>
+                <?php if (isset($_SESSION['username'])) { ?>
+                    <li><a href='action_decideProfile.php'> Profile </a></li>
+                <?php } else { ?>
+                    <li><a href="login.html"> Log In </a></li>
+                <?php } ?>                
             </ul>
         </nav>
         <h1> Denticare Clinic </h1>
@@ -119,7 +124,7 @@
     <section id="contacts">
         <h1> Contacts</h1>
         <div id="office">
-            <h3> Where to find us: </h3>
+            <h3> Where to Find Us: </h3>
             <p> Av. da Boavista 650, 4100-127 Porto </p>
         </div>
         <div id="schedule">
