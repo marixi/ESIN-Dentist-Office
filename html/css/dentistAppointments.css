@@ -37,6 +37,7 @@
 #appointment li {
     text-align: justify;
     list-style: none;
+    text-transform: capitalize;
 }
 
 #appointment form {

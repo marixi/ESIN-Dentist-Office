@@ -1,23 +1,21 @@
-<!-- Dentist Office -->
-<!-- Authors: Duarte Rodrigues, Mariana Xavier -->
-
 <?php
+    session_start();
+
     $dbh = new PDO('sqlite:sql/dentist_office.db');
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $username = $_GET['username'];
-    $password = $_GET['password'];
+    $username = $_SESSION['username'];
 
     $stmt1 = $dbh->prepare('SELECT * FROM person 
                             JOIN employee USING (id) 
                             JOIN dentist USING (id) 
-                            WHERE username = ? AND password = ?');
-    $stmt1->execute(array($username, $password));
+                            WHERE username = ?');
+    $stmt1->execute(array($username));
     $row = $stmt1->fetch();
     
     $stmt2 = $dbh->prepare('SELECT * FROM appointment 
                             JOIN person ON dentist_id=person.id 
-                            WHERE username = ? AND password = ?');
-    $stmt2->execute(array($username, $password));
+                            WHERE username = ?');
+    $stmt2->execute(array($username));
     $result = $stmt2->fetchAll();
 ?>
 
@@ -41,7 +39,7 @@
                 <li><a href=#dentistShedule title="Schedule"> Schedule </a></li>
                 <li><a href='dentistAppointments.php?id=<?php echo $row['id']?>' title="Appointments"> Appointments </a></li>
                 <li><a href=#maganeTeam title="Manage Team"> Manage Team </a></li>
-                <li><a href='index.html' title="Log Out"> Log Out </a></li>
+                <li><a href='action_logout.php' title="Log Out"> Log Out </a></li>
             </ul>
         </nav>
     </header>

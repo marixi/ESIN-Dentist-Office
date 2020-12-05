@@ -104,7 +104,7 @@ body>header h2 {
 }
 
 #services>p {
-    font-size: 5vw;
+    font-size: 1.3em;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     margin-bottom: 4em;
@@ -291,6 +291,10 @@ footer p {
     font-size: 110%;
 }
 
+footer p, ul {
+    padding-bottom: 1%;
+}
+
 /* Style the list */
 
 footer>ul.breadcrumb {
@@ -325,74 +329,3 @@ footer>ul.breadcrumb li a:hover {
     color: rgba(96, 185, 201, 0.932);
 }
 
-/* Login Style ===============================================================================================*/
-
-#log{
-    background-color: rgba(0, 0, 0, 0);
-}
-
-body>h1 {
-    font-size: 3em;
-    font-weight: bold;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(57, 124, 136);
-    margin-bottom:0;
-}
-
-/* same footer styling */
-
-.input-field {
-    margin: 3.9em 0;
-    position: relative;
-    height: 2.5em;
-    width: 100%;
-}
-
-.input-field input {
-    height: 100%;
-    width: 30%;
-    margin-left:35%;
-    border: 1px solid silver;
-    font-size: 1.5em;
-}
-
-input:focus {
-    border: 1px solid #1DA1F2;
-}
-
-.input-field label {
-    position: absolute; 
-    left:36%;
-    pointer-events: none;
-    color: grey;
-    font-size: 1.3em;
-    top: 29%;
-}
-
-input:focus~label, input:valid~label {
-    transition: .4s;
-    transform: translateY(-120%);
-    background: white;
-    font-size: 1em;
-    color: rgb(57, 136, 136);
-}
-
-form>button {
-    margin-bottom:10%;
-    margin-left:40%;
-    width: 20%;
-    height: 9%;
-    border:none;
-    background: -webkit-linear-gradient(right, #279494, #0eb7d4, #0eb7d4, #279494);
-    color:white;
-    font-size: 1.4em;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 1em;
-}
-
-form>button:hover{
-    background: -webkit-linear-gradient(right, #14c8e7, #33acac, #33acac, #14c8e7);
-    font-weight: bold;
-}
