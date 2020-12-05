@@ -18,7 +18,14 @@ WHERE username = 'ricardo.brioso' AND password = 'ricardo4Work'
 SELECT * from person
 JOIN dentist USING (id)
 WHERE username='raquel.pires';*/
+/*
+SELECT * FROM record
+JOIN appointment ON appointment_id=app_id
+JOIN person ON dentist_id=person.id
+WHERE username = 'raquel.pires'*/
 
-SELECT * from person
-JOIN dentalAuxiliary USING (id)
-WHERE username='ricardo.brioso';
+SELECT * FROM appointment
+JOIN person ON client_id=person.id
+/*JOIN person ON dentist_id=person.id
+WHERE dentist.username = 'raquel.pires'
+ORDER BY app_id DESC

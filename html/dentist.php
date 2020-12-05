@@ -3,19 +3,19 @@
 
     $dbh = new PDO('sqlite:sql/dentist_office.db');
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $username = $_SESSION['username'];
+    $id = $_SESSION['id'];
 
     $stmt1 = $dbh->prepare('SELECT * FROM person 
                             JOIN employee USING (id) 
                             JOIN dentist USING (id) 
-                            WHERE username = ?');
-    $stmt1->execute(array($username));
+                            WHERE id = ?');
+    $stmt1->execute(array($id));
     $row = $stmt1->fetch();
     
     $stmt2 = $dbh->prepare('SELECT * FROM appointment 
                             JOIN person ON dentist_id=person.id 
-                            WHERE username = ?');
-    $stmt2->execute(array($username));
+                            WHERE dentist_id = ?');
+    $stmt2->execute(array($id));
     $result = $stmt2->fetchAll();
 ?>
 
@@ -95,7 +95,7 @@
             foreach ($result as $row) {
                 if ($row['date']==$day && $row['time']==$hour) {
                     ?>
-                    <a href='dentistAppointment.php?id=<?php echo $row['id']?>#past' title="Appointment" style = "color: black; text-decoration:none;"> #<?php echo $row['app_id']; ?>: </a>
+                    <a href='dentistAppointment.php#past' title="Appointment" style = "color: black; text-decoration:none;"> #<?php echo $row['app_id']; ?>: </a>
                     <?php echo $row['specialty']; ?>
                     <?php
                 }

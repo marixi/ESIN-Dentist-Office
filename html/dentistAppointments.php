@@ -3,19 +3,19 @@
 
     $dbh = new PDO('sqlite:sql/dentist_office.db');
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $username = $_SESSION['username'];
+    $id = $_SESSION['id'];
 
     $stmt1 = $dbh->prepare('SELECT * FROM person
                             JOIN employee USING (id) 
-                            WHERE username = ?');
-    $stmt1->execute(array($username));
+                            WHERE id = ?');
+    $stmt1->execute(array($id));
     $row = $stmt1->fetch();
 
     $stmt2 = $dbh->prepare('SELECT * FROM appointment
                             JOIN person ON client_id=person.id
-                            WHERE username = ?
+                            WHERE dentist_id = ?
                             ORDER BY app_id DESC');
-    $stmt2->execute(array($username));
+    $stmt2->execute(array($id));
     $result = $stmt2->fetchAll();
 
     $stmt3 = $dbh->prepare('SELECT * FROM record
@@ -23,13 +23,12 @@
                             WHERE dentist_id = ?');
     $stmt3->execute(array($id));
     $record = $stmt3->fetchAll();
-
-    $stmt4 = $dbh->prepare('INSERT INTO record (observations) VALUES (?) WHERE appointment_id=?');
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +38,9 @@
     <link href="css/dentistAppointments.css" rel="stylesheet">
     <title> Dentist </title>
 </head>
+
 <body>
+
     <!-- Header -->
     <header>
         <a href='index.php' title="Home" >
@@ -49,7 +50,7 @@
             <ul>
                 <li><a href='dentist.php' title="Profile"> Profile </a></li>
                 <li><a href='dentist.php#dentistShedule' title="Schedule"> Schedule </a></li>
-                <li><a href='dentistAppointments.php' title="Appointments"> Appointments </a></li>
+                <li><a href=#past title="Appointments"> Appointments </a></li>
                 <li><a href=#maganeTeam title="Manage Team"> Manage Team </a></li>
                 <li><a href='action_logout.php' title="Log Out"> Log Out </a></li>
             </ul>
@@ -83,17 +84,11 @@
                             <li> <strong> Time: </strong> <?php echo $app['time'] ?> </li> 
                             <li> <strong> Specialty: </strong> <?php echo $app['specialty'] ?> </li>
                         </ul>
-                        <form action="dentistAppointments.php?id=<?php echo $id ?>" method="post"> 
+                        <form action="action_updateObservations.php" method="post"> 
                             <p><strong>Observations:</strong></p>
-                            <textArea name="observations" rows="5" cols="50"><?php foreach($record as $obs) { if ($obs['appointment_id'] == $app['app_id']) { echo $obs['observations']; } } ?></textArea>
+                            <textArea name="observations" rows="5" cols="50"><?php foreach ($record as $obs) { if ($obs['appointment_id'] == $app['app_id']) { echo $obs['observations']; } } ?></textArea>
+                            <input type="hidden" name="appointment_to_change" value = <?php echo $app['app_id'] ?>>
                             <input type="submit" value="Update">
-                            <?php
-                                $changed_obs = $_POST['observations'];
-                                $id_to_change = $app['app_id'];
-                                if (isset($_POST['Update'])) {
-                                    $stmt4->execute(array($changed_obs, $id_to_change));
-                                }  
-                            ?>
                         </form>
                     </section>
                 <?php }

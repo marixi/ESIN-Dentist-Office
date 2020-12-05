@@ -1,18 +1,18 @@
 <?php
     session_start();
 
-    $username = $_SESSION['username'];
+    $id = $_SESSION['id'];
 
     $dbh = new PDO('sqlite:sql/dentist_office.db');
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-    $stmt1 = $dbh->prepare('SELECT * from person JOIN dentist USING (id) WHERE username=?');
-    $stmt2 = $dbh->prepare('SELECT * from person JOIN dentalAuxiliary USING (id) WHERE username=?');
-    $stmt3 = $dbh->prepare('SELECT * from person JOIN client USING (id) WHERE username=?');
+    $stmt1 = $dbh->prepare('SELECT * from person JOIN dentist USING (id) WHERE id=?');
+    $stmt2 = $dbh->prepare('SELECT * from person JOIN dentalAuxiliary USING (id) WHERE id=?');
+    $stmt3 = $dbh->prepare('SELECT * from person JOIN client USING (id) WHERE id=?');
 
-    $stmt1->execute(array($username));
-    $stmt2->execute(array($username));
-    $stmt3->execute(array($username));
+    $stmt1->execute(array($id));
+    $stmt2->execute(array($id));
+    $stmt3->execute(array($id));
 
     $row1 = $stmt1->fetch();
     $row2 = $stmt2->fetch();
