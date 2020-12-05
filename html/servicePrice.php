@@ -23,15 +23,15 @@
 <body>
     <!-- Header -->
     <header>
-        <a href='homepage.html' title="Home">
+        <a href='index.html' title="Home">
             <img src="images/logo.png" alt="Dentist Clinic Logo">
         </a>
         <nav>
             <ul>
-                <li><a href='homepage.html' title="Home"> Home </a></li>
-                <li><a href='homepage.html#services' title="Services"> Services </a></li>
-                <li><a href='homepage.html#team' title="Team"> Meet the Team </a></li>
-                <li><a href='homepage.html#contacts' title="Contacts"> Contacts </a></li>
+                <li><a href='index.html' title="Home"> Home </a></li>
+                <li><a href='index.html#services' title="Services"> Services </a></li>
+                <li><a href='index.html#team' title="Team"> Meet the Team </a></li>
+                <li><a href='index.html#contacts' title="Contacts"> Contacts </a></li>
                 <li><a href="login.html"> Log In </a></li>
             </ul>
         </nav>
@@ -59,7 +59,7 @@
     <!-- Footer -->
     <footer>
         <ul class="breadcrumb">
-            <li><a href="homepage.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li>Price List</li>
         </ul>
         <p>&copy; Denticare Clinique, 2020</p>

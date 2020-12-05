@@ -50,7 +50,7 @@
                 <li><a href=#dentistShedule title="Schedule"> Schedule </a></li>
                 <li><a href='dentistAppointments.php?id=<?php echo $id ?>' title="Appointments"> Appointments </a></li>
                 <li><a href=#maganeTeam title="Manage Team"> Manage Team </a></li>
-                <li><a href='homepage.html' title="Log Out"> Log Out </a></li>
+                <li><a href='index.html' title="Log Out"> Log Out </a></li>
             </ul>
         </nav>
     </header>
