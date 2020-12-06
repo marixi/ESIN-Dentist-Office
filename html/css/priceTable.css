@@ -7,10 +7,10 @@ table {
 }
 
 #tableTitle {
-    font-size: 3em;
-    margin-left: 13em;
-    margin-right: 13em;
-    margin-bottom: 0.3em;
+    font-size: 300%;
+    margin-left: 43%;
+    margin-right: 43%;
+    margin-bottom: 1%;
     text-align: center;
     background: rgba(96, 185, 201, 0.932);
     background-clip: content-box;
@@ -23,7 +23,7 @@ table tr:first-of-type {
 }
 
 table th {
-    font-size: 1.5em;
+    font-size: 150%;
     border: 1px solid black;
     padding: 0.3em 0;
 }

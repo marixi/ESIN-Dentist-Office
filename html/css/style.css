@@ -126,7 +126,7 @@ body>header h2 {
     background-color: rgba(96, 185, 201, 0.932);
     color: white;
     text-align: center;
-    font-size: 1.3em;
+    font-size: 130%;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -154,8 +154,8 @@ body>header h2 {
 
 #teamTitle h1 {
     font-size: 300%;
-    margin-left: 39%;
-    margin-right: 39%;
+    margin-left: 37%;
+    margin-right: 37%;
     margin-bottom: 1.5%;
     text-align: center;
     background: rgba(96, 185, 201, 0.932);
@@ -166,17 +166,17 @@ body>header h2 {
 
 #teamTitle p {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.30%;
+    font-size: 130%;
     text-align: center;
     margin-bottom: 2%;
 }
 
 #teamTitle h2 {
-    font-size: 20%;
+    font-size: 200%;
     font-weight: normal;
     padding: 0;
-    margin-left: 46%;
-    margin-right: 46%;
+    margin-left: 45%;
+    margin-right: 45%;
     text-align: center;
     background: rgba(255, 255, 255, 0);
     background-clip: content-box;
@@ -247,8 +247,8 @@ body>header h2 {
 
 #contacts h1 {
     font-size: 300%;
-    margin-left: 43%;
-    margin-right: 43%;
+    margin-left: 41%;
+    margin-right: 41%;
     margin-bottom: 4%;
     text-align: center;
     background: rgba(96, 185, 201, 0.932);
@@ -260,7 +260,7 @@ body>header h2 {
 #contacts h3 {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    font-size: 2em;
+    font-size: 200%;
 }
 
 #contacts ul {
@@ -295,6 +295,13 @@ footer p {
 footer p, ul {
     padding-bottom: 1%;
 }
+
+#map iframe{
+    border: 0;
+    width: 90% ;
+    height: 100%;
+}
+
 
 /* Style the list */
 
