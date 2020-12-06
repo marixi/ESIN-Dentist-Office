@@ -12,7 +12,7 @@ session_start();
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
@@ -28,18 +28,25 @@ session_start();
     <h1> Denticare Login </h1>
 
     <form action="action_login.php" method="post">
-        <div class="input-field">
-            <input type="text" name="username" required="required" value=>
-            <label> Username </label>
-        </div>
-        <div class="input-field">
-            <input type="password" name="password" required="required">
-            <label> Password </label>
-        </div>
+        <?php if (!isset($_SESSION['id'])) { ?>
+            <div class="input-field">
+                <input type="text" name="username" required="required" value="<?php echo $_SESSION['user_try']; ?>">
+                <label> Username </label>
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" required="required" value="<?php echo $_SESSION['pass_try']; ?>">
+                <label> Password </label>
+            </div>
+        <?php } ?>
         <input type="submit" value="Login">
     </form>
     <p id='login_error'> <?php echo $_SESSION['err_msg'] ?> </p>
-    <?php if(isset($_SESSION['err_msg'])) { unset($_SESSION['err_msg']); } ?>
+    <?php if (isset($_SESSION['err_msg'])) {
+        unset($_SESSION['err_msg']);
+        unset($_SESSION['user_try']);
+        unset($_SESSION['pass_try']);
+    } ?>
+
     <!-- Footer -->
     <footer>
         <ul class="breadcrumb">

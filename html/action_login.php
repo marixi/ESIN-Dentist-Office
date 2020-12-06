@@ -14,21 +14,24 @@
     $stmt2->execute(array($password));
 
     
-    $correctUser = $stmt1->fetch();
-    $correctPass = $stmt2->fetch();
+    $UserTry = $stmt1->fetch();
+    $PassTry = $stmt2->fetch();
 
-    if($correctUser){
-        if($correctPass){
-            $id = $correctUser['id'];
-            $_SESSION['id'] = $id;
+    if($UserTry){
+        if($PassTry){
+            $_SESSION['id'] = $UserTry['id'];
             header('Location: action_decideProfile.php');
         }  
         else{
+            $_SESSION['user_try'] = $username;
+            $_SESSION['pass_try'] = $password;
             $_SESSION['err_msg'] = 'The password inserted is incorrect!';
             header('Location: login.php');
         }
             
     }else{
+        $_SESSION['user_try'] = $username;
+        $_SESSION['pass_try'] = $password;
         $_SESSION['err_msg'] = 'The username inserted is incorrect!';
         header('Location: login.php');
     }
