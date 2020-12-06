@@ -1,4 +1,5 @@
 /* Dentist Office - Layout */
+
 /* Authors: Duarte Rodrigues, Mariana Xavier */
 
 /* Main Layout */
@@ -239,7 +240,6 @@ body>header li {
 /* Footer */
 
 footer {
-    align-items: end;
     display: grid;
     grid-template-rows: [start] auto [end];
 }

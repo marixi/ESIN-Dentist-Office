@@ -1,5 +1,11 @@
+<?php
+session_start();
+
+?>
+
 <!-- Dentist Office -->
 <!-- Authors: Duarte Rodrigues, Mariana Xavier -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +29,7 @@
 
     <form action="action_login.php" method="post">
         <div class="input-field">
-            <input type="text" name="username" required="required">
+            <input type="text" name="username" required="required" value=>
             <label> Username </label>
         </div>
         <div class="input-field">
@@ -32,7 +38,8 @@
         </div>
         <input type="submit" value="Login">
     </form>
-
+    <p id='login_error'> <?php echo $_SESSION['err_msg'] ?> </p>
+    <?php if(isset($_SESSION['err_msg'])) { unset($_SESSION['err_msg']); } ?>
     <!-- Footer -->
     <footer>
         <ul class="breadcrumb">

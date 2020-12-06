@@ -38,12 +38,12 @@
     padding-top: 1em;
 }
 
-#dentistSchedule h2 {
+#dentistSchedule>h2 {
     font-size: 2em;
     font-weight: normal;
     padding: 0;
-    margin-left: 21.5em;
-    margin-right: 21.5em;
+    margin-left: 21em;
+    margin-right: 21em;
     margin-bottom: 3em;
     text-align: center;
     background: rgba(255, 255, 255, 0);
@@ -84,7 +84,7 @@ table th, td {
     text-align: center;
     text-transform: capitalize;
     color: black;
-    text-decoration: none;
+    text-decoration: none;  
 }
 
 table td:not(:empty) {

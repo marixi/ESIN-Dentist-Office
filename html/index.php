@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -25,11 +25,11 @@
                 <li><a href=#services title="Services"> Services </a></li>
                 <li><a href=#team title="Team"> Meet the Team </a></li>
                 <li><a href=#contacts title="Contacts"> Contacts </a></li>
-                <?php if (isset($_SESSION['username'])) { ?>
+                <?php if (isset($_SESSION['id'])) { ?>
                     <li><a href='action_decideProfile.php'> Profile </a></li>
                 <?php } else { ?>
-                    <li><a href="login.html"> Log In </a></li>
-                <?php } ?>                
+                    <li><a href="login.php"> Login </a></li>
+                <?php } ?>
             </ul>
         </nav>
         <h1> Denticare Clinic </h1>
@@ -144,9 +144,7 @@
             </ul>
         </div>
         <div id="map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3003.91712541639!2d-8.633627284621008!3d41.15815967928583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2465a744d11d17%3A0x269e6eb103409c!2sAv.%20da%20Boavista%20650%2C%20Porto!5e0!3m2!1spt-PT!2spt!4v1606685835889!5m2!1spt-PT!2spt"
-                width="700" height="450" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3003.91712541639!2d-8.633627284621008!3d41.15815967928583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2465a744d11d17%3A0x269e6eb103409c!2sAv.%20da%20Boavista%20650%2C%20Porto!5e0!3m2!1spt-PT!2spt!4v1606685835889!5m2!1spt-PT!2spt" width="700" height="450" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
     </section>
 

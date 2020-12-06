@@ -3,20 +3,20 @@
 
     $dbh = new PDO('sqlite:sql/dentist_office.db');
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $username = $_SESSION['username'];
+    $id = $_SESSION['id'];
 
     $stmt1 = $dbh->prepare('SELECT * FROM person 
                             JOIN employee USING (id) 
                             JOIN dentalAuxiliary USING (id) 
-                            WHERE username = ?');
-    $stmt1->execute(array($username));
+                            WHERE id = ?');
+    $stmt1->execute(array($id));
     $row = $stmt1->fetch();
     
     $stmt2 = $dbh->prepare('SELECT * FROM auxiliariesAssigned
                             JOIN appointment ON appointment_id=app_id
                             JOIN person ON auxiliary_id=person.id
-                            WHERE username = ?');
-    $stmt2->execute(array($username));
+                            WHERE auxiliary_id = ?');
+    $stmt2->execute(array($id));
     $result = $stmt2->fetchAll();
 ?>
 
@@ -41,7 +41,7 @@
                 <li><a href='dentalAuxiliary.php' title="Profile"> Profile </a></li>
                 <li><a href=#dentistSchedule title="Schedule"> Schedule </a></li>
                 <li><a href=# title="Material"> Manage Material </a></li>
-                <li><a href='action_logout.php' title="Log Out"> Log Out </a></li>
+                <li><a href='action_logout.php' title="Log Out"> LogOut </a></li>
             </ul>
         </nav>
     </header>
@@ -49,7 +49,7 @@
     <!-- Section to display the information about the dentist -->
     <h1 id="dentistTitle"> Assistant </h1>
     <section id="dentistInfo">
-        <img src="images/<?php echo $row['username'] ?>.jpg" alt="Dr.<?php echo $row['name'] ?>">
+        <img src="images/<?php echo $row['username'] ?>.jpg" alt="Aux.<?php echo $row['name'] ?>">
         <div id="info">
             <p> <strong> Name: </strong> <?php echo $row['name'] ?> </p>
             <p> <strong> Address: </strong> <?php echo $row['address'] ?> </p>
