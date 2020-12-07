@@ -320,7 +320,6 @@ footer>ul.breadcrumb li {
 /* Add a greater than symbol (>) before/behind each list item */
 
 footer>ul.breadcrumb li+li:before {
-    /* color: white; */
     content: " \003E \0020";
 }
 
