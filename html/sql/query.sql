@@ -30,4 +30,4 @@ JOIN person ON client_id=person.id
 WHERE dentist.username = 'raquel.pires'
 ORDER BY app_id DESC*/
 
-SELECT password FROM person WHERE password = 'rqpmed20' AND username = 'raquel.pires'
+SELECT * FROM appointment WHERE date = "2020-12-08" AND time = "09:00"
