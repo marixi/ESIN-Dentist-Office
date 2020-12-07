@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!-- Dentist Office -->
 <!-- Authors: Duarte Rodrigues, Mariana Xavier -->
 
@@ -32,7 +36,11 @@
                 <li><a href='index.php#services' title="Services"> Services </a></li>
                 <li><a href='index.php#team' title="Team"> Meet the Team </a></li>
                 <li><a href='index.php#contacts' title="Contacts"> Contacts </a></li>
-                <li><a href="login.html"> Log In </a></li>
+                <?php if (isset($_SESSION['id'])) { ?>
+                    <li><a href='action_decideProfile.php'> Profile </a></li>
+                <?php } else { ?>
+                    <li><a href="login.php"> Login </a></li>
+                <?php } ?>
             </ul>
         </nav>
         <h1> Denticare Clinique </h1>

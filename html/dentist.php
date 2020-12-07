@@ -28,7 +28,7 @@ $result = $stmt2->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
-    <link href="css/dentistPage.css" rel="stylesheet">
+    <link href="css/profilePage.css" rel="stylesheet">
     <title> Dentist </title>
 
 </head>
@@ -43,7 +43,7 @@ $result = $stmt2->fetchAll();
         <nav>
             <ul>
                 <li><a href='dentist.php' title="Profile"> Profile </a></li>
-                <li><a href=#dentistSchedule title="Schedule"> Schedule </a></li>
+                <li><a href=#Schedule title="Schedule"> Schedule </a></li>
                 <li><a href='dentistAppointments.php' title="Appointments"> Appointments </a></li>
                 <li><a href=#maganeTeam title="Manage Team"> Manage Team </a></li>
                 <li><a href='action_logout.php' title="Log Out"> Log Out </a></li>
@@ -52,8 +52,8 @@ $result = $stmt2->fetchAll();
     </header>
 
     <!-- Section to display the information about the dentist -->
-    <h1 id="dentistTitle"> Dentist </h1>
-    <section id="dentistInfo">
+    <h1 id="profileTitle"> Dentist </h1>
+    <section id="profileInfo">
         <img src="images/<?php echo $row['username'] ?>.jpg" alt="Dr.<?php echo $row['name'] ?>">
         <div id="info">
             <p> <strong> Name: </strong> <?php echo $row['name'] ?> </p>
@@ -64,10 +64,10 @@ $result = $stmt2->fetchAll();
     </section>
 
     <!-- Section regarding the schedule of the dentist -->
-    <section id="dentistSchedule">
+    <section id="Schedule">
         <h2> Schedule </h2>
         <label> Select a week: </label>
-        <form action="#dentistSchedule" method="post">
+        <form action="#Schedule" method="post">
             <input type="week" id="week" name="week" min="2020-W1" required="required" value="<?php echo date('Y') . '-W' . date('W'); ?>">
             <input type="submit" value="Update">
         </form>
