@@ -24,8 +24,10 @@ JOIN appointment ON appointment_id=app_id
 JOIN person ON dentist_id=person.id
 WHERE username = 'raquel.pires'*/
 
-SELECT * FROM appointment
+/*SELECT * FROM appointment
 JOIN person ON client_id=person.id
 /*JOIN person ON dentist_id=person.id
 WHERE dentist.username = 'raquel.pires'
-ORDER BY app_id DESC
+ORDER BY app_id DESC*/
+
+SELECT password FROM person WHERE password = 'rqpmed20' AND username = 'raquel.pires'

@@ -34,7 +34,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
-    <link href="css/dentistPage.css" rel="stylesheet">
+    <link href="css/profilePage.css" rel="stylesheet">
     <link href="css/dentistAppointments.css" rel="stylesheet">
     <title> Dentist </title>
 </head>
@@ -58,8 +58,8 @@
     </header>
 
     <!-- Section to display the information about the dentist -->
-    <h1 id="dentistTitle"> Dentist </h1>
-    <section id="dentistInfo">
+    <h1 id="profileTitle"> Dentist </h1>
+    <section id="profileInfo">
         <img src="images/<?php echo $row['username'] ?>.jpg" alt="Dr.<?php echo $row['name'] ?>">
         <div id="info">
             <p> <strong> Name: </strong> <?php echo $row['name'] ?> </p>

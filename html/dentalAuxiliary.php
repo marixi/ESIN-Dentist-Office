@@ -1,23 +1,28 @@
 <?php
-session_start();
+    session_start();
 
-$dbh = new PDO('sqlite:sql/dentist_office.db');
-$dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-$id = $_SESSION['id'];
+    $dbh = new PDO('sqlite:sql/dentist_office.db');
+    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $id = $_SESSION['id'];
 
-$stmt1 = $dbh->prepare('SELECT * FROM person 
+    $stmt1 = $dbh->prepare('SELECT * FROM person 
                             JOIN employee USING (id) 
                             JOIN dentalAuxiliary USING (id) 
                             WHERE id = ?');
-$stmt1->execute(array($id));
-$row = $stmt1->fetch();
+    $stmt1->execute(array($id));
+    $row = $stmt1->fetch();
 
-$stmt2 = $dbh->prepare('SELECT * FROM auxiliariesAssigned
+    $stmt2 = $dbh->prepare('SELECT * FROM auxiliariesAssigned
                             JOIN appointment ON appointment_id=app_id
                             JOIN person ON auxiliary_id=person.id
-                            WHERE auxiliary_id = ?');
-$stmt2->execute(array($id));
-$result = $stmt2->fetchAll();
+                            WHERE auxiliary_id = ?');   
+    $stmt2->execute(array($id));
+    $result = $stmt2->fetchAll();
+
+    if (!isset($_SESSION['choice'])) {
+        $_SESSION['choice'] = date('Y') . '-W' . date('W');
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +38,7 @@ $result = $stmt2->fetchAll();
 </head>
 
 <body>
+
     <!-- Header -->
     <header>
         <a href='index.php' title="Home">
@@ -48,7 +54,7 @@ $result = $stmt2->fetchAll();
         </nav>
     </header>
 
-    <!-- Section to display the information about the dentist -->
+    <!-- Section to display the information about the dental auxiliary -->
     <h1 id="profileTitle"> Assistant </h1>
     <section id="profileInfo">
         <img src="images/<?php echo $row['username'] ?>.jpg" alt="Aux. <?php echo $row['name'] ?>">
@@ -60,52 +66,49 @@ $result = $stmt2->fetchAll();
         </div>
     </section>
 
-    <!-- Section regarding the schedule of the dentist -->
-    <section id="Schedule">
+        <!-- Section regarding the schedule of the dental auxiliary -->
+        <section id="Schedule">
         <h2> Schedule </h2>
-        <label> Select a week: </label>
-        <form action="#Schedule" method="post">
-            <input type="week" id="week" name="week" min="2020-W1" required="required" value="<?php echo date('Y') . '-W' . date('W'); ?>">
-            <input type="submit" value="Update">
+        
+        <form action="action_changeWeeks.php" method="post">
+            <input type="submit" name="interval" value="<">
+            <input type="submit" name="interval" value=">">
         </form>
-        <?php
-        $dbh = new PDO('sqlite:sql/dentist_office.db');
-        $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        $week = $_POST['week'];
-        $year = intval(substr($week, 0, 4));
-        $week = substr($week, 6, 2);
 
-        $monday = new DateTime();
-        $monday->setISODate($year, $week, $dayOfWeek = 1);
-        $tuesday = new DateTime();
-        $tuesday->setISODate($year, $week, $dayOfWeek = 2);
-        $wednesday = new DateTime();
-        $wednesday->setISODate($year, $week, $dayOfWeek = 3);
-        $thursday = new DateTime();
-        $thursday->setISODate($year, $week, $dayOfWeek = 4);
-        $friday = new DateTime();
-        $friday->setISODate($year, $week, $dayOfWeek = 5);
-        $saturday = new DateTime();
-        $saturday->setISODate($year, $week, $dayOfWeek = 6);
+        <?php 
+            $year = intval(substr($_SESSION['choice'], 0, 4));
+            $week = substr($_SESSION['choice'], 6, 2);
 
-        function find_appointment($day, $hour, $result)
-        {
-            foreach ($result as $row) {
-                if ($row['date'] == $day && $row['time'] == $hour) {
-        ?>
-                    <a href='dentistAppointment.php?id=<?php echo $row['id'] ?>#past' title="Appointment" style="color: black; text-decoration:none;"> #<?php echo $row['app_id']; ?>:
+            if ($_SESSION['choice'] == date('Y') . '-W' . date('W')) { ?>
+                <h1 id="tableTitle"> Current Week </h1> 
+            <?php } else { ?>
+                    <h1 id="tableTitle"> Week <?php echo $week ?> </h1> 
+            <?php }
+
+            $monday = new DateTime();
+            $monday->setISODate($year, $week, $dayOfWeek = 1);
+            $tuesday = new DateTime();
+            $tuesday->setISODate($year, $week, $dayOfWeek = 2);
+            $wednesday = new DateTime();
+            $wednesday->setISODate($year, $week, $dayOfWeek = 3);
+            $thursday = new DateTime();
+            $thursday->setISODate($year, $week, $dayOfWeek = 4);
+            $friday = new DateTime();
+            $friday->setISODate($year, $week, $dayOfWeek = 5);
+            $saturday = new DateTime();
+            $saturday->setISODate($year, $week, $dayOfWeek = 6);
+
+            function find_appointment($day, $hour, $result)
+            {
+                foreach ($result as $row) {
+                    if ($row['date'] == $day && $row['time'] == $hour) { ?>
+                        <a href='dentistAppointment.php#past' title="Appointment" style="color: black; text-decoration:none;"> #<?php echo $row['app_id']; ?>:
                         <?php echo $row['specialty']; ?></a>
-        <?php
+                    <?php }
                 }
-            }
-        }
+            } ?>
 
-        if ($week == null) {
-            $week = 'Current';
-        }
-        ?>
-        <h1 id="tableTitle"> Week: <?php echo $week ?> </h1>
-        <table id="scheduleTable">
+            <table id="scheduleTable">
             <tr>
                 <th> </th>
                 <th> Monday <p> <?php if ($monday->format('d-m-Y') != '27-12--0001') {
@@ -223,7 +226,7 @@ $result = $stmt2->fetchAll();
                 <td><?php find_appointment($friday->format('d-m-Y'), $hour, $result) ?></td>
                 <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
             </tr>
-        </table>
+        
     </section>
 
 
