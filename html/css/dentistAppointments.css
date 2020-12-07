@@ -1,7 +1,7 @@
 /* Dentist Office */
 /* Authors: Duarte Rodrigues, Mariana Xavier */
 
-#past h2 {
+.appointment h2 {
     font-size: 2em;
     font-weight: normal;
     padding: 0;
@@ -15,7 +15,7 @@
     border: 3px solid rgb(57, 124, 136);
 }
 
-#appointment {
+.appointment>section {
     margin: 2em 8em;
     background-color: #edeff0;
     border: 1px solid black;
@@ -24,23 +24,23 @@
     font-size: 1.2em;
 }
 
-#appointment h3 {
+.appointment>section h3 {
     margin-left: 1.8em;
 }
 
-#appointment ul {
+.appointment>section ul {
     grid-column: 1;
     padding: 0;
     margin-left: 2em;
 }
 
-#appointment li {
+.appointment>section li {
     text-align: justify;
     list-style: none;
     text-transform: capitalize;
 }
 
-#appointment form {
+.appointment>section form {
     grid-column: 2;
     grid-row: 2;
     margin-right: 2em;

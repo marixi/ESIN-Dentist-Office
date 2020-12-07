@@ -27,5 +27,5 @@
         $_SESSION['choice'] = $year . '-W' . $week;
     }
 
-    header('Location: action_decideProfile.php#Schedule');
+    header('Location: \action_decideProfile.php#Schedule');
 ?>

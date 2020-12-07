@@ -23,6 +23,13 @@
                             WHERE dentist_id = ?');
     $stmt3->execute(array($id));
     $record = $stmt3->fetchAll();
+
+    $stmt4 = $dbh->prepare('SELECT * FROM appointment
+                            JOIN person ON client_id=person.id
+                            WHERE dentist_id = ?
+                            ORDER BY app_id ASC');
+    $stmt4->execute(array($id));
+    $future = $stmt4->fetchAll();
 ?>
 
 
@@ -49,10 +56,10 @@
         <nav>
             <ul>
                 <li><a href='dentist.php' title="Profile"> Profile </a></li>
-                <li><a href='dentist.php#dentistShedule' title="Schedule"> Schedule </a></li>
-                <li><a href=#past title="Appointments"> Appointments </a></li>
+                <li><a href='/dentist.php#Schedule' title="Schedule"> Schedule </a></li>
+                <li><a href='dentistAppontments.php' title="Appointments"> Appointments </a></li>
                 <li><a href=#maganeTeam title="Manage Team"> Manage Team </a></li>
-                <li><a href='action_logout.php' title="Log Out"> Log Out </a></li>
+                <li><a href='action_logout.php' title="Log Out"> Logout </a></li>
             </ul>
         </nav>
     </header>
@@ -69,14 +76,34 @@
         </div>    
     </section>
 
+    <!-- Section to display the list of future appointments -->
+    <section class="appointment">
+        <h2> Future Appointments </h2>
+        <?php
+            $date = new DateTime("now");
+            foreach ($future as $app) {
+                if (strtotime($app['date']) > strtotime($date->format('d-m-yy'))) { ?>
+                    <section id="appointment<?php echo $app['app_id'] ?>">
+                        <h3> Appointment #<?php echo $app['app_id'] ?>: </h3>
+                        <ul>
+                            <li> <strong> Client Name: </strong> <?php echo $app['name'] ?> </li> 
+                            <li> <strong> Date: </strong> <?php echo $app['date'] ?> </li> 
+                            <li> <strong> Time: </strong> <?php echo $app['time'] ?> </li> 
+                            <li> <strong> Specialty: </strong> <?php echo $app['specialty'] ?> </li>
+                        </ul>
+                    </section>
+                <?php }
+            } ?>
+    </section>
+
     <!-- Section to display the record of past appointments -->
-    <section id="past">
+    <section class="appointment">
         <h2> Past Appointments </h2>
         <?php
             $date = new DateTime("now");
             foreach ($result as $app) {
                 if (strtotime($app['date']) < strtotime($date->format('d-m-yy'))) { ?>
-                    <section id="appointment">
+                    <section id="appointment<?php echo $app['app_id'] ?>">
                         <h3> Appointment #<?php echo $app['app_id'] ?>: </h3>
                         <ul>
                             <li> <strong> Client Name: </strong> <?php echo $app['name'] ?> </li> 

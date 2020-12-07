@@ -103,7 +103,7 @@
             {
                 foreach ($result as $row) {
                     if ($row['date'] == $day && $row['time'] == $hour) { ?>
-                        <a href='dentistAppointment.php#past' title="Appointment" style="color: black; text-decoration:none;"> #<?php echo $row['app_id']; ?>:
+                        <a href='/dentistAppointments.php#appointment<?php echo $row['app_id'] ?>' title="Appointment" style="color: black; text-decoration:none;"> #<?php echo $row['app_id']; ?>:
                         <?php echo $row['specialty']; ?></a>
                     <?php }
                 }
