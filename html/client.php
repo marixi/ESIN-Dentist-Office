@@ -31,7 +31,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
     <link href="css/profilePage.css" rel="stylesheet">
-    <link href="css/client.css" rel="stylesheet">
+    <link href="css/bookAppointment.css" rel="stylesheet">
     <title> Client </title>
 
 </head>
@@ -67,19 +67,19 @@
         </div>
     </section>
 
+    <h2> Book Appointment </h2>
+    <?php if(isset($_SESSION['msg'])) { ?>
+    <p> <?php echo $_SESSION['msg'] ?> <a href='client.php' title="AnotherOne"> Book another one? </a> </p>
+    <?php } else { ?>
     <section id="bookApp">
-        <h2> Book Appointment </h2>
         <form action="action_checkDate.php" method="post">
             <label> Date: </label>
-            <input type="date" name="date" min="<?php echo date('Y').'-'.date('m').'-'.date('d')?>" <?php if(isset($_SESSION['date'])) { ?> value="<?php echo $_SESSION['date']; }?>" required="required">
+            <input type="date" name="date" min="<?php echo date("Y-m-d", strtotime("+1 day"));?>" <?php if(isset($_SESSION['date'])) { ?> value="<?php echo $_SESSION['date']; }?>" required="required">
             <input type="submit" value="Set">
-        </form>
+            <?php if(isset($_SESSION['date']) && !isset($_SESSION['err_msg'])) { ?> <img src="images/tick.png" alt="Accepted"?> </img> <?php } ?>
+        </form> 
 
-        <?php if(isset($_SESSION['msg'])) { ?>
-        <p> <?php echo $_SESSION['msg'] ?> </p>
-        <?php } else { 
-
-        if(isset($_SESSION['date'])) { ?>
+        <?php if(isset($_SESSION['date'])) { ?>
             <form action="action_setTime.php" method="post">
                 <?php 
                     if (isset($_SESSION['err_msg'])) { ?>
@@ -138,6 +138,7 @@
                         } ?>
                         </select>
                         <input type="submit" value="Set">
+                        <?php if(isset($_SESSION['time']) && !isset($_SESSION['err_msg'])) { ?> <img src="images/tick.png" alt="Accepted"?> </img> <?php } ?>
                     <?php }
                 ?>
             </form>
@@ -151,7 +152,7 @@
                     <option value="<?php echo $specialty['type']?>"> <?php echo $specialty['type']?> </input>
                 <?php } ?>
                 </select>
-                <label> Dentist: </label>
+                <br> <label> Dentist: </label>
                 <?php foreach ($dentists as $dentist) {
                     if (isset($_SESSION['dentistUnavailable']) && $dentist['id'] != $_SESSION['dentistUnavailable']) { ?>
                             <input type="radio" name="dentist" value="<?php echo $dentist['id']?>" required="required"> Dr. <?php echo $dentist['name']?> </input>
@@ -160,7 +161,8 @@
                         <input type="radio" name="dentist" value="<?php echo $dentist['id']?>" required="required"> Dr. <?php echo $dentist['name']?> </input>
                     <?php }
                 } ?>
-                <input type="submit" value="Submit">
+                </br>
+                <input type="submit" id="final" value="Submit">
             </form>
         <?php }
         } ?>     

@@ -73,19 +73,20 @@
         
         <form action="action_changeWeeks.php" method="post">
             <input type="submit" name="interval" value="<">
+            <?php
+                $year = intval(substr($_SESSION['choice'], 0, 4));
+                $week = substr($_SESSION['choice'], 6, 2);
+
+                if ($_SESSION['choice'] == date('Y') . '-W' . date('W')) { ?>
+                    <h1 id="tableTitle"> Current Week </h1> 
+                <?php } else { ?>
+                    <h1 id="tableTitle"> Week <?php echo $week ?> </h1> 
+                <?php }
+            ?>
             <input type="submit" name="interval" value=">">
         </form>
 
         <?php 
-            $year = intval(substr($_SESSION['choice'], 0, 4));
-            $week = substr($_SESSION['choice'], 6, 2);
-
-            if ($_SESSION['choice'] == date('Y') . '-W' . date('W')) { ?>
-                <h1 id="tableTitle"> Current Week </h1> 
-            <?php } else { ?>
-                    <h1 id="tableTitle"> Week <?php echo $week ?> </h1> 
-            <?php }
-
             $monday = new DateTime();
             $monday->setISODate($year, $week, $dayOfWeek = 1);
             $tuesday = new DateTime();
@@ -109,7 +110,7 @@
                 }
             } ?>
 
-            <table id="scheduleTable">
+        <table id="scheduleTable">
             <tr>
                 <th> </th>
                 <th> Monday <p> <?php if ($monday->format('d-m-Y') != '27-12--0001') {
@@ -227,7 +228,7 @@
                 <td><?php find_appointment($friday->format('d-m-Y'), $hour, $result) ?></td>
                 <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
             </tr>
-        
+        </table>
     </section>
 
     <!-- Footer -->

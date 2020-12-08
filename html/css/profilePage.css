@@ -38,13 +38,6 @@
     padding-top: 1em;
 }
 
-#Schedule{
-    /* ja tentei fazer grid e flex e nao consegui por a tabela em cima, espero que tenhas mais sorte que eu */
-    /* display:flex;
-    flex-direction: row;
-    flex-wrap: wrap; */
-}
-
 #Schedule>h2 {
     grid-row: 1;
     font-size: 2em;
@@ -52,7 +45,7 @@
     padding: 0;
     margin-left: 21em;
     margin-right: 21em;
-    margin-bottom: 3em;
+    margin-bottom: 2em;
     text-align: center;
     background: rgba(255, 255, 255, 0);
     background-clip: content-box;
@@ -60,16 +53,19 @@
     border: 3px solid rgb(57, 124, 136);
 }
 
-#Schedule > form {
-
-    margin-left: 5%;
-    margin-right:1200px;
+#Schedule>form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     font-size: 1.2em;
 }
 
+#Schedule>form input {
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+}
 
 table {
-
     margin: 2em 27em;
     border-collapse: collapse;
 }

@@ -1,0 +1,77 @@
+h2 {
+    font-size: 2em;
+    font-weight: normal;
+    padding: 0;
+    margin-left: 21em;
+    margin-right: 21em;
+    margin-bottom: 2em;
+    text-align: center;
+    background: rgba(255, 255, 255, 0);
+    background-clip: content-box;
+    color: rgb(57, 124, 136);
+    border: 3px solid rgb(57, 124, 136);
+    background-color: unset;
+}
+
+#bookApp {
+    background-color: rgb(243, 241, 241);
+    margin-left: 28em;
+    margin-right: 28em;
+    border: 2px solid black;
+    text-align: justify;
+    height: 25em;
+    margin-bottom: 5em;
+}
+
+#bookApp>form {
+    margin-left: 2em;
+    margin-top: 2em;
+}
+
+form>label {
+    font-size: 1.5em;
+    margin-right: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+form>input:not([type="submit"]):not([type="radio"]), form>select {
+    width: 10em;
+    height: 2em;
+    margin-right: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+form>img {
+    max-width: 2em;
+}
+
+form>p {
+    font-size: 1.1em;
+    color: red;
+}
+
+form>select option {
+    text-transform: capitalize;
+}
+
+#final {
+    margin-top: 2em;
+    margin-bottom: 2%;
+    margin-left: 35%;
+    width: 30%;
+    height: 12%;
+    border: none;
+    background: -webkit-linear-gradient(right, #279494, #0eb7d4, #0eb7d4, #279494);
+    color: white;
+    font-size: 1.4em;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 1em;
+}
+
+#final:hover {
+    background: -webkit-linear-gradient(right, #14c8e7, #33acac, #33acac, #14c8e7);
+    font-weight: bold;
+}

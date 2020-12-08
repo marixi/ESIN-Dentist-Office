@@ -69,44 +69,45 @@ if (!isset($_SESSION['choice'])) {
     <!-- Section regarding the schedule of the dental auxiliary -->
     <section id="Schedule">
         <h2> Schedule </h2>
-
+        
         <form action="action_changeWeeks.php" method="post">
             <input type="submit" name="interval" value="<">
+            <?php
+                $year = intval(substr($_SESSION['choice'], 0, 4));
+                $week = substr($_SESSION['choice'], 6, 2);
+
+                if ($_SESSION['choice'] == date('Y') . '-W' . date('W')) { ?>
+                    <h1 id="tableTitle"> Current Week </h1> 
+                <?php } else { ?>
+                    <h1 id="tableTitle"> Week <?php echo $week ?> </h1> 
+                <?php }
+            ?>
             <input type="submit" name="interval" value=">">
         </form>
 
-        <?php
-        $year = intval(substr($_SESSION['choice'], 0, 4));
-        $week = substr($_SESSION['choice'], 6, 2);
+        <?php 
+            $monday = new DateTime();
+            $monday->setISODate($year, $week, $dayOfWeek = 1);
+            $tuesday = new DateTime();
+            $tuesday->setISODate($year, $week, $dayOfWeek = 2);
+            $wednesday = new DateTime();
+            $wednesday->setISODate($year, $week, $dayOfWeek = 3);
+            $thursday = new DateTime();
+            $thursday->setISODate($year, $week, $dayOfWeek = 4);
+            $friday = new DateTime();
+            $friday->setISODate($year, $week, $dayOfWeek = 5);
+            $saturday = new DateTime();
+            $saturday->setISODate($year, $week, $dayOfWeek = 6);
 
-        if ($_SESSION['choice'] == date('Y') . '-W' . date('W')) { ?>
-            <h1 id="tableTitle"> Current Week </h1>
-        <?php } else { ?>
-            <h1 id="tableTitle"> Week <?php echo $week ?> </h1>
-            <?php }
-
-        $monday = new DateTime();
-        $monday->setISODate($year, $week, $dayOfWeek = 1);
-        $tuesday = new DateTime();
-        $tuesday->setISODate($year, $week, $dayOfWeek = 2);
-        $wednesday = new DateTime();
-        $wednesday->setISODate($year, $week, $dayOfWeek = 3);
-        $thursday = new DateTime();
-        $thursday->setISODate($year, $week, $dayOfWeek = 4);
-        $friday = new DateTime();
-        $friday->setISODate($year, $week, $dayOfWeek = 5);
-        $saturday = new DateTime();
-        $saturday->setISODate($year, $week, $dayOfWeek = 6);
-
-        function find_appointment($day, $hour, $result)
-        {
-            foreach ($result as $row) {
-                if ($row['date'] == $day && $row['time'] == $hour) { ?>
-                    <a href='dentistAppointment.php#past' title="Appointment" style="color: black; text-decoration:none;"> #<?php echo $row['app_id']; ?>:
+            function find_appointment($day, $hour, $result)
+            {
+                foreach ($result as $row) {
+                    if ($row['date'] == $day && $row['time'] == $hour) { ?>
+                        <a href='/dentistAppointments.php#appointment<?php echo $row['app_id'] ?>' title="Appointment" style="color: black; text-decoration:none;"> #<?php echo $row['app_id']; ?>:
                         <?php echo $row['specialty']; ?></a>
-        <?php }
-            }
-        } ?>
+                    <?php }
+                }
+            } ?>
 
         <table id="scheduleTable">
             <tr>
@@ -226,6 +227,7 @@ if (!isset($_SESSION['choice'])) {
                 <td><?php find_appointment($friday->format('d-m-Y'), $hour, $result) ?></td>
                 <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
             </tr>
+        </table>
     </section>
 
 
