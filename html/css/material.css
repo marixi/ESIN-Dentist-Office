@@ -4,26 +4,99 @@
 
 /* Material Page style formatting */
 
-div>button {
-    border: none;
-    width: 15%;
+
+#stock, #manage_title {
+    font-size: 250%;
+    margin-left: 37%;
+    margin-right: 37%;
+    margin-bottom: 1.5%;
+    text-align: center;
+    background: rgba(96, 185, 201, 0.932);
+    background-clip: content-box;
     color: white;
-    /* padding: 5% 30%; */
+    border: 5px double rgb(57, 124, 136);
+}
+
+#service_applied{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#service_applied > label{
+    padding:2% 30%;
+    font-size: 110%;
+}
+
+#service_applied > select{
+    margin:0 30%;
+    font-size: 110%;
+}
+
+#service_applied > input{
+    margin:2% 30%;
+    font-size: 110%;
+}
+
+#management{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+#management > h2{
+    grid-row:1;
+    font-size: 200%;
+    font-weight: normal;
+    padding: 0;
+    margin-left: 38%;
+    margin-right: 38%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0);
+    background-clip: content-box;
+    color: rgb(57, 124, 136);
+    border: 3px solid rgb(57, 124, 136);
+} 
+
+#remove_from_stock, #add_to_stock{
+    place-self: center;
+    grid-row:2;
+}
+
+#remove_from_stock{
+    grid-column : 1;
+}
+
+#add_to_stock{
+    grid-column : 2;
+}
+
+#remove_from_stock>p, #add_to_stock>p{
+    text-align: center;
+}
+
+#remove_mat, #add_mat{
+    border: none;
+    width: 20%;
+    height:45%;
+    color: white;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 150%;
-    margin: 2% 0;
+    font-size: 170%;
+    place-self: center;
     cursor: pointer;
     transition-duration: 0.4s;
+    grid-row:3;
 }
 
 #add_mat {
     background-color: white;
     color: black;
     border: 3px solid #4CAF50;
-    margin-left:25%;
-    margin-right: 10%;
+    grid-column : 2;
+    
+    /* margin-left:25%;
+    margin-right: 10%; */
 }
 
 #add_mat:hover {
@@ -36,8 +109,9 @@ div>button {
     background-color: white;
     color: black;
     border: 3px solid red;
-    margin-left:9%;
-    margin-right: 25%;
+    grid-column : 1;
+    /* margin-left:9%;
+    margin-right: 25%; */
 }
 
 #remove_mat:hover {
@@ -45,6 +119,7 @@ div>button {
     color: white;
 }
 
-#add_to_stock{
-    visibility: hidden;
-}
+/* footer{
+    grid-column-start: 1;
+    grid-column-end:2 ;
+} */

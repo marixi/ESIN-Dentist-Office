@@ -70,7 +70,8 @@ CREATE TABLE appointment (
     cost float CHECK(cost > 0 OR cost IS NULL),
     client_id integer NOT NULL REFERENCES client,
     dentist_id integer NOT NULL REFERENCES dentist,
-    specialty text NOT NULL REFERENCES specialty
+    specialty text NOT NULL REFERENCES specialty,
+    procedure test NOT NULL REFERENCES record
 );
 
 CREATE TABLE auxiliariesAssigned (
@@ -174,32 +175,32 @@ INSERT INTO specialty VALUES ('pediatric');
 INSERT INTO specialty VALUES ('prosthodontics');
 INSERT INTO specialty VALUES ('endodontics');
 
-INSERT INTO appointment VALUES (1, '03-01-2020', '10:00', 2, 40, 8, 2, 'general');
-INSERT INTO appointment VALUES (2, '03-01-2020', '11:00', 1, 48, 9, 1, 'general');
-INSERT INTO appointment VALUES (3, '10-01-2020', '11:00', 1, 3220, 9, 1, 'orthodontics');
-INSERT INTO appointment VALUES (4, '12-03-2020', '09:00', 1, 9, 9, 1, 'orthodontics');
-INSERT INTO appointment VALUES (5, '03-05-2020', '17:00', 2, 60, 10, 2, 'general');
-INSERT INTO appointment VALUES (6, '08-05-2020', '09:00', 1, 9, 9, 1, 'orthodontics');
-INSERT INTO appointment VALUES (7, '08-05-2020', '14:00', 2, 81, 11, 2, 'prosthodontics');
-INSERT INTO appointment VALUES (8, '10-07-2020', '11:00', 1, 9, 9, 1, 'orthodontics');
-INSERT INTO appointment VALUES (9, '10-07-2020', '15:00', 1, 60, 12, 1, 'general');
-INSERT INTO appointment VALUES (10, '10-07-2020', '15:00', 2, 48, 13, 2, 'general');
-INSERT INTO appointment VALUES (11, '12-09-2020', '09:00', 2, 54, 8, 2, 'general');
-INSERT INTO appointment VALUES (12, '14-09-2020', '09:00', 1, 3360, 14, 1, 'orthodontics');
-INSERT INTO appointment VALUES (13, '15-09-2020', '10:00', 1, 9, 9, 1, 'orthodontics');
-INSERT INTO appointment VALUES (14, '15-10-2020', '15:00', 2, 30, 15, 2, 'pediatric');
-INSERT INTO appointment VALUES (15, '15-10-2020', '16:00', 2, 30, 16, 2, 'pediatric');
-INSERT INTO appointment VALUES (16, '10-11-2020', '11:00', 1, 9, 9, 1, 'orthodontics');
-INSERT INTO appointment VALUES (17, '14-11-2020', '09:00', 1, 9, 14, 1, 'orthodontics');
-INSERT INTO appointment VALUES (18, '14-11-2020', '11:00', 2, 800, 17, 2, 'endodontics');
-INSERT INTO appointment VALUES (19, '24-11-2020', '17:00', 2, 800, 10, 2, 'endodontics');
-INSERT INTO appointment VALUES (20, '27-11-2020', '11:00', 2, 800, 12, 2, 'endodontics');
-INSERT INTO appointment VALUES (21, '25-12-2020', '15:00', 2, NULL, 15, 2, 'pediatric');
-INSERT INTO appointment VALUES (22, '25-12-2020', '16:00', 2, NULL, 16, 2, 'pediatric');
-INSERT INTO appointment VALUES (23, '28-12-2020', '14:00', 2, NULL, 11, 2, 'prosthodontics');
-INSERT INTO appointment VALUES (24, '12-01-2021', '11:00', 1, NULL, 9, 1, 'orthodontics');
-INSERT INTO appointment VALUES (25, '17-01-2021', '09:00', 1, NULL, 14, 1, 'orthodontics');
-INSERT INTO appointment VALUES (26, '02-02-2021', '16:00', 2, NULL, 10, 2, 'general');
+INSERT INTO appointment VALUES (1, '03-01-2020', '10:00', 2, 40, 8, 2, 'general','check up and clean');
+INSERT INTO appointment VALUES (2, '03-01-2020', '11:00', 1, 48, 9, 1, 'general','check up');
+INSERT INTO appointment VALUES (3, '10-01-2020', '11:00', 1, 3220, 9, 1, 'orthodontics','metal braces placement');
+INSERT INTO appointment VALUES (4, '12-03-2020', '09:00', 1, 9, 9, 1, 'orthodontics','braces maintenance');
+INSERT INTO appointment VALUES (5, '03-05-2020', '17:00', 2, 60, 10, 2, 'general','check up and clean');
+INSERT INTO appointment VALUES (6, '08-05-2020', '09:00', 1, 9, 9, 1, 'orthodontics','braces maintenance');
+INSERT INTO appointment VALUES (7, '08-05-2020', '14:00', 2, 81, 11, 2, 'prosthodontics','single dental implant');
+INSERT INTO appointment VALUES (8, '10-07-2020', '11:00', 1, 9, 9, 1, 'orthodontics','metal braces placement');
+INSERT INTO appointment VALUES (9, '10-07-2020', '15:00', 1, 60, 12, 1, 'general','check up');
+INSERT INTO appointment VALUES (10, '10-07-2020', '15:00', 2, 48, 13, 2, 'general','check up and clean');
+INSERT INTO appointment VALUES (11, '12-09-2020', '09:00', 2, 54, 8, 2, 'general','check up');
+INSERT INTO appointment VALUES (12, '14-09-2020', '09:00', 1, 3360, 14, 1, 'orthodontics','ceramic braces placement');
+INSERT INTO appointment VALUES (13, '15-09-2020', '10:00', 1, 9, 9, 1, 'orthodontics','braces maintenance');
+INSERT INTO appointment VALUES (14, '15-10-2020', '15:00', 2, 30, 15, 2, 'pediatric','dental cleanings');
+INSERT INTO appointment VALUES (15, '15-10-2020', '16:00', 2, 30, 16, 2, 'pediatric','dental cleanings');
+INSERT INTO appointment VALUES (16, '10-11-2020', '11:00', 1, 9, 9, 1, 'orthodontics','braces maintenance');
+INSERT INTO appointment VALUES (17, '14-11-2020', '09:00', 1, 9, 14, 1, 'orthodontics','braces maintenance');
+INSERT INTO appointment VALUES (18, '14-11-2020', '11:00', 2, 800, 17, 2, 'endodontics','root canal treatment');
+INSERT INTO appointment VALUES (19, '24-11-2020', '17:00', 2, 800, 10, 2, 'endodontics','root canal treatment');
+INSERT INTO appointment VALUES (20, '27-11-2020', '11:00', 2, 800, 12, 2, 'endodontics','root canal treatment');
+INSERT INTO appointment VALUES (21, '25-12-2020', '15:00', 2, NULL, 15, 2, 'pediatric','dental cleanings');
+INSERT INTO appointment VALUES (22, '25-12-2020', '16:00', 2, NULL, 16, 2, 'pediatric','dental cleanings');
+INSERT INTO appointment VALUES (23, '28-12-2020', '14:00', 2, NULL, 11, 2, 'prosthodontics','initial implant assessment');
+INSERT INTO appointment VALUES (24, '12-01-2021', '11:00', 1, NULL, 9, 1, 'orthodontics','braces maintenance');
+INSERT INTO appointment VALUES (25, '17-01-2021', '09:00', 1, NULL, 14, 1, 'orthodontics','braces maintenance');
+INSERT INTO appointment VALUES (26, '02-02-2021', '16:00', 2, NULL, 10, 2, 'general','check up and clean');
 
 INSERT INTO auxiliariesAssigned VALUES (1, 4);
 INSERT INTO auxiliariesAssigned VALUES (2, 3);
