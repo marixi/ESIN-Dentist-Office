@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    
     $dbh = new PDO('sqlite:sql/dentist_office.db');
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     $id = $_SESSION['id'];
@@ -19,6 +19,7 @@
                             JOIN dentist USING (id)');
     $stmt3->execute();   
     $dentists = $stmt3->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +48,7 @@
             <ul>
                 <li><a href='client.php' title="Profile"> Profile </a></li>
                 <li><a href=#bookApp title="Schedule"> Book Appointment </a></li>
-                <li><a href=#record title="Appointments"> Record </a></li>
+                <li><a href='clientRecord.php' title="Appointments"> Record </a></li>
                 <li><a href='action_logout.php' title="Log Out"> Logout </a></li>
             </ul>
         </nav>
@@ -69,8 +70,15 @@
 
     <h2> Book Appointment </h2>
     <?php if(isset($_SESSION['msg'])) { ?>
-    <p> <?php echo $_SESSION['msg'] ?> <a href='client.php' title="AnotherOne"> Book another one? </a> </p>
-    <?php } else { ?>
+    <p> <?php echo $_SESSION['msg'] ?> See it in <a href='clientRecord.php' title="Appointment Booked" > here. </a> </p>
+    <p> <a href='client.php' title="Another One"> Book another one? </a> </p>
+    <?php unset($_SESSION['dentistUnavailable']);
+          unset($_SESSION['msg']); 
+          unset($_SESSION['date']);
+          unset($_SESSION['time']);  
+    } else { ?>
+    <p> Use the form bellow to book an appointment. </p>
+    <p> In need of an urgen appointment for today? <a href='\index.php#contacts' title="Call Us"> Call us! </a> </p>
     <section id="bookApp">
         <form action="action_checkDate.php" method="post">
             <label> Date: </label>
@@ -91,9 +99,9 @@
                         <?php $dayOfWeek = date('l', strtotime($_SESSION['date']));
                         
                         function checkAvailableHours($date, $time, $value) {
-                            $day = substr($_SESSION['date'], 8, 2);
-                            $month = substr($_SESSION['date'], 5, 2);
-                            $year = substr($_SESSION['date'], 0, 4);
+                            $day = substr($date, 8, 2);
+                            $month = substr($date, 5, 2);
+                            $year = substr($date, 0, 4);
 
                             global $dbh;
                             $stmt = $dbh->prepare('SELECT date, time, dentist_id FROM appointment WHERE date = ? AND time = ?');
@@ -167,9 +175,6 @@
         <?php }
         } ?>     
     </section>
-    <?php 
-        unset($_SESSION['msg']); 
-    ?> 
 
     <!-- Footer -->
     <footer>

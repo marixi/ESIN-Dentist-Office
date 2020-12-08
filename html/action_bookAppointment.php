@@ -23,5 +23,5 @@
     unset($_SESSION['date']);
     unset($_SESSION['time']);
 
-    header('Location: \client.php');
+    header('Location: client.php');
 ?>
