@@ -22,6 +22,7 @@
 
     unset($_SESSION['date']);
     unset($_SESSION['time']);
+    unset($_SESSION['dentistUnavailable']);
 
-    header('Location: client.php');
+    header('Location: /client.php#bookApp');
 ?>

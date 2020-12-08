@@ -20,6 +20,10 @@
     $stmt3->execute();   
     $dentists = $stmt3->fetchAll();
 
+    $stmt4 = $dbh->prepare('SELECT MAX(app_id) as maxId FROM appointment
+                            WHERE client_id = ?');
+    $stmt4->execute(array($id));   
+    $max = $stmt4->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -70,13 +74,10 @@
 
     <h2> Book Appointment </h2>
     <?php if(isset($_SESSION['msg'])) { ?>
-    <p> <?php echo $_SESSION['msg'] ?> See it in <a href='clientRecord.php' title="Appointment Booked" > here. </a> </p>
+    <p> <?php echo $_SESSION['msg'] ?> See it in <a href='/clientRecord.php#appointment<?php echo $max['maxId'] ?>' title="Appointment Booked" > here. </a> </p>
     <p> <a href='client.php' title="Another One"> Book another one? </a> </p>
-    <?php unset($_SESSION['dentistUnavailable']);
-          unset($_SESSION['msg']); 
-          unset($_SESSION['date']);
-          unset($_SESSION['time']);  
-    } else { ?>
+    <?php unset($_SESSION['msg']); } 
+    else { ?>
     <p> Use the form bellow to book an appointment. </p>
     <p> In need of an urgen appointment for today? <a href='\index.php#contacts' title="Call Us"> Call us! </a> </p>
     <section id="bookApp">
