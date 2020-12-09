@@ -158,7 +158,7 @@
                 <label> Specialty: </label>
                 <select name="specialty" required="required">
                 <?php foreach ($specialties as $specialty) { ?>
-                    <option value="<?php echo $specialty['type']?>"> <?php echo $specialty['type']?> </input>
+                    <option value="<?php echo $specialty['type']?>"> <?php echo $specialty['type']?> </option>
                 <?php } ?>
                 </select>
                 <br> <label> Dentist: </label>
