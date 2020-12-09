@@ -15,6 +15,7 @@ Eu acho que o plano de trabalhos geral é:
 - try catches para tudinho (login, appointment, schedules)
 - value do salary nao grava
 - fire: username + name
+- final validation of html/php and css
 
 super xtra:
 fontes
