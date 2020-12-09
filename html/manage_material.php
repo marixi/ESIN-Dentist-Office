@@ -6,7 +6,7 @@ $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 $stmt = $dbh->prepare('SELECT * FROM material ORDER BY name');
 $stmt->execute();
 
-$stmt2 = $dbh->prepare('SELECT * FROM service ORDER BY specialty_type ');
+$stmt2 = $dbh->prepare('SELECT * FROM service ORDER BY specialty_type');
 $stmt2->execute();
 
 $ser = array();
@@ -20,8 +20,6 @@ while ($types = $stmt2->fetch()) {
     $ser[$types['procedure_name']] = $types['specialty_type'];
 }
 $uni_spec_type = array_values(array_unique($spec_type));
-
-
 
 ?>
 
@@ -93,7 +91,7 @@ $uni_spec_type = array_values(array_unique($spec_type));
                 </optgroup>
             <?php } ?>
         </select>
-
+        
         <input type="submit" value="Checkout service material">
     </form>
 
@@ -116,7 +114,6 @@ $uni_spec_type = array_values(array_unique($spec_type));
             </select>
             <input type="number" name="qtty_rem" id="qty_remove" min="0">
 
-            <!-- <input type="submit" value="Remove" id="remove_mat"> -->
         </form>
 
         <button type="submit" value="Remove" id="remove_mat" form="remove_from_stock">Remove</button>

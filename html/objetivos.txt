@@ -1,7 +1,7 @@
 Eu acho que o plano de trabalhos geral é:
-- definir min e max length e piquices de password
+
 - material do auxiliary (mostrar o material de cada serviço)
-- fazer os extras do dentista manage team e do auxiliary a inserir clientes 
+- fazer os extras auxiliary a inserir clientes 
 - organização isso dos templates
 - por tudo a %
 - por os services nas appointments
@@ -10,5 +10,13 @@ Eu acho que o plano de trabalhos geral é:
 - botao de alteracoa de dados do profile
 - fazer a base de dados final
 - mostrar os materiais utilizdos no serviço
-- perguntar ao prof se o registro dos clientes, ser por intermédio do auxiliar é válido
 - css responsive
+- css fire
+- try catches para tudinho (login, appointment, schedules)
+- value do salary nao grava
+- fire: username + name
+
+super xtra:
+fontes
+cores
+transitions nos butoes (hover)

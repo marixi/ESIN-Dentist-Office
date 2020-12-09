@@ -116,12 +116,6 @@ CREATE TABLE quantity (
     PRIMARY KEY(service_name, material_name)
 );
 
-CREATE TABLE materialManagement (
-    dental_auxiliar integer REFERENCES dentalAuxiliary,
-    material_name text REFERENCES material,
-    PRIMARY KEY(dental_auxiliar, material_name)
-);
-
 -- Insert Data --
 
 INSERT INTO person VALUES (1, 'Raquel Pires', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351921555422', 'raquel.pires', 'rqpmed20');
@@ -420,22 +414,3 @@ INSERT INTO quantity VALUES ('root canal treatment', 'Endodontic Instruments', 2
 INSERT INTO quantity VALUES ('root canal treatment', 'Dental Examination Mirror', 1);
 INSERT INTO quantity VALUES ('root canal treatment', 'Contra-Angle Handpiece', 1);
 INSERT INTO quantity VALUES ('root canal treatment', 'Light Curing Dental Lamps', 1);
-
-INSERT INTO materialManagement VALUES (3, 'Dental Examination Mirror');
-INSERT INTO materialManagement VALUES (3, 'Probe');
-INSERT INTO materialManagement VALUES (3, 'Scanning Probe');
-INSERT INTO materialManagement VALUES (3, 'Forceps');
-INSERT INTO materialManagement VALUES (4, 'Pliers');
-INSERT INTO materialManagement VALUES (4, 'Turbines');
-INSERT INTO materialManagement VALUES (4, 'Micromotors');
-INSERT INTO materialManagement VALUES (4, 'Straight Handpiece');
-INSERT INTO materialManagement VALUES (5, 'Contra-Angle Handpiece');
-INSERT INTO materialManagement VALUES (5, 'Light Curing Dental Lamps');
-INSERT INTO materialManagement VALUES (5, 'Latex gloves');
-INSERT INTO materialManagement VALUES (6, 'Dental Composites');
-INSERT INTO materialManagement VALUES (6, 'Orthodontics Metal Braces');
-INSERT INTO materialManagement VALUES (6, 'Orthodontics Ceramic Braces');
-INSERT INTO materialManagement VALUES (6, 'Orthodontics Elastic');
-INSERT INTO materialManagement VALUES (7, 'Orthodontics Clear Aligners');
-INSERT INTO materialManagement VALUES (7, 'Dental Sutures');
-INSERT INTO materialManagement VALUES (7, 'Endodontic Instruments');
