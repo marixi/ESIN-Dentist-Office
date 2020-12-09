@@ -1,0 +1,14 @@
+Eu acho que o plano de trabalhos geral é:
+- definir min e max length e piquices de password
+- material do auxiliary (mostrar o material de cada serviço)
+- fazer os extras do dentista manage team e do auxiliary a inserir clientes 
+- organização isso dos templates
+- por tudo a %
+- por os services nas appointments
+- adicionar auxiliare(s) presentes em cada appointment
+- botao de levantar tudo para cima
+- botao de alteracoa de dados do profile
+- fazer a base de dados final
+- mostrar os materiais utilizdos no serviço
+- perguntar ao prof se o registro dos clientes, ser por intermédio do auxiliar é válido
+- css responsive
