@@ -35,5 +35,4 @@ JOIN dentist ON dentist_id=dentist.id
 WHERE client_id = 11
 ORDER BY app_id ASC;*/
 
-SELECT MAX(app_id) FROM appointment
-WHERE client_id = 11;
+SELECT * from person;

@@ -46,9 +46,9 @@ $uni_spec_type = array_values(array_unique($spec_type));
         </a>
         <nav>
             <ul>
-                <li><a href='manage_material.html' title="Stock"> Stock </a></li>
-                <li><a href=#manage_title title="update_Stock"> Manage Material </a></li>
                 <li><a href='dentalAuxiliary.php' title="Profile"> Profile </a></li>
+                <li><a href='/dentalAuxiliary.php#Schedule' title="Schedule"> Schedule </a></li>
+                <li><a href=#manage_title title="update_Stock"> Manage Material </a></li>
                 <li><a href='action_logout.php' title="Logout"> Logout </a></li>
             </ul>
         </nav>
