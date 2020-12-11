@@ -4,6 +4,7 @@
     $_SESSION['name'] = $_POST['name'];
     $_SESSION['address'] = $_POST['address'];
     $_SESSION['phone_number'] = $_POST['phone_number'];
+    $testNumber = substr($_SESSION['phone_number'], 1);
     $_SESSION['username'] = $_POST['username'];
     $_SESSION['password'] = $_POST['password'];
     $_SESSION['salary'] = $_POST['salary'];
@@ -21,7 +22,14 @@
         header('Location: \manageTeam.php#hire');    
     } else if (strlen($_SESSION['phone_number']) != 13) {
         $_SESSION['error_num_msg'] = "The phone number doesn't exist!";
-        header('Location: \manageTeam.php#hire');    
+        header('Location: \manageTeam.php#hire'); 
+    }
+    else if (!ctype_digit($testNumber)) {
+        $_SESSION['error_num_msg'] = "The phone number is invalid!";
+        header('Location: \manageTeam.php#hire'); 
+    } else if (strlen($_SESSION['username']) == 0) {
+        $_SESSION['error_user_msg'] = "Invalid username!";
+        header('Location: \manageTeam.php#hire');
     } else if ($nonUnique) {
         $_SESSION['error_user_msg'] = "That username already exists!";
         header('Location: \manageTeam.php#hire');
