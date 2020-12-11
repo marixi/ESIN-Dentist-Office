@@ -80,8 +80,8 @@ $uni_spec_type = array_values(array_unique($spec_type));
         <label>Service performed to withdraw the predifined material from stock:</label><br>
         <select name="service" id="service_mat" value="Services">
             <option hidden disabled selected value>------------ select a service ------------ </option>
-            <?php for ($i = 0; $i < count($uni_spec_type); $i++) {
-                $a = 0 ?>
+            <?php for ($i = 0; $i < count($uni_spec_type); $i++) {?>
+
                 <optgroup label="<?php echo $uni_spec_type[$i] ?>">
                     <?php foreach ($ser as $procedure => $type) { ?>
                         <?php if ($type == $uni_spec_type[$i]) { ?>
@@ -94,8 +94,10 @@ $uni_spec_type = array_values(array_unique($spec_type));
         
         <input type="submit" value="Checkout service material">
     </form>
+    
+        <p id='mat_per_serv'>To check the materials that each service takes, <a href="material_per_service.php"> click here.</a> </p>
 
-
+    
     <div id="management">
 
         <h2>Withdrawal</h2>
@@ -131,7 +133,6 @@ $uni_spec_type = array_values(array_unique($spec_type));
             </select>
             <input type="number" name="qtty_add" id="qty_add" min="0">
 
-            <!-- <input type="submit" value="Add" id="add_mat"> -->
         </form>
 
         <button type="submit" value="Add" id="add_mat" form="add_to_stock">Add</button>
