@@ -30,12 +30,17 @@
 
 #service_applied > select{
     margin:0 30%;
-    font-size: 110%;
+    font-size: 120%;
 }
 
 #service_applied > input{
     margin:2% 30%;
-    font-size: 110%;
+    font-size: 110%; 
+}
+
+#mat_per_serv{
+    text-align: center;
+    font-size: 120%;
 }
 
 #management{
@@ -94,9 +99,6 @@
     color: black;
     border: 3px solid #4CAF50;
     grid-column : 2;
-    
-    /* margin-left:25%;
-    margin-right: 10%; */
 }
 
 #add_mat:hover {
@@ -110,8 +112,6 @@
     color: black;
     border: 3px solid red;
     grid-column : 1;
-    /* margin-left:9%;
-    margin-right: 25%; */
 }
 
 #remove_mat:hover {
@@ -119,7 +119,3 @@
     color: white;
 }
 
-/* footer{
-    grid-column-start: 1;
-    grid-column-end:2 ;
-} */

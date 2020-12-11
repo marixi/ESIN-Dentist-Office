@@ -48,7 +48,7 @@ if (!isset($_SESSION['choice'])) {
             <ul>
                 <li><a href='dentalAuxiliary.php' title="Profile"> Profile </a></li>
                 <li><a href=#Schedule title="Schedule"> Schedule </a></li>
-                <li><a href=#manage_mat title="Material"> Manage Material </a></li>
+                <li><a href= 'manage_material.php' title="Material"> Manage Material </a></li>
                 <li><a href='action_logout.php' title="Logout"> Logout </a></li>
             </ul>
         </nav>
@@ -228,15 +228,6 @@ if (!isset($_SESSION['choice'])) {
                 <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
             </tr>
         </table>
-    </section>
-
-
-    <section id="manage_mat">
-        <h2> Material Management </h2>
-        <p> Access below the material stock, in order to manage it, accordingly to the provided services, in the appointments or stock refilling.</p>
-        <form action="manage_material.php" method="post">
-            <input type="submit" value="Material Stock">
-        </form>
     </section>
 
     <!-- Footer -->

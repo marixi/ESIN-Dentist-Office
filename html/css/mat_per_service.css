@@ -1,0 +1,53 @@
+h1{
+    font-size: 250%;
+    padding: 0.3% 0;
+    margin-left: 24%;
+    margin-right: 24%;
+    margin-top: 4%;
+    margin-bottom: 1.5%;
+    background: rgba(96, 185, 201, 0.932);
+    background-clip: padding-box;
+    color: white;
+    border: 5px double rgb(57, 124, 136);
+    text-align: center;
+}
+
+h2, h3 {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+#serv_material {
+    display:grid;
+    padding:0;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
+
+#serv_material #service_list {
+    margin: 8% 10%;
+    padding-bottom: 5%;
+    list-style-type: none;
+    border: 2px solid rgba(0, 0, 0, 0.233);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.247);
+}
+
+#serv_material #service_list:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.692);
+}
+
+#serv_material > #shadow_box {  
+    width: 26%;
+    background: #fff;
+    box-sizing: border-box;
+    list-style-type: circle;
+}
+
+#qtty_list {
+    color: #2c3e50;
+    font-size: 100%;
+    text-align: justify;
+    letter-spacing: 1px;
+    font-kerning: none;
+    font-family:'Courier New', Courier, monospace;
+}

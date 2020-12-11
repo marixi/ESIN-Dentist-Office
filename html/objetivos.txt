@@ -1,6 +1,5 @@
 Eu acho que o plano de trabalhos geral é:
 
-- material do auxiliary (mostrar o material de cada serviço)
 - fazer os extras auxiliary a inserir clientes 
 - organização isso dos templates
 - por tudo a %
@@ -14,6 +13,8 @@ Eu acho que o plano de trabalhos geral é:
 - css fire
 - try catches para tudinho (login, appointment, schedules)
 - value do salary nao grava
+- tentar implementar o autofocus no hire para nao ter de estar sempre a carregar no botao
+(session variable para ver se ja clicou alguma vez?? idk)
 - fire: username + name
 - final validation of html/php and css
 
