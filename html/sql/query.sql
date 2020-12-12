@@ -34,5 +34,3 @@ SELECT * FROM appointment
 JOIN dentist ON dentist_id=dentist.id
 WHERE client_id = 11
 ORDER BY app_id ASC;*/
-
-SELECT * FROM person;

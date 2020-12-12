@@ -1,15 +1,7 @@
 <?php
-session_start();
-?>
-
-<!-- Dentist Office -->
-<!-- Authors: Duarte Rodrigues, Mariana Xavier -->
-
-<?php
-    $dbh = new PDO('sqlite:sql/dentist_office.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $stmt = $dbh->prepare('SELECT * FROM service ORDER BY specialty_type');
-    $stmt->execute();
+    require_once('database/init.php');
+    require_once('database/service.php');
+    $services = getAllServices();
 ?>
 
 <!DOCTYPE html>
@@ -55,13 +47,13 @@ session_start();
         <tr>
             <th scope="col"> Specialty </th> <th scope="col"> Procedure </th> <th scope="col"> Price </th>
         </tr>
-        <?php while ($row = $stmt->fetch()) {?>
+        <?php foreach ($services as $service) {?>
                 <tr>
-                    <td> <?php echo $row['specialty_type'] ?> </td>
-                    <td> <?php echo $row['procedure_name'] ?> </td>
-                    <td id="price"> <?php echo $row['price'] ?> </td>
+                    <td> <?php echo $service['specialty_type'] ?> </td>
+                    <td> <?php echo $service['procedure_name'] ?> </td>
+                    <td id="price"> <?php echo $service['price'] ?> </td>
                 </tr>
-        <?php } ?>   
+        <?php } ?>
     </table> 
     
     <!-- Footer -->

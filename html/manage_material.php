@@ -1,26 +1,15 @@
 <?php
-$dbh = new PDO('sqlite:sql/dentist_office.db');
-$dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
+    require_once('database/init.php');
+    require_once('database/material.php');
+    require_once('database/service.php');
+    require_once('database/specialty.php');
 
-$stmt = $dbh->prepare('SELECT * FROM material ORDER BY name');
-$stmt->execute();
+    $material = getAllMaterial();
 
-$stmt2 = $dbh->prepare('SELECT * FROM service ORDER BY specialty_type');
-$stmt2->execute();
+    $service = getAllServices();
 
-$ser = array();
-
-$spec_type = array();
-
-while ($types = $stmt2->fetch()) {
-
-    array_push($spec_type, $types['specialty_type']);
-
-    $ser[$types['procedure_name']] = $types['specialty_type'];
-}
-$uni_spec_type = array_values(array_unique($spec_type));
-
+    $specialty = getAllSpecialties();
 ?>
 
 <!DOCTYPE html>
@@ -62,15 +51,13 @@ $uni_spec_type = array_values(array_unique($spec_type));
             <th scope="col"> Material Name </th>
             <th scope="col"> Quantity </th>
         </tr>
-        <?php $mat_names = array();
-        while ($row = $stmt->fetch()) {
-
-            array_push($mat_names, $row['name']); ?>
-            <tr>
-                <td> <?php echo $row['name'] ?></td>
-                <td> <?php echo $row['quantity_in_stock'] ?> </td>
-            </tr>
-        <?php } ?>
+        <?php 
+            foreach ($material as $row) { ?>
+                <tr>
+                    <td> <?php echo $row['name'] ?></td>
+                    <td> <?php echo $row['quantity_in_stock'] ?> </td>
+                </tr>
+            <?php } ?>
     </table>
 
     <h1 id="manage_title"> Manage Material </h1>
@@ -80,16 +67,15 @@ $uni_spec_type = array_values(array_unique($spec_type));
         <label>Service performed to withdraw the predifined material from stock:</label><br>
         <select name="service" id="service_mat" value="Services">
             <option hidden disabled selected value>------------ select a service ------------ </option>
-            <?php for ($i = 0; $i < count($uni_spec_type); $i++) {?>
-
-                <optgroup label="<?php echo $uni_spec_type[$i] ?>">
-                    <?php foreach ($ser as $procedure => $type) { ?>
-                        <?php if ($type == $uni_spec_type[$i]) { ?>
-                            <option value="<?php echo $procedure ?>"> <?php echo $procedure; ?> </option>
-                        <?php } ?>
-                    <?php } ?>
-                </optgroup>
-            <?php } ?>
+            <?php 
+                foreach($specialty as $uni_spec_type) { ?>
+                    <optgroup label="<?php echo $uni_spec_type['type'] ?>">
+                    <?php foreach ($service as $procedure) {
+                        if ($procedure['specialty_type'] == $uni_spec_type['type']) { ?>
+                            <option value="<?php echo $procedure['procedure_name'] ?>"> <?php echo $procedure['procedure_name']; ?> </option>
+                        <?php }
+                    }
+                } ?>
         </select>
         
         <input type="submit" value="Checkout service material">
@@ -108,11 +94,9 @@ $uni_spec_type = array_values(array_unique($spec_type));
             <p>Extra material to remove:</p>
             <select name="material_rem" id="xtra_mat">
                 <option hidden disabled selected value> --- select material to remove --- </option>
-                <?php $a = 0;
-                while ($a < count($mat_names)) { ?>
-                    <option value="<?php echo $mat_names[$a] ?>"> <?php echo $mat_names[$a] ?> </option>
-                <?php $a++;
-                } ?>
+                <?php foreach ($material as $row) { ?>
+                    <option value="<?php echo $row['name'] ?>"> <?php echo $row['name'] ?> </option>
+                <?php } ?>
             </select>
             <input type="number" name="qtty_rem" id="qty_remove" min="0">
 
@@ -125,11 +109,9 @@ $uni_spec_type = array_values(array_unique($spec_type));
             <p>New Material to insert:</p>
             <select name="add_material" id="add_material">
                 <option hidden disabled selected value> ---- select material to add ---- </option>
-                <?php $a = 0;
-                while ($a < count($mat_names)) { ?>
-                    <option value="<?php echo $mat_names[$a] ?>"> <?php echo $mat_names[$a] ?> </option>
-                <?php $a++;
-                } ?>
+                <?php foreach ($material as $row) { ?>
+                    <option value="<?php echo $row['name'] ?>"> <?php echo $row['name'] ?> </option>
+                <?php } ?>
             </select>
             <input type="number" name="qtty_add" id="qty_add" min="0">
 

@@ -1,27 +1,19 @@
 <?php
-session_start();
 
-$dbh = new PDO('sqlite:sql/dentist_office.db');
-$dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-$id = $_SESSION['id'];
+    require_once('database/init.php');
+    require_once('database/dentalAuxiliary.php');
+    require_once('database/auxiliariesAssigned.php');
+    require_once('database/appointment.php');
+    
+    $id = $_SESSION['id'];
 
-$stmt1 = $dbh->prepare('SELECT * FROM person 
-                            JOIN employee USING (id) 
-                            JOIN dentalAuxiliary USING (id) 
-                            WHERE id = ?');
-$stmt1->execute(array($id));
-$row = $stmt1->fetch();
+    $auxiliary = getAuxiliaryInfo($id);
 
-$stmt2 = $dbh->prepare('SELECT * FROM auxiliariesAssigned
-                            JOIN appointment ON appointment_id=app_id
-                            JOIN person ON auxiliary_id=person.id
-                            WHERE auxiliary_id = ?');
-$stmt2->execute(array($id));
-$result = $stmt2->fetchAll();
+    $appointments = getAuxiliariesAssignedAppointments($id);
 
-if (!isset($_SESSION['choice'])) {
-    $_SESSION['choice'] = date('Y') . '-W' . date('W');
-}
+    if (!isset($_SESSION['choice'])) {
+        $_SESSION['choice'] = date('Y') . '-W' . date('W');
+    }
 
 ?>
 
@@ -57,12 +49,12 @@ if (!isset($_SESSION['choice'])) {
     <!-- Section to display the information about the dental auxiliary -->
     <h1 id="profileTitle"> Assistant </h1>
     <section id="profileInfo">
-        <img src="images/<?php echo $row['username'] ?>.jpg" alt="Aux. <?php echo $row['name'] ?>">
+        <img src="images/<?php echo $auxilary['username'] ?>.jpg" alt="Aux. <?php echo $auxiliary['name'] ?>">
         <div id="info">
-            <p> <strong> Name: </strong> <?php echo $row['name'] ?> </p>
-            <p> <strong> Address: </strong> <?php echo $row['address'] ?> </p>
-            <p> <strong> Phone Number: </strong> <?php echo $row['phone_number'] ?> </p>
-            <p> <strong> Date of Admission: </strong> <?php echo $row['date_of_admission'] ?> </p>
+            <p> <strong> Name: </strong> <?php echo $auxiliary['name'] ?> </p>
+            <p> <strong> Address: </strong> <?php echo $auxiliary['address'] ?> </p>
+            <p> <strong> Phone Number: </strong> <?php echo $auxiliary['phone_number'] ?> </p>
+            <p> <strong> Date of Admission: </strong> <?php echo $auxiliary['date_of_admission'] ?> </p>
         </div>
     </section>
 
@@ -98,16 +90,7 @@ if (!isset($_SESSION['choice'])) {
             $friday->setISODate($year, $week, $dayOfWeek = 5);
             $saturday = new DateTime();
             $saturday->setISODate($year, $week, $dayOfWeek = 6);
-
-            function find_appointment($day, $hour, $result)
-            {
-                foreach ($result as $row) {
-                    if ($row['date'] == $day && $row['time'] == $hour) { ?>
-                        <a href='/dentistAppointments.php#appointment<?php echo $row['app_id'] ?>' title="Appointment" style="color: black; text-decoration:none;"> #<?php echo $row['app_id']; ?>:
-                        <?php echo $row['specialty']; ?></a>
-                    <?php }
-                }
-            } ?>
+        ?>
 
         <table id="scheduleTable">
             <tr>
@@ -139,93 +122,93 @@ if (!isset($_SESSION['choice'])) {
             </tr>
             <tr>
                 <th> 09:00 </th> <?php $hour = '09:00' ?>
-                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
+                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $appointments) ?></td>
             </tr>
             <tr>
                 <th> 10:00 </th> <?php $hour = '10:00' ?>
-                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
+                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $appointments) ?></td>
             </tr>
             <tr>
                 <th> 11:00 </th> <?php $hour = '11:00' ?>
-                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
+                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $appointments) ?></td>
             </tr>
             <tr>
                 <th> 12:00 </th> <?php $hour = '12:00' ?>
-                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
+                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $appointments) ?></td>
             </tr>
             <tr>
                 <th> 13:00 </th> <?php $hour = '13:00' ?>
-                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
+                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $appointments) ?></td>
             </tr>
             <tr>
                 <th> 14:00 </th> <?php $hour = '14:00' ?>
-                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
+                <<td><?php find_appointment($monday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $appointments) ?></td>
             </tr>
             <tr>
                 <th> 15:00 </th> <?php $hour = '15:00' ?>
-                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
+                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $appointments) ?></td>
             </tr>
             <tr>
                 <th> 16:00 </th> <?php $hour = '16:00' ?>
-                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
+                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $appointments) ?></td>
             </tr>
             <tr>
                 <th> 17:00 </th> <?php $hour = '17:00' ?>
-                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
+                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $appointments) ?></td>
             </tr>
             <tr>
                 <th> 18:00 </th> <?php $hour = '18:00' ?>
-                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $result) ?></td>
-                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $result) ?></td>
+                <td><?php find_appointment($monday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($tuesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($wednesday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($thursday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($friday->format('d-m-Y'), $hour, $appointments) ?></td>
+                <td><?php find_appointment($saturday->format('d-m-Y'), $hour, $appointments) ?></td>
             </tr>
         </table>
     </section>

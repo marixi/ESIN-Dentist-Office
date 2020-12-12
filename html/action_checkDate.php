@@ -1,4 +1,5 @@
 <?php
+
     session_start();
 
     $_SESSION['date'] = $_POST['date'];
@@ -11,4 +12,5 @@
     }
 
     header('Location: \client.php#bookApp');
+    
 ?>

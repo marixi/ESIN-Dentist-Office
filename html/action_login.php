@@ -1,20 +1,13 @@
 <?php 
-    session_start();
+    
+    require_once('database/init.php');
+    require_once('database/person.php');
 
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $dbh = new PDO('sqlite:sql/dentist_office.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-    $stmt1 = $dbh->prepare('SELECT id, username FROM person WHERE username = ? ');
-    $stmt1->execute(array($username));
-
-    $stmt2 = $dbh->prepare('SELECT password FROM person WHERE password = ? AND username = ?');
-    $stmt2->execute(array($password, $username));
-
-    $userTry = $stmt1->fetch();
-    $passTry = $stmt2->fetch();
+    $userTry = getPersonUsernameId($username);
+    $passTry = getPersonPassword($password, $username);
 
     if ($userTry) {
         if ($passTry) {

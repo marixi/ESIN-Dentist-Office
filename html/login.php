@@ -1,14 +1,11 @@
 <?php
-session_start();
+    session_start();
 
-if (isset($_SESSION['id'])){
-    header('Location: action_decideProfile.php');
-}
+    if (isset($_SESSION['id'])){
+        header('Location: action_decideProfile.php');
+    }
 
 ?>
-
-<!-- Dentist Office -->
-<!-- Authors: Duarte Rodrigues, Mariana Xavier -->
 
 
 <!DOCTYPE html>

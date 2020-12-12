@@ -1,32 +1,17 @@
 <?php
-    session_start();
-    
-    $dbh = new PDO('sqlite:sql/dentist_office.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+    require_once('database/init.php');
+    require_once('database/client.php');
+    require_once('database/record.php');
+    require_once('database/appointment.php');
+
     $id = $_SESSION['id'];
 
-    $stmt1 = $dbh->prepare('SELECT * FROM person 
-                            JOIN client USING (id) 
-                            WHERE id = ?');
-    $stmt1->execute(array($id));   
-    $row = $stmt1->fetch();
+    $client = getClientInfo($id);
 
-    $stmt2 = $dbh->prepare('SELECT * FROM record
-                            JOIN appointment ON record.appointment_id=app_id
-                            JOIN person ON dentist_id=person.id
-                            JOIN servicePerformed ON record.appointment_id=servicePerformed.appointment_id
-                            JOIN service ON procedure=procedure_name
-                            WHERE record.client_id = ?
-                            ORDER BY date, time DESC;');
-    $stmt2->execute(array($id));
-    $result = $stmt2->fetchAll();
+    $result = getRecordFromAppointmentsForClient($id);
     
-    $stmt3 = $dbh->prepare('SELECT * FROM appointment
-                            JOIN person ON dentist_id=person.id
-                            WHERE client_id = ?
-                            ORDER BY date, time ASC;');
-    $stmt3->execute(array($id));
-    $future = $stmt3->fetchAll();
+    $future = getCompleteFutureClientAppointments($id);
 ?>
 
 <!DOCTYPE html>
@@ -64,14 +49,14 @@
     <!-- Section to display the information about the client -->
     <h1 id="profileTitle"> Client </h1>
     <section id="profileInfo">
-        <img src="images/<?php echo $row['username'] ?>.jpg" alt="<?php echo $row['name'] ?>">
+        <img src="images/<?php echo $client['username'] ?>.jpg" alt="<?php echo $client['name'] ?>">
         <div id="info">
-            <p> <strong> Name: </strong> <?php echo $row['name'] ?> </p>
-            <p> <strong> Address: </strong> <?php echo $row['address'] ?> </p>
-            <p> <strong> Phone Number: </strong> <?php echo $row['phone_number'] ?> </p>
-            <p> <strong> Birth Date: </strong> <?php echo $row['birth_date'] ?> </p>
-            <p> <strong> Tax Number: </strong> <?php echo $row['tax_number'] ?> </p>
-            <p> <strong> Insurance: </strong> <?php echo $row['insurance_code'] ?> </p>
+            <p> <strong> Name: </strong> <?php echo $client['name'] ?> </p>
+            <p> <strong> Address: </strong> <?php echo $client['address'] ?> </p>
+            <p> <strong> Phone Number: </strong> <?php echo $client['phone_number'] ?> </p>
+            <p> <strong> Birth Date: </strong> <?php echo $client['birth_date'] ?> </p>
+            <p> <strong> Tax Number: </strong> <?php echo $client['tax_number'] ?> </p>
+            <p> <strong> Insurance: </strong> <?php echo $client['insurance_code'] ?> </p>
         </div>
     </section>
 

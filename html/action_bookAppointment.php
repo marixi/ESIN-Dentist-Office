@@ -1,8 +1,6 @@
 <?php
-    session_start();
     
-    $dbh = new PDO('sqlite:sql/dentist_office.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    require_once('database/init.php');
 
     if (strlen($_SESSION['time']) == 1) { $time = '0'.$_SESSION['time'].':00'; }
     else { $time = $_SESSION['time'].':00'; }
@@ -25,4 +23,5 @@
     unset($_SESSION['dentistUnavailable']);
 
     header('Location: /client.php#bookApp');
+    
 ?>

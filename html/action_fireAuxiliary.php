@@ -1,10 +1,8 @@
 <?php
-    session_start();
+    
+    require_once('database/init.php');
 
     $id_to_fire = $_POST['who'];
-
-    $dbh = new PDO('sqlite:sql/dentist_office.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
     try {
         $stmt = $dbh->prepare('DELETE FROM person WHERE id = ?');
@@ -32,4 +30,5 @@
 
     $_SESSION['final_msg'] = "Employee fired successfully!";
     header('Location: \manageTeam.php#fire');
+    
 ?>

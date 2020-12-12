@@ -1,22 +1,14 @@
 <?php
-    session_start();
+    
+    require_once('database/init.php');
+    require_once('database/dentist.php');
+    require_once('database/dentalAuxiliary.php');
 
-    $dbh = new PDO('sqlite:sql/dentist_office.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     $id = $_SESSION['id'];
-
-    $stmt1 = $dbh->prepare('SELECT * FROM person 
-                            JOIN employee USING (id) 
-                            JOIN dentist USING (id) 
-                            WHERE id = ?');
-    $stmt1->execute(array($id));   
-    $row = $stmt1->fetch();
-
-    $stmt2 = $dbh->prepare('SELECT id, name FROM person 
-                            JOIN employee USING (id) 
-                            JOIN dentalAuxiliary USING (id)');
-    $stmt2->execute();   
-    $auxiliaries = $stmt2->fetchAll();
+ 
+    $dentist = getDentistInfo($id);
+  
+    $auxiliaries = getAllAuxiliaries();
 ?>
 
 <!DOCTYPE html>
@@ -55,12 +47,12 @@
     <!-- Section to display the information about the dentist -->
     <h1 id="profileTitle"> Dentist </h1>
     <section id="profileInfo">
-        <img src="images/<?php echo $row['username'] ?>.jpg" alt="Dr.<?php echo $row['name'] ?>">
+        <img src="images/<?php echo $dentist['username'] ?>.jpg" alt="Dr.<?php echo $dentist['name'] ?>">
         <div id="info">
-            <p> <strong> Name: </strong> <?php echo $row['name'] ?> </p>
-            <p> <strong> Address: </strong> <?php echo $row['address'] ?> </p>
-            <p> <strong> Phone Number: </strong> <?php echo $row['phone_number'] ?> </p>
-            <p> <strong> Date of Admission: </strong> <?php echo $row['date_of_admission'] ?> </p>
+            <p> <strong> Name: </strong> <?php echo $dentist['name'] ?> </p>
+            <p> <strong> Address: </strong> <?php echo $dentist['address'] ?> </p>
+            <p> <strong> Phone Number: </strong> <?php echo $dentist['phone_number'] ?> </p>
+            <p> <strong> Date of Admission: </strong> <?php echo $dentist['date_of_admission'] ?> </p>
         </div>
     </section>
 

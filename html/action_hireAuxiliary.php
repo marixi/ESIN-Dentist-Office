@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    
+    require_once('database/init.php');
+    require_once('database/person.php');
 
     $_SESSION['name'] = $_POST['name'];
     $_SESSION['address'] = $_POST['address'];
@@ -10,12 +12,7 @@
     $_SESSION['salary'] = $_POST['salary'];
     $_SESSION['date_of_admission'] = $_POST['date_of_admission'];
 
-    $dbh = new PDO('sqlite:sql/dentist_office.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-    $stmt = $dbh->prepare('SELECT username FROM person WHERE username = ?');
-    $stmt->execute(array($_SESSION['username']));
-    $nonUnique = $stmt->fetch();
+    $nonUnique = getPersonUsernameId()
 
     if (substr($_SESSION['phone_number'], 0, 1) != '+') {
         $_SESSION['error_num_msg'] = "Please use +351 (for example) in the beginning of the phone number!";

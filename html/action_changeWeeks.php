@@ -1,4 +1,5 @@
 <?php
+
     session_start();
 
     $year = intval(substr($_SESSION['choice'], 0, 4));
@@ -28,4 +29,5 @@
     }
 
     header('Location: \action_decideProfile.php#Schedule');
+    
 ?>

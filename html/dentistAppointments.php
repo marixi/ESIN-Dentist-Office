@@ -1,36 +1,19 @@
 <?php
-    session_start();
 
-    $dbh = new PDO('sqlite:sql/dentist_office.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    require_once('database/init.php');
+    require_once('database/dentist.php');
+    require_once('database/appointment.php');
+    require_once('database/record.php');
+
     $id = $_SESSION['id'];
 
-    $stmt1 = $dbh->prepare('SELECT * FROM person
-                            JOIN employee USING (id) 
-                            WHERE id = ?');
-    $stmt1->execute(array($id));
-    $row = $stmt1->fetch();
+    $dentist = getDentistInfo($id);
 
-    $stmt2 = $dbh->prepare('SELECT * FROM appointment
-                            JOIN person ON client_id=person.id
-                            JOIN servicePerformed ON appointment_id=app_id
-                            WHERE dentist_id = ?
-                            ORDER BY app_id DESC');
-    $stmt2->execute(array($id));
-    $result = $stmt2->fetchAll();
+    $result = getCompletePastDentistAppointments($id);
 
-    $stmt3 = $dbh->prepare('SELECT * FROM record
-                            JOIN appointment ON appointment_id=app_id
-                            WHERE dentist_id = ?');
-    $stmt3->execute(array($id));
-    $record = $stmt3->fetchAll();
+    $record = getRecordFromAppointmentsForDentist($id);
 
-    $stmt4 = $dbh->prepare('SELECT * FROM appointment
-                            JOIN person ON client_id=person.id
-                            WHERE dentist_id = ?
-                            ORDER BY app_id ASC');
-    $stmt4->execute(array($id));
-    $future = $stmt4->fetchAll();
+    $future = getCompleteFutureDentistAppointments($id)
 ?>
 
 
@@ -68,12 +51,12 @@
     <!-- Section to display the information about the dentist -->
     <h1 id="profileTitle"> Dentist </h1>
     <section id="profileInfo">
-        <img src="images/<?php echo $row['username'] ?>.jpg" alt="<?php echo $row['name'] ?>">
+        <img src="images/<?php echo $dentist['username'] ?>.jpg" alt="<?php echo $dentist['name'] ?>">
         <div id="info">
-            <p> <strong> Name: </strong> <?php echo $row['name'] ?> </p>
-            <p> <strong> Address: </strong> <?php echo $row['address'] ?> </p>
-            <p> <strong> Phone Number: </strong> <?php echo $row['phone_number'] ?> </p>
-            <p> <strong> Date of Admission: </strong> <?php echo $row['date_of_admission'] ?> </p>      
+            <p> <strong> Name: </strong> <?php echo $dentist['name'] ?> </p>
+            <p> <strong> Address: </strong> <?php echo $dentist['address'] ?> </p>
+            <p> <strong> Phone Number: </strong> <?php echo $dentist['phone_number'] ?> </p>
+            <p> <strong> Date of Admission: </strong> <?php echo $dentist['date_of_admission'] ?> </p>      
         </div>    
     </section>
 
