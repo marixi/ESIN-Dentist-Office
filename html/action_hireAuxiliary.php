@@ -2,6 +2,7 @@
     
     require_once('database/init.php');
     require_once('database/person.php');
+    require_once('database/dentalAuxiliary.php');
 
     $_SESSION['name'] = $_POST['name'];
     $_SESSION['address'] = $_POST['address'];
@@ -43,28 +44,23 @@
     } else {
 
         try {
-            $stmt1 = $dbh->prepare('INSERT INTO person (name, address, phone_number, username, password) VALUES (?, ?, ?, ?, ?)');
-            $stmt1->execute(array($_SESSION['name'], $_SESSION['address'], $_SESSION['phone_number'], $_SESSION['username'], $_SESSION['password']));
+            insertIntoPerson($_SESSION['name'], $_SESSION['address'], $_SESSION['phone_number'], $_SESSION['username'], $_SESSION['password']);
         } catch (Exception $e) {
             $_SESSION['msg'] = "Something went wrong! Please try again.";
             header('Location: \manageTeam.php#hire');  
         }
 
-        $stmt2 = $dbh->prepare('SELECT id FROM person WHERE username = ?');
-        $stmt2->execute(array($_SESSION['username']));
-        $id = $stmt2->fetch();
+        $id = getPersonId($_SESSION['username'];
 
         try {
-            $stmt3 = $dbh->prepare('INSERT INTO employee (id, salary, date_of_admission) VALUES (?, ?, ?)');
-            $stmt3->execute(array($id['id'], $_SESSION['salary'], $_SESSION['date_of_admission']));
+            insertIntoEmployee($id['id'], $_SESSION['salary'], $_SESSION['date_of_admission']);
         } catch (Exception $e) {
             $_SESSION['msg'] = "Something went wrong! Please try again.";
             header('Location: \manageTeam.php#hire');  
         }
 
         try {
-            $stmt4 = $dbh->prepare('INSERT INTO dentalAuxiliary (id) VALUES (?)');
-            $stmt4->execute(array($id['id']));
+            insertIntoAuxiliary($id['id']);
         } catch (Exception $e) {
             $_SESSION['msg'] = "Something went wrong! Please try again.";
             header('Location: \manageTeam.php#hire');  

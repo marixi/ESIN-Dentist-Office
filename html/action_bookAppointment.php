@@ -1,6 +1,7 @@
 <?php
     
     require_once('database/init.php');
+    require_once('database/appointment.php');
 
     if (strlen($_SESSION['time']) == 1) { $time = '0'.$_SESSION['time'].':00'; }
     else { $time = $_SESSION['time'].':00'; }
@@ -10,9 +11,8 @@
     $year = substr($_SESSION['date'], 0, 4);
     $date = $day.'-'.$month.'-'.$year;
 
-    $stmt = $dbh->prepare('INSERT INTO appointment (date, time, room, client_id, dentist_id, specialty) VALUES (?, ?, ?, ?, ?, ?)');
     try {
-        $stmt->execute(array($date, $time, $_POST['dentist'], $_SESSION['id'], $_POST['dentist'], $_POST['specialty']));
+        addNewAppointment($date, $time, $_POST['dentist'], $_SESSION['id'], $_POST['dentist'], $_POST['specialty']);
         $_SESSION['msg'] = "Appointment booked successfully!";
     } catch (Exception $e) {
         $_SESSION['msg'] = "Something went wrong! Please try again.";

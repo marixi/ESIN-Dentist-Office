@@ -57,4 +57,10 @@
         return $stmt->fetchAll();
     }
 
+    function addNewAppointment($date, $time, $dentist, $id, $room, $specialty) {
+        global $dbh;
+        $stmt = $dbh->prepare('INSERT INTO appointment (date, time, room, client_id, dentist_id, specialty) VALUES (?, ?, ?, ?, ?, ?)');
+        $stmt->execute(array($date, $time, $dentist, $id, $room, $specialty));
+    }
+
 ?>

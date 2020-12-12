@@ -19,4 +19,17 @@
         return $stmt->fetchAll();
     }
 
+    function deleteDentalAuxiliary($id) {
+        global $dbh;
+        $stmt = $dbh->prepare('DELETE FROM dentalAuxiliary WHERE id = ?');
+        $stmt->execute(array($id));
+    }
+
+    function insertIntoAuxiliary($id) {
+        global $dbh;
+        $stmt = $dbh->prepare('INSERT INTO dentalAuxiliary (id) VALUES (?)');
+        $stmt->execute(array($id));
+    }
+
+
 ?>

@@ -1,28 +1,26 @@
 <?php
     
     require_once('database/init.php');
+    require_once('database/person.php');
 
     $id_to_fire = $_POST['who'];
 
     try {
-        $stmt = $dbh->prepare('DELETE FROM person WHERE id = ?');
-        $stmt->execute(array($id_to_fire));
+        deletePerson($id_to_fire);
     } catch (Exception $e) {
         $_SESSION['msg'] = "Something went wrong! Please try again.";
         header('Location: \manageTeam.php#fire');  
     }
 
     try {
-        $stmt1 = $dbh->prepare('DELETE FROM employee WHERE id = ?');
-        $stmt1->execute(array($id_to_fire));
+        deleteEmployee($id_to_fire);
     } catch (Exception $e) {
         $_SESSION['msg'] = "Something went wrong! Please try again.";
         header('Location: \manageTeam.php#fire');  
     }
 
     try {
-        $stmt2 = $dbh->prepare('DELETE FROM dentalAuxiliary WHERE id = ?');
-        $stmt2->execute(array($id_to_fire));
+        deleteDentalAuxiliary($id_to_fire);
     } catch (Exception $e) {
         $_SESSION['msg'] = "Something went wrong! Please try again.";
         header('Location: \manageTeam.php#fire');  
