@@ -14,4 +14,10 @@
         return $stmt->fetchAll();
     }
 
+    function updateServicePerformed($procedure, $id_to_change) {
+        global $dbh;
+        $stmt = $dbh->prepare('UPDATE servicedPerformed SET procedure = ? WHERE appointment_id = ?');
+        $stmt->execute($procedure, $id_to_change);
+    }
+
 ?>
