@@ -114,14 +114,4 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <ul class="breadcrumb">
-            <li>Home</li>
-        </ul>
-        <p>&copy; Denticare Clinique, 2020</p>
-    </footer>
-
-</body>
-
-</html>
+    <?php require_once('templates/footer_tpl.php'); ?>

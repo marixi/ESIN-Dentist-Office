@@ -70,16 +70,4 @@
             ?>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <ul class="breadcrumb">
-            <li><a href='index.php'>Home</a></li>
-            <li><a href='dentist.php'>Profile</a></li>
-            <li>Manage Team</li>
-        </ul>
-        <p>&copy; Denticare Clinique, 2020</p>
-    </footer>
-
-</body>
-
-</html>
+    <?php require_once('templates/footer_tpl.php'); ?>    

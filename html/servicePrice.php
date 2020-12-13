@@ -21,15 +21,4 @@
         <?php } ?>
     </table> 
     
-    <!-- Footer -->
-    <footer>
-        <ul class="breadcrumb">
-            <li><a href="index.php">Home</a></li>
-            <li>Price List</li>
-        </ul>
-        <p>&copy; Denticare Clinique, 2020</p>
-    </footer>
-
-</body>
-
-</html>
+    <?php require_once('templates/footer_tpl.php'); ?>

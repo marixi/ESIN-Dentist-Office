@@ -19,9 +19,9 @@
                 $week = substr($_SESSION['choice'], 6, 2);
 
                 if ($_SESSION['choice'] == date('Y') . '-W' . date('W')) { ?>
-                    <h1 id="tableTitle"> Current Week </h1> 
+                    <h1 id="scheduleTitle"> Current Week </h1> 
                 <?php } else { ?>
-                    <h1 id="tableTitle"> Week <?php echo $week ?> </h1> 
+                    <h1 id="scheduleTitle"> Week <?php echo $week ?> </h1> 
                 <?php }
             ?>
             <input type="submit" name="interval" value=">">
