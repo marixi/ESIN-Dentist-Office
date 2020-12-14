@@ -1,17 +1,18 @@
 <?php
     
     require_once('database/init.php');
-    // require_once('database/dentalAuxiliary.php');
+    require_once('database/dentalAuxiliary.php');
     require_once('database/client.php');
 
     $id = $_SESSION['id'];
-
+    $auxiliary = getAuxiliaryInfo($id);
     $clients = getClients();
     require_once('templates/dental_auxiliary_header_tpl.html');
+    require_once('templates/dental_auxiliary_info_tpl.php');
 ?>
 
     <!-- Section to manage the clients -->
-    <h2 id = "client_mng"> Manage Clients </h2>
+    <h2 id = "client_mng"> Client Management </h2>
     <section id="manage">
         <form action="manage_clients.php#client_mng" method="post">
             <label> Select whether you want to add or remove a client </label>
@@ -25,25 +26,25 @@
                 <br>
                 <section id="add_client">
                 <form action="action_add_client.php" method="post">
-                    <label> Name: </label>
+                    <label> <?php $label=str_pad("Name:",15," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="name" value="<?php if(isset($_SESSION['name'])) { echo $_SESSION['name']; }?>" required>
-                    <br> <label> Address: </label>
+                    <br> <label>  <?php $label=str_pad("Address:",15," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="address" value="<?php if(isset($_SESSION['address'])) { echo $_SESSION['address']; }?>" required> </br>
-                    <br> <label> Phone Number: </label>
+                    <br> <label> <?php $label=str_pad("Phone_Number:",15," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="phone_number" value="<?php if(isset($_SESSION['phone_number'])) { echo $_SESSION['phone_number']; } else { ?>+351********* <?php } ?>" required> </br>
                     <br> <?php if(isset($_SESSION['error_num_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_num_msg']; ; unset($_SESSION['error_num_msg']) ?> </p> <?php } ?>
-                    <br> <label> Date of Birth: </label>
+                    <br> <label> <?php $label=str_pad("Date of birth:",15," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="date_of_birth" value=<?php if(isset($_SESSION['date_of_birth'])) { echo $_SESSION['date_of_birth']; } else {echo date('d').'-'.date('m').'-'.date('Y');} ?> > </br>
                     <br> <?php if(isset($_SESSION['msg'])) { ?> <p id="err"> <?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?> </p> <?php } ?>
-                    <br> <label> Tax Number: </label>
+                    <br> <label> <?php $label=str_pad("Tax Number:",15," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="number" name="tax_number" value="<?php if(isset($_SESSION['tax_number'])) { echo $_SESSION['tax_number']; }?>" > </br>
                     <br> <?php if(isset($_SESSION['msg'])) { ?> <p id="err"> <?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?> </p> <?php } ?>
-                    <label> Insurance Code: </label>
+                    <label> <?php $label=str_pad("Insurance Code:",15," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="insurance_code" value="<?php if(isset($_SESSION['insurance_code'])) { echo $_SESSION['insurance_code']; }?>">
-                    <br> <label> Username: </label>
+                    <br> <label> <?php $label=str_pad("Username:",15," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="username" value="<?php if(isset($_SESSION['username'])) { echo $_SESSION['username']; }?>" required> </br>
                     <br> <?php if(isset($_SESSION['error_user_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_user_msg']; unset($_SESSION['error_user_msg']); ?> </p> <?php } ?>
-                    <label> Password: </label>
+                    <label> <?php $label=str_pad("Password:",15," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="password" name="password" value="<?php if(isset($_SESSION['password'])) { echo $_SESSION['password']; }?>" required> </br>
                     <?php if(isset($_SESSION['error_pass_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_pass_msg']; unset($_SESSION['error_pass_msg']); ?> </p> <?php } ?>
                     <p> Give random password! The client may change it in his login page. </p>
