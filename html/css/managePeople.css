@@ -2,8 +2,8 @@ h2 {
     font-size: 200%;
     font-weight: normal;
     padding: 0;
-    margin-left: 42%;
-    margin-right: 42%;
+    margin-left: 40%;
+    margin-right: 40%;
     margin-bottom: 3%;
     text-align: center;
     background: rgba(255, 255, 255, 0);
@@ -13,7 +13,7 @@ h2 {
 }
 
 #manage>form:first-of-type {
-    font-size: 1.5em;
+    font-size: 150%;
     text-align: center;
     margin-bottom: 2em;
 }
@@ -45,12 +45,15 @@ h2 {
 
 #hire, #add_client {
     background-color: rgb(243, 241, 241);
-    margin-left: 30em;
-    margin-right: 30em;
+    margin-left: 30%;
+    margin-right: 30%;
     border: 2px solid black;
-    text-align: justify;
     height: 48em;
     margin-bottom: 5%;
+    
+}
+
+#add_client{
     padding-bottom: 2%;
 }
 

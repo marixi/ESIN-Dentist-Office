@@ -1,17 +1,18 @@
 <?php
     
     require_once('database/init.php');
-    // require_once('database/dentalAuxiliary.php');
+    require_once('database/dentalAuxiliary.php');
     require_once('database/client.php');
 
     $id = $_SESSION['id'];
-
+    $auxiliary = getAuxiliaryInfo($id);
     $clients = getClients();
     require_once('templates/dental_auxiliary_header_tpl.html');
+    require_once('templates/dental_auxiliary_info_tpl.php');
 ?>
 
     <!-- Section to manage the clients -->
-    <h2 id = "client_mng"> Manage Clients </h2>
+    <h2 id = "client_mng"> Client Management </h2>
     <section id="manage">
         <form action="manage_clients.php#client_mng" method="post">
             <label> Select whether you want to add or remove a client </label>
