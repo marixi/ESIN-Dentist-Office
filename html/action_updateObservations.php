@@ -9,4 +9,5 @@
     updateRecord($observations, $id_to_change);
 
     header('Location: dentistAppointments.php');
+    
 ?>

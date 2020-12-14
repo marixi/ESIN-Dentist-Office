@@ -34,3 +34,10 @@ SELECT * FROM appointment
 JOIN dentist ON dentist_id=dentist.id
 WHERE client_id = 11
 ORDER BY app_id ASC;*/
+
+SELECT * FROM servicePerformed;
+
+DELETE FROM servicePerformed
+WHERE appointment_id=27;
+
+SELECT * FROM servicePerformed;

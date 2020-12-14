@@ -27,7 +27,6 @@
                             ORDER BY app_id DESC');
         $stmt->execute(array($id));
         return $stmt->fetchAll();
-
     }
 
     function getCompleteFutureDentistAppointments($id) {
@@ -38,6 +37,14 @@
                             ORDER BY app_id ASC');
         $stmt->execute(array($id));
         return $stmt->fetchAll();
+    }
+
+    function checkServicePerfomed($app_id) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT procedure FROM servicePerformed WHERE appointment_id = ?');
+        $stmt->execute(array($app_id));
+        if ($services = $stmt->fetch()) { return true; }
+        else { return false; }
     }
 
     function getLastAppointment() {
@@ -57,10 +64,23 @@
         return $stmt->fetchAll();
     }
 
+    function getAppointmentId($client, $date) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT id FROM appointment
+                                JOIN person ON client_id=person.id
+                                WHERE client_id = ? AND date = ?;');
+        $stmt->execute(array($client, $date));
+        return $stmt->fetch();
+    }
+
     function addNewAppointment($date, $time, $dentist, $id, $room, $specialty) {
         global $dbh;
         $stmt = $dbh->prepare('INSERT INTO appointment (date, time, room, client_id, dentist_id, specialty) VALUES (?, ?, ?, ?, ?, ?)');
         $stmt->execute(array($date, $time, $dentist, $id, $room, $specialty));
+
+        $app_id = getAppointmentId($id, $date);
+        $stmt = $dbh->prepare('INSERT INTO record (client_id, appointment_id, observations) VALUES (?, ?, NULL)');
+        $stmt->execute(array($id, $app_id));
     }
 
 ?>
