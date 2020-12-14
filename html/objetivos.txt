@@ -8,11 +8,10 @@ Eu acho que o plano de trabalhos geral é:
 - botao de levantar tudo para cima
 - botao de alteracoa de dados do profile
 - fazer a base de dados final
-- mostrar os materiais utilizdos no serviço
 - css responsive
 - css fire
 - try catches para tudinho (login, appointment, schedules)
-- value do salary nao grava
+- value do salary nao grava no form
 - tentar implementar o autofocus no hire para nao ter de estar sempre a carregar no botao
 (session variable para ver se ja clicou alguma vez?? idk)
 - fire: username + name
