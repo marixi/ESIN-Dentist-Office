@@ -20,4 +20,13 @@
         $stmt->execute(array($procedure, $id_to_change));
     }
 
+    function getServicePerformed($app_id) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM servicePerformed
+                                JOIN service ON procedure=procedure_name
+                                WHERE appointment_id = ?;');
+        $stmt->execute(array($app_id));
+        return $stmt->fetch();
+    }
+
 ?>

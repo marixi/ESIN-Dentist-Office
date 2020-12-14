@@ -55,7 +55,6 @@
                             <li> <strong> Specialty: </strong> <?php echo $app['specialty'] ?> </li>
                         </ul>
                         <?php $services = getServiceOfSpecialty($app['specialty']); ?> 
-                        <?php print_r($services) ?>
                         <form action="action_updateObservationsAndService.php" method="post">
                             <p><strong> Service Performed: </strong></p>
                             <select name="procedure">

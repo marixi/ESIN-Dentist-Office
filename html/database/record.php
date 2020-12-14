@@ -9,17 +9,14 @@
         return $stmt->fetchAll();
     }
     
-    function getRecordFromAppointmentsForClient($id) {
+    function getRecordFromAppointmentsForClient($client_id, $app_id) {
         global $dbh;
-        $stmt = $dbh->prepare('SELECT * FROM record
+        $stmt = $dbh->prepare('SELECT observations FROM record
                                 JOIN appointment ON record.appointment_id=app_id
-                                JOIN person ON dentist_id=person.id
-                                JOIN servicePerformed ON record.appointment_id=servicePerformed.appointment_id
-                                JOIN service ON procedure=procedure_name
-                                WHERE record.client_id = ?
+                                WHERE record.client_id = ? AND record.appointment_id = ?
                                 ORDER BY date, time DESC;');
-        $stmt->execute(array($id));
-        return $stmt->fetchAll();
+        $stmt->execute(array($client_id, $app_id));
+        return $stmt->fetch();
     }
 
     function updateRecord($observations, $id_to_change) {

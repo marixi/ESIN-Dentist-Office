@@ -35,9 +35,14 @@ JOIN dentist ON dentist_id=dentist.id
 WHERE client_id = 11
 ORDER BY app_id ASC;*/
 
-SELECT * FROM servicePerformed;
+/*SELECT * FROM record WHERE appointment_id = 27;
 
 DELETE FROM servicePerformed
 WHERE appointment_id=27;
 
-SELECT * FROM servicePerformed;
+SELECT * FROM servicePerformed;*/
+
+SELECT * FROM appointment
+JOIN person ON dentist_id=person.id
+WHERE client_id = 11
+ORDER BY date DESC;
