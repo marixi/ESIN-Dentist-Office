@@ -24,7 +24,7 @@
                             JOIN person ON client_id=person.id
                             JOIN servicePerformed ON appointment_id=app_id
                             WHERE dentist_id = ?
-                            ORDER BY date DESC, time DESC;');
+                            ORDER BY app_id DESC;');
         $stmt->execute(array($id));
         return $stmt->fetchAll();
     }
@@ -59,7 +59,7 @@
         $stmt = $dbh->prepare('SELECT * FROM appointment
                                 JOIN person ON dentist_id=person.id
                                 WHERE client_id = ?
-                                ORDER BY date DESC, time DESC;');
+                                ORDER BY app_id DESC;');
         $stmt->execute(array($id));
         return $stmt->fetchAll();
     }
