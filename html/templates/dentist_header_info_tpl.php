@@ -26,7 +26,7 @@
                 <li><a href='dentist.php' title="Profile"> Profile </a></li>
                 <li><a href='dentist.php#Schedule' title="Schedule"> Schedule </a></li>
                 <li><a href='dentistAppointments.php' title="Appointments"> Appointments </a></li>
-                <li><a href='manageTeam.php' title="Manage Team"> Manage Team </a></li>
+                <li><a href='manageTeam.php#team_mng' title="Manage Team"> Manage Team </a></li>
                 <li><a href='action_logout.php' title="Log Out"> Logout </a></li>
             </ul>
         </nav>

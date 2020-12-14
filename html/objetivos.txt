@@ -16,8 +16,10 @@ Eu acho que o plano de trabalhos geral é:
 (session variable para ver se ja clicou alguma vez?? idk)
 - fire: username + name
 - final validation of html/php and css
+- adicionar fotos para os clientes
 
 super xtra:
+fazer pags com a lista de todos os auxiliares/clients e respetivos dados (anchored às respetivas manage pages)
 fontes
 cores
 transitions nos butoes (hover)

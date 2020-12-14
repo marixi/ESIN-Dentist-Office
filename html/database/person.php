@@ -45,4 +45,5 @@
         $stmt->execute(array($id, $salary, $date_of_admission));
     }
 
+    
 ?>
