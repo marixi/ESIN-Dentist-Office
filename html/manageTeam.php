@@ -11,6 +11,13 @@
     $auxiliaries = getAllAuxiliaries();
 
     require_once('templates/dentist_header_info_tpl.php');
+
+    function generateRandomPassword($length) {
+        $word = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9, 1));
+        shuffle($word);
+        return substr(implode($word), 0, $length);
+    }
+
 ?>
 
     <!-- Section to manage the auxiliaries -->
@@ -39,9 +46,9 @@
                     <input type="text" name="username" value="<?php if(isset($_SESSION['username'])) { echo $_SESSION['username']; }?>" required> </br>
                     <br> <?php if(isset($_SESSION['error_user_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_user_msg']; unset($_SESSION['error_user_msg']); ?> </p> <?php } ?>
                     <label> Password: </label>
-                    <input type="password" name="password" value="<?php if(isset($_SESSION['password'])) { echo $_SESSION['password']; }?>" required> </br>
+                    <input type="text" name="password" value="<?php if(isset($_SESSION['password'])) { echo $_SESSION['password']; } else { echo generateRandomPassword(10); } ?>" required> </br>
                     <?php if(isset($_SESSION['error_pass_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_pass_msg']; unset($_SESSION['error_pass_msg']); ?> </p> <?php } ?>
-                    <p> Give random password! The employee may change it in his login page. </p>
+                    <p> This is a random password! The employee may change it in his login page. </p>
                     <br> <label> Salary: </label>
                     <input type="number" name="salary" min="0" max="2000" value="<?php if(isset($_SESSION['salary'])) { echo $_SESSION['salary']; } else{ echo "1000";}?>" step="100"> </br>
                     <br> <label> Date of Admission: </label>
@@ -56,13 +63,12 @@
              if (isset($_POST['fire'])) { ?>
                 <section id="fire">
                 <form action="action_fireAuxiliary.php" method="post">
-                     <label> Employee: </label> <!--option group com o nome e o id como subcategoria(option) -->
+                    <label> Employee: </label>
                     <select name="who" required="required">
                     <?php foreach ($auxiliaries as $auxiliary) { ?>
-                        <option value="<?php echo $auxiliary['id']?>"> <?php echo $auxiliary['name']?> </option>
+                        <option value="<?php echo $auxiliary['id']?>"> <?php echo $auxiliary['name']?>, @<?php echo $auxiliary['username']?> </option>
                     <?php } ?>
                     </select>
-
 
                     <?php if(isset($_SESSION['msg'])) { ?> <p id="err"> <?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?> </p> <?php } ?>
                     <input id="submit" type="submit" value="Submit">

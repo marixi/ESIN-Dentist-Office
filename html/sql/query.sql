@@ -42,7 +42,11 @@ WHERE appointment_id=27;
 
 SELECT * FROM servicePerformed;*/
 
-SELECT * FROM appointment
+/*SELECT * FROM appointment
 JOIN person ON dentist_id=person.id
 WHERE client_id = 11
-ORDER BY date DESC;
+ORDER BY date DESC;*/
+
+
+
+SELECT * FROM person;

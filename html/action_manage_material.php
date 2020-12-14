@@ -8,8 +8,6 @@
         $service = $_POST['service'];
         $quantities = getQuantitiesOfService($service);
         foreach ($quantities as $row) {
-            $row['material_name'];
-            $row['quantity_needed'];
             update_material('remove', $row['material_name'], $row['quantity_needed']);
         }
     } else if (isset($_POST['material_rem']) && isset($_POST['qtty_rem'])) {

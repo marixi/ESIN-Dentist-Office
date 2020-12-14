@@ -7,8 +7,15 @@
     $id = $_SESSION['id'];
     $auxiliary = getAuxiliaryInfo($id);
     $clients = getClients();
+
     require_once('templates/dental_auxiliary_header_tpl.html');
     require_once('templates/dental_auxiliary_info_tpl.php');
+
+    function generateRandomPassword($length) {
+        $word = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9, 1));
+        shuffle($word);
+        return substr(implode($word), 0, $length);
+    }
 ?>
 
     <!-- Section to manage the clients -->
@@ -45,13 +52,13 @@
                     <input type="text" name="username" value="<?php if(isset($_SESSION['username'])) { echo $_SESSION['username']; }?>" required> </br>
                     <br> <?php if(isset($_SESSION['error_user_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_user_msg']; unset($_SESSION['error_user_msg']); ?> </p> <?php } ?>
                     <label> <?php $label=str_pad("Password:",15," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
-                    <input type="password" name="password" value="<?php if(isset($_SESSION['password'])) { echo $_SESSION['password']; }?>" required> </br>
+                    <input type="text" name="password" value="<?php if(isset($_SESSION['password'])) { echo $_SESSION['password']; } else { echo generateRandomPassword(10); } ?>" required> </br>
                     <?php if(isset($_SESSION['error_pass_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_pass_msg']; unset($_SESSION['error_pass_msg']); ?> </p> <?php } ?>
-                    <p> Give random password! The client may change it in his login page. </p>
+                    <p> This is a random password! The client may change it in his login page. </p>
                     <input id="submit" type="submit" value="Submit"> </br>      
                 </form>
             </section>
-                </br>
+            </br>
             <?php }
              if(isset($_SESSION['final_msg'])) { ?> <p id="final"> <?php echo $_SESSION['final_msg']; unset($_SESSION['final_msg']); ?> </p> <?php }
              if (isset($_POST['remove_client'])) { ?>
@@ -60,7 +67,7 @@
                     <label> Client: </label>
                     <select name="who" required="required">
                     <?php foreach ($clients as $client) { ?>
-                        <option value="<?php echo $client['id']?>"> <?php echo $client['name']?> </option>
+                        <option value="<?php echo $client['id']?>"> <?php echo $client['name']?>, @<?php echo $client['username']; ?> </option>
                     <?php } ?>
                     </select>
                     <?php if(isset($_SESSION['msg'])) { ?> <p id="err"> <?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?> </p> <?php } ?>

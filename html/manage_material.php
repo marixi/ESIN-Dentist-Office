@@ -16,8 +16,6 @@
 
     <!-- Table to display the stock of material still available -->
     <h1 id="stock"> Available Stock </h1>
-    <?php
-    ?>
 
     <table>
         <tr>
@@ -35,9 +33,8 @@
 
     <h1 id="manage_title"> Manage Material </h1>
 
-
     <form action="/action_manage_material.php" id="service_applied" method="post">
-        <label>Service performed to withdraw the predifined material from stock:</label><br>
+        <label> Service performed to withdraw the predifined material from stock: </label><br>
         <select name="service" id="service_mat" value="Services">
             <option hidden disabled selected value>------------ select a service ------------ </option>
             <?php 
@@ -50,18 +47,17 @@
                     }
                 } ?>
         </select>
-        
         <input type="submit" value="Checkout service material">
     </form>
     
-        <p id='mat_per_serv'>To check the materials that each service takes, <a href="material_per_service.php"> click here.</a> </p>
+    <p id='mat_per_serv'>To check the materials that each service takes, <a href="material_per_service.php"> click here.</a> </p>
 
+    <?php if (isset($_SESSION['mat_error'])) ?> <p id="err"> <?php { echo $_SESSION['mat_error']; UNSET($_SESSION['mat_error']); } ?>
     
     <div id="management">
 
         <h2>Withdrawal</h2>
         <h2>Insert</h2>
-
 
         <form action="/action_manage_material.php" id="remove_from_stock" method="post">
             <p>Extra material to remove:</p>
@@ -72,7 +68,6 @@
                 <?php } ?>
             </select>
             <input type="number" name="qtty_rem" id="qty_remove" min="0">
-
         </form>
 
         <button type="submit" value="Remove" id="remove_mat" form="remove_from_stock">Remove</button>

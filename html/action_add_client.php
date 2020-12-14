@@ -22,8 +22,10 @@
     } else if (strlen($_SESSION['phone_number']) != 13) {
         $_SESSION['error_num_msg'] = "The phone number doesn't exist!";
         header('Location: \manage_clients.php#add_client'); 
-    }
-    else if (!ctype_digit($testNumber)) {
+    } else if (ctype_space($_SESSION['username']) == true) {
+        $_SESSION['error_user_msg'] = "Invalid username!";
+        header('Location: \manage_clients.php#add_client');
+    } else if (!ctype_digit($testNumber)) {
         $_SESSION['error_num_msg'] = "The phone number is invalid!";
         header('Location: \manage_clients.php#add_client'); 
     } else if (strlen($_SESSION['username']) == 0) {
@@ -43,7 +45,6 @@
         $_SESSION['error_pass_msg'] = "The password must contain a number!";
         header('Location: \manage_clients.php#add_client');  
     } else {
-
         
         try {
             insertIntoPerson($_SESSION['name'], $_SESSION['address'], $_SESSION['phone_number'], $_SESSION['username'], $_SESSION['password']);
@@ -70,9 +71,7 @@
         unset($_SESSION['tax_number']);
         unset($_SESSION['insurance_code']);
         unset($_SESSION['username']);
-        unset($_SESSION['password']);
-        
-        
+        unset($_SESSION['password']);        
 
         header('Location: \manage_clients.php#client_mng');
     }

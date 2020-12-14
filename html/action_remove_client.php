@@ -12,7 +12,7 @@
         $_SESSION['msg'] = "Something went wrong! Please try again.";
         header('Location: \manage_clients.php#remove_client');  
     }
-
+    
     try {
         deleteClient($id_to_fire);
     } catch (Exception $e) {

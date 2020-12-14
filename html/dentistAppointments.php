@@ -5,6 +5,7 @@
     require_once('database/appointment.php');
     require_once('database/record.php');
     require_once('database/service.php');
+    require_once('database/auxiliariesAssigned.php');
 
     $id = $_SESSION['id'];
 
@@ -33,6 +34,23 @@
                             <li> <strong> Date: </strong> <?php echo $app['date'] ?> </li> 
                             <li> <strong> Time: </strong> <?php echo $app['time'] ?> </li> 
                             <li> <strong> Specialty: </strong> <?php echo $app['specialty'] ?> </li>
+                            <li> <strong> Auxiliary Assigned: </strong> 
+                                <form action="action_assignAuxiliary.php" method="post">
+                                    <select name="auxiliary">
+                                    <?php
+                                        $auxiliaries = getAuxiliaryAssignedForAppointment($id, $app['app_id']);
+                                        if ($auxiliaries) {
+                                            
+                                        }
+                                    
+                                    $i = 0; 
+                                    foreach ($services as $ser) { ?>
+                                        <option value=<?php echo $i ?>> <?php echo $ser['procedure_name']?> </option>
+                                        <?php $i = $i + 1;
+                                    } ?>
+                                    </select>
+                                </form>
+                            </li>
                         </ul>
                     </section>
                 <?php }

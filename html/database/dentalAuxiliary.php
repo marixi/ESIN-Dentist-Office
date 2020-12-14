@@ -3,7 +3,7 @@
     function getAuxiliaryInfo($id) {
         global $dbh;
         $stmt = $dbh->prepare('SELECT * FROM person 
-                                JOIN employee USING (id) 
+                                JOIN employee USING (id)
                                 JOIN dentalAuxiliary USING (id) 
                                 WHERE id = ?');
         $stmt->execute(array($id));
@@ -12,7 +12,7 @@
 
     function getAllAuxiliaries() {
         global $dbh;
-        $stmt = $dbh->prepare('SELECT id, name FROM person 
+        $stmt = $dbh->prepare('SELECT id, name, username FROM person 
                                 JOIN employee USING (id) 
                                 JOIN dentalAuxiliary USING (id)');
         $stmt->execute();   

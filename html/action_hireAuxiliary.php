@@ -25,7 +25,7 @@
     else if (!ctype_digit($testNumber)) {
         $_SESSION['error_num_msg'] = "The phone number is invalid!";
         header('Location: \manageTeam.php#hire'); 
-    } else if (strlen($_SESSION['username']) == 0) {
+    } else if (ctype_space($_SESSION['username']) == true) {
         $_SESSION['error_user_msg'] = "Invalid username!";
         header('Location: \manageTeam.php#hire');
     } else if ($nonUnique) {
@@ -42,7 +42,6 @@
         $_SESSION['error_pass_msg'] = "The password must contain a number!";
         header('Location: \manageTeam.php#hire');  
     } else {
-
         
         try {
             insertIntoPerson($_SESSION['name'], $_SESSION['address'], $_SESSION['phone_number'], $_SESSION['username'], $_SESSION['password']);
