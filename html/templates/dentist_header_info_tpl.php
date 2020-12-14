@@ -9,7 +9,7 @@
     <link href="css/layout.css" rel="stylesheet">
     <link href="css/profilePage.css" rel="stylesheet">
     <link href="css/dentistAppointments.css" rel="stylesheet">
-    <link href="css/manageTeam.css" rel="stylesheet">
+    <link href="css/managePeople.css" rel="stylesheet">
     <title> Dentist </title>
 
 </head>
