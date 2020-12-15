@@ -3,6 +3,9 @@
     <section id="profileInfo">
         <img src="images/<?php echo $auxiliary['username'] ?>.jpg" alt="Aux. <?php echo $auxiliary['name'] ?>">
         <div id="info">
+            <form action="dentist.php" method="post" id="edit_profile">
+                <button type="submit" id="edit_button" name="edit" form="edit_profile"><i class="fa fa-edit"></i></button>
+            </form>
             <p> <strong> Name: </strong> <?php echo $auxiliary['name'] ?> </p>
             <p> <strong> Address: </strong> <?php echo $auxiliary['address'] ?> </p>
             <p> <strong> Phone Number: </strong> <?php echo $auxiliary['phone_number'] ?> </p>

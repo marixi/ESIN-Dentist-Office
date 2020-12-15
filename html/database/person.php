@@ -46,10 +46,17 @@
         $stmt->execute(array($name, $address, $phone_number, $username, $password));
     }
 
-    function updatePersonInfo($name, $address, $phone_number, $username, $password) {
+    // function updatePersonInfo($name, $address, $phone_number, $username, $password) {
+    //     global $dbh;
+    //     $stmt = $dbh->prepare('REPLACE INTO person (name, address, phone_number, username, password) VALUES (?, ?, ?, ?, ?)');
+    //     $stmt->execute(array($name, $address, $phone_number, $username, $password));
+    // }
+
+    //query testada e funciona
+    function updateInfo($attribute, $value,$id) {
         global $dbh;
-        $stmt = $dbh->prepare('REPLACE INTO person (name, address, phone_number, username, password) VALUES (?, ?, ?, ?, ?)');
-        $stmt->execute(array($name, $address, $phone_number, $username, $password));
+        $stmt = $dbh->prepare("UPDATE person SET $attribute = '?' WHERE id = ?");
+        $stmt->execute(array($value,$id));
     }
 
     function insertIntoEmployee($id, $salary, $date_of_admission) {

@@ -4,13 +4,27 @@
     require_once('database/person.php');
     require_once('database/dentalAuxiliary.php');
 
+    $id=$_SESSION['id'];
+
+    $changes = array();
+
     $_SESSION['name'] = $_POST['name'];
+    $changes['name'] = $_SESSION['name'];
+
     $_SESSION['address'] = $_POST['address'];
+    $changes['address'] = $_SESSION['address'];
+    
     $_SESSION['phone_number'] = $_POST['phone_number'];
     $testNumber = substr($_SESSION['phone_number'], 1);
+    $changes['phone_number'] = $_SESSION['phone_number'];
+    
     $_SESSION['username'] = $_POST['username'];
-    if(strlen($_POST['password'])!=0)
+    $changes['username'] = $_SESSION['username'];
+    
+    if(strlen($_POST['password'])!=0){
         $_SESSION['password'] = $_POST['password'];
+        $changes['password'] = $_SESSION['password'];
+    }
     else
         $_SESSION['password'] = NULL;
 
@@ -46,8 +60,12 @@
         header('Location: \dentist.php');  
     } else {
         
+
+
         try {
-            updatePersonInfo($_SESSION['name'], $_SESSION['address'], $_SESSION['phone_number'], $_SESSION['username'], $_SESSION['password']);
+            foreach($changes as $key => $value){
+                updateInfo($key, $value,$id);
+            }
         } catch (Exception $e) {
             $_SESSION['msg'] = "Something went wrong! Please try again.";
             header('Location: \dentist.php');  
