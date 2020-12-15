@@ -5,6 +5,7 @@
     require_once('database/appointment.php');
     require_once('database/record.php');
     require_once('database/service.php');
+    require_once('database/dentalAuxiliary.php');
     require_once('database/auxiliariesAssigned.php');
 
     $id = $_SESSION['id'];
@@ -16,6 +17,8 @@
     $record = getRecordFromAppointmentsForDentist($id);
 
     $future = getCompleteFutureDentistAppointments($id);
+
+    $auxiliaries = getAllAuxiliaries();
 
     require_once('templates/dentist_header_info_tpl.php');
 ?>
@@ -35,21 +38,20 @@
                             <li> <strong> Time: </strong> <?php echo $app['time'] ?> </li> 
                             <li> <strong> Specialty: </strong> <?php echo $app['specialty'] ?> </li>
                             <li> <strong> Auxiliary Assigned: </strong> 
-                                <form action="action_assignAuxiliary.php" method="post">
-                                    <select name="auxiliary">
-                                    <?php
-                                        $auxiliaries = getAuxiliaryAssignedForAppointment($id, $app['app_id']);
-                                        if ($auxiliaries) {
-                                            
-                                        }
-                                    
-                                    $i = 0; 
-                                    foreach ($services as $ser) { ?>
-                                        <option value=<?php echo $i ?>> <?php echo $ser['procedure_name']?> </option>
-                                        <?php $i = $i + 1;
-                                    } ?>
-                                    </select>
-                                </form>
+                                <?php $assigned = getAuxiliaryAssignedForAppointment($app['app_id']);
+                                    if ($assigned) {
+                                        echo $assigned['name'];
+                                    } else { ?>
+                                        <form action="action_assignAuxiliary.php" method="post">
+                                        <select name="auxiliary">
+                                            <?php foreach ($auxiliaries as $aux) { ?>
+                                                <option value=<?php echo $aux['id'] ?>> <?php echo $aux['name']?> </option>
+                                            <?php } ?>
+                                        </select>
+                                        <input type="hidden" name="appointment_to_change" value = <?php echo $app['app_id'] ?>>
+                                        <input type="submit" value="Update">
+                                        </form>
+                                    <?php } ?>     
                             </li>
                         </ul>
                     </section>

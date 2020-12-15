@@ -48,5 +48,10 @@ WHERE client_id = 11
 ORDER BY date DESC;*/
 
 
+DELETE FROM auxiliariesAssigned WHERE appointment_id = 29;
 
-SELECT * FROM person;
+SELECT * from auxiliariesAssigned WHERE appointment_id = 29;
+/*
+INSERT INTO auxiliariesAssigned (appointment_id, auxiliary_id) VALUES (29, 5);
+
+SELECT * from auxiliariesAssigned WHERE appointment_id = 29;*/

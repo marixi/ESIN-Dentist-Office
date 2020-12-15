@@ -10,12 +10,19 @@
         return $stmt->fetchAll();
     }
 
-    function getAuxiliaryAssignedForAppointment($id, $app_id) {
+    function getAuxiliaryAssignedForAppointment($app_id) {
         global $dbh;
         $stmt = $dbh->prepare('SELECT * FROM auxiliariesAssigned
-                                WHERE auxiliary_id = ? AND appointment_id = ?');
-        $stmt->execute(array($id, $app_id));
-        return $stmt->fetchAll();
+                                JOIN person ON auxiliary_id=person.id
+                                WHERE appointment_id = ?');
+        $stmt->execute(array($app_id));
+        return $stmt->fetch();
+    }
+
+    function assignAuxiliary($app_id, $auxiliary) {
+        global $dbh;
+        $stmt = $dbh->prepare('INSERT INTO auxiliariesAssigned (appointment_id, auxiliary_id) VALUES (?, ?)');
+        $stmt->execute(array($app_id, $auxiliary));
     }
 
 ?>
