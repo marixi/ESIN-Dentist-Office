@@ -14,6 +14,13 @@
         return $stmt->fetch();
     }
 
+    function getPersonInfo($id) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM person WHERE id = ?');
+        $stmt->execute(array($id));
+        return $stmt->fetch();
+    }
+
     function getPersonPassword($password, $username) {
         global $dbh;
         $stmt = $dbh->prepare('SELECT password FROM person WHERE password = ? AND username = ?');
@@ -36,6 +43,12 @@
     function insertIntoPerson($name, $address, $phone_number, $username, $password) {
         global $dbh;
         $stmt = $dbh->prepare('INSERT INTO person (name, address, phone_number, username, password) VALUES (?, ?, ?, ?, ?)');
+        $stmt->execute(array($name, $address, $phone_number, $username, $password));
+    }
+
+    function updatePersonInfo($name, $address, $phone_number, $username, $password) {
+        global $dbh;
+        $stmt = $dbh->prepare('REPLACE INTO person (name, address, phone_number, username, password) VALUES (?, ?, ?, ?, ?)');
         $stmt->execute(array($name, $address, $phone_number, $username, $password));
     }
 

@@ -38,6 +38,11 @@
     padding-top: 1em;
 }
 
+#edit_profile>#edit_button{
+    width: 15px;
+    height: 20px;
+}
+
 #Schedule>h2 {
     grid-row: 1;
     font-size: 2em;

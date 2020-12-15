@@ -37,9 +37,33 @@
     <section id="profileInfo">
         <img src="images/<?php echo $dentist['username'] ?>.jpg" alt="Dr.<?php echo $dentist['name'] ?>">
         <div id="info">
-            <p> <strong> Name: </strong> <?php echo $dentist['name'] ?> </p>
-            <p> <strong> Address: </strong> <?php echo $dentist['address'] ?> </p>
-            <p> <strong> Phone Number: </strong> <?php echo $dentist['phone_number'] ?> </p>
-            <p> <strong> Date of Admission: </strong> <?php echo $dentist['date_of_admission'] ?> </p>
+            <?php if (!isset($_POST['edit'])) { ?>
+                <p> <strong> Name: </strong> <?php echo $dentist['name'] ?> </p>
+                <p> <strong> Address: </strong> <?php echo $dentist['address'] ?> </p>
+                <p> <strong> Phone Number: </strong> <?php echo $dentist['phone_number'] ?> </p>
+                <p> <strong> Date of Admission: </strong> <?php echo $dentist['date_of_admission'] ?> </p>
+
+                <form action="dentist.php" method="post" id="edit_profile">
+                    <button type="submit" id="edit_button" name="edit" form="edit_profile"><i class="fa-fa-edit"></i></button>
+                </form>
+
+            <?php } else { ?>
+                <form action="action_edit_profile_info.php" method="post">
+                    <p> <strong> Name: </p> <input type="text" name="name" value="<?php echo $dentist['name'] ?>" required>
+                    <p> <strong> Address: </p> <input type="text" name="address" value="<?php echo $dentist['address'] ?>" required>
+                    <p> <strong> Phone Number: </p> <input type="text" name="phone_number" value="<?php echo $dentist['phone_number'] ?>" required>
+                    <?php if(isset($_SESSION['error_num_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_num_msg']; ; unset($_SESSION['error_num_msg']) ?> </p> <?php } ?>
+                    <p> <strong> Date of Admission: </strong> <?php echo $dentist['date_of_admission'] ?> </p>
+                    <p> <strong> Username: </p> <input type="text" name="address" value="<?php echo $dentist['username'] ?>" required>
+                    <?php if(isset($_SESSION['error_user_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_user_msg']; unset($_SESSION['error_user_msg']); ?> </p> <?php } ?>
+                    <p> <strong> Password: </p> <input type="text" name="password" value="">
+                    <p> If you don't want to change de password, leave it blank. </p>
+                    <?php if(isset($_SESSION['error_pass_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_pass_msg']; unset($_SESSION['error_pass_msg']); ?> </p> <?php } ?>
+
+
+                    <input id="submit" type="submit" value="Submit">
+                </form>
+
+            <?php } ?>
         </div>
     </section>

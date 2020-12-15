@@ -22,9 +22,9 @@
     <h2 id = "client_mng"> Client Management </h2>
     <section id="manage">
         <form action="manage_clients.php#client_mng" method="post">
-            <label> Select whether you want to add or remove a client </label>
+            <label> Select whether you want to register or remove a client </label>
             <section id="inputs">
-                <input type="submit" value="Add" name="add_client">
+                <input type="submit" value="Register" name="add_client">
                 <input type="submit" value="Remove" name="remove_client">
             </section>
         </form>
