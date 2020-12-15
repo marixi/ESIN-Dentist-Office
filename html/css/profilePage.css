@@ -35,13 +35,22 @@
 #info {
     font-size: 1.2em;
     padding-left: 2em;
-    padding-top: 1em;
+}
+
+#edit_profile{
+width:20%;
+margin:0;
 }
 
 #edit_profile>#edit_button{
-    width: 15px;
-    height: 20px;
+   position:relative;
+   left:500%;
+    border:none;
+   background-color: white;
+   font-size: 130%;
+   text-align: right;
 }
+
 
 #Schedule>h2 {
     grid-row: 1;
