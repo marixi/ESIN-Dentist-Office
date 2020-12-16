@@ -1,13 +1,15 @@
 Eu acho que o plano de trabalhos geral é:
 
+- comparar horas no to be completed
+- so mostrar auxiliares disponiveis
 - organização isso dos templates (acho que esta tudo)
 - por tudo a %
 - adicionar auxiliare(s) presentes em cada appointment
 - botao de levantar tudo para cima
-- botao de alteracoa de dados do profile
+- botao de alteracoa de dados do profile (quase tudo)
 - fazer a base de dados final
 - css responsive
-- css fire
+- css fire e remove client
 - try catches para tudinho (login, appointment, schedules)
 - final validation of html/php and css
 - adicionar fotos para os clientes

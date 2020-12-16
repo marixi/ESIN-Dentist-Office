@@ -10,13 +10,13 @@
         return $stmt->fetchAll();
     }
 
-    function getAuxiliaryAssignedForAppointment($app_id) {
+    function getAuxiliariesAssignedForAppointment($app_id) {
         global $dbh;
         $stmt = $dbh->prepare('SELECT * FROM auxiliariesAssigned
                                 JOIN person ON auxiliary_id=person.id
                                 WHERE appointment_id = ?');
         $stmt->execute(array($app_id));
-        return $stmt->fetch();
+        return $stmt->fetchAll();
     }
 
     function assignAuxiliary($app_id, $auxiliary) {

@@ -38,14 +38,20 @@
                             <li> <strong> Time: </strong> <?php echo $app['time'] ?> </li> 
                             <li> <strong> Specialty: </strong> <?php echo $app['specialty'] ?> </li>
                             <li> <strong> Auxiliary Assigned: </strong> 
-                                <?php $assigned = getAuxiliaryAssignedForAppointment($app['app_id']);
-                                    if ($assigned) {
-                                        echo $assigned['name'];
+                                <?php 
+                                    $assigned = getAuxiliariesAssignedForAppointment($app['app_id']); 
+                                    $len = count($assigned);
+                                    $i = 0;
+                                    if (!empty($assigned)) {
+                                        foreach ($assigned as $aux) {
+                                            if ($i != $len - 1) { echo $aux['name']; echo ', '; }
+                                            else { echo $aux['name']; }
+                                            $i = $i + 1;
+                                        }
                                     } else { ?>
                                         <form action="action_assignAuxiliary.php" method="post">
-                                        <select name="auxiliary">
                                             <?php foreach ($auxiliaries as $aux) { ?>
-                                                <option value=<?php echo $aux['id'] ?>> <?php echo $aux['name']?> </option>
+                                                <input type="checkbox" name="auxiliary[]" value=<?php echo $aux['id'] ?>> <?php echo $aux['name']?> </input>
                                             <?php } ?>
                                         </select>
                                         <input type="hidden" name="appointment_to_change" value = <?php echo $app['app_id'] ?>>
@@ -73,6 +79,17 @@
                             <li> <strong> Date: </strong> <?php echo $app['date'] ?> </li> 
                             <li> <strong> Time: </strong> <?php echo $app['time'] ?> </li> 
                             <li> <strong> Specialty: </strong> <?php echo $app['specialty'] ?> </li>
+                            <li> <strong> Auxiliary Assigned: </strong> 
+                                <?php
+                                    $assigned = getAuxiliariesAssignedForAppointment($app['app_id']); 
+                                    $len = count($assigned);
+                                    $i = 0;
+                                    foreach ($assigned as $aux) {
+                                        if ($i != $len - 1) { echo $aux['name']; echo ', '; }
+                                        else { echo $aux['name']; }
+                                        $i = $i + 1;
+                                    } ?>   
+                            </li>
                         </ul>
                         <?php $services = getServiceOfSpecialty($app['specialty']); ?> 
                         <form action="action_updateObservationsAndService.php" method="post">
@@ -110,6 +127,17 @@
                             <li> <strong> Time: </strong> <?php echo $app['time'] ?> </li> 
                             <li> <strong> Specialty: </strong> <?php echo $app['specialty'] ?> </li>
                             <li> <strong> Service Performed: </strong> <?php echo $app['procedure'] ?> </li>
+                            <li> <strong> Auxiliary Assigned: </strong> 
+                                <?php
+                                    $assigned = getAuxiliariesAssignedForAppointment($app['app_id']); 
+                                    $len = count($assigned);
+                                    $i = 0;
+                                    foreach ($assigned as $aux) {
+                                        if ($i != $len - 1) { echo $aux['name']; echo ', '; }
+                                        else { echo $aux['name']; }
+                                        $i = $i + 1;
+                                    } ?>   
+                            </li>
                         </ul>
                         <form action="action_updateObservations.php" method="post"> 
                             <p><strong>Observations:</strong></p>
