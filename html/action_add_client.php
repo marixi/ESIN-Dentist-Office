@@ -3,6 +3,13 @@
     require_once('database/init.php');
     require_once('database/person.php');
     require_once('database/client.php');
+    require_once('database/insurance.php');
+    
+    $ins_codes=getInsuranceCodes();
+    $ins_codes=array();
+    foreach ($ins_codes_arr as $value) {
+        array_push($ins_codes,$value['insurance_code']);
+    }
 
     $_SESSION['name'] = $_POST['name'];
     $_SESSION['address'] = $_POST['address'];
@@ -44,7 +51,16 @@
                 strpos($_SESSION['password'], '8')==false && strpos($_SESSION['password'], '9')==false) {
         $_SESSION['error_pass_msg'] = "The password must contain a number!";
         header('Location: \manage_clients.php#add_client');  
-    } else {
+    } else if (!is_numeric($_SESSION['tax_number'])){
+        $_SESSION['error_tax_msg'] = "The tax number must only have numbers!";
+        header('Location: \action_decideProfile.php');
+    } else if (strlen($_SESSION['tax_number'])!=8){
+        $_SESSION['error_tax_msg'] = "The tax number must have 8 numbers!";
+        header('Location: \action_decideProfile.php');
+    } else if(!in_array($_SESSION['insurance_code'],$ins_codes)){
+        $_SESSION['error_ins_msg'] = "That insurance code is not available for our clinic!";
+        header('Location: \action_decideProfile.php');
+    }else {
         
         try {
             insertIntoPerson($_SESSION['name'], $_SESSION['address'], $_SESSION['phone_number'], $_SESSION['username'], $_SESSION['password']);

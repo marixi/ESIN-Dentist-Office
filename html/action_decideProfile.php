@@ -5,6 +5,8 @@
     require_once('database/dentalAuxiliary.php');
     require_once('database/client.php');
 
+    if(isset($_POST['edit'])) $_SESSION['edit_on']=1;
+    
     $id = $_SESSION['id'];
 
     $row1 = getDentistInfo($id);

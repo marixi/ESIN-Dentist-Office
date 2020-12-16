@@ -12,7 +12,7 @@
 
     if (!isset($_SESSION['choice'])) {
         $_SESSION['choice'] = date('Y') . '-W' . date('W');
-    }
+    } 
 
     require_once('templates/dentist_header_info_tpl.php');
     require_once('templates/schedule_tpl.php');

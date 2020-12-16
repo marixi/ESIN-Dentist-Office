@@ -29,4 +29,19 @@
         return $stmt->fetch();
     }
 
+    function getClientSpecifics($id) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT birth_date, tax_number, insurance_code FROM person 
+                                JOIN client USING (id) 
+                                WHERE id = ?');
+        $stmt->execute(array($id));   
+        return $stmt->fetch();
+    }
+
+    function updateClientInfo($attribute, $value,$id) {
+        global $dbh;
+        $stmt = $dbh->prepare("UPDATE client SET $attribute = ? WHERE id = ? ");
+        $stmt->execute(array($value,$id));
+    }
+
 ?>

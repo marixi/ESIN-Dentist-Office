@@ -12,10 +12,10 @@ $person_info = getPersonInfo($id);
 
 print_r($person_info);
 
-$person_name=$person_info['name'];
-$person_address=$person_info['adress'];
-$person_phone=$person_info['phone_number'];
-$person_username=$person_info['username'];
+$person_name = $person_info['name'];
+$person_address = $person_info['adress'];
+$person_phone = $person_info['phone_number'];
+$person_username = $person_info['username'];
 //nao faz sentido meter uma pré password pq ela está guardada de forma segura na base dados
 
 ?>
@@ -43,19 +43,19 @@ $person_username=$person_info['username'];
                     $label = str_replace(" ", "&nbsp;", $label);
                     echo $label; ?> </label>
             <input type="text" name="name" value="<?php
-                                                        echo $person_name;
+                                                    echo $person_name;
                                                     ?>" required>
             <br> <label> <?php $label = str_pad("Address:", 18, " ");
                             $label = str_replace(" ", "&nbsp;", $label);
                             echo $label; ?> </label>
-            <input type="text" name="address" value="<?php 
-                                                            echo $person_address;
-                                                       ?>" required> </br>
+            <input type="text" name="address" value="<?php
+                                                        echo $person_address;
+                                                        ?>" required> </br>
             <br> <label> <?php $label = str_pad("phone Number:", 18, " ");
                             $label = str_replace(" ", "&nbsp;", $label);
                             echo $label; ?> </label>
-            <input type="text" name="phone_number" value="<?php 
-                                                                echo $person_phone;
+            <input type="text" name="phone_number" value="<?php
+                                                            echo $person_phone;
                                                             ?>" required> </br>
             <br> <?php if (isset($_SESSION['error_num_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_num_msg'];;
                                                                                 unset($_SESSION['error_num_msg']) ?> </p> <?php } ?>
@@ -63,14 +63,14 @@ $person_username=$person_info['username'];
                     $label = str_replace(" ", "&nbsp;", $label);
                     echo $label; ?> </label>
             <input type="text" name="username" value="<?php
-                                                            echo $person_username;
-                                                         ?>" required> </br>
+                                                        echo $person_username;
+                                                        ?>" required> </br>
             <br> <?php if (isset($_SESSION['error_user_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_user_msg'];
-                                                                                unset($_SESSION['error_user_msg']); ?> </p> <?php } ?>
+                                                                                    unset($_SESSION['error_user_msg']); ?> </p> <?php } ?>
             <label><?php $label = str_pad("Password:", 18, " ");
                     $label = str_replace(" ", "&nbsp;", $label);
                     echo $label; ?> </label>
-            <input type="text" name="password" value="" > </br>
+            <input type="text" name="password" value=""> </br>
             <?php if (isset($_SESSION['error_pass_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_pass_msg'];
                                                                             unset($_SESSION['error_pass_msg']); ?> </p> <?php } ?>
             <br> <label><?php $label = str_pad("Salary:", 18, " ");
