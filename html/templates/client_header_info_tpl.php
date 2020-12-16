@@ -39,7 +39,7 @@
         <?php if ($_SESSION['edit_on']==0 && !isset($_POST['edit'])) { ?>
 
 <form action="action_decideProfile.php" method="post" id="edit_profile">
- <button type="submit" id="edit_button" name="edit" form="edit_profile"><!--<i class="fa-fa-edit"></i> --></button>
+ <button type="submit" id="edit_button" name="edit" form="edit_profile"><i class="fa  fa-edit"></i></button>
 </form>
             <p> <strong> Name: </strong> <?php echo $client['name'] ?> </p>
             <p> <strong> Address: </strong> <?php echo $client['address'] ?> </p>

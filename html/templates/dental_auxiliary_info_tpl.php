@@ -7,7 +7,7 @@
 
                 <form action="action_decideProfile.php" method="post" id="edit_profile">
                     <button type="submit" id="edit_button" name="edit" form="edit_profile">
-                        <!--<i class="fa-fa-edit"></i> --></button>
+                        <i class="fa fa-edit"></i></button>
                 </form>
                 <p> <strong> Name: </strong> <?php echo $auxiliary['name'] ?> </p>
                 <p> <strong> Address: </strong> <?php echo $auxiliary['address'] ?> </p>
