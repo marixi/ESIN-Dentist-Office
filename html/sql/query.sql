@@ -47,10 +47,10 @@ JOIN person ON dentist_id=person.id
 WHERE client_id = 11
 ORDER BY date DESC;*/
 
+DELETE FROM servicePerformed WHERE appointment_id = 29;
 
-DELETE FROM auxiliariesAssigned WHERE appointment_id = 29;
-
-SELECT * from auxiliariesAssigned WHERE appointment_id = 29;
+SELECT * from servicePerformed WHERE appointment_id = 29;
+SELECT * from record WHERE appointment_id = 29;
 /*
 INSERT INTO auxiliariesAssigned (appointment_id, auxiliary_id) VALUES (29, 5);
 

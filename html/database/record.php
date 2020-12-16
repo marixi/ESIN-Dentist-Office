@@ -19,10 +19,23 @@
         return $stmt->fetch();
     }
 
-    function updateRecord($observations, $id_to_change) {
+    function getRecordOfSpecificAppointment($app_id) {
         global $dbh;
-        $stmt = $dbh->prepare('UPDATE record SET observations = ? WHERE appointment_id = ?');
-        $stmt->execute(array($observations, $id_to_change));
+        $stmt = $dbh->prepare('SELECT observations FROM record
+                                WHERE appointment_id=?;');
+        $stmt->execute(array($app_id));
+        return $stmt->fetch();
+    }
+
+    function updateRecord($observations, $id_to_change, $client_id) {
+        global $dbh;
+        if (getRecordOfSpecificAppointment($id_to_change)) {
+            $stmt = $dbh->prepare('UPDATE record SET observations = ? WHERE appointment_id = ?');
+            $stmt->execute(array($observations, $id_to_change));
+        } else {
+            $stmt = $dbh->prepare('INSERT INTO record (client_id, appointment_id, observations) VALUES (?, ?, ?)');
+            $stmt->execute(array($client_id, $id_to_change, $observations));
+        }
     }
 
 ?>

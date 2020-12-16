@@ -87,10 +87,6 @@
         global $dbh;
         $stmt = $dbh->prepare('INSERT INTO appointment (date, time, room, client_id, dentist_id, specialty) VALUES (?, ?, ?, ?, ?, ?)');
         $stmt->execute(array($date, $time, $dentist, $id, $room, $specialty));
-
-        $app_id = getAppointmentId($id, $date);
-        $stmt = $dbh->prepare('INSERT INTO record (client_id, appointment_id, observations) VALUES (?, ?, NULL)');
-        $stmt->execute(array($id, $app_id));
     }
 
 ?>
