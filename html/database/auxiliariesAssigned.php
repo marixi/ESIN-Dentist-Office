@@ -25,4 +25,16 @@
         $stmt->execute(array($app_id, $auxiliary));
     }
 
+    function checkAuxiliaryAvailability($aux_id, $date, $time) {
+        global $dbh;
+        $availability = true;
+        $appointments = getAuxiliariesAssignedAppointments($aux_id);
+        foreach ($appointments as $app) {
+            if ($app['date'] == $date && $app['time'] == $time) {
+                $availability = false;
+            }
+        }
+        return $availability;
+    }
+
 ?>

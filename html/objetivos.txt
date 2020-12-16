@@ -1,6 +1,5 @@
 Eu acho que o plano de trabalhos geral é:
 
-- comparar horas no to be completed
 - so mostrar auxiliares disponiveis
 - organização isso dos templates (acho que esta tudo)
 - por tudo a %

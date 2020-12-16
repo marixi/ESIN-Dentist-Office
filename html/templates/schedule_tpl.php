@@ -45,30 +45,12 @@
         <table id="scheduleTable">
             <tr>
                 <th> </th>
-                <th> Monday <p> <?php if ($monday->format('d-m-Y') != '27-12--0001') {
-                                    echo $monday->format('d-m-Y');
-                                } ?> </p>
-                </th>
-                <th> Tuesday <p> <?php if ($tuesday->format('d-m-Y') != '28-12--0001') {
-                                        echo $tuesday->format('d-m-Y');
-                                    } ?> </p>
-                </th>
-                <th> Wednesday <p> <?php if ($wednesday->format('d-m-Y') != '29-12--0001') {
-                                        echo $wednesday->format('d-m-Y');
-                                    } ?> </p>
-                </th>
-                <th> Thursday <p> <?php if ($thursday->format('d-m-Y') != '30-12--0001') {
-                                        echo $thursday->format('d-m-Y');
-                                    } ?> </p>
-                </th>
-                <th> Friday <p> <?php if ($friday->format('d-m-Y') != '31-12--0001') {
-                                    echo $friday->format('d-m-Y');
-                                } ?> </p>
-                </th>
-                <th> Saturday <p> <?php if ($saturday->format('d-m-Y') != '01-01-0000') {
-                                        echo $saturday->format('d-m-Y');
-                                    } ?> </p>
-                </th>
+                <th> Monday <p> <?php echo $monday->format('d-m-Y'); ?> </p> </th>
+                <th> Tuesday <p> <?php echo $tuesday->format('d-m-Y'); ?> </p> </th>
+                <th> Wednesday <p> <?php echo $wednesday->format('d-m-Y'); ?> </p> </th>
+                <th> Thursday <p> <?php echo $thursday->format('d-m-Y'); ?> </p> </th>
+                <th> Friday <p> <?php echo $friday->format('d-m-Y'); ?> </p> </th>
+                <th> Saturday <p> <?php echo $saturday->format('d-m-Y'); ?> </p> </th>
             </tr>
             <tr>
                 <th> 09:00 </th> <?php $hour = '09:00' ?>

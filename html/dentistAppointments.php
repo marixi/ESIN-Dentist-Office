@@ -21,6 +21,7 @@
     $auxiliaries = getAllAuxiliaries();
 
     require_once('templates/dentist_header_info_tpl.php');
+
 ?>
 
     <!-- Section to display the list of future appointments -->
@@ -29,7 +30,7 @@
         <?php
             $date = new DateTime("now");
             foreach ($future as $app) {
-                if (strtotime($app['date']) > strtotime($date->format('d-m-yy'))) { ?>
+                if (strtotime($app['date']) > strtotime($date->format('d-m-yy')) || $app['time'] > date('H:i')) { ?>
                     <section id="appointment<?php echo $app['app_id'] ?>">
                         <h3> Appointment #<?php echo $app['app_id'] ?>: </h3>
                         <ul>
@@ -50,9 +51,11 @@
                                         }
                                     } else { ?>
                                         <form action="action_assignAuxiliary.php" method="post">
-                                            <?php foreach ($auxiliaries as $aux) { ?>
-                                                <input type="checkbox" name="auxiliary[]" value=<?php echo $aux['id'] ?>> <?php echo $aux['name']?> </input>
-                                            <?php } ?>
+                                            <?php foreach ($auxiliaries as $aux) { 
+                                                if (checkAuxiliaryAvailability($aux['id'], $app['date'], $app['time'])) { ?>
+                                                    <input type="checkbox" name="auxiliary[]" value=<?php echo $aux['id'] ?>> <?php echo $aux['name']?> </input>
+                                                <?php }
+                                            } ?>
                                         </select>
                                         <input type="hidden" name="appointment_to_change" value = <?php echo $app['app_id'] ?>>
                                         <input type="submit" value="Update">
@@ -71,7 +74,7 @@
         <?php
             $date = new DateTime("now");
             foreach ($future as $app) {
-                if (strtotime($app['date']) <= strtotime($date->format('d-m-yy')) && checkServicePerfomed($app['app_id']) ==  false) { ?>
+                if (strtotime($app['date']) <= strtotime($date->format('d-m-yy')) && $app['time'] <= date('H:i') && checkServicePerfomed($app['app_id']) ==  false) { ?>
                     <section id="appointment<?php echo $app['app_id'] ?>">
                         <h3> Appointment #<?php echo $app['app_id'] ?>: </h3>
                         <ul>
