@@ -17,7 +17,7 @@
     <!-- Table to display the stock of material still available -->
     <h1 id="stock"> Available Stock </h1>
 
-    <table>
+    <table id="table">
         <tr>
             <th scope="col"> Material Name </th>
             <th scope="col"> Quantity </th>

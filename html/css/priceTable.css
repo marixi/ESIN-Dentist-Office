@@ -1,7 +1,7 @@
 /* Tables */
 /* Authors: Duarte Rodrigues, Mariana Xavier */
 
-table {
+#table {
     margin: 2em 17em;
     border-collapse: collapse;
 }
@@ -18,21 +18,21 @@ table {
     border: 5px double rgb(57, 124, 136);
 }
 
-table tr:first-of-type {
+#table tr:first-of-type {
     background-color: #c0c0b5;
 }
 
-table th {
+#table th {
     font-size: 150%;
     border: 1px solid black;
     padding: 0.3em 0;
 }
 
-tr:hover td {
+#table tr:hover td {
     background-color: #dbdbd5;
 }
 
-table td {
+#table td {
     text-align: center;
     border: 1px solid black;
     padding: 0.3em 0;
@@ -40,6 +40,6 @@ table td {
     background-color: white;
 }
 
-table #price:after {
+#table #price:after {
     content: "€";
 }
