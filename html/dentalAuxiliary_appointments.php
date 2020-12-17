@@ -12,8 +12,8 @@
     $result = getCompleteFutureAuxiliaryAppointments($id);
     print_r($result);
 
-    require_once('templates/dental_auxiliary_header_tpl.html');
-    require_once('templates/dental_auxiliary_info_tpl.php');
+    include('templates/dental_auxiliary_header_tpl.html');
+    include('templates/dental_auxiliary_info_tpl.php');
 ?>
 
     <!-- Section to display the list of future appointments -->
@@ -57,4 +57,4 @@
             } ?>
     </section>
 
-    <?php require_once('templates/footer_tpl.php'); ?>    
+    <?php include('templates/footer_tpl.php'); ?>    

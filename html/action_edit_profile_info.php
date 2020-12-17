@@ -95,12 +95,17 @@
             foreach($changes as $key => $value){
                 updateInfo($key, $value,$id);
             }
-            foreach($clientChanges as $key => $value){
+            
+            if($Cspecs){
+                foreach($clientChanges as $key => $value){
                 updateClientInfo($key, $value,$id);
             }
+            }
+            
             $_SESSION['edit_on']=0;
         } catch (Exception $e) {
             $_SESSION['msg'] = "Something went wrong! Please try again.";
+
             header('Location: \action_decideProfile.php');  
         }
 

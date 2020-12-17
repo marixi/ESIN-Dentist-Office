@@ -14,8 +14,8 @@
         $_SESSION['choice'] = date('Y') . '-W' . date('W');
     } 
 
-    require_once('templates/dentist_header_info_tpl.php');
-    require_once('templates/schedule_tpl.php');
-    require_once('templates/footer_tpl.php');
+    include('templates/dentist_header_info_tpl.php');
+    include('templates/schedule_tpl.php');
+    include('templates/footer_tpl.php');
     
 ?>

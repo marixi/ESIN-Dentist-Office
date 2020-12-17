@@ -13,8 +13,8 @@
         $_SESSION['choice'] = date('Y') . '-W' . date('W');
     }
 
-    require_once('templates/dental_auxiliary_header_tpl.html'); 
-    require_once('templates/dental_auxiliary_info_tpl.php'); 
-    require_once('templates/schedule_tpl.php'); 
-    require_once('templates/footer_tpl.php'); 
+    include('templates/dental_auxiliary_header_tpl.html'); 
+    include('templates/dental_auxiliary_info_tpl.php'); 
+    include('templates/schedule_tpl.php'); 
+    include('templates/footer_tpl.php'); 
 ?>

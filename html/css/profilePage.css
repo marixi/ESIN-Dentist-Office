@@ -32,14 +32,22 @@
     width:auto;
 }
 
+#profileInfo #client_pic{
+    margin-top: 5%;
+}
+
 #info {
-    font-size: 1.2em;
+    font-size: 130%;
     padding-left: 2%;
-    padding-top: 2.5%;
+    width: 50%;
+
 }
 
 #edit_profile{
 width:20%;
+font-size: 1.2em;
+    padding-left: 2%;
+    padding-top: 2.5%;
 margin:0;
 }
 
@@ -166,3 +174,32 @@ margin:0;
     margin-right:45%;
 }
 
+#editing{
+    width: 90%;
+    margin:0;
+}
+
+#editing > p{
+    margin: 7% 0;
+}
+
+#editing > input[type="submit"]{
+    margin-top: 3%;
+    margin-bottom: 2%;
+    margin-left: 32%;
+    margin-right: 32%;
+    width: 30%;
+    height: 8%;
+    border: none;
+    background: -webkit-linear-gradient(right, #279494, #0eb7d4, #0eb7d4, #279494);
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 1em;
+}
+
+#editing > input[type="submit"]:hover{
+    background: -webkit-linear-gradient(right, #14c8e7, #33acac, #33acac, #14c8e7);
+    font-weight: bold;
+}

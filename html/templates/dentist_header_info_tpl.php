@@ -49,18 +49,18 @@
                 <p> <strong> Phone Number: </strong> <?php echo $dentist['phone_number'] ?> </p>
                 <p> <strong> Date of Admission: </strong> <?php echo $dentist['date_of_admission'] ?> </p>
 
-            <?php } else { //$_SESSION['edit_on']=1; ?>
-                <form action="action_edit_profile_info.php" method="post">
+            <?php } else { ?>
+                <form action="action_edit_profile_info.php" method="post" id="editing">
                     
-                    <p> <strong> Name: </strong> </p> <input type="text" name="name" value="<?php if(isset($_SESSION['name'])) { echo $_SESSION['name']; } else {echo $dentist['name']; } ?>" required>
-                    <p> <strong> Address: </strong> </p> <input type="text" name="address" value="<?php if(isset($_SESSION['address'])) { echo $_SESSION['address']; } else {echo $dentist['address']; } ?>" required>
-                    <p> <strong> Phone Number: </strong> </p> <input type="text" name="phone_number" value="<?php if(isset($_SESSION['phone_number'])) { echo $_SESSION['phone_number']; } else {echo $dentist['phone_number']; } ?>" required>
+                    <p> <strong> Name: </strong>  <input type="text" name="name" value="<?php if(isset($_SESSION['name'])) { echo $_SESSION['name']; } else {echo $dentist['name']; } ?>" required></p>
+                    <p> <strong> Address: </strong>  <input type="text" name="address" value="<?php if(isset($_SESSION['address'])) { echo $_SESSION['address']; } else {echo $dentist['address']; } ?>" required></p>
+                    <p> <strong> Phone Number: </strong>  <input type="text" name="phone_number" value="<?php if(isset($_SESSION['phone_number'])) { echo $_SESSION['phone_number']; } else {echo $dentist['phone_number']; } ?>" required></p>
                     <?php if (isset($_SESSION['error_num_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_num_msg'];;
                                                                                     unset($_SESSION['error_num_msg']) ?> </p> <?php } ?>
-                    <p> <strong> Username: </strong> </p> <input type="text" name="username" value="<?php if(isset($_SESSION['username'])) { echo $_SESSION['username']; } else {echo $dentist['username']; } ?>" required>
+                    <p> <strong> Username: </strong>  <input type="text" name="username" value="<?php if(isset($_SESSION['username'])) { echo $_SESSION['username']; } else {echo $dentist['username']; } ?>" required></p>
                     <?php if (isset($_SESSION['error_user_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_user_msg'];
                                                                                     unset($_SESSION['error_user_msg']); ?> </p> <?php } ?>
-                    <p> <strong> Password: </strong> </p> <input type="text" name="password" value="">
+                    <p> <strong> Password: </strong>  <input type="text" name="password" value=""></p>
                     <p> If you don't want to change the password, leave it blank. </p>
                     <?php if (isset($_SESSION['error_pass_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_pass_msg'];
                                                                                     unset($_SESSION['error_pass_msg']); ?> </p> <?php } ?>
@@ -73,3 +73,4 @@
     </section>
 
     <?php echo $_SESSION['final_msg']; unset($_SESSION['final_msg']);?>
+    <?php echo $_SESSION['msg']; unset($_SESSION['msg']);?>

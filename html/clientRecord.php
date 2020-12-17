@@ -14,7 +14,7 @@
     
     $future = getCompleteFutureClientAppointments($id);
 
-    require_once('templates/client_header_info_tpl.php');
+    include('templates/client_header_info_tpl.php');
 ?>
 
     <!-- Section to display the list of future appointments -->
@@ -75,4 +75,4 @@
             } ?>
     </section>
 
-    <?php require_once('templates/footer_tpl.php'); ?>
+    <?php include('templates/footer_tpl.php'); ?>

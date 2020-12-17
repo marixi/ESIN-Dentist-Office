@@ -5,7 +5,7 @@
 
     $quantity_list = getAllQuantities();
 
-    require_once('templates/dental_auxiliary_header_tpl.html'); 
+    include('templates/dental_auxiliary_header_tpl.html'); 
 ?>
 
     <h1 id="mat">Material needed for each specific service </h1>
@@ -31,4 +31,4 @@
             } ?>
     </ul>
 
-    <?php require_once('templates/footer_tpl.php'); ?>
+    <?php include('templates/footer_tpl.php'); ?>

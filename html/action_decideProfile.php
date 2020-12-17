@@ -5,7 +5,7 @@
     require_once('database/dentalAuxiliary.php');
     require_once('database/client.php');
 
-    if(isset($_POST['edit'])) $_SESSION['edit_on']=1;
+    if(isset($_POST['edit']) && $_SESSION['edit_on']==0) $_SESSION['edit_on']=1; else $_SESSION['edit_on']=0;
     
     $id = $_SESSION['id'];
 

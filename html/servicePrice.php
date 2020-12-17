@@ -3,12 +3,12 @@
     require_once('database/service.php');
     $services = getAllServices();
 
-    require_once('templates/main_header_tpl.php');
+    include('templates/main_header_tpl.php');
 ?>
 
     <!-- Table to display the services performed and respective prices -->
     <h1 id="tableTitle"> Prices </h1>
-    <table>
+    <table id='table'>
         <tr>
             <th scope="col"> Specialty </th> <th scope="col"> Procedure </th> <th scope="col"> Price </th>
         </tr>
@@ -21,4 +21,4 @@
         <?php } ?>
     </table> 
     
-    <?php require_once('templates/footer_tpl.php'); ?>
+    <?php include('templates/footer_tpl.php'); ?>

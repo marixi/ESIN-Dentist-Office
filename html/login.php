@@ -48,4 +48,4 @@
         unset($_SESSION['pass_try']);
     } ?>
 
-    <?php require_once('templates/footer_tpl.php'); ?>    
+    <?php include('templates/footer_tpl.php'); ?>    

@@ -20,7 +20,7 @@
 
     $auxiliaries = getAllAuxiliaries();
 
-    require_once('templates/dentist_header_info_tpl.php');
+    include('templates/dentist_header_info_tpl.php');
 
 ?>
 
@@ -153,4 +153,4 @@
             } ?>
     </section>
 
-    <?php require_once('templates/footer_tpl.php'); ?>    
+    <?php include('templates/footer_tpl.php'); ?>    

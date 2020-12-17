@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once('templates/main_header_tpl.php');
+    include('templates/main_header_tpl.php');
 ?>
 
     <!-- First appointment section -->
@@ -114,4 +114,4 @@
         </div>
     </section>
 
-    <?php require_once('templates/footer_tpl.php'); ?>
+    <?php include('templates/footer_tpl.php'); ?>

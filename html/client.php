@@ -16,7 +16,7 @@
 
     $max = getLastAppointment();
 
-    require_once('templates/client_header_info_tpl.php');
+    include('templates/client_header_info_tpl.php');
 ?>
 
     <h2> Book Appointment </h2>
@@ -124,4 +124,4 @@
         } ?>     
     </section>
 
-    <?php require_once('templates/footer_tpl.php'); ?>
+    <?php include('templates/footer_tpl.php'); ?>

@@ -11,7 +11,7 @@
 
     $specialty = getAllSpecialties();
 
-    require_once('templates/dental_auxiliary_header_tpl.html'); 
+    include('templates/dental_auxiliary_header_tpl.html'); 
 ?>
 
     <!-- Table to display the stock of material still available -->
@@ -89,4 +89,4 @@
 
     </div>
     
-    <?php require_once('templates/footer_tpl.php'); ?>
+    <?php include('templates/footer_tpl.php'); ?>

@@ -58,7 +58,7 @@ h2 {
     padding-bottom: 2%;
 }
 
-#hire label, input, #add_client label {
+#hire label, #hire > input, #add_client label, #add_client > input{
     font-size: 120%;
     margin-top: 2em;
 }

@@ -8,8 +8,8 @@
     $auxiliary = getAuxiliaryInfo($id);
     $clients = getClients();
 
-    require_once('templates/dental_auxiliary_header_tpl.html');
-    require_once('templates/dental_auxiliary_info_tpl.php');
+    include('templates/dental_auxiliary_header_tpl.html');
+    include('templates/dental_auxiliary_info_tpl.php');
 
     function generateRandomPassword($length) {
         $word = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9, 1));
@@ -79,4 +79,4 @@
             ?>
     </section>
 
-    <?php require_once('templates/footer_tpl.php'); ?>
+    <?php include('templates/footer_tpl.php'); ?>
