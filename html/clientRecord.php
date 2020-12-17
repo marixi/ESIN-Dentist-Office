@@ -8,13 +8,12 @@
 
     $id = $_SESSION['id'];
 
-    $client = getClientInfo($id);
-
     $result = getCompletePastClientAppointments($id);
     
     $future = getCompleteFutureClientAppointments($id);
 
-    include('templates/client_header_info_tpl.php');
+    include('templates/profile_header_tpl.php');
+    include('templates/profile_info_tpl.php');
 ?>
 
     <!-- Section to display the list of future appointments -->

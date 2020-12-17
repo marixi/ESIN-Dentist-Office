@@ -49,7 +49,7 @@ ORDER BY date DESC;*/
 
 /*INSERT INTO auxiliariesAssigned (appointment_id, auxiliary_id) VALUES (26, 4);
 INSERT INTO auxiliariesAssigned (appointment_id, auxiliary_id) VALUES (26, 5);
-*/SELECT * FROM auxiliariesAssigned WHERE appointment_id = 26;
+*//*SELECT * FROM auxiliariesAssigned WHERE appointment_id = 26;
 DELETE FROM auxiliariesAssigned WHERE appointment_id = 26;
 /*
 SELECT * from servicePerformed WHERE appointment_id = 29;
@@ -58,3 +58,8 @@ SELECT * from record WHERE appointment_id = 29;
 INSERT INTO auxiliariesAssigned (appointment_id, auxiliary_id) VALUES (29, 5);
 
 SELECT * from auxiliariesAssigned WHERE appointment_id = 29;*/
+
+SELECT * FROM auxiliariesAssigned
+JOIN appointment ON auxiliariesAssigned.appointment_id=appointment.app_id
+JOIN servicePerformed ON servicePerformed.appointment_id=auxiliariesAssigned.appointment_id
+WHERE auxiliary_id = 4

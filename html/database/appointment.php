@@ -111,6 +111,7 @@
         $stmt = $dbh->prepare('SELECT * FROM auxiliariesAssigned
                                 JOIN appointment ON auxiliariesAssigned.appointment_id=appointment.app_id
                                 JOIN servicePerformed ON servicePerformed.appointment_id=auxiliariesAssigned.appointment_id
+                                JOIN person ON client_id=person.id
                                 WHERE auxiliary_id = ?');
         $stmt->execute(array($id));
         $data = $stmt->fetchAll();

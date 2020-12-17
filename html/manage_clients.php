@@ -8,14 +8,14 @@
     $auxiliary = getAuxiliaryInfo($id);
     $clients = getClients();
 
-    include('templates/dental_auxiliary_header_tpl.html');
-    include('templates/dental_auxiliary_info_tpl.php');
-
     function generateRandomPassword($length) {
         $word = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9, 1));
         shuffle($word);
         return substr(implode($word), 0, $length);
     }
+
+    include('templates/profile_header_tpl.php'); 
+    include('templates/profile_info_tpl.php');
 ?>
 
     <!-- Section to manage the clients -->

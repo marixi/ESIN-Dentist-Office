@@ -7,8 +7,6 @@
     require_once('database/appointment.php');
 
     $id = $_SESSION['id'];
-  
-    $client = getClientInfo($id);
 
     $specialties = getAllSpecialties();
 
@@ -16,7 +14,8 @@
 
     $max = getLastAppointment();
 
-    include('templates/client_header_info_tpl.php');
+    include('templates/profile_header_tpl.php');
+    include('templates/profile_info_tpl.php');
 ?>
 
     <h2> Book Appointment </h2>

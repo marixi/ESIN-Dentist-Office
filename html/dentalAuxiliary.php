@@ -7,14 +7,12 @@
     
     $id = $_SESSION['id'];
 
-    $auxiliary = getAuxiliaryInfo($id);
-
     if (!isset($_SESSION['choice'])) {
         $_SESSION['choice'] = date('Y') . '-W' . date('W');
     }
 
-    include('templates/dental_auxiliary_header_tpl.html'); 
-    include('templates/dental_auxiliary_info_tpl.php'); 
+    include('templates/profile_header_tpl.php'); 
+    include('templates/profile_info_tpl.php'); 
     include('templates/schedule_tpl.php'); 
     include('templates/footer_tpl.php'); 
 ?>

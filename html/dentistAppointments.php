@@ -10,8 +10,6 @@
 
     $id = $_SESSION['id'];
 
-    $dentist = getDentistInfo($id);
-
     $result = getCompletePastDentistAppointments($id);
 
     $record = getRecordFromAppointmentsForDentist($id);
@@ -20,7 +18,8 @@
 
     $auxiliaries = getAllAuxiliaries();
 
-    include('templates/dentist_header_info_tpl.php');
+    include('templates/profile_header_tpl.php');
+    include('templates/profile_info_tpl.php');
 
 ?>
 

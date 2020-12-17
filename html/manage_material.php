@@ -11,7 +11,7 @@
 
     $specialty = getAllSpecialties();
 
-    include('templates/dental_auxiliary_header_tpl.html'); 
+    include('templates/profile_header_tpl.php'); 
 ?>
 
     <!-- Table to display the stock of material still available -->

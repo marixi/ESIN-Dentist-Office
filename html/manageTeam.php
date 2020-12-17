@@ -5,18 +5,17 @@
     require_once('database/dentalAuxiliary.php');
 
     $id = $_SESSION['id'];
- 
-    $dentist = getDentistInfo($id);
   
     $auxiliaries = getAllAuxiliaries();
-
-    include('templates/dentist_header_info_tpl.php');
 
     function generateRandomPassword($length) {
         $word = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9, 1));
         shuffle($word);
         return substr(implode($word), 0, $length);
     }
+
+    include('templates/profile_header_tpl.php'); 
+    include('templates/profile_info_tpl.php');
 
 ?>
 

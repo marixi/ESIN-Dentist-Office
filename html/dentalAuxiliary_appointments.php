@@ -5,15 +5,12 @@
 
     $id = $_SESSION['id'];
 
-    $auxiliary = getAuxiliaryInfo($id);
-
     $future = getCompleteFutureAuxiliaryAppointments($id);
     
-    $result = getCompleteFutureAuxiliaryAppointments($id);
-    print_r($result);
+    $result = getCompletePastAuxiliaryAppointments($id);
 
-    include('templates/dental_auxiliary_header_tpl.html');
-    include('templates/dental_auxiliary_info_tpl.php');
+    include('templates/profile_header_tpl.php'); 
+    include('templates/profile_info_tpl.php');
 ?>
 
     <!-- Section to display the list of future appointments -->
