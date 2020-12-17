@@ -40,6 +40,12 @@
                 <li> Schedule </li>
             <?php } ?>
 
+            <?php if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php') { ?> 
+                <li><a href='index.php'> Home </a></li>
+                <li><a href='dentalAuxiliary.php'> Profile </a></li>
+                <li> Appointments </li>
+            <?php } ?>
+
             <?php if ($_SERVER['PHP_SELF'] == '/manage_clients.php') { ?> 
                 <li><a href='index.php'> Home </a></li>
                 <li><a href='dentalAuxiliary.php'> Profile </a></li>

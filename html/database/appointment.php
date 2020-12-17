@@ -106,4 +106,26 @@
         $stmt->execute(array($date, $time, $dentist, $id, $room, $specialty));
     }
 
+    function getCompletePastAuxiliaryAppointments($id) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM auxiliariesAssigned
+                                JOIN appointment ON auxiliariesAssigned.appointment_id=appointment.app_id
+                                JOIN servicePerformed ON servicePerformed.appointment_id=auxiliariesAssigned.appointment_id
+                                WHERE auxiliary_id = ?');
+        $stmt->execute(array($id));
+        $data = $stmt->fetchAll();
+        return sortAppointments($data, 'past');
+    }
+
+    function getCompleteFutureAuxiliaryAppointments($id) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM auxiliariesAssigned
+                                JOIN appointment ON appointment_id=app_id
+                                JOIN person ON client_id=person.id
+                                WHERE auxiliary_id = ?');
+        $stmt->execute(array($id));
+        $data = $stmt->fetchAll();
+        return sortAppointments($data, 'future');
+    }
+
 ?>
