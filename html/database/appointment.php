@@ -18,25 +18,42 @@
         }
     }
 
+    function sortAppointments($appointments, $status) {
+        $days = array_column($appointments, 'date');
+        $hours = array_column($appointments, 'time');
+
+        $i = 0;
+        while ($i < count($days)) {
+            $days[$i] = strtotime($days[$i]);
+            $hours[$i] = strtotime($hours[$i]);
+            $i++;
+        }
+
+        if ($status == 'past') { array_multisort($days, SORT_DESC, $hours, SORT_DESC, $appointments); }
+        else if ($status == 'future') { array_multisort($days, SORT_ASC, $hours, SORT_ASC, $appointments); }
+
+        return $appointments;
+    }
+
     function getCompletePastDentistAppointments($id) {
         global $dbh;
         $stmt = $dbh->prepare('SELECT * FROM appointment
                             JOIN person ON client_id=person.id
                             JOIN servicePerformed ON appointment_id=app_id
-                            WHERE dentist_id = ?
-                            ORDER BY app_id DESC;');
+                            WHERE dentist_id = ?;');
         $stmt->execute(array($id));
-        return $stmt->fetchAll();
+        $data = $stmt->fetchAll();
+        return sortAppointments($data, 'past');
     }
 
     function getCompleteFutureDentistAppointments($id) {
         global $dbh;
         $stmt = $dbh->prepare('SELECT * FROM appointment
                             JOIN person ON client_id=person.id
-                            WHERE dentist_id = ?
-                            ORDER BY date ASC, time ASC;');
+                            WHERE dentist_id = ?;');
         $stmt->execute(array($id));
-        return $stmt->fetchAll();
+        $data = $stmt->fetchAll();
+        return sortAppointments($data, 'future');
     }
 
     function checkServicePerfomed($app_id) {
@@ -58,20 +75,20 @@
         global $dbh;
         $stmt = $dbh->prepare('SELECT * FROM appointment
                                 JOIN person ON dentist_id=person.id
-                                WHERE client_id = ?
-                                ORDER BY app_id DESC;');
+                                WHERE client_id = ?;');
         $stmt->execute(array($id));
-        return $stmt->fetchAll();
+        $data = $stmt->fetchAll();
+        return sortAppointments($data, 'past');
     }
 
     function getCompleteFutureClientAppointments($id) {
         global $dbh;
         $stmt = $dbh->prepare('SELECT * FROM appointment
                                 JOIN person ON dentist_id=person.id
-                                WHERE client_id = ?
-                                ORDER BY date ASC, time ASC;');
+                                WHERE client_id = ?;');
         $stmt->execute(array($id));
-        return $stmt->fetchAll();
+        $data = $stmt->fetchAll();
+        return sortAppointments($data, 'future');
     }
 
     function getAppointmentId($client, $date) {
