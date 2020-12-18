@@ -4,6 +4,13 @@
     require_once('database/person_db.php');
     require_once('database/client_db.php');
     require_once('database/insurance_db.php');
+    require_once('action_imageUpload.php');
+
+    if ($_FILES['profile_image']['size'] != 0) {
+        $fileSize = $_FILES['profile_image']['size'];
+        $fileName = $_FILES["profile_image"]["tmp_name"];
+        uploadImage($fileSize, $fileName);
+    }
 
     $ins_codes_arr=getInsuranceCodes();
     $ins_codes=array();

@@ -24,7 +24,17 @@
     <?php } ?>
 
     <section id="profileInfo">
-        <img src="images/<?php echo $person['username'] ?>.jpg" alt="<?php echo $person['name'] ?>">
+ 
+        <?php if (file_exists('images/' . $person['id'] . '.jpg')) { ?>
+            <img src="images/<?php echo $person['id'] ?>.jpg" alt="<?php echo $person['name'] ?>">
+        <?php } else { ?>
+            <form enctype="multipart/form-data" action="action_imageUpload.php" method="post">
+                <input type="file" name="profile_image" accept="image/png, image/jpeg, image/jpg">
+                <br> <input type="submit" value="Upload"> </br>
+            </form>
+        <?php } ?>
+        <?php if (isset($_SESSION['error_image'])) { ?> <p id="err"> <?php echo $_SESSION['error_image']; unset($_SESSION['error_image']); ?> </p> <?php } ?>
+
         <div id="info">
 
             <?php if ($_SESSION['edit_on']==0 && !isset($_POST['edit'])) { ?>
@@ -45,29 +55,51 @@
 
             <?php } else { ?>
 
-                    <form action="action_edit_profile_info.php" method="post" id="editing">
-                    
-                    <p> <strong> Name: </strong>  <input type="text" name="name" value="<?php if(isset($_SESSION['name'])) { echo $_SESSION['name']; } else {echo $person['name']; } ?>" required></p>
-                    <p> <strong> Address: </strong>  <input type="text" name="address" value="<?php if(isset($_SESSION['address'])) { echo $_SESSION['address']; } else {echo $person['address']; } ?>" required></p>
-                    <p> <strong> Phone Number: </strong>  <input type="text" name="phone_number" value="<?php if(isset($_SESSION['phone_number'])) { echo $_SESSION['phone_number']; } else {echo $person['phone_number']; } ?>" required></p>
-                    <?php if (isset($_SESSION['error_num_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_num_msg']; unset($_SESSION['error_num_msg']); ?> </p> <?php } ?>
-                    <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
-                        <p> <strong> Birth Date: </strong>  <input type="text" name="birth_date" value="<?php if(isset($_SESSION['birth_date'])) { echo $_SESSION['birth_date']; } else {echo $person['birth_date']; } ?>" required></p>
-                        <p> <strong> Tax Number: </strong> <input type="text" name="tax_number" value="<?php if(isset($_SESSION['tax_number'])) { echo $_SESSION['tax_number']; } else {echo $person['tax_number']; } ?>"></p> 
-                        <?php if (isset($_SESSION['error_tax_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_tax_msg']; unset($_SESSION['error_tax_msg']); ?> </p> <?php } ?>
-                        <p> <strong> Insurance: </strong>  <input type="text" name="insurance_code" value="<?php if(isset($_SESSION['insurance_code'])) { echo $_SESSION['insurance_code']; } else {echo $person['insurance_code']; } ?>"></p>
-                        <?php if (isset($_SESSION['error_ins_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_ins_msg']; unset($_SESSION['error_ins_msg']); ?> </p> <?php } ?>
+                <form enctype="multipart/form-data" action="action_edit_profile_info.php" method="post" id="editing">
+                    <?php if (file_exists('images/' . $person['id'] . '.jpg')) { ?>                
+                        <input type="file" name="profile_image" accept="image/png, image/jpeg, image/jpg">
                     <?php } ?>
-                    <p> <strong> Username: </strong>  <input type="text" name="username" value="<?php if(isset($_SESSION['username'])) { echo $_SESSION['username']; } else {echo $person['username']; } ?>" required></p>
-                    <?php if (isset($_SESSION['error_user_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_user_msg'];
-                                                                                    unset($_SESSION['error_user_msg']); ?> </p> <?php } ?>
-                    <p> <strong> Password: </strong>  <input type="text" name="password" value=""></p>
+                    <p> <strong> Name: </strong>
+                    <input type="text" name="name" value="<?php if(isset($_SESSION['name'])) { echo $_SESSION['name']; } 
+                                                                     else {echo $person['name']; } ?>" required> </p>
+                    <p> <strong> Address: </strong>  
+                    <input type="text" name="address" value="<?php if(isset($_SESSION['address'])) { echo $_SESSION['address']; }
+                                                                        else {echo $person['address']; } ?>" required> </p>
+                    <p> <strong> Phone Number: </strong>   
+                    <input type="text" name="phone_number" value="<?php if(isset($_SESSION['phone_number'])) { echo $_SESSION['phone_number']; } 
+                                                                            else {echo $person['phone_number']; } ?>" required> </p>
+                    <?php if (isset($_SESSION['error_num_msg'])) { ?> 
+                         <p id="err"> <?php echo $_SESSION['error_num_msg']; unset($_SESSION['error_num_msg']); ?> </p> 
+                    <?php } ?>
+                    <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
+                        <p> <strong> Birth Date: </strong>
+                        <input type="text" name="birth_date" value="<?php if(isset($_SESSION['birth_date'])) { echo $_SESSION['birth_date']; }
+                                                                            else {echo $person['birth_date']; } ?>" required></p>
+                        <p> <strong> Tax Number: </strong>
+                        <input type="text" name="tax_number" value="<?php if(isset($_SESSION['tax_number'])) { echo $_SESSION['tax_number']; }
+                                                                            else {echo $person['tax_number']; } ?>"></p> 
+                        <?php if (isset($_SESSION['error_tax_msg'])) { ?>
+                            <p id="err"> <?php echo $_SESSION['error_tax_msg']; unset($_SESSION['error_tax_msg']); ?> </p>
+                        <?php } ?>
+                        <p> <strong> Insurance: </strong> 
+                        <input type="text" name="insurance_code" value="<?php if(isset($_SESSION['insurance_code'])) { echo $_SESSION['insurance_code']; } 
+                                                                                else {echo $person['insurance_code']; } ?>"></p>
+                        <?php if (isset($_SESSION['error_ins_msg'])) { ?> 
+                            <p id="err"> <?php echo $_SESSION['error_ins_msg']; unset($_SESSION['error_ins_msg']); ?> </p>                             <?php } ?>
+                    <?php } ?>
+                    <p> <strong> Username: </strong>  
+                    <input type="text" name="username" value="<?php if(isset($_SESSION['username'])) { echo $_SESSION['username']; } 
+                                                                    else {echo $person['username']; } ?>" required></p>
+                    <?php if (isset($_SESSION['error_user_msg'])) { ?> 
+                        <p id="err"> <?php echo $_SESSION['error_user_msg']; unset($_SESSION['error_user_msg']); ?> </p> 
+                    <?php } ?>
+                    <p> <strong> Password: </strong> 
+                    <input type="text" name="password" value=""></p>
                     <p> If you don't want to change the password, leave it blank. </p>
-                    <?php if (isset($_SESSION['error_pass_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_pass_msg'];
-                                                                                    unset($_SESSION['error_pass_msg']); ?> </p> <?php } ?>
-
+                    <?php if (isset($_SESSION['error_pass_msg'])) { ?> 
+                        <p id="err"> <?php echo $_SESSION['error_pass_msg']; unset($_SESSION['error_pass_msg']); ?> </p> 
+                    <?php } ?>
                     <input id="submit" type="submit" value="Submit">
-
                 </form>
 
             <?php } ?>

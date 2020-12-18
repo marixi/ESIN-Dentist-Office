@@ -55,8 +55,8 @@
             <h2> Dentists </h2>
         </div>
         <div id="dentistPhoto">
-            <img src="images/miguel.paredes.jpg" alt="One of our dentists" id="dentist1">
-            <img src="images/raquel.pires.jpg" alt="Another of our dentists" id="dentist2">
+            <img src="images/2.jpg" alt="One of our dentists" id="dentist1">
+            <img src="images/1.jpg" alt="Another of our dentists" id="dentist2">
         </div>
         <div id="dentistNames">
             <h3> Dr. Miguel Paredes </h3>
