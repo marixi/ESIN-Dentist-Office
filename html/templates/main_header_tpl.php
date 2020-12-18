@@ -7,7 +7,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
     <link href="css/priceTable.css" rel="stylesheet">
-    <title> Dentist Office HomePage</title>
+    <title> Denticare Clinic Homepage </title>
 </head>
 
 <body>

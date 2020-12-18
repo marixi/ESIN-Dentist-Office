@@ -46,10 +46,10 @@
         $stmt->execute(array($name, $address, $phone_number, $username, $password));
     }
 
-    function updateInfo($attribute, $value,$id) {
+    function updateInfo($attribute, $value, $id) {
         global $dbh;
-        $stmt = $dbh->prepare("UPDATE person SET $attribute = ? WHERE id = ? ");
-        $stmt->execute(array($value,$id));
+        $stmt = $dbh->prepare("UPDATE person SET $attribute = ? WHERE id = ?");
+        $stmt->execute(array($value, $id));
     }
 
     function insertIntoEmployee($id, $salary, $date_of_admission) {

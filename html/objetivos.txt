@@ -4,7 +4,6 @@ Eu acho que o plano de trabalhos geral é:
 - por tudo a %
 - botao de levantar tudo para cima
 - botao de alteracoa de dados do profile (quase tudo)
-- fazer a base de dados final
 - css responsive
 - css fire e remove client
 - try catches para tudinho (login, appointment, schedules)
