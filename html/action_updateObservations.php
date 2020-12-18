@@ -9,6 +9,6 @@
 
     updateRecord($observations, $id_to_change, $client_id);
 
-    header('Location: dentistAppointments.php');
+    header("Location: /dentistAppointments.php#appointment$id_to_change");
     
 ?>

@@ -1,10 +1,14 @@
 <?php
 
     if ($_SERVER['PHP_SELF'] == '/dentist.php') {
-        $appointments = getDentistAppointments($id);
+        $appointments = getDentistAppointments($_SESSION['id']);
     } else if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php') {
-        $appointments = getAuxiliariesAssignedAppointments($id);
+        $appointments = getAuxiliariesAssignedAppointments($_SESSION['id']);
     }
+
+    if (!isset($_SESSION['choice'])) {
+        $_SESSION['choice'] = date('Y') . '-W' . date('W');
+    } 
 
 ?>
 

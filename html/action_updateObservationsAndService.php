@@ -21,6 +21,6 @@
     /*$stmt = $dbh->prepare('INSERT INTO record (client_id, appointment_id, observations) VALUES (?, ?, NULL)');
         $stmt->execute(array($id, $app_id));*/
 
-    header('Location: dentistAppointments.php');
+    header("Location: /dentistAppointments.php#appointment$id_to_change");
 
 ?>
