@@ -39,7 +39,7 @@
                 <label> Password </label>
             </div>
         <?php } ?>
-        <input type="submit" value="Login">
+        <input type="submit" value="Login" id="loginButton">
     </form>
     <p id='login_error'> <?php echo $_SESSION['err_msg'] ?> </p>
     <?php if (isset($_SESSION['err_msg'])) {

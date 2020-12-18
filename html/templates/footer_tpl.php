@@ -1,3 +1,7 @@
+    <form action="action_goUp.php" method = "post">
+        <input type="submit" value="^" name="goUpButton" id="goUpButton">
+    </form>
+    
     <!-- Footer -->
     <footer>
         <ul class="breadcrumb">

@@ -8,7 +8,7 @@
 
     if (!isset($_SESSION['choice'])) {
         $_SESSION['choice'] = date('Y') . '-W' . date('W');
-    } 
+    }
 
 ?>
 

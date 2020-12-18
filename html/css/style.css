@@ -144,6 +144,7 @@ body>header h2 {
 
 #prices input:hover {
     font-weight: bold;
+    cursor: pointer;
 }
 
 /* Section with id="team" */
@@ -336,3 +337,21 @@ footer>ul.breadcrumb li a:hover {
     color: rgba(96, 185, 201, 0.932);
 }
 
+#goUpButton {
+    position: fixed;
+    bottom: 5%;
+    right: 0.5%;
+    z-index: 99; /* Make sure it does not overlap */
+    border: none;
+    background-color: rgb(160, 194, 204);
+    color: white;
+    padding: 0.5% 0.8%;
+    cursor: pointer;
+    border-radius: 30%;
+    font-size: 120%;
+}
+
+#goUpButton:hover {
+    background-color: rgb(135, 163, 172);
+    font-weight: bold;
+}
