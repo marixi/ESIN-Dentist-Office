@@ -1,8 +1,8 @@
 <?php 
 
-    require_once('database/init.php');
-    require_once('database/material.php');
-    require_once('database/quantity.php');
+    require_once('database/init_db.php');
+    require_once('database/material_db.php');
+    require_once('database/quantity_db.php');
 
     if (isset($_POST['service'])) {
         $service = $_POST['service'];

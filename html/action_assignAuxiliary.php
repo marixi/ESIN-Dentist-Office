@@ -1,7 +1,7 @@
 <?php
 
-    require_once('database/init.php');
-    require_once('database/auxiliariesAssigned.php');
+    require_once('database/init_db.php');
+    require_once('database/auxiliariesAssigned_db.php');
 
     $auxiliary = $_POST['auxiliary'];
     $appointment_to_change = $_POST['appointment_to_change'];

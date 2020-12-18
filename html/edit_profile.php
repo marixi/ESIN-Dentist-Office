@@ -1,10 +1,10 @@
 <?php
 
-require_once('database/init.php');
-require_once('database/person.php');
+require_once('database/init_db.php');
+require_once('database/person_db.php');
 // require_once('database/dentist.php');
 // require_once('database/dentalAuxiliary.php');
-require_once('database/client.php');
+require_once('database/client_db.php');
 
 $id = $_SESSION['id'];
 

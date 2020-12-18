@@ -1,9 +1,9 @@
 <?php
     
-    require_once('database/init.php');
-    require_once('database/dentist.php');
-    require_once('database/dentalAuxiliary.php');
-    require_once('database/client.php');
+    require_once('database/init_db.php');
+    require_once('database/dentist_db.php');
+    require_once('database/dentalAuxiliary_db.php');
+    require_once('database/client_db.php');
 
     if(isset($_POST['edit']) && $_SESSION['edit_on']==0) $_SESSION['edit_on']=1; else $_SESSION['edit_on']=0;
     

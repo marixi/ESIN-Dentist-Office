@@ -1,7 +1,7 @@
 <?php
 
-    require_once('database/init.php');
-    require_once('database/quantity.php');
+    require_once('database/init_db.php');
+    require_once('database/quantity_db.php');
 
     $quantity_list = getAllQuantities();
 

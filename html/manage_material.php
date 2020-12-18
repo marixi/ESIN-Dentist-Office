@@ -1,9 +1,9 @@
 <?php
 
-    require_once('database/init.php');
-    require_once('database/material.php');
-    require_once('database/service.php');
-    require_once('database/specialty.php');
+    require_once('database/init_db.php');
+    require_once('database/material_db.php');
+    require_once('database/service_db.php');
+    require_once('database/specialty_db.php');
 
     $material = getAllMaterial();
 

@@ -1,8 +1,8 @@
 <?php
     
-    require_once('database/init.php');
-    require_once('database/person.php');
-    require_once('database/dentalAuxiliary.php');
+    require_once('database/init_db.php');
+    require_once('database/person_db.php');
+    require_once('database/dentalAuxiliary_db.php');
 
     $_SESSION['name'] = $_POST['name'];
     $_SESSION['address'] = $_POST['address'];

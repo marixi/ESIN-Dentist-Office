@@ -1,6 +1,6 @@
 <?php
-    require_once('database/init.php');
-    require_once('database/service.php');
+    require_once('database/init_db.php');
+    require_once('database/service_db.php');
     $services = getAllServices();
 
     include('templates/main_header_tpl.php');

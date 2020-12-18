@@ -1,7 +1,7 @@
 <?php
     
-    require_once('database/init.php');
-    require_once('database/appointment.php');
+    require_once('database/init_db.php');
+    require_once('database/appointment_db.php');
 
     if (strlen($_SESSION['time']) == 1) { $time = '0'.$_SESSION['time'].':00'; }
     else { $time = $_SESSION['time'].':00'; }

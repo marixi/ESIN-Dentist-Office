@@ -1,8 +1,8 @@
 <?php
 
-    require_once('database/init.php');
-    require_once('database/dentist.php');
-    require_once('database/appointment.php');
+    require_once('database/init_db.php');
+    require_once('database/dentist_db.php');
+    require_once('database/appointment_db.php');
     $id = $_SESSION['id'];
     $appointments = getDentistAppointments($id);
 

@@ -1,8 +1,8 @@
 <?php
     
-    require_once('database/init.php');
-    require_once('database/dentalAuxiliary.php');
-    require_once('database/client.php');
+    require_once('database/init_db.php');
+    require_once('database/dentalAuxiliary_db.php');
+    require_once('database/client_db.php');
 
     $id = $_SESSION['id'];
     $auxiliary = getAuxiliaryInfo($id);

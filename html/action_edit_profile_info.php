@@ -1,9 +1,9 @@
 <?php
     
-    require_once('database/init.php');
-    require_once('database/person.php');
-    require_once('database/client.php');
-    require_once('database/insurance.php');
+    require_once('database/init_db.php');
+    require_once('database/person_db.php');
+    require_once('database/client_db.php');
+    require_once('database/insurance_db.php');
 
     $ins_codes_arr=getInsuranceCodes();
     $ins_codes=array();

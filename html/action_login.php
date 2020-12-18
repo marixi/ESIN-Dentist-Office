@@ -1,7 +1,7 @@
 <?php 
     
-    require_once('database/init.php');
-    require_once('database/person.php');
+    require_once('database/init_db.php');
+    require_once('database/person_db.php');
 
     $username = $_POST['username'];
     $password = $_POST['password'];

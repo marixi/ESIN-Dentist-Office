@@ -1,8 +1,8 @@
 <?php
 
-    require_once('database/init.php');
-    require_once('database/record.php');
-    require_once('database/service.php');
+    require_once('database/init_db.php');
+    require_once('database/record_db.php');
+    require_once('database/service_db.php');
 
     $procedure = $_POST['procedure'];
     $specialty = $_POST['specialty'];
