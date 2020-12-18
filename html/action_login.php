@@ -4,7 +4,7 @@
     require_once('database/person_db.php');
 
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = sha1($_POST['password']);
 
     $userTry = getPersonUsernameId($username);
     $passTry = getPersonPassword($password, $username);

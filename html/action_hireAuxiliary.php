@@ -44,7 +44,7 @@
     } else {
         
         try {
-            insertIntoPerson($_SESSION['name'], $_SESSION['address'], $_SESSION['phone_number'], $_SESSION['username'], $_SESSION['password']);
+            insertIntoPerson($_SESSION['name'], $_SESSION['address'], $_SESSION['phone_number'], $_SESSION['username'], sha1($_SESSION['password']));
         } catch (Exception $e) {
             $_SESSION['msg'] = "Something went wrong! Please try again.";
             header('Location: \manageTeam.php#hire');  

@@ -118,23 +118,23 @@ CREATE TABLE quantity (
 
 -- Insert Data --
 
-INSERT INTO person VALUES (1, 'Raquel Pires', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351921555422', 'raquel.pires', 'rqpmed20');
-INSERT INTO person VALUES (2, 'Miguel Paredes', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351929255572', 'miguel.paredes', 'mgpmed20');
-INSERT INTO person VALUES (3, 'Joana Fonseca', 'Rua Caminho Cruz 21 4440-689 Valongo, Porto', '+351965559111', 'joana.fonseca', 'joaninha4440');
-INSERT INTO person VALUES (4, 'Ricardo Brioso', 'Rua Tapada Marinha 77 4455-459 Perafita, Porto', '+351929155587', 'ricardo.brioso', 'ricardo4Work');
-INSERT INTO person VALUES (5, 'Sara Fernandes', 'Rua Nossa Senhora Graça 90 4620-135 Lousada, Porto', '+351921555869', 'sara.fernandes', 'sara1347fer');
-INSERT INTO person VALUES (6, 'Lara Guerreiro', 'Rua Heróis Ultramar 94 4640-210 Monte Alegra, Porto', '+351921555935', 'lara.guerreiro', 'lGo17dr');
-INSERT INTO person VALUES (7, 'Erica Freitas', 'Avenida Júlio Saúl Dias 53 4560-800 Portela, Porto', '+351225555669', 'erica.freitas', 'brLdgr262');
-INSERT INTO person VALUES (8, 'Clara Tavares', 'Rua Âncora 77 4400-095 Vila Nova de Gaia, Porto', '+351935556768', 'clara.tavares', 'jBUDBKb164');
-INSERT INTO person VALUES (9, 'Francisco Amaral', 'Rua Comércio Porto 42 4500-532 Porto, Porto', '+351922555524', 'francisco.amaral', 'chico15M');
-INSERT INTO person VALUES (10, 'Andreia Baptista', 'Rua Patrão Caramelho 111 4485-330 Labruge, Porto', '+351915555347', 'andreia.baptista', 'gdVBU864M');
-INSERT INTO person VALUES (11, 'Martim Sousa', 'Rua Nossa Senhora Graça 44 4620-226 Sequeiros, Porto', '+351921555346', 'martim.sousa', 'martimPTPT1');
-INSERT INTO person VALUES (12, 'Maria Esteves', 'Rua Alegria 39 4580-372 Seixoso, Porto', '+351915557534', 'maria.esteves', 'm4riaEst');
-INSERT INTO person VALUES (13, 'Pedro Neves', 'Rua Tapada Marinha 49 4455-184 Lavra, Porto', '+351929055523', 'pedro.neves', 'letitSNOW22');
-INSERT INTO person VALUES (14, 'Yara Martins', 'Rua Oliveirinhas 58 4420-400 Valbom, Porto', '+351922555434', 'yara.martins', 'sbuiI7n');
-INSERT INTO person VALUES (15, 'Miguel Barros', 'Avenida Parque Gondarim 97 4405-796 Vila Nova de Gaia, Porto', '+351921555668', 'miguel.barros', 'cristianoRonaldo');
-INSERT INTO person VALUES (16, 'Duarte Barros', 'Avenida Parque Gondarim 97 4405-796 Vila Nova de Gaia, Porto', '+351921555668', 'duarte.barros', 'marega2561');
-INSERT INTO person VALUES (17, 'Mariana Ramos', 'Travessa Pindelo do Falcão 84 4425-547 Maia, Porto', '+351921555595', 'mariana.ramos', 'mab16JHVm');
+INSERT INTO person VALUES (1, 'Raquel Pires', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351921555422', 'raquel.pires', '164936a34578278d7100d73ccad70f109baf9d43');
+INSERT INTO person VALUES (2, 'Miguel Paredes', 'Rua Muro Bacalhoeiros 57 4250-124 Porto, Porto', '+351929255572', 'miguel.paredes', '13cc4966c3969e53fab7cfcd8f28fe1de3e2d034');
+INSERT INTO person VALUES (3, 'Joana Fonseca', 'Rua Caminho Cruz 21 4440-689 Valongo, Porto', '+351965559111', 'joana.fonseca', '3dc8a0caf01c4bc5bd996c3ab07dda15f5c9dbb5');
+INSERT INTO person VALUES (4, 'Ricardo Brioso', 'Rua Tapada Marinha 77 4455-459 Perafita, Porto', '+351929155587', 'ricardo.brioso', 'b7f7916aaaa1932e5dcf1d7c2f22c244b2103474');
+INSERT INTO person VALUES (5, 'Sara Fernandes', 'Rua Nossa Senhora Graça 90 4620-135 Lousada, Porto', '+351921555869', 'sara.fernandes', '500152318a6e2cbcccf587b8baff79c51d99c30b');
+INSERT INTO person VALUES (6, 'Lara Guerreiro', 'Rua Heróis Ultramar 94 4640-210 Monte Alegra, Porto', '+351921555935', 'lara.guerreiro', 'a08731c16f2891242eefe02d9317b780ce994a69');
+INSERT INTO person VALUES (7, 'Erica Freitas', 'Avenida Júlio Saúl Dias 53 4560-800 Portela, Porto', '+351225555669', 'erica.freitas', '8976ec8184f167b261157b3b06eb2e8d8681b6b5');
+INSERT INTO person VALUES (8, 'Clara Tavares', 'Rua Âncora 77 4400-095 Vila Nova de Gaia, Porto', '+351935556768', 'clara.tavares', '6f0d467010fbd96f36699f7cfa85e546e4d2a926');
+INSERT INTO person VALUES (9, 'Francisco Amaral', 'Rua Comércio Porto 42 4500-532 Porto, Porto', '+351922555524', 'francisco.amaral', '64c25d1f83fcf90f6a4de4ac13fe43d6625413e6');
+INSERT INTO person VALUES (10, 'Andreia Baptista', 'Rua Patrão Caramelho 111 4485-330 Labruge, Porto', '+351915555347', 'andreia.baptista', '1c8d567ba6ae13a5017dadd15ba47fb24d443b2e');
+INSERT INTO person VALUES (11, 'Martim Sousa', 'Rua Nossa Senhora Graça 44 4620-226 Sequeiros, Porto', '+351921555346', 'martim.sousa', '85f9c01e17d5f91602e24db4544446883d337c51');
+INSERT INTO person VALUES (12, 'Maria Esteves', 'Rua Alegria 39 4580-372 Seixoso, Porto', '+351915557534', 'maria.esteves', '275dad6b2e501ff44c6ce7114ba2f2e53a5f66ec');
+INSERT INTO person VALUES (13, 'Pedro Neves', 'Rua Tapada Marinha 49 4455-184 Lavra, Porto', '+351929055523', 'pedro.neves', 'ffed61c52f1a66962e553f6c360fc61b0d35b5f0');
+INSERT INTO person VALUES (14, 'Yara Martins', 'Rua Oliveirinhas 58 4420-400 Valbom, Porto', '+351922555434', 'yara.martins', '0bdee421fa92af328db0453548a0dd7a09b0bc53');
+INSERT INTO person VALUES (15, 'Miguel Barros', 'Avenida Parque Gondarim 97 4405-796 Vila Nova de Gaia, Porto', '+351921555668', 'miguel.barros', 'f3eea9aa586450bea488effa68e7063b342e5627');
+INSERT INTO person VALUES (16, 'Duarte Barros', 'Avenida Parque Gondarim 97 4405-796 Vila Nova de Gaia, Porto', '+351921555668', 'duarte.barros', 'e614c0e7b08a3d4424d290af59f794caf8248c2e');
+INSERT INTO person VALUES (17, 'Mariana Ramos', 'Travessa Pindelo do Falcão 84 4425-547 Maia, Porto', '+351921555595', 'mariana.ramos', '82a75ef12ca2179dd4726f93d48ff5c294b0dc6c');
 
 INSERT INTO employee VALUES (1, 6500, '01-01-2020');
 INSERT INTO employee VALUES (2, 6500, '01-01-2020');
@@ -177,7 +177,7 @@ INSERT INTO appointment VALUES (1, '03-01-2020', '10:00', 2, 8, 2, 'general');
 INSERT INTO appointment VALUES (2, '03-01-2020', '11:00', 1, 9, 1, 'general');
 INSERT INTO appointment VALUES (3, '10-01-2020', '11:00', 1, 9, 1, 'orthodontics');
 INSERT INTO appointment VALUES (4, '12-03-2020', '09:00', 1, 9, 1, 'orthodontics');
-INSERT INTO appointment VALUES (5, '03-05-2020', '17:00', 2, 10, 2, 'general');
+INSERT INTO appointment VALUES (5, '01-05-2020', '17:00', 2, 10, 2, 'general');
 INSERT INTO appointment VALUES (6, '08-05-2020', '09:00', 1, 9, 1, 'orthodontics');
 INSERT INTO appointment VALUES (7, '08-05-2020', '14:00', 2, 11, 2, 'prosthodontics');
 INSERT INTO appointment VALUES (8, '10-07-2020', '11:00', 1, 9, 1, 'orthodontics');
@@ -193,11 +193,11 @@ INSERT INTO appointment VALUES (17, '14-11-2020', '09:00', 1, 14, 1, 'orthodonti
 INSERT INTO appointment VALUES (18, '14-11-2020', '11:00', 2, 17, 2, 'endodontics');
 INSERT INTO appointment VALUES (19, '24-11-2020', '17:00', 2, 10, 2, 'endodontics');
 INSERT INTO appointment VALUES (20, '27-11-2020', '11:00', 2, 12, 2, 'endodontics');
-INSERT INTO appointment VALUES (21, '25-12-2020', '15:00', 2, 15, 2, 'pediatric');
-INSERT INTO appointment VALUES (22, '25-12-2020', '16:00', 2, 16, 2, 'pediatric');
+INSERT INTO appointment VALUES (21, '23-12-2020', '15:00', 2, 15, 2, 'pediatric');
+INSERT INTO appointment VALUES (22, '23-12-2020', '16:00', 2, 16, 2, 'pediatric');
 INSERT INTO appointment VALUES (23, '28-12-2020', '14:00', 2, 11, 2, 'prosthodontics');
 INSERT INTO appointment VALUES (24, '12-01-2021', '11:00', 1, 9, 1, 'orthodontics');
-INSERT INTO appointment VALUES (25, '17-01-2021', '09:00', 1, 14, 1, 'orthodontics');
+INSERT INTO appointment VALUES (25, '16-01-2021', '09:00', 1, 14, 1, 'orthodontics');
 INSERT INTO appointment VALUES (26, '02-02-2021', '16:00', 2, 10, 2, 'general');
 
 INSERT INTO auxiliariesAssigned VALUES (1, 4);
