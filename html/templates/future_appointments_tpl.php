@@ -19,7 +19,7 @@
         <?php
             $date = new DateTime("now");
             foreach ($future as $app) {
-                if (strtotime($app['date']) > strtotime($date->format('d-m-yy')) || $app['time'] > date('H:i')) { ?>
+                if (strtotime($app['date']) > strtotime($date->format('d-m-yy')) || (strtotime($app['date']) == strtotime($date->format('d-m-yy')) && $app['time'] > date('H:i'))) { ?>
 
                     <section id="appointment<?php echo $app['app_id'] ?>">
 

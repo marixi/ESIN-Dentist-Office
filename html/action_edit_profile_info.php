@@ -5,11 +5,10 @@
     require_once('database/client_db.php');
     require_once('database/insurance_db.php');
 
-    if ($_FILES['profile_image']['size'] != 0) {
-        require_once('action_imageUpload.php');
-        $fileSize = $_FILES['profile_image']['size'];
-        $fileName = $_FILES["profile_image"]["tmp_name"];
-        uploadImage($fileSize, $fileName);
+    if ($_FILES['image']['size'] != 0) {
+        $fileSize = $_FILES['image']['size'];
+        $fileName = $_FILES["image"]["tmp_name"];
+        uploadProfileImage($fileSize, $fileName, $_SESSION['id']);
     }
 
     $ins_codes_arr = getInsuranceCodes();
@@ -17,7 +16,7 @@
     foreach ($ins_codes_arr as $value) {
         array_push($ins_codes, $value['insurance_code']);
     }
-    
+            
     $changes = array();
 
     $_SESSION['name'] = $_POST['name'];
@@ -25,14 +24,14 @@
 
     $_SESSION['address'] = $_POST['address'];
     $changes['address'] = $_SESSION['address'];
-    
+            
     $_SESSION['phone_number'] = $_POST['phone_number'];
     $testNumber = substr($_SESSION['phone_number'], 1);
     $changes['phone_number'] = $_SESSION['phone_number'];
-    
+            
     $_SESSION['username'] = $_POST['username'];
     $changes['username'] = $_SESSION['username'];
-    
+          
     if (strlen($_POST['password']) != 0) {
         $_SESSION['password'] = $_POST['password'];
         $changes['password'] = $_SESSION['password'];
@@ -60,7 +59,7 @@
 
     if (substr($_SESSION['phone_number'], 0, 1) != '+') {
         $_SESSION['error_num_msg'] = "Please use +351 (for example) in the beginning of the phone number!";
-        header('Location: \action_decideProfile.php');    
+        header('Location: \action_decideProfile.php');
     } else if (strlen($_SESSION['phone_number']) != 13) {
         $_SESSION['error_num_msg'] = "The phone number doesn't exist!";
         header('Location: \action_decideProfile.php'); 
@@ -94,7 +93,7 @@
         $_SESSION['error_ins_msg'] = "That insurance code is not available for our clinic!";
         header('Location: \action_decideProfile.php');
     } else {
-        
+               
         try {
             foreach ($changes as $key => $value){
                 updateInfo($key, $value, $id);
@@ -104,8 +103,10 @@
                     updateClientInfo($key, $value,$id);
                 }
             }
-            $_SESSION['edit_on'] = 0;
-            $_SESSION['final_msg'] = "Information changed successfully!";
+            if (!isset($_SESSION['error_image'])) {
+                $_SESSION['edit_on'] = 0;
+                $_SESSION['final_msg'] = "Information changed successfully!";
+            }
         } catch (Exception $e) {
             $_SESSION['msg'] = "Something went wrong! Please try again.";
         }
@@ -121,7 +122,7 @@
             unset($_SESSION['insurance_code']);
         }
 
-       header('Location: \action_decideProfile.php');
+        header('Location: \action_decideProfile.php');
     }
     
-?>
+?> 

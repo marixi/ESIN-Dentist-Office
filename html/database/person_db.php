@@ -58,5 +58,36 @@
         $stmt->execute(array($id, $salary, $date_of_admission));
     }
 
+    function uploadProfileImage($fileSize, $fileName, $idToUpload) {
+        // Check if something was uploaded.
+        if ($fileSize == 0) {
+            $_SESSION["error_image"] = "Nothing was uploaded.";
+        }
+        // File size checking.
+        else if ($fileSize/1024 > "2048") {
+            $_SESSION["error_image"] = "File size should equal or lower than 2 MB.";
+        }
+        else {
+            list($width, $height) = getimagesize($fileName);
+            // Check dimensions of image.
+            if ($width > 1800) {
+                $_SESSION["error_image"] = "Image with exceeds the maximum (500 px)";    
+            }
+            // Attempt to upload file.
+            else {
+                $uploads_dir = 'images/';
+                $name = $idToUpload.'.jpg';
+                try {
+                    if (file_exists("$uploads_dir/$name")) {
+                        unlink("$uploads_dir/$name");
+                    }
+                    move_uploaded_file($fileName, "$uploads_dir/$name");   
+                } catch (Exception $e) {
+                    $_SESSION["error_image"] = "Problem uploading: could not move file to destination. Please check again later.";
+                }
+            } 
+        }
+    }
+
     
 ?>
