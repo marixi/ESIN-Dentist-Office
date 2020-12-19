@@ -6,20 +6,37 @@
 
     if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php') {
         if (!isset($_SESSION['clientSearch'])) {
-            $past = getCompletePastDentistAppointments($_SESSION['id']);
+            $appointments = getCompletePastDentistAppointments($_SESSION['id']);
             $record = getRecordFromAppointmentsForDentist($_SESSION['id']);
+            $past = array_slice($appointments, ($_SESSION['page']-1)*3, 3);
+            $_SESSION['max_past'] =  ceil(getNumberAppointments($appointments)/3);
         } else {
             $past = getCompletePastDentistAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
             $record = getRecordFromAppointmentsForDentistOfClient($_SESSION['id'], $_SESSION['clientSearch']);
         }
     } else if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php') {
         if (!isset($_SESSION['clientSearch'])) {
-            $past = getCompletePastAuxiliaryAppointments($_SESSION['id']);
+            $appointments = getCompletePastAuxiliaryAppointments($_SESSION['id']);
+            $past = array_slice($appointments, ($_SESSION['page']-1)*3, 3);
+            $_SESSION['max_past'] =  ceil(getNumberAppointments($appointments)/3);
         } else {
             $past = getCompletePastAuxiliaryAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
         }  
     } else if ($_SERVER['PHP_SELF'] == '/clientRecord.php') {
-        $past = getCompletePastClientAppointments($_SESSION['id']);
+        $appointments = getCompletePastClientAppointments($_SESSION['id']);
+        $past = array_slice($appointments, ($_SESSION['page']-1)*3, 3);
+        $_SESSION['max_past'] =  ceil(getNumberAppointments($appointments)/3);
+    }
+
+    function getNumberAppointments($array) {
+        $date = new DateTime("now");
+        $number = 0;
+        foreach ($array as $app) {
+            if (($_SERVER['PHP_SELF'] == '/dentistAppointments.php' && (strtotime($app['date']) < strtotime($date->format('d-m-yy')) || (strtotime($app['date']) == strtotime($date->format('d-m-yy')) && $app['time'] <= date('H:i'))) && checkServicePerfomed($app['app_id']) ==  true) || (($_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') && (strtotime($app['date']) < strtotime($date->format('d-m-yy')) || (strtotime($app['date']) == strtotime($date->format('d-m-yy')) && $app['time'] <= date('H:i'))))) {
+                $number++;
+            }
+        }
+        return $number;
     }
 
 ?>
@@ -32,7 +49,7 @@
         <?php
             $date = new DateTime("now");
             foreach ($past as $app) {
-                if (($_SERVER['PHP_SELF'] == '/dentistAppointments.php' && strtotime($app['date']) <= strtotime($date->format('d-m-yy')) && $app['time'] <= date('H:i') && checkServicePerfomed($app['app_id']) ==  true) || ($_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php' && strtotime($app['date']) <= strtotime($date->format('d-m-yy')) && $app['time'] <= date('H:i') )) { ?>
+                if (($_SERVER['PHP_SELF'] == '/dentistAppointments.php' && (strtotime($app['date']) < strtotime($date->format('d-m-yy')) || (strtotime($app['date']) == strtotime($date->format('d-m-yy')) && $app['time'] <= date('H:i'))) && checkServicePerfomed($app['app_id']) ==  true) || (($_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') && (strtotime($app['date']) < strtotime($date->format('d-m-yy')) || (strtotime($app['date']) == strtotime($date->format('d-m-yy')) && $app['time'] <= date('H:i'))))) { ?>
                     
                     <section id="appointment<?php echo $app['app_id'] ?>">
 

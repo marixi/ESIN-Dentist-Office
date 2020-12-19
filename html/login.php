@@ -35,7 +35,7 @@
                 <label> Username </label>
             </div>
             <div class="input-field">
-                <input type="password" name="password" required="required" value="<?php echo $_SESSION['pass_try']; ?>">
+                <input type="password" name="password" required="required">
                 <label> Password </label>
             </div>
         <?php } ?>

@@ -203,3 +203,14 @@ margin:0;
     background: -webkit-linear-gradient(right, #14c8e7, #33acac, #33acac, #14c8e7);
     font-weight: bold;
 }
+
+#pagination {
+    text-align: center;
+    font-size: 110%;
+    padding-top: 0.1%;
+    padding-bottom: 2%;
+}
+
+#pagination a {
+    margin: 0 5%;
+}

@@ -1,5 +1,6 @@
 <?php
-    $clients = getClients();
+
+    session_start();
 
     if ($_SERVER['HTTP_REFERER'] == '/dentist.php') {
         $go = "/dentistAppointments.php";
@@ -7,10 +8,12 @@
         $go = "/dentalAuxiliary_appointments.php";
     }
 
-?>    
+    $clients = getClients();
+
+?>  
 
     <!-- Section to search for specific clients in the appointments -->
-    <form action="<?php echo $go ?>" id="search" method="post">
+    <form action="<?php echo $go; ?>" id="search" method="post">
         <label> Client: </label>
         <select name="clientSearch" required="required">
         <option value="" selected disabled hidden> ------- search for a specific client ------- </option>
