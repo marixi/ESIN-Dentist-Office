@@ -19,7 +19,7 @@
             $future = array_reverse(array_slice(array_reverse($appointments), ($_SESSION['future_page']-1)*3, 3));
             $_SESSION['max_future'] =  ceil(getNumberFutureAppointments($appointments)/3);
         } else {
-            $future = getCompleteFutureAuxiliaryAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
+            $appointments = getCompleteFutureAuxiliaryAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
             $future = array_reverse(array_slice(array_reverse($appointments), ($_SESSION['future_page']-1)*3, 3));
             $_SESSION['max_future'] =  ceil(getNumberFutureAppointments($appointments)/3);
         }  

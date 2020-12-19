@@ -79,9 +79,10 @@
                 $name = $idToUpload.'.jpg';
                 try {
                     if (file_exists("$uploads_dir/$name")) {
-                        unlink("$uploads_dir/$name");
-                    }
-                    move_uploaded_file($fileName, "$uploads_dir/$name");   
+                        copy($fileName, "$uploads_dir/$name");   
+                    } else {
+                        move_uploaded_file($fileName, "$uploads_dir/$name");  
+                    } 
                 } catch (Exception $e) {
                     $_SESSION["error_image"] = "Problem uploading: could not move file to destination. Please check again later.";
                 }
