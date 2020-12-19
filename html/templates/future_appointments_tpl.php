@@ -6,19 +6,36 @@
 
     if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php') {
         if (!isset($_SESSION['clientSearch'])) {
-            $future = getCompleteFutureDentistAppointments($_SESSION['id']);
+            $appointments = getCompleteFutureDentistAppointments($_SESSION['id']);
+            $future = array_reverse(array_slice(array_reverse($appointments), ($_SESSION['future_page']-1)*3, 3));
+            $_SESSION['max_future'] =  ceil(getNumberFutureAppointments($appointments)/3);
         } else {
             $future = getCompleteFutureDentistAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
         }
         $auxiliaries = getAllAuxiliaries();
     } else if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php') {
         if (!isset($_SESSION['clientSearch'])) {
-            $future = getCompleteFutureAuxiliaryAppointments($_SESSION['id']);
+            $appointments = getCompleteFutureAuxiliaryAppointments($_SESSION['id']);
+            $future = array_reverse(array_slice(array_reverse($appointments), ($_SESSION['future_page']-1)*3, 3));
+            $_SESSION['max_future'] =  ceil(getNumberFutureAppointments($appointments)/3);
         } else {
             $future = getCompleteFutureAuxiliaryAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
+            $future = array_reverse(array_slice(array_reverse($appointments), ($_SESSION['future_page']-1)*3, 3));
+            $_SESSION['max_future'] =  ceil(getNumberFutureAppointments($appointments)/3);
         }  
     } else if ($_SERVER['PHP_SELF'] == '/clientRecord.php') {
         $future = getCompleteFutureClientAppointments($_SESSION['id']);
+    }
+
+    function getNumberFutureAppointments($array) {
+        $date = new DateTime("now");
+        $number = 0;
+        foreach ($array as $app) {
+            if (strtotime($app['date']) > strtotime($date->format('d-m-yy')) || (strtotime($app['date']) == strtotime($date->format('d-m-yy')) && $app['time'] > date('H:i'))) {
+                $number++;
+            }
+        }
+        return $number;
     }
 
 ?>
@@ -32,7 +49,6 @@
             $date = new DateTime("now");
             foreach ($future as $app) {
                 if (strtotime($app['date']) > strtotime($date->format('d-m-yy')) || (strtotime($app['date']) == strtotime($date->format('d-m-yy')) && $app['time'] > date('H:i'))) { ?>
-
                     <section id="appointment<?php echo $app['app_id'] ?>">
 
                         <h3> Appointment #<?php echo $app['app_id'] ?>: </h3>

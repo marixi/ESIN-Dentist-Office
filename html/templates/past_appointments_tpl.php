@@ -8,8 +8,8 @@
         if (!isset($_SESSION['clientSearch'])) {
             $appointments = getCompletePastDentistAppointments($_SESSION['id']);
             $record = getRecordFromAppointmentsForDentist($_SESSION['id']);
-            $past = array_slice($appointments, ($_SESSION['page']-1)*3, 3);
-            $_SESSION['max_past'] =  ceil(getNumberAppointments($appointments)/3);
+            $past = array_slice($appointments, ($_SESSION['past_page']-1)*3, 3);
+            $_SESSION['max_past'] =  ceil(getNumberPastAppointments($appointments)/3);
         } else {
             $past = getCompletePastDentistAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
             $record = getRecordFromAppointmentsForDentistOfClient($_SESSION['id'], $_SESSION['clientSearch']);
@@ -17,18 +17,18 @@
     } else if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php') {
         if (!isset($_SESSION['clientSearch'])) {
             $appointments = getCompletePastAuxiliaryAppointments($_SESSION['id']);
-            $past = array_slice($appointments, ($_SESSION['page']-1)*3, 3);
-            $_SESSION['max_past'] =  ceil(getNumberAppointments($appointments)/3);
+            $past = array_slice($appointments, ($_SESSION['past_page']-1)*3, 3);
+            $_SESSION['max_past'] =  ceil(getNumberPastAppointments($appointments)/3);
         } else {
             $past = getCompletePastAuxiliaryAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
         }  
     } else if ($_SERVER['PHP_SELF'] == '/clientRecord.php') {
         $appointments = getCompletePastClientAppointments($_SESSION['id']);
-        $past = array_slice($appointments, ($_SESSION['page']-1)*3, 3);
-        $_SESSION['max_past'] =  ceil(getNumberAppointments($appointments)/3);
+        $past = array_slice($appointments, ($_SESSION['past_page']-1)*3, 3);
+        $_SESSION['max_past'] =  ceil(getNumberPastAppointments($appointments)/3);
     }
 
-    function getNumberAppointments($array) {
+    function getNumberPastAppointments($array) {
         $date = new DateTime("now");
         $number = 0;
         foreach ($array as $app) {
