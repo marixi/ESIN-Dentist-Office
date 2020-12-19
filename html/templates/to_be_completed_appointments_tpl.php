@@ -1,5 +1,15 @@
 <?php
-    $future = getCompleteFutureDentistAppointments($_SESSION['id']);
+
+    if (isset($_POST['clientSearch'])) {
+        $_SESSION['clientSearch'] = $_POST['clientSearch'];
+    }
+
+    if (!isset($_SESSION['clientSearch'])) {
+        $future = getCompleteFutureDentistAppointments($_SESSION['id']);
+    } else {
+        $future = getCompleteFutureDentistAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
+    }
+   
 ?>
 
     <!-- Section to display the "to be completed" appointments -->

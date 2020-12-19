@@ -1,10 +1,22 @@
 <?php
 
+    if (isset($_POST['clientSearch'])) {
+        $_SESSION['clientSearch'] = $_POST['clientSearch'];
+    }
+
     if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php') {
-        $future = getCompleteFutureDentistAppointments($_SESSION['id']);
+        if (!isset($_SESSION['clientSearch'])) {
+            $future = getCompleteFutureDentistAppointments($_SESSION['id']);
+        } else {
+            $future = getCompleteFutureDentistAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
+        }
         $auxiliaries = getAllAuxiliaries();
     } else if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php') {
-        $future = getCompleteFutureAuxiliaryAppointments($_SESSION['id']);
+        if (!isset($_SESSION['clientSearch'])) {
+            $future = getCompleteFutureAuxiliaryAppointments($_SESSION['id']);
+        } else {
+            $future = getCompleteFutureAuxiliaryAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
+        }  
     } else if ($_SERVER['PHP_SELF'] == '/clientRecord.php') {
         $future = getCompleteFutureClientAppointments($_SESSION['id']);
     }

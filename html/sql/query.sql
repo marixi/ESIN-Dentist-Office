@@ -58,8 +58,17 @@ SELECT * from record WHERE appointment_id = 29;
 INSERT INTO auxiliariesAssigned (appointment_id, auxiliary_id) VALUES (29, 5);
 
 SELECT * from auxiliariesAssigned WHERE appointment_id = 29;*/
-
+/*
 SELECT * FROM auxiliariesAssigned
 JOIN appointment ON auxiliariesAssigned.appointment_id=appointment.app_id
 JOIN servicePerformed ON servicePerformed.appointment_id=auxiliariesAssigned.appointment_id
-WHERE auxiliary_id = 4
+WHERE auxiliary_id = 4*/
+/*
+SELECT * FROM appointment
+JOIN person ON client_id=person.id
+JOIN servicePerformed ON appointment_id=app_id
+WHERE dentist_id = 2 AND client_id = 8;*/
+
+SELECT * FROM record
+JOIN appointment ON appointment_id=app_id
+WHERE dentist_id = 2 AND record.client_id = 8

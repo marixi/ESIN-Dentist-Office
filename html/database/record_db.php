@@ -8,6 +8,15 @@
         $stmt->execute(array($id));
         return $stmt->fetchAll();
     }
+
+    function getRecordFromAppointmentsForDentistOfClient($dentist_id, $client_id) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM record
+                                JOIN appointment ON appointment_id=app_id
+                                WHERE dentist_id = ? AND record.client_id = ?');
+        $stmt->execute(array($dentist_id, $client_id));
+        return $stmt->fetchAll();
+    }
     
     function getRecordFromAppointmentsForClient($client_id, $app_id) {
         global $dbh;

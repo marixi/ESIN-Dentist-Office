@@ -1,10 +1,23 @@
 <?php
+    
+    if (isset($_POST['clientSearch'])) {
+        $_SESSION['clientSearch'] = $_POST['clientSearch'];
+    }
 
     if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php') {
-        $past = getCompletePastDentistAppointments($_SESSION['id']);
-        $record = getRecordFromAppointmentsForDentist($_SESSION['id']);
+        if (!isset($_SESSION['clientSearch'])) {
+            $past = getCompletePastDentistAppointments($_SESSION['id']);
+            $record = getRecordFromAppointmentsForDentist($_SESSION['id']);
+        } else {
+            $past = getCompletePastDentistAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
+            $record = getRecordFromAppointmentsForDentistOfClient($_SESSION['id'], $_SESSION['clientSearch']);
+        }
     } else if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php') {
-        $past = getCompletePastAuxiliaryAppointments($_SESSION['id']);
+        if (!isset($_SESSION['clientSearch'])) {
+            $past = getCompletePastAuxiliaryAppointments($_SESSION['id']);
+        } else {
+            $past = getCompletePastAuxiliaryAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
+        }  
     } else if ($_SERVER['PHP_SELF'] == '/clientRecord.php') {
         $past = getCompletePastClientAppointments($_SESSION['id']);
     }
@@ -26,7 +39,7 @@
                         <h3> Appointment #<?php echo $app['app_id'] ?>: </h3>
 
                         <ul>
-                            <?php if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php') { ?>
+                            <?php if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php') { ?>
                                 <li> <strong> Client Name: </strong> <?php echo $app['name'] ?> </li>
                             <?php } else if ($_SERVER['PHP_SELF'] == '/clientRecord.php') { ?> 
                                 <li> <strong> Dentist Name: </strong> <?php echo $app['name'] ?> </li> 
@@ -36,7 +49,7 @@
                             <li> <strong> Time: </strong> <?php echo $app['time'] ?> </li> 
                             <li> <strong> Specialty: </strong> <?php echo $app['specialty'] ?> </li>
 
-                            <?php if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php') { ?>
+                            <?php if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php') { ?>
                                 <li> <strong> Service Performed: </strong> <?php echo $app['procedure'] ?> </li>
                             <?php } else if ($_SERVER['PHP_SELF'] == '/clientRecord.php') {
                                  $service = getServicePerformed($app['app_id']); ?>

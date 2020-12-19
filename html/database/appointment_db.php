@@ -46,12 +46,33 @@
         return sortAppointments($data, 'past');
     }
 
+    function getCompletePastDentistAppointmentsForClient($dentist_id, $client_id) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM appointment
+                            JOIN person ON client_id=person.id
+                            JOIN servicePerformed ON appointment_id=app_id
+                            WHERE dentist_id = ? AND client_id = ?;');
+        $stmt->execute(array($dentist_id, $client_id));
+        $data = $stmt->fetchAll();
+        return sortAppointments($data, 'past');
+    }
+
     function getCompleteFutureDentistAppointments($id) {
         global $dbh;
         $stmt = $dbh->prepare('SELECT * FROM appointment
                             JOIN person ON client_id=person.id
                             WHERE dentist_id = ?;');
         $stmt->execute(array($id));
+        $data = $stmt->fetchAll();
+        return sortAppointments($data, 'future');
+    }
+
+    function getCompleteFutureDentistAppointmentsForClient($dentist_id, $client_id) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM appointment
+                            JOIN person ON client_id=person.id
+                            WHERE dentist_id = ? AND client_id = ?;');
+        $stmt->execute(array($dentist_id, $client_id));
         $data = $stmt->fetchAll();
         return sortAppointments($data, 'future');
     }
@@ -118,6 +139,18 @@
         return sortAppointments($data, 'past');
     }
 
+    function getCompletePastAuxiliaryAppointmentsForClient($aux_id, $client_id) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM auxiliariesAssigned
+                                JOIN appointment ON auxiliariesAssigned.appointment_id=appointment.app_id
+                                JOIN servicePerformed ON servicePerformed.appointment_id=auxiliariesAssigned.appointment_id
+                                JOIN person ON client_id=person.id
+                                WHERE auxiliary_id = ? AND client_id = ?');
+        $stmt->execute(array($aux_id, $client_id));
+        $data = $stmt->fetchAll();
+        return sortAppointments($data, 'past');
+    }
+
     function getCompleteFutureAuxiliaryAppointments($id) {
         global $dbh;
         $stmt = $dbh->prepare('SELECT * FROM auxiliariesAssigned
@@ -125,6 +158,17 @@
                                 JOIN person ON client_id=person.id
                                 WHERE auxiliary_id = ?');
         $stmt->execute(array($id));
+        $data = $stmt->fetchAll();
+        return sortAppointments($data, 'future');
+    }
+
+    function getCompleteFutureAuxiliaryAppointmentsForClient($aux_id, $client_id) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM auxiliariesAssigned
+                                JOIN appointment ON appointment_id=app_id
+                                JOIN person ON client_id=person.id
+                                WHERE auxiliary_id = ? AND client_id = ?');
+        $stmt->execute(array($aux_id, $client_id));
         $data = $stmt->fetchAll();
         return sortAppointments($data, 'future');
     }
