@@ -68,7 +68,9 @@ SELECT * FROM appointment
 JOIN person ON client_id=person.id
 JOIN servicePerformed ON appointment_id=app_id
 WHERE dentist_id = 2 AND client_id = 8;*/
-
+/*
 SELECT * FROM record
 JOIN appointment ON appointment_id=app_id
-WHERE dentist_id = 2 AND record.client_id = 8
+WHERE dentist_id = 2 AND record.client_id = 8*/
+
+SELECT * FROM person WHERE username = "raquel.pires"

@@ -54,9 +54,8 @@
         $clientChanges['insurance_code'] = $_SESSION['insurance_code'];
     }
 
-
     $nonUnique = getPersonUsernameId($_SESSION['username']);
-
+   
     if (substr($_SESSION['phone_number'], 0, 1) != '+') {
         $_SESSION['error_num_msg'] = "Please use +351 (for example) in the beginning of the phone number!";
         header('Location: \action_decideProfile.php');
@@ -83,17 +82,17 @@
                 strlen($_SESSION['password']) > 0) {
         $_SESSION['error_pass_msg'] = "The password must contain a number!";
         header('Location: \action_decideProfile.php');
-    } else if (!is_numeric($_SESSION['tax_number'])){
+    } else if (isset($_SESSION['tax_number']) && !is_numeric($_SESSION['tax_number'])){
         $_SESSION['error_tax_msg'] = "The tax number must contain only numbers!";
         header('Location: \action_decideProfile.php');
-    } else if (strlen($_SESSION['tax_number'])!=9){
+    } else if (isset($_SESSION['tax_number']) && strlen($_SESSION['tax_number'])!=9){
         $_SESSION['error_tax_msg'] = "The tax number consists of 9 numbers!";
         header('Location: \action_decideProfile.php');
-    } else if (!in_array($_SESSION['insurance_code'],$ins_codes)){
+    } else if (isset($_SESSION['insurance_code']) && !in_array($_SESSION['insurance_code'],$ins_codes)){
         $_SESSION['error_ins_msg'] = "That insurance code is not available for our clinic!";
         header('Location: \action_decideProfile.php');
     } else {
-               
+      
         try {
             foreach ($changes as $key => $value){
                 updateInfo($key, $value, $id);
@@ -122,7 +121,7 @@
             unset($_SESSION['insurance_code']);
         }
 
-        header('Location: \action_decideProfile.php');
+       header('Location: \action_decideProfile.php');
     }
     
 ?> 

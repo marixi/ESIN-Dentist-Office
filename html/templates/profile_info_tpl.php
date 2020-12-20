@@ -33,13 +33,13 @@
                 <br> <input type="submit" value="Upload"> </br>
             </form>
         <?php } ?>
-        <?php if (isset($_SESSION['error_image'])) { ?> <p id="err"> <?php echo $_SESSION['error_image']; unset($_SESSION['error_image']); ?> </p> <?php } ?>
+        <?php if (isset($_SESSION['error_image']) && $_SESSION['edit_on']==0 && !isset($_POST['edit'])) { ?> <p id="err"> <?php echo $_SESSION['error_image']; unset($_SESSION['error_image']); ?> </p> <?php } ?>
 
         <!-- Profile information -->
         <div id="info">
 
             <!-- Non editable -->
-            <?php if ($_SESSION['edit_on']==0 /*&& !isset($_POST['edit'])*/) { ?>
+            <?php if ($_SESSION['edit_on']==0 && !isset($_POST['edit'])) { ?>
                 <form action="action_decideProfile.php" method="post" id="edit_profile">
                     <button type="submit" id="edit_button" name="edit" form="edit_profile"><i class="fa fa-edit"></i></button>
                 </form>
