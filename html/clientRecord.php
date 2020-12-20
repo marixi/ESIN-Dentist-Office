@@ -5,6 +5,7 @@
     require_once('database/record_db.php');
     require_once('database/appointment_db.php');
     require_once('database/service_db.php');
+    require_once('database/insurance_db.php');
     include('templates/pagination_tpl.php');
 
     if (!isset($_GET['past_page'])) {

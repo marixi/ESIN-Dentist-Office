@@ -65,10 +65,8 @@
                                 <strong> Final Price: </strong> 
                                 <?php 
                                     if ($service) {
-                                        $stmt = $dbh->prepare('SELECT percentage_discount FROM discount
-                                                                WHERE service_name = ? AND insurance_code = ?');
-                                        $stmt->execute(array($service['procedure'], $row['insurance_code']));   
-                                        $discount = $stmt->fetch();
+                                        $insurance = getClientInfo($_SESSION['id'])['insurance_code'];
+                                        $discount = getDiscount($service['procedure'], $insurance);
                                         echo $service['price']-($discount['percentage_discount']*$service['price'])/100;
                                     }
                                 ?> 
