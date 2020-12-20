@@ -12,7 +12,7 @@
     function find_appointment($day, $hour, $appointments) {
         foreach ($appointments as $appointment) {
             if ($appointment['date'] == $day && $appointment['time'] == $hour) { ?>
-                <a href='/dentistAppointments.php#appointment<?php echo $appointment['app_id'] ?>' title="Appointment" style="color: black; text-decoration:none;"> #<?php echo $appointment['app_id']; ?>:
+                <a href='/dentistAppointments.php' title="Appointment" style="color: black; text-decoration:none;"> #<?php echo $appointment['app_id']; ?>:
                 <?php echo $appointment['specialty']; ?></a>
             <?php }
         }
@@ -35,6 +35,28 @@
         return $appointments;
     }
 
+    function selectOnlyFuture($data) {
+        $date = new DateTime("now");
+        $appointments = array();
+        foreach ($data as $app) {
+            if (strtotime($app['date']) > strtotime($date->format('d-m-yy')) || (strtotime($app['date']) == strtotime($date->format('d-m-yy')) && $app['time'] > date('H:i'))) {
+                array_push($appointments, $app);
+            }
+        }
+        return $appointments;
+    }
+
+    function selectOnlyPast($data) {
+        $date = new DateTime("now");
+        $appointments = array();
+        foreach ($data as $app) {
+            if (strtotime($app['date']) < strtotime($date->format('d-m-yy')) || (strtotime($app['date']) == strtotime($date->format('d-m-yy')) && $app['time'] <= date('H:i'))) {
+                array_push($appointments, $app);
+            }
+        }
+        return $appointments;
+    }
+
     function getCompletePastDentistAppointments($id) {
         global $dbh;
         $stmt = $dbh->prepare('SELECT * FROM appointment
@@ -43,7 +65,9 @@
                             WHERE dentist_id = ?;');
         $stmt->execute(array($id));
         $data = $stmt->fetchAll();
-        return sortAppointments($data, 'past');
+        $appointments = selectOnlyPast($data);
+
+        return sortAppointments($appointments, 'past');
     }
 
     function getCompletePastDentistAppointmentsForClient($dentist_id, $client_id) {
@@ -54,7 +78,9 @@
                             WHERE dentist_id = ? AND client_id = ?;');
         $stmt->execute(array($dentist_id, $client_id));
         $data = $stmt->fetchAll();
-        return sortAppointments($data, 'past');
+        $appointments = selectOnlyPast($data);
+
+        return sortAppointments($appointments, 'past');
     }
 
     function getCompleteFutureDentistAppointments($id) {
@@ -64,7 +90,9 @@
                             WHERE dentist_id = ?;');
         $stmt->execute(array($id));
         $data = $stmt->fetchAll();
-        return sortAppointments($data, 'future');
+        $appointments = selectOnlyFuture($data);
+
+        return sortAppointments($appointments, 'future');
     }
 
     function getCompleteFutureDentistAppointmentsForClient($dentist_id, $client_id) {
@@ -74,7 +102,9 @@
                             WHERE dentist_id = ? AND client_id = ?;');
         $stmt->execute(array($dentist_id, $client_id));
         $data = $stmt->fetchAll();
-        return sortAppointments($data, 'future');
+        $appointments = selectOnlyFuture($data);
+
+        return sortAppointments($appointments, 'future');
     }
 
     function checkServicePerfomed($app_id) {
@@ -109,7 +139,9 @@
                                 WHERE client_id = ?;');
         $stmt->execute(array($id));
         $data = $stmt->fetchAll();
-        return sortAppointments($data, 'future');
+        $appointments = selectOnlyFuture($data);
+
+        return sortAppointments($appointments, 'future');
     }
 
     function getAppointmentId($client, $date) {
@@ -159,7 +191,9 @@
                                 WHERE auxiliary_id = ?');
         $stmt->execute(array($id));
         $data = $stmt->fetchAll();
-        return sortAppointments($data, 'future');
+        $appointments = selectOnlyFuture($data);
+
+        return sortAppointments($appointments, 'future');
     }
 
     function getCompleteFutureAuxiliaryAppointmentsForClient($aux_id, $client_id) {
@@ -170,7 +204,29 @@
                                 WHERE auxiliary_id = ? AND client_id = ?');
         $stmt->execute(array($aux_id, $client_id));
         $data = $stmt->fetchAll();
-        return sortAppointments($data, 'future');
+        $appointments = selectOnlyFuture($data);
+
+        return sortAppointments($appointments, 'future');
+    }
+
+    function getCompleted($array) {
+        $appointments = array();
+        foreach  ($array as $app) {
+            if (checkServicePerfomed($app['app_id']) == true) {
+                array_push($appointments, $app);
+            }
+        }
+        return $appointments;
+    }
+
+    function getToBeCompleted($array) {
+        $appointments = array();
+        foreach  ($array as $app) {
+            if (checkServicePerfomed($app['app_id']) == false) {
+                array_push($appointments, $app);
+            }
+        }
+        return $appointments;
     }
 
 ?>
