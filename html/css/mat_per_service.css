@@ -1,5 +1,6 @@
 #mat {
     font-size: 250%;
+    font-weight: normal;
     padding: 0.3% 0;
     margin-left: 24%;
     margin-right: 24%;
@@ -45,9 +46,9 @@ h2, h3 {
 
 #qtty_list {
     color: #2c3e50;
+    margin-top: 1%;
     font-size: 100%;
     text-align: justify;
     letter-spacing: 1px;
-    font-kerning: none;
     font-family:'Courier New', Courier, monospace;
 }

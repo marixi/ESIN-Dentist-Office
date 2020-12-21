@@ -5,7 +5,7 @@
 
     $quantity_list = getAllQuantities();
 
-    include('templates/dental_auxiliary_header_tpl.html'); 
+    include('templates/profile_header_tpl.php'); 
 ?>
 
     <h1 id="mat">Material needed for each specific service </h1>
@@ -21,7 +21,7 @@
                             <ul>
                                 <?php for (; $j <= $i; $j++) { ?>
                                     <li id="qtty_list"> <?php echo str_pad($quantity_list[$j]['material_name'],30,".") ?><?php echo $quantity_list[$j]['quantity_needed'] ?> </li>
-                                    <li id="qtty_list"> <?php echo str_pad($quantity_list['material_name'],30,".") ?><?php echo $quantity_list['quantity_needed'] ?> </li>
+                                    <label> <?php echo $quantity_list['quantity_needed'] ?> </li> </label>
                                 <?php }
                                 $j = $i + 1; ?>
                             </ul>

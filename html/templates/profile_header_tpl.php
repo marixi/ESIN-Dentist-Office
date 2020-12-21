@@ -16,7 +16,7 @@
         <title> Dentist </title>
     <?php } ?>
 
-    <?php if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
+    <?php if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/material_per_service.php'|| $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
         <link href="css/priceTable.css" rel="stylesheet">
         <link href="css/material.css" rel="stylesheet">
         <link href="css/mat_per_service.css" rel="stylesheet">
