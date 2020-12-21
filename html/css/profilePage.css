@@ -118,32 +118,9 @@
     text-decoration: none;
 }
 
-/* ANTES
 #scheduleTable td:not(:empty) {
     background-color: rgba(3, 147, 173, 0.644);
 }
-*/
-/* depois */
-#general {
-    background-color: rgba(3, 147, 173, 0.644);
-}
-
-#orthodontics {
-    background-color: rgba(3, 173, 11, 0.644);
-}
-
-#pediatric {
-    background-color: rgba(173, 3, 173, 0.644);
-}
-
-#prosthodontics {
-    background-color: rgba(173, 3, 3, 0.644);
-}
-
-#endodontics {
-    background-color: rgba(173, 147, 3, 0.644);
-}
-/* fim do depois */
 
 #scheduleTable td:not(:empty):hover {
     text-decoration: underline;
