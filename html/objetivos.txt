@@ -8,8 +8,10 @@ Eu acho que o plano de trabalhos geral é:
 - try catches para tudinho (login, appointment, schedules)
 - final validation of html/php and css
 - adicionar fotos para os clientes
-- na pagination do francisco.amaral por exemplo, o programa esta louco
-- na future a pagination estraga a ordenação
+- fazer com que os employees tenham acesso ao mesmo que os clientes
+- deixar o preço da past appointment igual caso o insurance code mude
+- ver se dá para fazer um preview da imagem depois de o ficheiro ser escolhido
+- add_client por o date of birth como um input type=date(influencia alguma cena na db?)
 
 super xtra:
 fazer pags com a lista de todos os auxiliares/clients e respetivos dados (anchored às respetivas manage pages)

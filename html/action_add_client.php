@@ -4,8 +4,8 @@
     require_once('database/person_db.php');
     require_once('database/client_db.php');
     require_once('database/insurance_db.php');
-    
-    $ins_codes=getInsuranceCodes();
+     
+    $ins_codes_arr=getInsuranceCodes();
     $ins_codes=array();
     foreach ($ins_codes_arr as $value) {
         array_push($ins_codes,$value['insurance_code']);
@@ -44,22 +44,22 @@
     } else if (strlen($_SESSION['password']) < 6) {
         $_SESSION['error_pass_msg'] = "The password must be at least 6 characters long!";
         header('Location: \manage_clients.php#add_client');  
-    } else if (strpos($_SESSION['password'], '0')==false && strpos($_SESSION['password'], '1')==false &&
-                strpos($_SESSION['password'], '2')==false && strpos($_SESSION['password'], '3')==false &&
-                strpos($_SESSION['password'], '4')==false && strpos($_SESSION['password'], '5')==false &&
-                strpos($_SESSION['password'], '6')==false && strpos($_SESSION['password'], '7')==false &&
-                strpos($_SESSION['password'], '8')==false && strpos($_SESSION['password'], '9')==false) {
+    } else if (strpos($_SESSION['password'], '0')===false && strpos($_SESSION['password'], '1')===false &&
+                strpos($_SESSION['password'], '2')===false && strpos($_SESSION['password'], '3')===false &&
+                strpos($_SESSION['password'], '4')===false && strpos($_SESSION['password'], '5')===false &&
+                strpos($_SESSION['password'], '6')===false && strpos($_SESSION['password'], '7')===false &&
+                strpos($_SESSION['password'], '8')===false && strpos($_SESSION['password'], '9')===false) {
         $_SESSION['error_pass_msg'] = "The password must contain a number!";
         header('Location: \manage_clients.php#add_client');  
-    } else if (!is_numeric($_SESSION['tax_number'])){
+    } else if (strlen($_SESSION['tax_number']) > 0 && !is_numeric($_SESSION['tax_number'])){
         $_SESSION['error_tax_msg'] = "The tax number must only have numbers!";
-        header('Location: \action_decideProfile.php');
-    } else if (strlen($_SESSION['tax_number'])!=8){
-        $_SESSION['error_tax_msg'] = "The tax number must have 8 numbers!";
-        header('Location: \action_decideProfile.php');
-    } else if(!in_array($_SESSION['insurance_code'],$ins_codes)){
+        header('Location: \manage_clients.php#add_client');
+    } else if (strlen($_SESSION['tax_number']) > 0 && strlen($_SESSION['tax_number'])!=9){
+        $_SESSION['error_tax_msg'] = "The tax number must have 9 numbers!";
+        header('Location: \manage_clients.php#add_client');
+    } else if(strlen($_SESSION['insurance_code']) > 0 && !in_array($_SESSION['insurance_code'],$ins_codes)){
         $_SESSION['error_ins_msg'] = "That insurance code is not available for our clinic!";
-        header('Location: \action_decideProfile.php');
+        header('Location: \manage_clients.php#add_client');
     }else {
         
         try {

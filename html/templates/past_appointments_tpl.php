@@ -88,7 +88,7 @@
                         <?php } ?>
                     </ul>
 
-                    <?php if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php') { ?>
+                    <?php if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
                         <form action="action_updateObservations.php" method="post"> 
                             <p><strong>Observations:</strong></p>
                             <?php if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php') { ?>
@@ -96,7 +96,7 @@
                                 <input type="hidden" name="appointment_to_change" value = <?php echo $app['app_id'] ?>>
                                 <input type="submit" value="Update">
                             <?php } else if ($_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
-                                <textArea readonly name="observations" rows="5" cols="50" ><?php echo getRecordFromAppointmentsForClient($id, $app['app_id'])['observations']; ?></textArea>
+                                <textArea disabled name="observations" rows="5" cols="50" ><?php echo getRecordFromAppointmentsForClient($_SESSION['id'], $app['app_id'])['observations']; ?></textArea>
                             <?php } ?>
                         </form>
                         <?php } ?>
@@ -105,4 +105,4 @@
 
             <?php } ?>
 
-    </section>
+    </section> 

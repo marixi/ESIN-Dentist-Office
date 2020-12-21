@@ -1,5 +1,5 @@
 <?php
-    /* Section to introduce pagination */
+    /* Section to insert pagination */
     function addPastPagination() { ?>
         <div id="pagination">
             <?php if ($_SESSION['past_page'] > 1) { ?>

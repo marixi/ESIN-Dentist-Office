@@ -31,8 +31,10 @@
     include('templates/profile_header_tpl.php');
     include('templates/profile_info_tpl.php');
     include('templates/future_appointments_tpl.php'); 
-    addFuturePagination();
+    if(!empty($future))
+        addFuturePagination(); 
     include('templates/past_appointments_tpl.php'); 
-    addPastPagination();
+    if(!empty($past))
+        addPastPagination();
     include('templates/footer_tpl.php'); 
 ?>

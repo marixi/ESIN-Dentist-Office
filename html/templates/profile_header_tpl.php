@@ -20,6 +20,7 @@
         <link href="css/priceTable.css" rel="stylesheet">
         <link href="css/material.css" rel="stylesheet">
         <link href="css/mat_per_service.css" rel="stylesheet">
+        <link href="css/managePeople.css" rel="stylesheet">
         <title> Dental Auxiliary </title>
     <?php } ?>
 
@@ -55,7 +56,7 @@
                     <li><a href= 'manage_material.php' title="Material"> Manage Material </a></li>
                     <li><a href= 'manage_clients.php' title="Manage Clients"> Manage Clients </a></li>
                     <li><a href='action_logout.php' title="Logout"> Logout </a></li>
-                <?php } ?>
+                <?php }?>
 
                 <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
                     <li><a href='client.php' title="Profile"> Profile </a></li>

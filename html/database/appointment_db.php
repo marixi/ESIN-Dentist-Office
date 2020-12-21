@@ -129,7 +129,9 @@
                                 WHERE client_id = ?;');
         $stmt->execute(array($id));
         $data = $stmt->fetchAll();
-        return sortAppointments($data, 'past');
+        $appointments = selectOnlyPast($data);
+
+        return sortAppointments($appointments, 'past');
     }
 
     function getCompleteFutureClientAppointments($id) {
@@ -168,7 +170,9 @@
                                 WHERE auxiliary_id = ?');
         $stmt->execute(array($id));
         $data = $stmt->fetchAll();
-        return sortAppointments($data, 'past');
+        $appointments = selectOnlyPast($data);
+
+        return sortAppointments($appointments, 'past');
     }
 
     function getCompletePastAuxiliaryAppointmentsForClient($aux_id, $client_id) {

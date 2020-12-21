@@ -28,10 +28,7 @@
         <?php if (file_exists('images/' . $person['id'] . '.jpg')) { ?>
             <img src="images/<?php echo $person['id'] ?>.jpg" alt="<?php echo $person['name'] ?>">
         <?php } else { ?>
-            <form enctype="multipart/form-data" action="action_imageUpload.php" method="post">
-                <input type="file" name="profile_image" accept="image/png, image/jpeg, image/jpg">
-                <br> <input type="submit" value="Upload"> </br>
-            </form>
+            <img src="images/img_default.jpg" alt="<?php echo $person['name'] ?>">
         <?php } ?>
         <?php if (isset($_SESSION['error_image']) && $_SESSION['edit_on']==0 && !isset($_POST['edit'])) { ?> <p id="err"> <?php echo $_SESSION['error_image']; unset($_SESSION['error_image']); ?> </p> <?php } ?>
 
@@ -57,11 +54,9 @@
             
             <?php } else { ?> <!-- Editable -->
 
-                <form enctype="multipart/form-data" action="action_edit_profile_info.php" method="post" id="editing">
-                    <?php if (file_exists('images/' . $person['id'] . '.jpg')) { ?>                
+                <form enctype="multipart/form-data" action="action_edit_profile_info.php" method="post" id="editing">           
                         <input type="file" name="image" accept="image/png, image/jpeg, image/jpg">
                         <?php if (isset($_SESSION['error_image'])) { ?> <p id="err"> <?php echo $_SESSION['error_image']; unset($_SESSION['error_image']); ?> </p> <?php } ?>
-                    <?php } ?>
                     <p> <strong> Name: </strong>
                     <input type="text" name="name" value="<?php if(isset($_SESSION['name'])) { echo $_SESSION['name']; } 
                                                                      else { echo $person['name']; } ?>" required> </p>

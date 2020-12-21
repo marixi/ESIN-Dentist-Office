@@ -74,11 +74,11 @@
     } else if (strlen($_SESSION['password']) < 6 && strlen($_SESSION['password']) > 0) {
         $_SESSION['error_pass_msg'] = "The password must be at least 6 characters long!";
         header('Location: \action_decideProfile.php');  
-    } else if (strpos($_SESSION['password'], '0')==false && strpos($_SESSION['password'], '1')==false &&
-                strpos($_SESSION['password'], '2')==false && strpos($_SESSION['password'], '3')==false &&
-                strpos($_SESSION['password'], '4')==false && strpos($_SESSION['password'], '5')==false &&
-                strpos($_SESSION['password'], '6')==false && strpos($_SESSION['password'], '7')==false &&
-                strpos($_SESSION['password'], '8')==false && strpos($_SESSION['password'], '9')==false &&
+    } else if (strpos($_SESSION['password'], '0')===false && strpos($_SESSION['password'], '1')===false &&
+                strpos($_SESSION['password'], '2')===false && strpos($_SESSION['password'], '3')===false &&
+                strpos($_SESSION['password'], '4')===false && strpos($_SESSION['password'], '5')===false &&
+                strpos($_SESSION['password'], '6')===false && strpos($_SESSION['password'], '7')===false &&
+                strpos($_SESSION['password'], '8')===false && strpos($_SESSION['password'], '9')===false &&
                 strlen($_SESSION['password']) > 0) {
         $_SESSION['error_pass_msg'] = "The password must contain a number!";
         header('Location: \action_decideProfile.php');
@@ -88,7 +88,7 @@
     } else if (isset($_SESSION['tax_number']) && strlen($_SESSION['tax_number'])!=9){
         $_SESSION['error_tax_msg'] = "The tax number consists of 9 numbers!";
         header('Location: \action_decideProfile.php');
-    } else if (isset($_SESSION['insurance_code']) && !in_array($_SESSION['insurance_code'],$ins_codes)){
+    } else if (isset($_SESSION['insurance_code']) && strlen($_SESSION['insurance_code']) != 0 && !in_array($_SESSION['insurance_code'],$ins_codes)){
         $_SESSION['error_ins_msg'] = "That insurance code is not available for our clinic!";
         header('Location: \action_decideProfile.php');
     } else {
