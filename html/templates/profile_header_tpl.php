@@ -49,7 +49,7 @@
                     <li><a href='action_logout.php' title="Log Out"> Logout </a></li>
                 <?php } ?>
 
-                <?php if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
+                <?php if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' ||$_SERVER['PHP_SELF'] == '/material_per_service.php'|| $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
                     <li><a href='dentalAuxiliary.php' title="Profile"> Profile </a></li>
                     <li><a href='dentalAuxiliary.php#Schedule' title="Schedule"> Schedule </a></li>
                     <li><a href='dentalAuxiliary_appointments.php' title="Appointments"> Appointments </a></li>
