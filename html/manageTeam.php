@@ -38,7 +38,7 @@
                     <input type="text" name="name" value="<?php if(isset($_SESSION['name'])) { echo $_SESSION['name']; }?>" required>
                     <br> <label> <?php $label=str_pad("Address:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="address" value="<?php if(isset($_SESSION['address'])) { echo $_SESSION['address']; }?>" required> </br>
-                    <br> <label> <?php $label=str_pad("phone Number:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
+                    <br> <label> <?php $label=str_pad("Phone number:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="phone_number" value="<?php if(isset($_SESSION['phone_number'])) { echo $_SESSION['phone_number']; } else { ?>+351********* <?php } ?>" required> </br>
                     <br> <?php if(isset($_SESSION['error_num_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_num_msg']; ; unset($_SESSION['error_num_msg']) ?> </p> <?php } ?>
                     <label> <?php $label=str_pad("Username:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
@@ -53,7 +53,7 @@
                     <br> <label> <?php $label=str_pad("Date of Admission:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="date_of_admission" value=<?php if(isset($_SESSION['date_of_admission'])) { echo $_SESSION['date_of_admission']; } else {echo date('d').'-'.date('m').'-'.date('Y');} ?> > </br>
                     <br> <?php if(isset($_SESSION['msg'])) { ?> <p id="err"> <?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?> </p> <?php } ?>
-                    <input id="submit" type="submit" value="Submit"> </br>      
+                    <input id="submit_add" type="submit" value="Submit"> </br>      
                 </form>
             </section>
                 </br>
@@ -64,13 +64,14 @@
                 <form action="action_fireAuxiliary.php" method="post">
                     <label> Employee: </label>
                     <select name="who" required="required">
+                    <option hidden disabled selected value> ----- Select Employee to fire ----- </option>
                     <?php foreach ($auxiliaries as $auxiliary) { ?>
                         <option value="<?php echo $auxiliary['id']?>"> <?php echo $auxiliary['name']?>, @<?php echo $auxiliary['username']?> </option>
                     <?php } ?>
                     </select>
 
                     <?php if(isset($_SESSION['msg'])) { ?> <p id="err"> <?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?> </p> <?php } ?>
-                    <input id="submit" type="submit" value="Submit">
+                    <br> <input id='submit_remove' type="submit" value="Submit">
                 </form>
                 </section>
                 

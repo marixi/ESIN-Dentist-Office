@@ -58,7 +58,7 @@ include('templates/profile_info_tpl.php');
                 <input type="text" name="address" value="<?php if (isset($_SESSION['address'])) {
                                                                 echo $_SESSION['address'];
                                                             } ?>" required> </br>
-                <br> <label> <?php $label = str_pad("Phone_Number:", 15, " ");
+                <br> <label> <?php $label = str_pad("Phone number:", 15, " ");
                                 $label = str_replace(" ", "&nbsp;", $label);
                                 echo $label; ?> </label>
                 <input type="text" name="phone_number" value="<?php if (isset($_SESSION['phone_number'])) {
@@ -111,7 +111,7 @@ include('templates/profile_info_tpl.php');
                 <?php if (isset($_SESSION['error_pass_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_pass_msg'];
                                                                                 unset($_SESSION['error_pass_msg']); ?> </p> <?php } ?>
                 <p> This is a random password! The client may change it in his login page. </p>
-                <input id="submit" type="submit" value="Submit"> </br>
+                <input id="submit_add" type="submit" value="Submit"> </br>
             </form>
         </section>
         </br>
@@ -129,12 +129,12 @@ include('templates/profile_info_tpl.php');
                 </select>
                 <?php if (isset($_SESSION['msg'])) { ?> <p id="err"> <?php echo $_SESSION['msg'];
                                                                                                                 unset($_SESSION['msg']); ?> </p> <?php } ?>
-                <input id="submit" type="submit" value="Submit">
+               <br> <input id="submit_remove" type="submit" value="Submit">
             </form>
         </section>
 
     <?php }
     ?>
-</section>
+</section> 
 
 <?php include('templates/footer_tpl.php'); ?>
