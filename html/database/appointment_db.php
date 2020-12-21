@@ -13,7 +13,7 @@
         foreach ($appointments as $appointment) {
             if ($appointment['date'] == $day && $appointment['time'] == $hour) { 
                 $href = sendToAppointmentsPage($appointment['app_id']); ?>
-                <a href=<?php echo $href ?> title="Appointment" style="color: black; text-decoration:none;"> #<?php echo $appointment['app_id']; ?>:
+                <a href=<?php echo $href ?> title="Appointment" style="color: black; text-decoration:none;" id=<?php echo $appointment['specialty']; ?>> #<?php echo $appointment['app_id']; ?>:
                 <?php echo $appointment['specialty']; ?></a>
             <?php }
         }
