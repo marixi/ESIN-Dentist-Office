@@ -5,6 +5,8 @@
     require_once('database/client_db.php');
     require_once('database/insurance_db.php');
 
+    $go_back=$_SERVER['HTTP_REFERER'];
+
     if ($_FILES['image']['size'] != 0) {
         $fileSize = $_FILES['image']['size'];
         $fileName = $_FILES["image"]["tmp_name"];
@@ -58,22 +60,22 @@
    
     if (substr($_SESSION['phone_number'], 0, 1) != '+') {
         $_SESSION['error_num_msg'] = "Please use +351 (for example) in the beginning of the phone number!";
-        header('Location: \action_decideProfile.php');
+        header("Location: $go_back");
     } else if (strlen($_SESSION['phone_number']) != 13) {
         $_SESSION['error_num_msg'] = "The phone number doesn't exist!";
-        header('Location: \action_decideProfile.php'); 
+        header("Location: $go_back");
     } else if (!ctype_digit($testNumber)) {
         $_SESSION['error_num_msg'] = "The phone number is invalid!";
-        header('Location: \action_decideProfile.php'); 
+        header("Location: $go_back");
     } else if (ctype_space($_SESSION['username']) == true) {
         $_SESSION['error_user_msg'] = "Invalid username!";
-        header('Location: \action_decideProfile.php');
+        header("Location: $go_back");
     } else if ($nonUnique && $nonUnique['id'] != $id ) {
         $_SESSION['error_user_msg'] = "That username already exists!";
-        header('Location: \action_decideProfile.php');
+        header("Location: $go_back");
     } else if (strlen($_SESSION['password']) < 6 && strlen($_SESSION['password']) > 0) {
         $_SESSION['error_pass_msg'] = "The password must be at least 6 characters long!";
-        header('Location: \action_decideProfile.php');  
+        header("Location: $go_back");
     } else if (strpos($_SESSION['password'], '0')===false && strpos($_SESSION['password'], '1')===false &&
                 strpos($_SESSION['password'], '2')===false && strpos($_SESSION['password'], '3')===false &&
                 strpos($_SESSION['password'], '4')===false && strpos($_SESSION['password'], '5')===false &&
@@ -81,16 +83,16 @@
                 strpos($_SESSION['password'], '8')===false && strpos($_SESSION['password'], '9')===false &&
                 strlen($_SESSION['password']) > 0) {
         $_SESSION['error_pass_msg'] = "The password must contain a number!";
-        header('Location: \action_decideProfile.php');
+        header("Location: $go_back");
     } else if (isset($_SESSION['tax_number']) && !is_numeric($_SESSION['tax_number'])){
         $_SESSION['error_tax_msg'] = "The tax number must contain only numbers!";
-        header('Location: \action_decideProfile.php');
+        header("Location: $go_back");
     } else if (isset($_SESSION['tax_number']) && strlen($_SESSION['tax_number'])!=9){
         $_SESSION['error_tax_msg'] = "The tax number consists of 9 numbers!";
-        header('Location: \action_decideProfile.php');
+        header("Location: $go_back");
     } else if (isset($_SESSION['insurance_code']) && strlen($_SESSION['insurance_code']) != 0 && !in_array($_SESSION['insurance_code'],$ins_codes)){
         $_SESSION['error_ins_msg'] = "That insurance code is not available for our clinic!";
-        header('Location: \action_decideProfile.php');
+        header("Location: $go_back");
     } else {
       
         try {
@@ -102,12 +104,13 @@
                     updateClientInfo($key, $value,$id);
                 }
             }
-            if (!isset($_SESSION['error_image'])) {
-                $_SESSION['edit_on'] = 0;
-                $_SESSION['final_msg'] = "Information changed successfully!";
-            }
         } catch (Exception $e) {
             $_SESSION['msg'] = "Something went wrong! Please try again.";
+        }
+
+        if (!isset($_SESSION['error_image']) && !isset($_SESSION['msg'])) {
+            $_SESSION['edit_on'] = 0;
+            $_SESSION['final_msg'] = "Information changed successfully!";
         }
 
         unset($_SESSION['name']);
@@ -121,7 +124,7 @@
             unset($_SESSION['insurance_code']);
         }
 
-       header('Location: \action_decideProfile.php');
+        header("Location: $go_back");
     }
     
 ?> 

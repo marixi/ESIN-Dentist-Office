@@ -6,14 +6,12 @@
 
     if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php') {
         if (!isset($_SESSION['clientSearch'])) {
-            $data = getCompletePastDentistAppointments($_SESSION['id']);
-            $appointments = getCompleted($data);
+            $appointments = getCompletePastDentistAppointments($_SESSION['id']);
             $past = array_slice($appointments, ($_SESSION['past_page']-1)*3, 3);
             $_SESSION['max_past'] =  ceil(count($appointments)/3);
             $record = getRecordFromAppointmentsForDentist($_SESSION['id']);
         } else {
-            $data = getCompletePastDentistAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
-            $past = getCompleted($data);
+            $past = getCompletePastDentistAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
             $record = getRecordFromAppointmentsForDentistOfClient($_SESSION['id'], $_SESSION['clientSearch']);
         }
     } else if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php') {
@@ -61,17 +59,9 @@
                         <?php } else if ($_SERVER['PHP_SELF'] == '/clientRecord.php') {
                             $service = getServicePerformed($app['app_id']); ?>
                             <li> <strong> Service Performed: </strong> <?php echo $service['procedure'] ?> </li>
-                            <li> 
-                                <strong> Final Price: </strong> 
-                                <?php 
-                                    if ($service) {
-                                        $insurance = getClientInfo($_SESSION['id'])['insurance_code'];
-                                        $discount = getDiscount($service['procedure'], $insurance);
-                                        echo $service['price']-($discount['percentage_discount']*$service['price'])/100;
-                                    }
-                                ?> 
-                            </li>
                         <?php } ?>
+                        <li> <strong> Final Price: </strong> <?php echo $app['price']; ?> € </li>
+                        
 
                         <?php if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php') { ?>
                             <li> <strong> Auxiliary Assigned: </strong> 

@@ -15,6 +15,7 @@
 
     updateRecord($observations, $id_to_change, $client_id);
     updateServicePerformed($procedure_name, $id_to_change);
+    updatePrice($procedure_name, $id_to_change, $client_id);
 
     $go_back=$_SERVER['HTTP_REFERER'];
     header("Location: $go_back#appointment$id_to_change");

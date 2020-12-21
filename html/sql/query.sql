@@ -73,4 +73,7 @@ SELECT * FROM record
 JOIN appointment ON appointment_id=app_id
 WHERE dentist_id = 2 AND record.client_id = 8*/
 
-SELECT * FROM person WHERE username = "raquel.pires"
+/*SELECT * FROM person WHERE username = "raquel.pires"*/
+
+
+SELECT price FROM appointment WHERE appointment_id = 1;

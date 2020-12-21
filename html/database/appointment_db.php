@@ -66,6 +66,20 @@
         $stmt->execute(array($id));
         $data = $stmt->fetchAll();
         $appointments = selectOnlyPast($data);
+        $appoitments = getCompleted($appointments);
+
+        return sortAppointments($appointments, 'past');
+    }
+
+    function getNonCompletePastDentistAppointments($id) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM appointment
+                            JOIN person ON client_id=person.id
+                            WHERE dentist_id = ?;');
+        $stmt->execute(array($id));
+        $data = $stmt->fetchAll();
+        $appointments = selectOnlyPast($data);
+        $appointments = getToBeCompleted($appointments);
 
         return sortAppointments($appointments, 'past');
     }
@@ -79,6 +93,20 @@
         $stmt->execute(array($dentist_id, $client_id));
         $data = $stmt->fetchAll();
         $appointments = selectOnlyPast($data);
+        $appoitments = getCompleted($appointments);
+
+        return sortAppointments($appointments, 'past');
+    }
+
+    function getNonCompletePastDentistAppointmentsForClient($dentist_id, $client_id) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM appointment
+                            JOIN person ON client_id=person.id
+                            WHERE dentist_id = ? AND client_id = ?;');
+        $stmt->execute(array($dentist_id, $client_id));
+        $data = $stmt->fetchAll();
+        $appointments = selectOnlyPast($data);
+        $appointments = getToBeCompleted($appointments);
 
         return sortAppointments($appointments, 'past');
     }
@@ -231,6 +259,22 @@
             }
         }
         return $appointments;
+    }
+
+    function updatePrice($procedure_name, $id_to_change, $client_id) {
+        global $dbh;
+        
+        $stmt = $dbh->prepare('SELECT price FROM service WHERE procedure = ?');
+        $stmt->execute(array($procedure_name));
+        $procedure_cost = $stmt->fetch()['price'];
+
+        $insurance = getClientInfo($client_id)['insurance_code'];
+        $discount = getDiscount($procedure_name, $insurance);
+
+        $finalPrice = $procedure_cost - ($discount['percentage_discount']*$procedure_cost)/100;
+
+        $stmt = $dbh->prepare('UPDATE appointment SET price = ? WHERE appointment_id = ?');
+        $stmt->execute(array($finalPrice, $id_to_change));
     }
 
 ?>

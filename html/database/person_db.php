@@ -71,7 +71,7 @@
             list($width, $height) = getimagesize($fileName);
             // Check dimensions of image.
             if ($width > 1800) {
-                $_SESSION["error_image"] = "Image with exceeds the maximum (500 px)";    
+                $_SESSION["error_image"] = "Image width exceeds the maximum (1800 px).";    
             }
             // Attempt to upload file.
             else {

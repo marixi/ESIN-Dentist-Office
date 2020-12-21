@@ -5,13 +5,13 @@
     }
 
     if (!isset($_SESSION['clientSearch'])) {
-        $data = getCompletePastDentistAppointments($_SESSION['id']);
-        $appointments = getToBeCompleted($data);
+        $appointments = getNonCompletePastDentistAppointments($_SESSION['id']);
         $past = array_slice($appointments, ($_SESSION['past_page']-1)*3, 3);
         $_SESSION['max_past'] =  ceil(count($past)/3);
+        $record = getRecordFromAppointmentsForDentist($_SESSION['id']);
     } else {
-        $past = getCompletePastDentistAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
-        $past = getToBeCompleted($past);
+        $past = getNonCompletePastDentistAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
+        $record = getRecordFromAppointmentsForDentistOfClient($_SESSION['id'], $_SESSION['clientSearch']);
     }
    
 ?>
