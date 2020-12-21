@@ -7,7 +7,7 @@
 
     if (isset($_POST['edit']) && $_SESSION['edit_on']==0) {
         $_SESSION['edit_on']=1; 
-    }
+    } else $_SESSION['edit_on']=0; 
     
     $id = $_SESSION['id'];
 

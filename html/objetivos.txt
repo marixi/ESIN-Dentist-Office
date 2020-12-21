@@ -3,7 +3,6 @@ Eu acho que o plano de trabalhos geral é:
 - organização isso dos templates (acho que esta tudo)
 - por tudo a %
 - css responsive
-- css fire e remove client
 - try catches para tudinho (login, appointment, schedules)
 - final validation of html/php and css
 - adicionar fotos para os clientes
@@ -12,7 +11,5 @@ Eu acho que o plano de trabalhos geral é:
 - botão de sair enquanto está a editar
 
 super xtra:
+make some things extra beautiful - buttons, forms, fonts, color, hover transitions
 fazer pags com a lista de todos os auxiliares/clients e respetivos dados (anchored às respetivas manage pages)
-fontes
-cores
-transitions nos butoes (hover)

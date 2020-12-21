@@ -54,6 +54,10 @@
             
             <?php } else { ?> <!-- Editable -->
 
+                <form action="action_decideProfile.php" method="post" id="edit_profile">
+                    <button type="submit" id="edit_button" name="edit" form="edit_profile"><i class="fa fa-times-circle"></i></button>
+                </form>
+
                 <form enctype="multipart/form-data" action="action_edit_profile_info.php" method="post" id="editing">           
                         <input type="file" name="image" accept="image/png, image/jpeg, image/jpg">
                         <?php if (isset($_SESSION['error_image'])) { ?> <p id="err"> <?php echo $_SESSION['error_image']; unset($_SESSION['error_image']); ?> </p> <?php } ?>
