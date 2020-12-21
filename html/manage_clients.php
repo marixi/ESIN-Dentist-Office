@@ -46,12 +46,12 @@ include('templates/profile_info_tpl.php');
         <br>
         <section id="add_client">
             <form action="action_add_client.php" method="post">
-                <label> <?php $label = str_pad("Name:", 15, " ");
+            <br> <label> <?php $label = str_pad("Name:", 15, " ");
                         $label = str_replace(" ", "&nbsp;", $label);
                         echo $label; ?> </label>
                 <input type="text" name="name" value="<?php if (isset($_SESSION['name'])) {
                                                             echo $_SESSION['name'];
-                                                        } ?>" required>
+                                                        } ?>" required> </br>
                 <br> <label> <?php $label = str_pad("Address:", 15, " ");
                                 $label = str_replace(" ", "&nbsp;", $label);
                                 echo $label; ?> </label>
@@ -121,8 +121,9 @@ include('templates/profile_info_tpl.php');
                                                                                                         if (isset($_POST['remove_client'])) { ?>
         <section id="remove_client">
             <form action="action_remove_client.php" method="post">
-                <label> Client: </label>
+                <!-- <label> Client: </label> -->
                 <select name="who" required="required">
+                <option hidden disabled selected value> ----- Select Client to remove ----- </option>
                     <?php foreach ($clients as $client) { ?>
                         <option value="<?php echo $client['id'] ?>"> <?php echo $client['name'] ?>, @<?php echo $client['username']; ?> </option>
                     <?php } ?>

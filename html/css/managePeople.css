@@ -1,3 +1,4 @@
+/* Intial Parte of the management */
 h2 {
     font-size: 200%;
     font-weight: normal;
@@ -18,6 +19,7 @@ h2 {
     margin-bottom: 2em;
 }
 
+/* Butons to choose to add or remove */
 #inputs {
     display: flex;
     flex-direction: row;
@@ -39,7 +41,6 @@ h2 {
 #inputs input:first-of-type:hover {
     background-color: green;
     color: white;
-
     transition-duration: 0.4s;
 }
 
@@ -55,12 +56,12 @@ h2 {
     transition-duration: 0.4s;
 }
 
+/* Form to add new person to clinic database */
 #hire, #add_client, #fire, #remove_client {
     background-color: rgb(243, 241, 241);
     margin-left: 30%;
     margin-right: 30%;
     border: 2px solid black;
-    /* height: 48em; */
     margin-bottom: 5%;
 }
 
@@ -68,9 +69,8 @@ h2 {
     padding-bottom: 2%;
 }
 
-#hire label, #hire > input, #add_client label, #add_client > input{
-    font-size: 120%;
-
+#hire label, #hire > input, #add_client label, #add_client > input, #fire select, #remove_client select{
+    font-size: 130%;
 }
 
 #hire label, #add_client label {
@@ -80,16 +80,19 @@ h2 {
 }
 
 #hire p, #add_client p {
-    font-size: 1em;
+    font-size: 100%;
+    margin:0;
+    margin-top:0.5%;
     margin-left: 10%;
 }
+
+/* Form to remove person from database */
 
 #submit_add, #submit_remove {
     margin-top: 3%;
     margin-bottom: 2%;
-    margin-left: 32%;
-    margin-right: 32%;
-    width: 30%;
+    margin-left: 38%;
+    width: 24%;
     height: 10%;
     border: none;
     background: -webkit-linear-gradient(right, #279494, #0eb7d4, #0eb7d4, #279494);
@@ -100,11 +103,15 @@ h2 {
     border-radius: 1em;
 }
 
-#submit_remove{
-    width: 10%;
+#fire select, #remove_client select{
+    margin:2% 18%;
 }
 
-.submit:hover {
+#submit_remove{
+    margin-left: 38%;
+}
+
+#submit_add:hover, #submit_remove:hover {
     background: -webkit-linear-gradient(right, #14c8e7, #33acac, #33acac, #14c8e7);
     font-weight: bold;
 }
@@ -121,6 +128,5 @@ h2 {
     color: green;
 }
 
-#fire, #remove_client {
-    text-align: center;
-}
+
+

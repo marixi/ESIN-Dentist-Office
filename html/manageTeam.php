@@ -34,8 +34,8 @@
                 <br>
                 <section id="hire"> 
                 <form action="action_hireAuxiliary.php" method="post">
-                    <label> <?php $label=str_pad("Name:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
-                    <input type="text" name="name" value="<?php if(isset($_SESSION['name'])) { echo $_SESSION['name']; }?>" required>
+                    <br><label> <?php $label=str_pad("Name:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
+                    <input type="text" name="name" value="<?php if(isset($_SESSION['name'])) { echo $_SESSION['name']; }?>" required></br>
                     <br> <label> <?php $label=str_pad("Address:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="address" value="<?php if(isset($_SESSION['address'])) { echo $_SESSION['address']; }?>" required> </br>
                     <br> <label> <?php $label=str_pad("Phone number:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
@@ -62,7 +62,7 @@
              if (isset($_POST['fire'])) { ?>
                 <section id="fire">
                 <form action="action_fireAuxiliary.php" method="post">
-                    <label> Employee: </label>
+                    <!-- <label> Employee: </label> -->
                     <select name="who" required="required">
                     <option hidden disabled selected value> ----- Select Employee to fire ----- </option>
                     <?php foreach ($auxiliaries as $auxiliary) { ?>
