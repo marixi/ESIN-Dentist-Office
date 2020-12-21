@@ -11,8 +11,9 @@
 
     function find_appointment($day, $hour, $appointments) {
         foreach ($appointments as $appointment) {
-            if ($appointment['date'] == $day && $appointment['time'] == $hour) { ?>
-                <a href='/dentistAppointments.php' title="Appointment" style="color: black; text-decoration:none;"> #<?php echo $appointment['app_id']; ?>:
+            if ($appointment['date'] == $day && $appointment['time'] == $hour) { 
+                $href = sendToAppointmentsPage($appointment['app_id']); ?>
+                <a href=<?php echo $href ?> title="Appointment" style="color: black; text-decoration:none;"> #<?php echo $appointment['app_id']; ?>:
                 <?php echo $appointment['specialty']; ?></a>
             <?php }
         }
@@ -275,6 +276,95 @@
 
         $stmt = $dbh->prepare('UPDATE appointment SET price = ? WHERE appointment_id = ?');
         $stmt->execute(array($finalPrice, $id_to_change));
+    }
+
+    function checkIdInArray($array, $id) {
+        $present = false;
+        foreach ($array as $row) {
+            if ($row['app_id'] == $id) { $present = true; }
+        }
+        return $present;
+    }
+
+    function findAppointmentSection($entity, $id) {
+        if ($entity == "dentist") {
+            $past = getCompletePastDentistAppointments($_SESSION['id']);
+            $to_be_completed = getNonCompletePastDentistAppointments($_SESSION['id']);
+            $future = getCompleteFutureDentistAppointments($_SESSION['id']);
+        } else if ($entity == "dentalAux") {
+            $past = getCompletePastAuxiliaryAppointments($_SESSION['id']);
+            $future = getCompleteFutureAuxiliaryAppointments($_SESSION['id']);
+        }
+
+        if ($past && checkIdInArray($past, $id)) {
+            return array("past", $past); 
+        }
+        else if ($to_be_completed && checkIdInArray($to_be_completed, $id)) {
+            return "to_be_completed"; 
+        }
+        else if ($future && checkIdInArray($future, $id)) {
+            return array("future", $future); 
+        }
+
+    }
+
+    function sendToAppointmentsPage($appointmentDesired) {
+
+        if (!isset($_SESSION['clientSearch'])) {
+            unset($_SESSION['clientSearch']);
+        }
+
+        if ($_SERVER['PHP_SELF'] == "/dentist.php") {
+            $go = "\dentistAppointments.php";
+            $entity = "dentist";
+        } else if ($_SERVER['PHP_SELF'] == "/dentalAuxiliary.php") {
+            $go = "\dentalAuxiliary_appointments.php";
+            $entity = "dentalAux";
+        }
+       
+        $data = findAppointmentSection($entity, $appointmentDesired);
+        $status = $data[0];
+        $appointments = $data[1];
+
+        if ($status == "past") {
+            $numPages = $_SESSION['max_past'];
+        } else if ($status == "future") {
+            $numPages = $_SESSION['max_future'];
+        } else if ($status == "to_be_completed") {
+            $href = $go.'#appointment'.$appointmentDesired;
+            return $href;
+        }
+
+        for ($page=1; $page<=$numPages; $page++) {
+            $set = array_slice($appointments, ($page-1)*3, 3);
+            $values = array();
+            foreach ($set as $app) {
+                array_push($values, $app['app_id']);
+            }
+            if (in_array($appointmentDesired, $values)) {
+                $pageDesired = $page;
+                break;
+            }
+        } 
+
+        if ($status == "past" && isset($_SESSION['future_page'])) {
+            $_SESSION['past_page'] = $pageDesired;
+            $future = $_SESSION['future_page'];
+            $href = $go.'?past_page='.$pageDesired.'&future_page='.$future.'#appointment'.$appointmentDesired;
+        } else if ($status == "past" && !isset($_SESSION['future_page'])) {
+            $_SESSION['past_page'] = $pageDesired;
+            $href = $go.'?past_page='.$pageDesired.'&future_page=1#appointment'.$appointmentDesired;
+        } else if ($status == "future" && isset($_SESSION['past_page'])) {
+            $_SESSION['future_page'] = $pageDesired;
+            $past = $_SESSION['past_page'];
+            $href = $go.'?past_page='.$past.'&future_page='.$pageDesired.'#appointment'.$appointmentDesired;
+        } else if ($status == "future" && !isset($_SESSION['past_page'])) {
+            $_SESSION['future_page'] = $pageDesired;
+            $href = $go.'?past_page=1&future_page='.$pageDesired.'#appointment'.$appointmentDesired;
+        }
+
+        return $href;
+
     }
 
 ?>
