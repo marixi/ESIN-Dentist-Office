@@ -75,5 +75,7 @@ WHERE dentist_id = 2 AND record.client_id = 8*/
 
 /*SELECT * FROM person WHERE username = "raquel.pires"*/
 
+/*
+SELECT price FROM appointment WHERE appointment_id = 1;*/
 
-SELECT price FROM appointment WHERE appointment_id = 1;
+UPDATE appointment SET price = 800 WHERE appointment_id = 28

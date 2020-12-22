@@ -265,7 +265,7 @@
     function updatePrice($procedure_name, $id_to_change, $client_id) {
         global $dbh;
         
-        $stmt = $dbh->prepare('SELECT price FROM service WHERE procedure = ?');
+        $stmt = $dbh->prepare('SELECT price FROM service WHERE procedure_name = ?');
         $stmt->execute(array($procedure_name));
         $procedure_cost = $stmt->fetch()['price'];
 
@@ -274,7 +274,7 @@
 
         $finalPrice = $procedure_cost - ($discount['percentage_discount']*$procedure_cost)/100;
 
-        $stmt = $dbh->prepare('UPDATE appointment SET price = ? WHERE appointment_id = ?');
+        $stmt = $dbh->prepare('UPDATE appointment SET price = ? WHERE app_id = ?');
         $stmt->execute(array($finalPrice, $id_to_change));
     }
 
@@ -300,7 +300,7 @@
             return array("past", $past); 
         }
         else if ($to_be_completed && checkIdInArray($to_be_completed, $id)) {
-            return "to_be_completed"; 
+            return array("to_be_completed", array()); 
         }
         else if ($future && checkIdInArray($future, $id)) {
             return array("future", $future); 
@@ -332,35 +332,36 @@
             $numPages = $_SESSION['max_future'];
         } else if ($status == "to_be_completed") {
             $href = $go.'#appointment'.$appointmentDesired;
-            return $href;
         }
 
-        for ($page=1; $page<=$numPages; $page++) {
-            $set = array_slice($appointments, ($page-1)*3, 3);
-            $values = array();
-            foreach ($set as $app) {
-                array_push($values, $app['app_id']);
+        if ($status == "past" || $status == "future") {
+            for ($page=1; $page<=$numPages; $page++) {
+                $set = array_slice($appointments, ($page-1)*3, 3);
+                $values = array();
+                foreach ($set as $app) {
+                    array_push($values, $app['app_id']);
+                }
+                if (in_array($appointmentDesired, $values)) {
+                    $pageDesired = $page;
+                    break;
+                }
+            } 
+    
+            if ($status == "past" && isset($_SESSION['future_page'])) {
+                $_SESSION['past_page'] = $pageDesired;
+                $future = $_SESSION['future_page'];
+                $href = $go.'?past_page='.$pageDesired.'&future_page='.$future.'#appointment'.$appointmentDesired;
+            } else if ($status == "past" && !isset($_SESSION['future_page'])) {
+                $_SESSION['past_page'] = $pageDesired;
+                $href = $go.'?past_page='.$pageDesired.'&future_page=1#appointment'.$appointmentDesired;
+            } else if ($status == "future" && isset($_SESSION['past_page'])) {
+                $_SESSION['future_page'] = $pageDesired;
+                $past = $_SESSION['past_page'];
+                $href = $go.'?past_page='.$past.'&future_page='.$pageDesired.'#appointment'.$appointmentDesired;
+            } else if ($status == "future" && !isset($_SESSION['past_page'])) {
+                $_SESSION['future_page'] = $pageDesired;
+                $href = $go.'?past_page=1&future_page='.$pageDesired.'#appointment'.$appointmentDesired;
             }
-            if (in_array($appointmentDesired, $values)) {
-                $pageDesired = $page;
-                break;
-            }
-        } 
-
-        if ($status == "past" && isset($_SESSION['future_page'])) {
-            $_SESSION['past_page'] = $pageDesired;
-            $future = $_SESSION['future_page'];
-            $href = $go.'?past_page='.$pageDesired.'&future_page='.$future.'#appointment'.$appointmentDesired;
-        } else if ($status == "past" && !isset($_SESSION['future_page'])) {
-            $_SESSION['past_page'] = $pageDesired;
-            $href = $go.'?past_page='.$pageDesired.'&future_page=1#appointment'.$appointmentDesired;
-        } else if ($status == "future" && isset($_SESSION['past_page'])) {
-            $_SESSION['future_page'] = $pageDesired;
-            $past = $_SESSION['past_page'];
-            $href = $go.'?past_page='.$past.'&future_page='.$pageDesired.'#appointment'.$appointmentDesired;
-        } else if ($status == "future" && !isset($_SESSION['past_page'])) {
-            $_SESSION['future_page'] = $pageDesired;
-            $href = $go.'?past_page=1&future_page='.$pageDesired.'#appointment'.$appointmentDesired;
         }
 
         return $href;
