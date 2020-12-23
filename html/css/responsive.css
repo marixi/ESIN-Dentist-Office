@@ -1,0 +1,133 @@
+/* Responsive */
+
+/* When the width of the window reaches 60em */
+
+@media (max-width: 60em) {
+    body { 
+      color:red;
+    }
+
+    body>header img:first-child {
+        height: 2.5em;
+    }
+
+    body>header li {
+        font-size: 90%;
+    }
+
+    body>header h1 {
+        font-size: 200%;
+    }
+
+    body>header h2 {
+        font-size: 130%;
+    }
+
+    h2 {
+        font-size: 130%;
+    }
+
+    #services h1 {
+        font-size: 200%;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+
+    #services>p {
+        font-size: 110%;
+    }
+
+    #icons img {
+        max-height: 5em;
+    }
+
+    #description>p {
+        font-size: 90%;
+    }
+
+    #prices {
+        font-size: 110%;
+    }
+
+    #teamTitle h1 {
+        font-size: 200%;
+        margin-left: 35%;
+        margin-right: 35%;
+    }
+
+    #teamTitle>p {
+        font-size: 110%;
+    }
+
+    #teamTitle h2 {
+        font-size: 180%;
+        margin-left: 43%;
+        margin-right: 43%;
+        margin-top: 8%;
+    }
+
+    #dentistDescription p {
+        width: 40%;
+        font-size: 90%;
+    }
+
+    #auxiliar h2 {
+        font-size: 180%;
+        margin-left: 41%;
+        margin-right: 41%;
+        margin-top: 8%;
+    }
+
+    #auxiliar img {
+        width: 60%;
+    }
+
+    #auxiliar p {
+        font-size: 90%;
+    }
+
+    #contacts h1 {
+        font-size: 200%;
+        margin-left: 39%;
+        margin-right: 39%;
+    }
+
+    #contacts h3 {
+        font-size: 120%;
+    }
+
+    #contacts p, li {
+        font-size: 90%;
+    }
+
+    footer p, footer>ul.breadcrumb li {
+        font-size: 90%;
+    }
+
+    #tableTitle {
+        font-size: 200%;
+        margin-left: 41%;
+        margin-right: 41%;
+    }
+
+    #table th {
+        font-size: 130%;
+    }
+
+    #table {
+        margin: 2em 8em;
+    }
+
+    body>h1 {
+        font-size: 200%;
+    }
+    
+}
+
+/* When the width of the window reaches 30em */
+
+@media (max-width: 30em) {
+    body{ 
+      color:green;
+    }
+}

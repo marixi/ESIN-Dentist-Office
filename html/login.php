@@ -17,6 +17,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
     <title> Login Page </title>
 </head>
 
