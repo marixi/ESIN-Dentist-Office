@@ -63,7 +63,7 @@
                 <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
                     <li><a href='client.php' title="Profile"> Profile </a></li>
                     <li><a href='\client.php#bookApp' title="Schedule"> Book Appointment </a></li>
-                    <li><a href='clientRecord.php' title="Appointments"> Record </a></li>
+                    <li><a href='clientRecord.php' title="Appointments"> Record of Appointments </a></li>
                     <li><a href='action_logout.php' title="Log Out"> Logout </a></li>
                 <?php } ?>
                 
