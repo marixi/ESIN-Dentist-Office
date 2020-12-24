@@ -71,6 +71,10 @@ body>header h2 {
     height: auto;
 }
 
+#hamburger, .hamburger {
+    display: none;
+}
+
 /* Section with id="first" */
 
 #first {

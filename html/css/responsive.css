@@ -7,8 +7,17 @@
       color:red;
     }
 
-    body>header {
+    #main {
+        grid-template-columns: [logo] 1fr [menu] 3fr [end];
+    }
+
+    body>header:not(main) {
         grid-template-columns: [logo] 1fr [menu] 4fr [end];
+    }
+
+    #beauty {
+        grid-column: logo/end;
+        z-index: 0;
     }
 
     body>header h1, body>header h2 {
@@ -48,8 +57,8 @@
 
     #services h1 {
         font-size: 200%;
-        margin-left: 40%;
-        margin-right: 40%;
+        margin-left: 30%;
+        margin-right: 30%;
     }
 
     #services>p {
@@ -322,4 +331,313 @@
     body{ 
       color:green;
     }
+
+    #menu .hamburger {
+        display: block;
+        background-color: #aeb1b3;
+        color: white;
+        padding: 1%;
+        margin-left: 90%;
+        text-align: center;
+    }
+    
+    #menu .hamburger:before {
+      content:'\2630';
+    }
+    
+    #menu ul {
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      color: white;
+      width: 80%;
+      margin-left: 20%;
+    }
+    
+    #hamburger:checked + .hamburger + ul li{
+      max-height: 1em;
+      padding: 1em;
+      opacity: 1;
+    }
+    
+    #hamburger:checked + .hamburger:before {
+      content:'\2715';
+    }
+    
+    #menu li {
+      max-height: 0;
+      padding: 0 1em;
+      background-color: #edeff0;
+      text-align: left;
+      opacity: 0;
+      transition: all .3s ease-in-out;
+    }
+
+    body>header li:last-child {
+        border-right: 3px solid rgb(3, 148, 173);
+    }
+
+    body>header h1 {
+        font-size: 160%;
+        padding-left: 1%;
+        padding-top: 1%;
+    }
+
+    body>header h2 {
+        font-size: 100%;
+        padding-left: 1%;
+        padding-top: 9%;
+    }
+
+    h2 {
+        font-size: 100%;
+    }
+
+    #services {
+        display: grid;
+        grid-template-rows: [start] auto [desc] auto [specs] auto [prices] auto [end];
+        grid-template-columns: [start] auto [info] auto [end];
+    }
+
+    #services h1 {
+        font-size: 150%;
+        margin-left: 35%;
+        margin-right: 35%;
+        grid-column: start/end;
+    }
+    
+    #services>p {
+        grid-row: desc/specs;
+        font-size: 90%;
+        grid-column: start/end;
+    }
+
+    #icons {
+        grid-row: specs/prices;
+        grid-column: start/info;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: auto;
+    }
+
+    #icons img:first-child {
+        grid-row: 1;
+        grid-column: 1;
+        margin-bottom: 10%;
+    }
+    
+    #icons img:nth-child(2) {
+        grid-row: 2;
+        grid-column: 1;
+        margin-bottom: 10%;
+    }
+    
+    #icons img:nth-child(3) {
+        grid-row: 3;
+        grid-column: 1;
+        margin-bottom: 10%;
+    }
+    
+    #icons img:nth-child(4) {
+        grid-row: 4;
+        grid-column: 1;
+        margin-bottom: 10%;
+    }
+    
+    #icons img:last-child {
+        grid-row: 5;
+        grid-column: 1;
+        margin-bottom: 10%;
+    }
+
+    #titles {
+        grid-row: specs/prices;
+        grid-column: info/end;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: auto;
+    }
+
+    #titles h2:first-child {
+        grid-row: 1;
+        grid-column: 1;
+        position: relative;
+        margin-top: 0;
+    }
+    
+    #titles h2:nth-child(2) {
+        grid-row: 2;
+        grid-column: 1;
+        margin-top: 0;
+    }
+    
+    #titles h2:nth-child(3) {
+        grid-row: 3;
+        grid-column: 1;
+        margin-top: 0;
+    }
+    
+    #titles h2:nth-child(4) {
+        grid-row: 4;
+        grid-column: 1;
+        margin-top: 0;
+    }
+    
+    #titles h2:last-child {
+        grid-row: 5;
+        grid-column: 1;
+        margin-top: 0;
+    }
+
+    #description {
+        font-size: 90%;
+        grid-row: specs/prices;
+        grid-column: info/end;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: auto;
+    }
+
+    #description p:first-child {
+        grid-row: 1;
+        grid-column: 1;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    
+    #description p:nth-child(2) {
+        grid-row: 2;
+        grid-column: 1;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    
+    #description p:nth-child(3) {
+        grid-row: 3;
+        grid-column: 1;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    
+    #description p:nth-child(4) {
+        grid-row: 4;
+        grid-column: 1;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    
+    #description p:last-child {
+        grid-row: 5;
+        grid-column: 1;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+
+    #prices {
+        grid-column: start/end;
+        font-size: 90%;
+    }
+
+    #teamTitle h1 {
+        font-size: 150%;
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+
+    #teamTitle>p {
+        font-size: 90%;
+    }
+
+    #teamTitle h2 {
+        font-size: 150%;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+
+    #team {
+        display: grid;
+        grid-template-rows: [start] auto [dentist] auto [auxiliar] auto [end];
+        grid-template-columns: 1fr 2fr;
+    }
+
+    #teamTitle {
+        grid-row: start/dentist;
+        grid-column: 1/3;
+    }
+
+    #dentistPhoto {
+        grid-row: dentist/auxiliar;
+        grid-column: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-left: 1%;
+    }
+
+    #dentistPhoto img {
+        width: 110%;
+        border-radius: 2em;
+    }
+
+    #dentistPhoto img:nth-child(2) {
+        margin-top: 10%;
+    }
+
+    #dentistNames {
+        grid-row: dentist/auxiliar;
+        grid-column: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;        
+    }
+
+    #dentistNames h3:first-child {
+        margin-top: 0;
+        margin-right: 17%;
+        margin-left: 23%;
+    }
+
+    #dentistNames h3:nth-child(2) {
+        margin-top: 52%;
+        margin-right: 13%;
+        margin-left: 27%;
+    }
+
+    #dentistDescription {
+        grid-row: dentist/auxiliar;
+        grid-column: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: start; 
+    }
+
+    #dentistDescription p {
+        width: 85%;
+        margin-left: 9%;
+        font-size: 80%;
+    }
+
+    #dentistDescription p:first-child {
+        margin-top: 9%;
+    }
+
+    #dentistDescription p:nth-child(2) {
+        margin-top: 15%;
+    }
+
+    #auxiliar {
+        grid-row: auxiliar/end;
+        grid-column: 1/3;
+    }
+
+    #auxiliar h2 {
+        font-size: 150%;
+        margin-left: 37%;
+        margin-right: 37%;
+    }
+
+    #auxiliar p {
+        font-size: 80%;
+    }
+
 }

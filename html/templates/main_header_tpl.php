@@ -17,7 +17,9 @@
         <a href='index.php' title="Home">
             <img src="images/Logo.png" alt="Dentist Clinic Logo" id="logo_img">
         </a>
-        <nav>
+        <nav id="menu">
+            <input type="checkbox" id="hamburger"> 
+            <label class="hamburger" for="hamburger"></label>
             <ul>
                 <li><a href='index.php' title="Home"> Home </a></li>
                 <li><a href='index.php#services' title="Services"> Services </a></li>

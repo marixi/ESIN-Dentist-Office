@@ -27,8 +27,7 @@
             <h2> Endodontics </h2>
         </div>
         <div id="description">
-            <p> We can perform your regular check up and cleaning rotines to keep your mouth healthy and teeth strong.
-            </p>
+            <p> We can perform your regular check up and cleaning rotines to keep your mouth healthy and teeth strong. </p>
             <p> Crooked teeth? Not anymore! Come and see the different options we have to fit your own needs. </p>
             <p> We know what all those candies do to the so called "milk-teeth"! Come and find out about our ludic and
                 pedagogical space to keep the little ones distracted on the appointments. </p>
