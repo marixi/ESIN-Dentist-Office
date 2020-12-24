@@ -21,7 +21,7 @@
 
 ?>
 
-    <h2> Book Appointment </h2>
+    <h2 id="bookAppTitle"> Book Appointment </h2>
     <?php if(isset($_SESSION['msg'])) { ?>
         <p> <?php echo $_SESSION['msg'] ?> </p>
         <?php unset($_SESSION['msg']); 

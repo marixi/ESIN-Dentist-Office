@@ -121,7 +121,119 @@
     body>h1 {
         font-size: 200%;
     }
+
+    #profileTitle {
+        font-size: 200%;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
     
+    #profileInfo {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    #profileInfo img {
+        height: 180px;
+    }
+
+    #info {
+        font-size: 100%;
+    }
+
+    #Schedule>h2 {
+        font-size: 180%;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+
+    #scheduleTitle {
+        font-size: 120%;
+    }
+
+    #Schedule>form input {
+        margin-top: 2.5%;
+        margin-bottom: 2.5%;
+    }
+
+    #scheduleTable {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    #scheduleTable tbody {
+        font-size: 90%;
+    }
+
+    .appointment h2 {
+        font-size: 160%;
+        margin-left: 35%;
+        margin-right: 35%;
+    }
+
+    .appointment:not(h2) {
+        font-size: 90%;
+    }
+
+    .appointment>section {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .appointment>section h3, .appointment>section ul {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    .appointment>section form {
+        margin-left: 3%;
+        margin-right: 0;
+    }
+
+    .appointment>section form textarea {
+        width: 90%;
+    }
+
+    #team_mng {
+        font-size: 160%;
+        margin-left: 37%;
+        margin-right: 37%;
+    }
+
+    #manage>form:first-of-type {
+        font-size: 120%;
+    }
+
+    #hire, #fire {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    #hire label, #hire > input, #add_client label, #add_client > input, #fire select, #remove_client select {
+        font-size: 110%;
+    }
+
+    #hire label, #add_client label {
+        margin-left: 2%;
+    }
+
+    #hire p, #add_client p {
+        font-size: 90%;
+        margin-left: 2%;
+    }
+
+    #bookAppTile {
+        font-size: 90%;
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+
+    #bookApp {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+
 }
 
 /* When the width of the window reaches 30em */

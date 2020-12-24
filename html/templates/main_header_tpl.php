@@ -13,7 +13,7 @@
 
 <body>
     <!-- Header -->
-    <header>
+    <header id="main">
         <a href='index.php' title="Home">
             <img src="images/Logo.png" alt="Dentist Clinic Logo" id="logo_img">
         </a>
