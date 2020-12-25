@@ -40,7 +40,9 @@
         <a href='index.php' title="Home">
             <img src="images/logo.png" alt="Dentist Clinic Logo">
         </a>
-        <nav>
+        <nav id="menu">
+            <input type="checkbox" id="hamburger"> 
+            <label class="hamburger" for="hamburger"></label>
             <ul>
 
                 <?php if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/manageTeam.php') { ?>

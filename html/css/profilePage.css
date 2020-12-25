@@ -214,3 +214,7 @@
 #pagination a {
     margin: 0 5%;
 }
+
+#hamburger, .hamburger {
+    display: none;
+}

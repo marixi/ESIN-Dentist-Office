@@ -104,10 +104,10 @@
                     <br> <label> Dentist: </label>
                     <?php foreach ($dentists as $dentist) {
                         if (isset($_SESSION['dentistUnavailable']) && $dentist['id'] != $_SESSION['dentistUnavailable']) { ?>
-                                <input type="radio" name="dentist" value="<?php echo $dentist['id']?>" required="required"> Dr. <?php echo $dentist['name']?> </input>
+                                <br> </br> <input type="radio" name="dentist" value="<?php echo $dentist['id']?>" required="required"> Dr. <?php echo $dentist['name']?> </input>
                             <?php }
                         else if (!isset($_SESSION['dentistUnavailable'])) { ?>
-                            <input type="radio" name="dentist" value="<?php echo $dentist['id']?>" required="required"> Dr. <?php echo $dentist['name']?> </input>
+                            <br> </br> <input type="radio" name="dentist" value="<?php echo $dentist['id']?>" required="required"> Dr. <?php echo $dentist['name']?> </input>
                         <?php }
                     } ?>
                     </br>
