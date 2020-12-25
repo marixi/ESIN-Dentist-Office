@@ -1,8 +1,7 @@
-/* Dentist Office */
-
+/* Dentist Office - Profile Page Style and Layout */
 /* Authors: Duarte Rodrigues, Mariana Xavier */
 
-/* CSS for displaying the personal information of the dentist */
+/* Display the information of the user */
 
 #profileTitle {
     font-size: 3em;
@@ -29,12 +28,9 @@
 
 #profileInfo img {
     padding-right: 2em;
+    padding-top: 3%;
     height: 230px;
     width: auto;
-}
-
-#profileInfo #client_pic {
-    margin-top: 5%;
 }
 
 #info {
@@ -49,7 +45,6 @@
     padding-left: 2%;
     padding-top: 2.5%;
     margin: 0;
-
 }
 
 #edit_profile>#edit_button {
@@ -61,159 +56,7 @@
     text-align: right;
 }
 
-#Schedule>h2 {
-    grid-row: 1;
-    font-size: 2em;
-    font-weight: normal;
-    padding: 0;
-    margin-left: 21em;
-    margin-right: 21em;
-    margin-bottom: 2em;
-    text-align: center;
-    background: rgba(255, 255, 255, 0);
-    background-clip: content-box;
-    color: rgb(57, 124, 136);
-    border: 3px solid rgb(57, 124, 136);
-}
-
-#Schedule>form {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    font-size: 1.2em;
-}
-
-#Schedule>form input {
-    margin-top: 1.5%;
-    margin-bottom: 1.5%;
-}
-
-#scheduleTable {
-    margin: 2em 27em;
-    border-collapse: collapse;
-}
-
-#scheduleTable tr:first-of-type th:not(:first-of-type) {
-    background-color: #c0c0b5;
-}
-
-#scheduleTable tr:not(:first-of-type) th {
-    background-color: #c0c0b5;
-}
-
-#scheduleTable tr:first-of-type th:first-of-type {
-    border-left: 0px;
-    border-top: 0px;
-}
-
-#scheduleTable th, td {
-    font-size: 1em;
-    border: 1px solid black;
-    padding-top: 0.5em;
-    padding-bottom: 0.3em;
-    width: 20em;
-    text-align: center;
-    text-transform: capitalize;
-    color: black;
-    text-decoration: none;
-}
-
-#scheduleTable td:not(:empty) {
-    background-color: rgba(3, 147, 173, 0.644);
-}
-
-#scheduleTable td:not(:empty):hover {
-    text-decoration: underline;
-}
-
-#scheduleTitle {
-    text-align: center;
-}
-
-/* Auxiliary Material Management Section */
-
-#manage_mat {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-#manage_mat>h2 {
-    font-size: 200%;
-    font-weight: normal;
-    padding: 0;
-    margin-left: 40%;
-    margin-right: 40%;
-    text-align: center;
-    background: rgba(255, 255, 255, 0);
-    background-clip: content-box;
-    color: rgb(57, 124, 136);
-    border: 3px solid rgb(57, 124, 136);
-    margin-bottom: 1%;
-}
-
-#manage_mat>p {
-    text-align: center;
-    width: 100%;
-    font-size: 140%;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#manage_mat input {
-    background-color: white;
-    border: 3px solid rgb(57, 124, 136);
-    color: rgb(57, 124, 136);
-    padding: 0.3% 0.5%;
-    border-radius: 0.5em;
-    text-align: center;
-    font-size: 110%;
-    display: inline;
-    margin-bottom: 1%;
-    cursor: pointer;
-    margin-left: 45%;
-    margin-right: 45%;
-}
-
-#editing {
-    width: 90%;
-    margin: 0;
-}
-
-#editing>p {
-    margin: 7% 0;
-}
-
-#editing>input[type="submit"] {
-    margin-top: 3%;
-    margin-bottom: 2%;
-    margin-left: 32%;
-    margin-right: 32%;
-    width: 30%;
-    height: 8%;
-    border: none;
-    background: -webkit-linear-gradient(right, #279494, #0eb7d4, #0eb7d4, #279494);
-    color: white;
-    font-size: 1.2em;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 1em;
-}
-
-#editing>input[type="submit"]:hover {
-    background: -webkit-linear-gradient(right, #14c8e7, #33acac, #33acac, #14c8e7);
-    font-weight: bold;
-}
-
-#pagination {
-    text-align: center;
-    font-size: 110%;
-    padding-top: 0.1%;
-    padding-bottom: 2%;
-}
-
-#pagination a {
-    margin: 0 5%;
-}
+/* Hide the hamburger menu */
 
 #hamburger, .hamburger {
     display: none;

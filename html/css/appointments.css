@@ -1,5 +1,7 @@
-/* Dentist Office */
+/* Dentist Office - Appointments Style and Layout */
 /* Authors: Duarte Rodrigues, Mariana Xavier */
+
+/* Display the information of the appointments */
 
 .appointment h2 {
     font-size: 2em;
@@ -45,4 +47,40 @@
     grid-row: 2;
     margin-right: 2em;
     margin-bottom: 1em;
+}
+
+/* Style for the pagination of the past and future appointments */
+
+#pagination {
+    text-align: center;
+    font-size: 110%;
+    padding-top: 0.1%;
+    padding-bottom: 2%;
+}
+
+#pagination a {
+    margin: 0 5%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* Style for the search for clients */
+
+#search label {
+    font-size: 130%;
+    margin-left: 1%;
+}
+
+#search button:first-of-type {
+    font-size: 110%;
+    background-color: transparent;
+    border: none;
+}
+
+#trash {
+    font-size: 130%;
+    margin-left: 1%;
+    margin-top: 1%;
+    border-radius: 20%;
 }

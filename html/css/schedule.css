@@ -1,0 +1,73 @@
+/* Dentist Office - Schedule Style and Layout */
+/* Authors: Duarte Rodrigues, Mariana Xavier */
+
+/* Display the schedule for the employees (dentists and dental auxiliaries) */
+
+#Schedule>h2 {
+    grid-row: 1;
+    font-size: 2em;
+    font-weight: normal;
+    padding: 0;
+    margin-left: 21em;
+    margin-right: 21em;
+    margin-bottom: 2em;
+    text-align: center;
+    background: rgba(255, 255, 255, 0);
+    background-clip: content-box;
+    color: rgb(57, 124, 136);
+    border: 3px solid rgb(57, 124, 136);
+}
+
+#Schedule>form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 1.2em;
+}
+
+#Schedule>form input {
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+}
+
+#scheduleTable {
+    margin: 2em 27em;
+    border-collapse: collapse;
+}
+
+#scheduleTable tr:first-of-type th:not(:first-of-type) {
+    background-color: #c0c0b5;
+}
+
+#scheduleTable tr:not(:first-of-type) th {
+    background-color: #c0c0b5;
+}
+
+#scheduleTable tr:first-of-type th:first-of-type {
+    border-left: 0px;
+    border-top: 0px;
+}
+
+#scheduleTable th, td {
+    font-size: 1em;
+    border: 1px solid black;
+    padding-top: 0.5em;
+    padding-bottom: 0.3em;
+    width: 20em;
+    text-align: center;
+    text-transform: capitalize;
+    color: black;
+    text-decoration: none;
+}
+
+#scheduleTable td:not(:empty) {
+    background-color: rgba(3, 147, 173, 0.644);
+}
+
+#scheduleTable td:not(:empty):hover {
+    text-decoration: underline;
+}
+
+#scheduleTitle {
+    text-align: center;
+}

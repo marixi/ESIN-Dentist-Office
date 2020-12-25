@@ -16,13 +16,13 @@
     <form action="<?php echo $go; ?>" id="search" method="post">
         <label> Client: </label>
         <select name="clientSearch" required="required">
-        <option value="" selected disabled hidden> ------- search for a specific client ------- </option>
+        <option value="" selected disabled hidden> Client Name, @username </option>
         <?php foreach ($clients as $client) { ?>
             <option value="<?php echo $client['id']?>"> <?php echo $client['name']?>, @<?php echo $client['username']; ?> </option>
         <?php } ?>
         </select>
-        <input type="submit" value="Search">
+        <button type="submit"> <i class="fa fa-search"></i> </button>
     </form>
     <form action="action_deleteSearch.php" method="post">
-        <input type="submit" value="Delete search">
+        <button type="submit" id="trash"> <i class="fa fa-trash"></i> </button>
     </form>

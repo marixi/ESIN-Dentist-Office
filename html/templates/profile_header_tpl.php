@@ -8,15 +8,17 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
     <link href="css/profilePage.css" rel="stylesheet">
-    <link href="css/dentistAppointments.css" rel="stylesheet">
+    <link href="css/appointments.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
     <?php if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/manageTeam.php') { ?>
+        <link href="css/schedule.css" rel="stylesheet">
         <link href="css/managePeople.css" rel="stylesheet">
         <title> Dentist </title>
     <?php } ?>
 
     <?php if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/material_per_service.php'|| $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
+        <link href="css/schedule.css" rel="stylesheet">
         <link href="css/priceTable.css" rel="stylesheet">
         <link href="css/material.css" rel="stylesheet">
         <link href="css/mat_per_service.css" rel="stylesheet">

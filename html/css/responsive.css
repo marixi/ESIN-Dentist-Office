@@ -192,6 +192,18 @@
     #scheduleTable tbody {
         font-size: 90%;
     }
+    
+    #search label {
+        font-size: 120%;
+    }
+
+    #search button:first-of-type {
+        font-size: 100%;
+    }
+
+    #trash {
+        font-size: 110%;
+    }
 
     .appointment h2 {
         font-size: 160%;
@@ -786,6 +798,22 @@
 
     #scheduleTable tbody {
         font-size: 60%;
+    }
+
+    #search label {
+        font-size: 100%;
+    }
+
+    #search select {
+        font-size: 70%;
+    }
+
+    #search button:first-of-type {
+        font-size: 90%;
+    }
+
+    #trash {
+        font-size: 90%;
     }
 
     .appointment h2 {

@@ -1,3 +1,8 @@
+/* Dentist Office - Book Appointments Style and Layout */
+/* Authors: Duarte Rodrigues, Mariana Xavier */
+
+/* Display the section for booking appointments to the clients */
+
 h2 {
     font-size: 200%;
     font-weight: normal;
@@ -36,7 +41,7 @@ body>p>a:hover {
     margin-right: 30%;
     border: 2px solid black;
     text-align: justify;
-    height: 25em; /* DA MERDA AO MUDAR */
+    height: 25em;
     margin-bottom: 5%;
 }
 
