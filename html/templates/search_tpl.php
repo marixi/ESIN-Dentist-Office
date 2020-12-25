@@ -21,7 +21,7 @@
             <option value="<?php echo $client['id']?>"> <?php echo $client['name']?>, @<?php echo $client['username']; ?> </option>
         <?php } ?>
         </select>
-        <button type="submit"> <i class="fa fa-search"></i> </button>
+        <button type="submit"> <i class="fa fa-search" id="searchIcon"></i> </button>
     </form>
     <form action="action_deleteSearch.php" method="post">
         <button type="submit" id="trash"> <i class="fa fa-trash"></i> </button>

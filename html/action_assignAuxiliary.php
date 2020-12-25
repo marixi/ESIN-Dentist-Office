@@ -8,8 +8,7 @@
 
     $len = count($auxiliary);
     $i = 0;
-    while ($i < $len) {
-        
+    while ($i < $len) { 
         assignAuxiliary($appointment_to_change, $auxiliary[$i]);
         $i++;
     }

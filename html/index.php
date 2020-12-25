@@ -54,8 +54,8 @@
             <h2> Dentists </h2>
         </div>
         <div id="dentistPhoto">
-            <img src="images/2.jpg" alt="One of our dentists" id="dentist1">
-            <img src="images/1.jpg" alt="Another of our dentists" id="dentist2">
+            <img src="images/users/2.jpg" alt="One of our dentists" id="dentist1">
+            <img src="images/users/1.jpg" alt="Another of our dentists" id="dentist2">
         </div>
         <div id="dentistNames">
             <h3> Dr. Miguel Paredes </h3>
@@ -79,7 +79,7 @@
         </div>
         <div id="auxiliar">
             <h2> Auxiliars </h2>
-            <img src="images/auxiliars.jpg" alt="Our assistants">
+            <img src="images/users/auxiliars.jpg" alt="Our assistants">
             <p> Together with the best dentists we have gathered a highly educated team of assistants (clockwise):
                 Joana Fonseca, Ricardo Brioso, Sara Fernandes, Lara Guerreiro and Erica Freitas. </p>
         </div>

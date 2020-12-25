@@ -3,16 +3,11 @@
     require_once('database/init_db.php');
     require_once('database/dentist_db.php');
     require_once('database/dentalAuxiliary_db.php');
+    require_once('database/person_db.php');
 
     $id = $_SESSION['id'];
   
     $auxiliaries = getAllAuxiliaries();
-
-    function generateRandomPassword($length) {
-        $word = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9, 1));
-        shuffle($word);
-        return substr(implode($word), 0, $length);
-    }
 
     include('templates/profile_header_tpl.php'); 
     include('templates/profile_info_tpl.php');
@@ -47,7 +42,7 @@
                     <label><?php $label=str_pad("Password:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="password" value="<?php if(isset($_SESSION['password'])) { echo $_SESSION['password']; } else { echo generateRandomPassword(10); } ?>" required> </br>
                     <?php if(isset($_SESSION['error_pass_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_pass_msg']; unset($_SESSION['error_pass_msg']); ?> </p> <?php } ?>
-                    <p> This is a random password! The employee may change it in his login page. </p>
+                    <p> This is a random password! The employee may change it in his profile page. </p>
                     <br> <label><?php $label=str_pad("Salary:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="number" name="salary" min="0" max="2000" value="<?php if(isset($_SESSION['salary'])) { echo $_SESSION['salary']; } else{ echo "1000";}?>" step="100"> </br>
                     <br> <label> <?php $label=str_pad("Date of Admission:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>

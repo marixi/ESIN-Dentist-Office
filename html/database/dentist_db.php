@@ -18,5 +18,15 @@
         return $stmt->fetchAll();
     }
 
+    function getUnavailableDentist($date, $time) {
+        $day = substr($date, 8, 2);
+        $month = substr($date, 5, 2);
+        $year = substr($date, 0, 4);
+
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT dentist_id FROM appointment WHERE date = ? AND time = ?');
+        $stmt->execute(array($day.'-'.$month.'-'.$year, $time));
+        return $stmt->fetchAll();
+    }
 
 ?>

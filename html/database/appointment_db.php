@@ -368,4 +368,23 @@
 
     }
 
+    function checkAvailableHours($date, $time, $value) {
+        $day = substr($date, 8, 2);
+        $month = substr($date, 5, 2);
+        $year = substr($date, 0, 4);
+
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT date, time FROM appointment WHERE date = ? AND time = ?');
+        $stmt->execute(array($day.'-'.$month.'-'.$year, $time));
+        $nonAvailable = $stmt->fetchAll();
+
+        if (count($nonAvailable) == 0 || count($nonAvailable) == 1) {
+            if (isset($_SESSION['time']) && $value == $_SESSION['time']) { ?>
+                <option value="<?php echo $value ?>" selected="selected"> <?php echo $time ?> </option>
+            <?php } else { ?>
+                <option value="<?php echo $value ?>"> <?php echo $time ?> </option>    
+            <?php }
+        }
+    }
+
 ?>

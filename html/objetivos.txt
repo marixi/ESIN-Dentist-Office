@@ -1,10 +1,10 @@
 Eu acho que o plano de trabalhos geral é:
 
-- organização isso dos templates (acho que esta tudo)
+- resolver footers no responsive nas que esta mal
+- css do botao de edit (tentar resolver position absolute senao cagar)
 - por tudo a %
 - try catches para tudinho (login, appointment, schedules)
-- final validation of html/php and css
-- adicionar fotos para os clientes
+- adicionar algumas fotos para os clientes
 - add_client por o date of birth como um input type=date(influencia alguma cena na db?)
 
 

@@ -63,8 +63,8 @@ form>input:not([type="submit"]):not([type="radio"]), form>select {
     margin-bottom: 1em;
 }
 
-form>img {
-    max-width: 5%;
+#tick {
+    color: rgb(32, 201, 32);
 }
 
 #bookApp>p {

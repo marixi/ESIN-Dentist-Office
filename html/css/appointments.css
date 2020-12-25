@@ -78,6 +78,11 @@
     border: none;
 }
 
+#searchIcon {
+    color:rgb(48, 146, 163);
+    font-weight: bold;
+}
+
 #trash {
     font-size: 130%;
     margin-left: 1%;

@@ -3,9 +3,6 @@
 /* When the width of the window reaches 60em */
 
 @media (max-width: 60em) {
-    body { 
-      color:red;
-    }
 
     #main {
         grid-template-columns: [logo] 1fr [menu] 3fr [end];
@@ -167,6 +164,10 @@
 
     #info {
         font-size: 100%;
+    }
+
+    #edit_profile>#edit_button {
+        left: 87%;
     }
 
     #Schedule>h2 {
@@ -357,10 +358,7 @@
 /* When the width of the window reaches 30em */
 
 @media (max-width: 30em) {
-    body{ 
-      color:green;
-    }
-
+    
     #menu .hamburger {
         display: block;
         background-color: #aeb1b3;
@@ -774,6 +772,10 @@
     #info {
         font-size: 80%;
         padding-left: 0;
+    }
+
+    #edit_profile>#edit_button {
+        left: 90%;
     }
 
     #Schedule>h2 {

@@ -25,10 +25,10 @@
     <section id="profileInfo">
         
         <!-- Profile image -->
-        <?php if (file_exists('images/' . $person['id'] . '.jpg')) { ?>
-            <img src="images/<?php echo $person['id'] ?>.jpg" alt="<?php echo $person['name'] ?>">
+        <?php if (file_exists('images/users/' . $person['id'] . '.jpg')) { ?>
+            <img src="images/users/<?php echo $person['id'] ?>.jpg" alt="<?php echo $person['name'] ?>">
         <?php } else { ?>
-            <img src="images/img_default.jpg" alt="<?php echo $person['name'] ?>">
+            <img src="images/users/img_default.jpg" alt="<?php echo $person['name'] ?>">
         <?php } ?>
         <?php if (isset($_SESSION['error_image']) && $_SESSION['edit_on']==0 && !isset($_POST['edit'])) { ?> <p id="err"> <?php echo $_SESSION['error_image']; unset($_SESSION['error_image']); ?> </p> <?php } ?>
 
@@ -58,8 +58,9 @@
                     <button type="submit" id="edit_button" name="edit" form="edit_profile"><i class="fa fa-times-circle"></i></button>
                 </form>
 
-                <form enctype="multipart/form-data" action="action_edit_profile_info.php" method="post" id="editing">           
-                        <input type="file" name="image" accept="image/png, image/jpeg, image/jpg">
+                <form enctype="multipart/form-data" action="action_edit_profile_info.php" method="post" id="editing"> 
+                    <p> <strong> Image: </strong>          
+                    <input type="file" name="image" accept="image/png, image/jpeg, image/jpg">
                         <?php if (isset($_SESSION['error_image'])) { ?> <p id="err"> <?php echo $_SESSION['error_image']; unset($_SESSION['error_image']); ?> </p> <?php } ?>
                     <p> <strong> Name: </strong>
                     <input type="text" name="name" value="<?php if(isset($_SESSION['name'])) { echo $_SESSION['name']; } 

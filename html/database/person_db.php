@@ -75,7 +75,7 @@
             }
             // Attempt to upload file.
             else {
-                $uploads_dir = 'images/';
+                $uploads_dir = 'images/users';
                 $name = $idToUpload.'.jpg';
                 try {
                     if (file_exists("$uploads_dir/$name")) {
@@ -90,5 +90,10 @@
         }
     }
 
+    function generateRandomPassword($length) {
+        $word = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9, 1));
+        shuffle($word);
+        return substr(implode($word), 0, $length);
+    }
     
 ?>

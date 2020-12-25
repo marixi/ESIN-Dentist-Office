@@ -33,7 +33,7 @@
                 <label> Date: </label>
                 <input type="date" name="date" min="<?php echo date("Y-m-d", strtotime("+1 day"));?>" <?php if(isset($_SESSION['date'])) { ?> value="<?php echo $_SESSION['date']; }?>" required="required">
                 <input type="submit" value="Set">
-                <?php if(isset($_SESSION['date']) && !isset($_SESSION['err_msg'])) { ?> <img src="images/tick.png" alt="Accepted"?> </img> <?php } ?>
+                <?php if(isset($_SESSION['date']) && !isset($_SESSION['err_msg'])) { ?> <i style="font-size:24px" class="fa" id="tick">&#xf00c;</i> <?php } ?>
             </form> 
 
             <?php if(isset($_SESSION['date'])) { ?>
@@ -46,25 +46,6 @@
                             <label> Time: </label>
                             <select name="time" required="required">
                             <?php $dayOfWeek = date('l', strtotime($_SESSION['date']));
-                            
-                            function checkAvailableHours($date, $time, $value) {
-                                $day = substr($date, 8, 2);
-                                $month = substr($date, 5, 2);
-                                $year = substr($date, 0, 4);
-
-                                global $dbh;
-                                $stmt = $dbh->prepare('SELECT date, time FROM appointment WHERE date = ? AND time = ?');
-                                $stmt->execute(array($day.'-'.$month.'-'.$year, $time));
-                                $nonAvailable = $stmt->fetchAll();
-
-                                if (count($nonAvailable) == 0 || count($nonAvailable) == 1) {
-                                    if (isset($_SESSION['time']) && $value == $_SESSION['time']) { ?>
-                                        <option value="<?php echo $value ?>" selected="selected"> <?php echo $time ?> </option>
-                                    <?php } else { ?>
-                                        <option value="<?php echo $value ?>"> <?php echo $time ?> </option>    
-                                    <?php }
-                                }
-                            }
 
                             $arrayWeek = array('09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00');
                             $arrayWeekend = array('09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00');
@@ -87,7 +68,7 @@
                             } ?>
                             </select>
                             <input type="submit" value="Set">
-                            <?php if(isset($_SESSION['time']) && !isset($_SESSION['err_msg'])) { ?> <img src="images/tick.png" alt="Accepted"?> </img> <?php } ?>
+                            <?php if(isset($_SESSION['time']) && !isset($_SESSION['err_msg'])) { ?> <i style="font-size:24px" class="fa" id="tick">&#xf00c;</i> </img> <?php } ?>
                         <?php }
                     ?>
                 </form>

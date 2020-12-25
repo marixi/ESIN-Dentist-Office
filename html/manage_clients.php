@@ -3,17 +3,11 @@
 require_once('database/init_db.php');
 require_once('database/dentalAuxiliary_db.php');
 require_once('database/client_db.php');
+require_once('database/person_db.php');
 
 $id = $_SESSION['id'];
 $auxiliary = getAuxiliaryInfo($id);
 $clients = getClients();
-
-function generateRandomPassword($length)
-{
-    $word = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9, 1));
-    shuffle($word);
-    return substr(implode($word), 0, $length);
-}
 
 if (isset($_POST['remove_client'])) {
     unset($_SESSION['name']);
@@ -110,7 +104,7 @@ include('templates/profile_info_tpl.php');
                                                             } ?>" required> </br>
                 <?php if (isset($_SESSION['error_pass_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_pass_msg'];
                                                                                 unset($_SESSION['error_pass_msg']); ?> </p> <?php } ?>
-                <p> This is a random password! The client may change it in his login page. </p>
+                <p> This is a random password! The client may change it in his profile page. </p>
                 <input id="submit_add" type="submit" value="Submit"> </br>
             </form>
         </section>
