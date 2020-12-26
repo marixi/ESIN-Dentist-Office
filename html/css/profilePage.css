@@ -1,7 +1,7 @@
 /* Dentist Office - Profile Page Style and Layout */
 /* Authors: Duarte Rodrigues, Mariana Xavier */
 
-/* Display the information of the user */
+/* Title and change profile */
 
 #profileTitle {
     font-size: 3em;
@@ -14,6 +14,16 @@
     color: white;
     border: 5px double rgb(57, 124, 136);
 }
+
+#change {
+    background-color: transparent;
+    font-size: 130%;
+    margin-left: 49%;
+    margin-right: 49%;
+    border: none;
+}
+
+/* Display the information of the user */
 
 #profileInfo {
     display: flex;

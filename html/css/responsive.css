@@ -152,6 +152,12 @@
         margin-left: 40%;
         margin-right: 40%;
     }
+
+    #change {
+        font-size: 110%;
+        margin-left: 48%;
+        margin-right: 48%;
+    }
     
     #profileInfo {
         margin-left: 5%;
@@ -756,6 +762,12 @@
         font-size: 160%;
         margin-left: 37%;
         margin-right: 37%;
+    }
+
+    #change {
+        font-size: 100%;
+        margin-left: 47%;
+        margin-right: 47%;
     }
    
     #profileInfo {

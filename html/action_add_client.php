@@ -61,12 +61,14 @@
         $_SESSION['error_ins_msg'] = "That insurance code is not available for our clinic!";
         header('Location: \manage_clients.php#add_client');
     }else {
-        
-        try {
-            insertIntoPerson($_SESSION['name'], $_SESSION['address'], $_SESSION['phone_number'], $_SESSION['username'], sha1($_SESSION['password']));
-        } catch (Exception $e) {
-            $_SESSION['msg'] = "Something went wrong! Please try again.";
-            header('Location: \manage_clients.php#add_client');  
+
+        if checkIfPersonExists($_SESSION['username']==false) {
+            try {
+                insertIntoPerson($_SESSION['name'], $_SESSION['address'], $_SESSION['phone_number'], $_SESSION['username'], sha1($_SESSION['password']));
+            } catch (Exception $e) {
+                $_SESSION['msg'] = "Something went wrong! Please try again.";
+                header('Location: \manage_clients.php#add_client');  
+            }
         }
 
         $id = getPersonId($_SESSION['username']) ;

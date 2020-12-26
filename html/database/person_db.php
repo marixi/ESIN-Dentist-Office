@@ -95,5 +95,16 @@
         shuffle($word);
         return substr(implode($word), 0, $length);
     }
+
+    function checkIfPersonExists($username) {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM person WHERE username = ?');
+        $stmt->execute(array($username));
+        if ($stmt->fetch()) {
+            $exists = true;
+        } else {
+            $exists = false;
+        }
+    }
     
 ?>
