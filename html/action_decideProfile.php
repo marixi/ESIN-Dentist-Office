@@ -12,9 +12,15 @@
     $row3 = getClientInfo($id);
     
     if ($row1) {
+        if ($row3) {
+            $_SESSION['multiple'] = 1;
+        }
         header('Location: dentist.php');
     }
     else if ($row2) {
+        if ($row3) {
+            $_SESSION['multiple'] = 1;
+        }
         header('Location: dentalAuxiliary.php');
     }
     else if ($row3) {

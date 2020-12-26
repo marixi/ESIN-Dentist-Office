@@ -65,7 +65,7 @@
                                 } else { ?>
                                     <form action="action_assignAuxiliary.php" method="post">
                                         <?php foreach ($auxiliaries as $aux) { 
-                                            if (checkAuxiliaryAvailability($aux['id'], $app['date'], $app['time'])) { ?>
+                                            if (checkAuxiliaryAvailability($aux['id'], $app['date'], $app['time']) && $aux['id']!=$app['id']) { ?>
                                                 <input type="checkbox" name="auxiliary[]" value=<?php echo $aux['id'] ?>> <?php echo $aux['name']?> </input>
                                             <?php }
                                         } ?>

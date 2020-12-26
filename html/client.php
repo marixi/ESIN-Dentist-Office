@@ -4,6 +4,8 @@
     require_once('database/client_db.php');
     require_once('database/specialty_db.php');
     require_once('database/dentist_db.php');
+    require_once('database/dentalAuxiliary_db.php');
+    require_once('database/auxiliariesAssigned_db.php');
     require_once('database/appointment_db.php');
 
     $id = $_SESSION['id'];

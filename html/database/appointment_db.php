@@ -378,7 +378,7 @@
         $stmt->execute(array($day.'-'.$month.'-'.$year, $time));
         $nonAvailable = $stmt->fetchAll();
 
-        if (count($nonAvailable) == 0 || count($nonAvailable) == 1) {
+        if ((count($nonAvailable) == 0 || count($nonAvailable) == 1) && (!isset($_SESSION['multiple']) || ($_SESSION['multiple']==1 && getAuxiliaryInfo($_SESSION['id']) && checkAuxiliaryAvailability($_SESSION['id'], $day.'-'.$month.'-'.$year, $time)==true))) {
             if (isset($_SESSION['time']) && $value == $_SESSION['time']) { ?>
                 <option value="<?php echo $value ?>" selected="selected"> <?php echo $time ?> </option>
             <?php } else { ?>
@@ -386,5 +386,7 @@
             <?php }
         }
     }
+
+    /*if ($_SESSION['multiple']==1 && getAuxiliaryInfo($_SESSION['id']) && checkAuxiliaryAvailability($_SESSION['id'], $date, $time)==true)*/
 
 ?>
