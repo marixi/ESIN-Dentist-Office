@@ -4,6 +4,7 @@
 
     $_SESSION['date'] = $_POST['date'];
     unset($_SESSION['err_msg']);
+    unset($_SESSION['err_client_msg']);
     unset($_SESSION['time']);
     unset($_SESSION['dentistUnavailable']);
     

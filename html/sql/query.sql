@@ -78,4 +78,6 @@ WHERE dentist_id = 2 AND record.client_id = 8*/
 /*
 SELECT price FROM appointment WHERE appointment_id = 1;*/
 
-UPDATE appointment SET price = 800 WHERE appointment_id = 28
+SELECT dentist_id FROM appointment WHERE client_id = 1 AND date = '28-12-2020' AND time = '15:00';
+
+SELECT dentist_id FROM appointment WHERE date = '28-12-2020' AND time = '15:00'

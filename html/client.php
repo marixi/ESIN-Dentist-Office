@@ -19,8 +19,6 @@
     include('templates/profile_header_tpl.php');
     include('templates/profile_info_tpl.php');
 
-    echo isset($_SESSION['msg']);
-
 ?>
 
     <h2 id="bookAppTitle"> Book Appointment </h2>
@@ -70,7 +68,7 @@
                             } ?>
                             </select>
                             <input type="submit" value="Set">
-                            <?php if(isset($_SESSION['time']) && !isset($_SESSION['err_msg'])) { ?> <i style="font-size:24px" class="fa" id="tick">&#xf00c;</i> </img> <?php } ?>
+                            <?php if(isset($_SESSION['time']) && !isset($_SESSION['err_client_msg'])) { ?> <i style="font-size:24px" class="fa" id="tick">&#xf00c;</i> </img> <?php } ?>
                         <?php }
                     ?>
                 </form>
@@ -78,23 +76,27 @@
 
             if (isset($_SESSION['time'])) { ?>
                 <form action="action_bookAppointment.php" method="post">
+                <?php if (isset($_SESSION['err_client_msg'])) { ?>
+                    <p> <?php echo $_SESSION['err_client_msg'] ?> </p>
+                <?php } else { ?>
                     <label> Specialty: </label>
                     <select name="specialty" required="required">
-                    <?php foreach ($specialties as $specialty) { ?>
-                        <option value="<?php echo $specialty['type']?>"> <?php echo $specialty['type']?> </option>
-                    <?php } ?>
+                        <?php foreach ($specialties as $specialty) { ?>
+                            <option value="<?php echo $specialty['type']?>"> <?php echo $specialty['type']?> </option>
+                        <?php } ?>
                     </select>
                     <br> <label> Dentist: </label>
                     <?php foreach ($dentists as $dentist) {
-                        if (isset($_SESSION['dentistUnavailable']) && $dentist['id'] != $_SESSION['dentistUnavailable']) { ?>
+                        if (isset($_SESSION['dentistUnavailable']) && $dentist['id'] != $_SESSION['dentistUnavailable'] && $dentist['id'] != $_SESSION['id']) { ?>
                                 <br> </br> <input type="radio" name="dentist" value="<?php echo $dentist['id']?>" required="required"> Dr. <?php echo $dentist['name']?> </input>
                             <?php }
-                        else if (!isset($_SESSION['dentistUnavailable'])) { ?>
+                        else if (!isset($_SESSION['dentistUnavailable']) && $dentist['id'] != $_SESSION['id']) { ?>
                             <br> </br> <input type="radio" name="dentist" value="<?php echo $dentist['id']?>" required="required"> Dr. <?php echo $dentist['name']?> </input>
                         <?php }
                     } ?>
                     </br>
                     <input type="submit" id="final" value="Submit">
+                <?php } ?>
                 </form>
             <?php }
         } ?>     
