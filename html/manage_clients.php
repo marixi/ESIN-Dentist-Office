@@ -115,8 +115,7 @@ include('templates/profile_info_tpl.php');
                                                                                                         if (isset($_POST['remove_client'])) { ?>
         <section id="remove_client">
             <form action="action_remove_client.php" method="post">
-                <!-- <label> Client: </label> -->
-                <select name="who" required="required">
+                <select name="who" required="required" id="select_rem">
                 <option hidden disabled selected value> ----- Select Client to remove ----- </option>
                     <?php foreach ($clients as $client) { ?>
                         <option value="<?php echo $client['id'] ?>"> <?php echo $client['name'] ?>, @<?php echo $client['username']; ?> </option>

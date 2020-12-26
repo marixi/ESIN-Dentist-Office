@@ -256,7 +256,7 @@
         margin-right: 20%;
     }
 
-    #hire label, #hire > input, #add_client label, #add_client > input, #fire select, #remove_client select {
+    #hire label, #hire > input, #add_client label, #add_client > input {
         font-size: 110%;
     }
 
@@ -267,6 +267,11 @@
     #hire p, #add_client p {
         font-size: 90%;
         margin-left: 2%;
+    }
+
+    #fire select, #remove_client select{
+        font-size: 84%;
+        margin:2% 10%;
     }
 
     #stock, #manage_title {
@@ -862,8 +867,14 @@
         margin-right: 5%;
     }
 
-    #hire label, #hire > input, #add_client label, #add_client > input, #fire select, #remove_client select {
+    #hire label, #hire > input, #add_client label, #add_client > input{
         font-size: 100%;
+    }
+
+    #fire select, #remove_client select{
+        font-size: 84%;
+        width:65%;
+        margin:2% 18%;
     }
 
     #hire label, #add_client label {

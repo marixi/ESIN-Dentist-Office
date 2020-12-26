@@ -57,8 +57,7 @@
              if (isset($_POST['fire'])) { ?>
                 <section id="fire">
                 <form action="action_fireAuxiliary.php" method="post">
-                    <!-- <label> Employee: </label> -->
-                    <select name="who" required="required">
+                    <select name="who" required="required" id="select_rem">
                     <option hidden disabled selected value> ----- Select Employee to fire ----- </option>
                     <?php foreach ($auxiliaries as $auxiliary) { ?>
                         <option value="<?php echo $auxiliary['id']?>"> <?php echo $auxiliary['name']?>, @<?php echo $auxiliary['username']?> </option>

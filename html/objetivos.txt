@@ -6,6 +6,8 @@ Eu acho que o plano de trabalhos geral é:
 - try catches para tudinho (login, appointment, schedules)
 - adicionar algumas fotos para os clientes
 - add_client por o date of birth como um input type=date(influencia alguma cena na db?)
+- verificar o 'check if person exist' + responsive->error msg(font) + alinhar foto com texto - profile
+- verificar o footer hire e add + position absolute -> responsive
 
 
 super xtra:

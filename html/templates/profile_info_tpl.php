@@ -23,13 +23,13 @@
     <?php if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/manageTeam.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
         <?php if ($_SESSION['multiple'] == 1) { ?>
             <form action="client.php" method="post">
-            <button type="submit" id="change"> <i class="fa fa-refresh"></i> </button>
+            <button type="submit" id="change" title="Change to Client Mode"> <i class="fa fa-refresh"></i></button>
             </form>
         <?php }
     } else if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
         <?php if ($_SESSION['multiple'] == 1) { ?>
             <form action="action_decideProfile.php" method="post">
-            <button type="submit" id="change"> <i class="fa fa-refresh"></i> </button>
+            <button type="submit" id="change" title="Change to Employee Mode"> <i class="fa fa-refresh"></i></button>
             </form>
         <?php }
     } ?> 

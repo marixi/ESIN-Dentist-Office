@@ -16,12 +16,21 @@
 }
 
 #change {
-    background-color: transparent;
+    background-color:transparent;
+    border: none;    
     font-size: 130%;
     margin-left: 49%;
     margin-right: 49%;
-    border: none;
 }
+
+
+
+#change:hover{
+    color:black;
+    font-weight: bold;
+}
+
+
 
 /* Display the information of the user */
 

@@ -69,7 +69,7 @@ h2 {
     margin-right: 30%;
     border: 2px solid black;
     margin-bottom: 5%;
-}
+} 
 
 #add_client{
     padding-bottom: 2%;
@@ -113,9 +113,6 @@ h2 {
     margin:2% 18%;
 }
 
-#submit_remove{
-    margin-left: 38%;
-}
 
 #submit_add:hover, #submit_remove:hover {
     background: -webkit-linear-gradient(right, #14c8e7, #33acac, #33acac, #14c8e7);
