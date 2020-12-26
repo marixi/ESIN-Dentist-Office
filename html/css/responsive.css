@@ -795,6 +795,10 @@
         left: 90%;
     }
 
+    #good_msg, #bad_msg{
+        font-size: 90%;
+    }
+
     #Schedule>h2 {
         font-size: 120%;
         margin-left: 40%;

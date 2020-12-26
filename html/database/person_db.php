@@ -105,6 +105,7 @@
         } else {
             $exists = false;
         }
-    }
+        return $exists;
+    } 
     
 ?>

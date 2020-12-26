@@ -62,7 +62,7 @@
         header('Location: \manage_clients.php#add_client');
     }else {
 
-        if checkIfPersonExists($_SESSION['username']==false) {
+        if (checkIfPersonExists($_SESSION['username'])==false) {
             try {
                 insertIntoPerson($_SESSION['name'], $_SESSION['address'], $_SESSION['phone_number'], $_SESSION['username'], sha1($_SESSION['password']));
             } catch (Exception $e) {
