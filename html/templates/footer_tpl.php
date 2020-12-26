@@ -1,5 +1,5 @@
     <form action="action_goUp.php" method = "post">
-        <input type="submit" value="^" name="goUpButton" id="goUpButton">
+        <input type="submit" value=&#x21EA name="goUpButton" id="goUpButton">
     </form>
     
     <!-- Footer -->
