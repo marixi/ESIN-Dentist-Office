@@ -38,20 +38,21 @@ if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistA
 <section id="profileInfo">
 
     <!-- Profile image -->
-    <?php if (file_exists('images/users/' . $person['id'] . '.jpg')) { ?>
-        <img src="images/users/<?php echo $person['id'] ?>.jpg" alt="<?php echo $person['name'] ?>">
-    <?php } else { ?>
-        <img src="images/users/img_default.jpg" alt="<?php echo $person['name'] ?>">
-    <?php } ?>
-    <?php if (isset($_SESSION['error_image']) && $_SESSION['edit_on'] == 0 && !isset($_POST['edit'])) { ?> <p id="err"> <?php echo $_SESSION['error_image'];
-                                                                                                                        unset($_SESSION['error_image']); ?> </p> <?php } ?>
+    <div id="profileImg">
+        <?php if (file_exists('images/users/' . $person['id'] . '.jpg')) { ?>
+            <img src="images/users/<?php echo $person['id'] ?>.jpg" alt="<?php echo $person['name'] ?>">
+        <?php } else { ?>
+            <img src="images/users/img_default.jpg" alt="<?php echo $person['name'] ?>">
+        <?php } ?>
 
-    <?php if (!($_SESSION['edit_on'] == 0 && !isset($_POST['edit']))) { ?>
-        <p id="img_sel"> <strong> Image: </strong>
-            <input type="file" name="image" form="editing" accept="image/png, image/jpeg, image/jpg">
-            <?php if (isset($_SESSION['error_image'])) { ?> <p id="err"> <?php echo $_SESSION['error_image'];
-                                                                            unset($_SESSION['error_image']); ?> </p> <?php } ?> </p>
-    <?php } ?>
+        <?php if (!($_SESSION['edit_on'] == 0 && !isset($_POST['edit']))) { ?>
+                <p id="img_sel"> <strong> Image: </strong>
+                <input type="file" name="image" form="editing" accept="image/png, image/jpeg, image/jpg"> </p>
+                <?php if (isset($_SESSION['error_image'])) { ?> <p id="err"> <?php echo $_SESSION['error_image'];
+                                                                                unset($_SESSION['error_image']); ?> </p> <?php } ?> 
+        <?php } ?>
+
+    </div>
 
     <!-- Profile information -->
     <div id="info">
