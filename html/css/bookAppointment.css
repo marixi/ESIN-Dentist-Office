@@ -32,7 +32,7 @@ body>p>a {
 }
 
 body>p>a:hover {
-    font-weight: bold;
+    color:rgb(57, 124, 136);
 }
 
 #bookApp {

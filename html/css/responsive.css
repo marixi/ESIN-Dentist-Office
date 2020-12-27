@@ -184,8 +184,6 @@
         font-size:75%;
     }
 
-    
-
     #Schedule>h2 {
         font-size: 180%;
         margin-left: 40%;
@@ -270,16 +268,17 @@
         font-size: 110%;
     }
 
-    #hire label, #add_client label {
-        margin-left: 2%;
-    }
-
     #hire p, #add_client p {
         font-size: 90%;
         margin-left: 2%;
     }
 
-    #fire select, #remove_client select{
+    #fire select{
+        font-size: 110%;
+        margin:2% 18%;
+    }
+
+    #remove_client select{
         font-size: 84%;
         margin:2% 10%;
     }

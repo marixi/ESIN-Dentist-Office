@@ -9,6 +9,16 @@
   
     $auxiliaries = getAllAuxiliaries();
 
+    if (isset($_POST['fire'])) {
+        unset($_SESSION['name']);
+        unset($_SESSION['address']);
+        unset($_SESSION['phone_number']);
+        unset($_SESSION['date_of_admission']);
+        unset($_SESSION['salary']);
+        unset($_SESSION['username']);
+        unset($_SESSION['password']);
+    }
+
     include('templates/profile_header_tpl.php'); 
     include('templates/profile_info_tpl.php');
 
@@ -34,7 +44,7 @@
                     <br> <label> <?php $label=str_pad("Address:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="address" value="<?php if(isset($_SESSION['address'])) { echo $_SESSION['address']; }?>" required> </br>
                     <br> <label> <?php $label=str_pad("Phone number:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
-                    <input type="text" name="phone_number" value="<?php if(isset($_SESSION['phone_number'])) { echo $_SESSION['phone_number']; } else { ?>+351********* <?php } ?>" required> </br>
+                    <input type="text" name="phone_number" value="<?php if(isset($_SESSION['phone_number'])) { echo $_SESSION['phone_number']; } else { ?>+351*********<?php } ?>" required> </br>
                     <br> <?php if(isset($_SESSION['error_num_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_num_msg']; ; unset($_SESSION['error_num_msg']) ?> </p> <?php } ?>
                     <label> <?php $label=str_pad("Username:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="username" value="<?php if(isset($_SESSION['username'])) { echo $_SESSION['username']; }?>" required> </br>
@@ -69,7 +79,7 @@
                 </form>
                 </section>
                 
-            <?php }
+            <?php } 
             ?>
     </section>
 

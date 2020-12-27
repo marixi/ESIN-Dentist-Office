@@ -57,7 +57,7 @@ include('templates/profile_info_tpl.php');
                                 echo $label; ?> </label>
                 <input type="text" name="phone_number" value="<?php if (isset($_SESSION['phone_number'])) {
                                                                     echo $_SESSION['phone_number'];
-                                                                } else { ?>+351********* <?php } ?>" required> </br>
+                                                                } else { ?>+351*********<?php } ?>" required> </br>
                 <br> <?php if (isset($_SESSION['error_num_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_num_msg'];;
                                                                                     unset($_SESSION['error_num_msg']) ?> </p> <?php } ?>
                 <br> <label> <?php $label = str_pad("Date of birth:", 15, " ");

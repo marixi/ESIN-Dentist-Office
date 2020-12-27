@@ -13,7 +13,7 @@
 
     try {
         addNewAppointment($date, $time, $_POST['dentist'], $_SESSION['id'], $_POST['dentist'], $_POST['specialty']);
-        $_SESSION['msg'] = "Appointment booked successfully!";
+        $_SESSION['final_msg'] = "Appointment booked successfully!";
     } catch (Exception $e) {
         $_SESSION['msg'] = "Something went wrong! Please try again.";
     }

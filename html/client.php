@@ -22,12 +22,12 @@
 ?>
 
     <h2 id="bookAppTitle"> Book Appointment </h2>
-    <?php if(isset($_SESSION['msg'])) { ?>
-        <p> <?php echo $_SESSION['msg'] ?> </p>
-        <?php unset($_SESSION['msg']); 
+    <?php if(isset($_SESSION['final_msg'])) { ?>
+        <p> <?php echo $_SESSION['final_msg'] ?> </p>
+        <?php unset($_SESSION['final_msg']); 
     } else { ?>
         <p> Use the form bellow to book an appointment. </p>
-        <p> In need of an urgen appointment for today? <a href='\index.php#contacts' title="Call Us"> Call us! </a> </p>
+        <p> In need of an urgent appointment for today? <a href='\index.php#contacts' title="Call Us"> Call us! </a> </p>
         <section id="bookApp">
             <form action="action_checkDate.php" method="post">
                 <label> Date: </label>

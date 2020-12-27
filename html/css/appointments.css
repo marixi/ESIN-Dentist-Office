@@ -4,12 +4,12 @@
 /* Display the information of the appointments */
 
 .appointment h2 {
-    font-size: 2em;
+    font-size: 200%;
     font-weight: normal;
     padding: 0;
-    margin-left: 20em;
-    margin-right: 20em;
-    margin-bottom: 3em;
+    margin-left: 42%;
+    margin-right: 42%;
+    margin-bottom: 5%;
     text-align: center;
     background: rgba(255, 255, 255, 0);
     background-clip: content-box;
@@ -18,7 +18,7 @@
 }
 
 .appointment>section {
-    margin: 2em 8em;
+    margin: 3% 15%;
     background-color: #edeff0;
     border: 1px solid black;
     display: grid;
@@ -27,7 +27,7 @@
 }
 
 .appointment>section h3 {
-    margin-left: 1.8em;
+    margin-left: 8%;
 }
 
 .appointment>section ul {
