@@ -13,7 +13,7 @@
     <link href="css/responsive/layout_responsive.css" rel="stylesheet">
     <link href="css/responsive/style_responsive.css" rel="stylesheet">
     <link href="css/responsive/profilePage_responsive.css" rel="stylesheet">
-    <link href="css/responsive/appointments_responsive.css" rel="stylesheet">
+    <link href="css/responsive/appointment_responsive.css" rel="stylesheet">
 
     <?php if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/manageTeam.php') { ?>
         <link href="css/schedule.css" rel="stylesheet">
@@ -65,7 +65,7 @@
                 <?php if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/manageTeam.php') { ?>
                     <li><a href='dentist.php' title="Profile"> Profile </a></li>
                     <li><a href='dentist.php#Schedule' title="Schedule"> Schedule </a></li>
-                    <li><a href='dentistAppointments.php' title="Appointments"> Appointments </a></li>
+                    <li><a href='dentistAppointments.php#search' title="Appointments"> Appointments </a></li>
                     <li><a href='manageTeam.php#team_mng' title="Manage Team"> Manage Team </a></li>
                     <li><a href='action_logout.php' title="Log Out"> Logout </a></li>
                 <?php } ?>

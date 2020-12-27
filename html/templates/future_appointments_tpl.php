@@ -33,14 +33,13 @@
     <section class="appointment">
 
         <h2> Future Appointments </h2>
-
         <?php
             $date = new DateTime("now");
             foreach ($future as $app) { ?>
                 <section id="appointment<?php echo $app['app_id'] ?>">
 
                     <h3> Appointment #<?php echo $app['app_id'] ?>: </h3>
-
+                    
                     <ul>
                         <?php if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php') { ?>
                             <li> <strong> Client Name: </strong> <?php echo $app['name'] ?> </li> 
@@ -66,12 +65,12 @@
                                     <form action="action_assignAuxiliary.php" method="post">
                                         <?php foreach ($auxiliaries as $aux) { 
                                             if (checkAuxiliaryAvailability($aux['id'], $app['date'], $app['time']) && $aux['id']!=$app['id'] && checkAuxiliaryAvailabilityAsClient($app['date'], $app['time'], $aux['id'])) { ?>
-                                                <p> <input type="checkbox" name="auxiliary[]" value=<?php echo $aux['id'] ?>> <?php echo $aux['name']?> </input> </p>
+                                                <p> <input type="checkbox" id="checkBoxAux"name="auxiliary[]" value=<?php echo $aux['id'] ?>> <?php echo $aux['name']?> </input> </p>
                                             <?php }
                                         } ?>
                                     </select>
                                     <input type="hidden" name="appointment_to_change" value = <?php echo $app['app_id'] ?>>
-                                    <input type="submit" value="Update">
+                                    <input type="submit" value="Assign" id="assign">
                                     </form>
                                 <?php } 
                             } ?>     

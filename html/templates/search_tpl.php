@@ -23,6 +23,9 @@
         </select>
         <button type="submit"> <i class="fa fa-search" id="searchIcon"></i> </button>
     </form>
+
+    <?php if(isset($_POST['clientSearch'])){ ?>
     <form action="action_deleteSearch.php" method="post">
         <button type="submit" id="trash"> <i class="fa fa-trash"></i> </button>
     </form>
+    <?php } ?>
