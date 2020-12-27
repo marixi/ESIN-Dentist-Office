@@ -9,9 +9,9 @@ There is also a link to the place where the login can be performed, redirecting 
 ## Dentist:
 * The dentists can see their schedule for any week desired, in which the appointments link to the next page, containing more detailed information.
 * The page concerning the appointments is divided in three sections:
-⋅⋅1. Future appointments: appointments which are former to the current date/time, in which they can choose the auxiliary they want to assign to each appointment or leave it blank if desired.
-⋅⋅2. To be completed appointments: appointments which are prior to the current date/time and in which the fields of "service performed" and "observations" still need to be filled.
-⋅⋅3. Past appointments: appointments which are prior to the current date/time and where the dentists can change the observations at any time.
+..1. Future appointments: appointments which are former to the current date/time, in which they can choose the auxiliary they want to assign to each appointment or leave it blank if desired.
+..2. To be completed appointments: appointments which are prior to the current date/time and in which the fields of "service performed" and "observations" still need to be filled.
+..3. Past appointments: appointments which are prior to the current date/time and where the dentists can change the observations at any time.
 * For the appointments, they can choose to view the appointments all at once or search for a specific customer.
 * They also have the "Manage Team" page, in which they can hire or fire new dental auxiliaries for the clinic.
 
