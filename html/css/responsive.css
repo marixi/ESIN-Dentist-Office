@@ -168,6 +168,10 @@
         height: 180px;
     }
 
+    #client_img {
+        margin-top: 10%;
+    }
+
     #info {
         font-size: 100%;
     }
@@ -197,6 +201,7 @@
     #Schedule>form input {
         margin-top: 2.5%;
         margin-bottom: 2.5%;
+        font-size: 110%;
     }
 
     #scheduleTable {
@@ -376,24 +381,25 @@
 }
 
 
-
-
-
-
-
-
-
-
 /* When the width of the window reaches 30em */
 
 @media (max-width: 30em) {
+
+    #menu {
+        position: absolute;
+        z-index:10;
+        float: right;
+        margin-left: 70%;
+        margin-top: 1%;
+        overflow:hidden;
+    }
     
     #menu .hamburger {
         display: block;
         background-color: #aeb1b3;
         color: white;
         padding: 1%;
-        margin-left: 90%;
+        margin-left: 80%;
         text-align: center;
     }
     
@@ -406,8 +412,6 @@
       margin: 0;
       padding: 0;
       color: white;
-      width: 80%;
-      margin-left: 20%;
     }
     
     #hamburger:checked + .hamburger + ul li{
@@ -800,8 +804,15 @@
 
     #profileInfo img {
         height: 100px;
-        margin-top: 4%;
+    }
+
+    #profileInfo img:not(#client_img) {
+        margin-top: 9%;
         margin-left: 1%;
+    }
+
+    #client_img {
+        margin-top: 22%;
     }
 
     #profileImg input[type="file"]{
@@ -830,7 +841,7 @@
     }
 
     #Schedule>h2 {
-        font-size: 120%;
+        font-size: 110%;
         margin-left: 40%;
         margin-right: 40%;
     }
@@ -842,6 +853,7 @@
     #Schedule>form input {
         margin-top: 3.5%;
         margin-bottom: 3.5%;
+        font-size: 90%;
     }
 
     #scheduleTable {

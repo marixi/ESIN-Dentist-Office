@@ -1,6 +1,12 @@
 /* Dentist Office - Profile Page Style and Layout */
 /* Authors: Duarte Rodrigues, Mariana Xavier */
 
+/* Header of the profile */
+
+body>header:not(main) {
+    grid-template-columns: [logo] 1fr [menu] 3fr [end];
+}
+
 /* Title and change profile */
 
 #profileTitle {
@@ -44,10 +50,12 @@
 }
 
 #profileInfo img {
-    margin: auto;
     height: 230px;
-    vertical-align: middle;
     width: auto;
+}
+
+#client_img {
+    margin-top: 7%;
 }
 
 #img_sel {

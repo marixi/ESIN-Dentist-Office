@@ -37,4 +37,21 @@
         return $availability;
     }
 
+    function checkAuxiliaryAvailabilityAsClient($date, $time, $aux_id) {
+        $availability = true;
+
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT client_id FROM appointment WHERE date = ? AND time = ?');
+        $stmt->execute(array($date, $time));
+        $result = $stmt->fetchAll();
+        foreach ($result as $client) {
+            if ($client['client_id'] == $aux_id) {
+                $availability = false;
+                return $availability;
+            }
+        }
+        return $availability;
+    }
+
+
 ?>

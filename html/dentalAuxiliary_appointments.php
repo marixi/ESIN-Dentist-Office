@@ -37,4 +37,5 @@
         addPastPagination();
     }
     include('templates/footer_tpl.php'); 
+    
 ?>    

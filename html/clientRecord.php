@@ -37,4 +37,5 @@
     if(!empty($past))
         addPastPagination();
     include('templates/footer_tpl.php'); 
+    
 ?>

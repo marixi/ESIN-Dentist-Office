@@ -373,12 +373,20 @@
         $month = substr($date, 5, 2);
         $year = substr($date, 0, 4);
 
+        $available = 1;
+
         global $dbh;
-        $stmt = $dbh->prepare('SELECT date, time FROM appointment WHERE date = ? AND time = ?');
+        $stmt = $dbh->prepare('SELECT date, time, client_id FROM appointment WHERE date = ? AND time = ?');
         $stmt->execute(array($day.'-'.$month.'-'.$year, $time));
         $nonAvailable = $stmt->fetchAll();
 
-        if ((count($nonAvailable) == 0 || count($nonAvailable) == 1) && (!isset($_SESSION['multiple']) || ($_SESSION['multiple']==1 && getAuxiliaryInfo($_SESSION['id']) && checkAuxiliaryAvailability($_SESSION['id'], $day.'-'.$month.'-'.$year, $time)==true) || ($_SESSION['multiple']==1 && getDentistInfo($_SESSION['id']) && (getUnavailableDentist($day.'-'.$month.'-'.$year, $time)['0'])['dentist_id']!=$_SESSION['id']))) {
+        if (count($nonAvailable) == 1 && getDentistInfo($nonAvailable[0]['client_id'])) {
+            $available = 0;
+        } else if (count($nonAvailable) == 2) {
+            $available = 0;
+        }
+
+        if (($available == 1) && (!isset($_SESSION['multiple']) || ($_SESSION['multiple']==1 && getAuxiliaryInfo($_SESSION['id']) && checkAuxiliaryAvailability($_SESSION['id'], $day.'-'.$month.'-'.$year, $time)==true) || ($_SESSION['multiple']==1 && getDentistInfo($_SESSION['id']) && (getUnavailableDentist($day.'-'.$month.'-'.$year, $time)['0'])['dentist_id']!=$_SESSION['id']))) {
             if (isset($_SESSION['time']) && $value == $_SESSION['time']) { ?>
                 <option value="<?php echo $value ?>" selected="selected"> <?php echo $time ?> </option>
             <?php } else { ?>

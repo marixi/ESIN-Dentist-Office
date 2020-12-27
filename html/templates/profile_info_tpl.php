@@ -40,9 +40,9 @@ if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistA
     <!-- Profile image -->
     <div id="profileImg">
         <?php if (file_exists('images/users/' . $person['id'] . '.jpg')) { ?>
-            <img src="images/users/<?php echo $person['id'] ?>.jpg" alt="<?php echo $person['name'] ?>">
+            <img src="images/users/<?php echo $person['id'] ?>.jpg" alt="<?php echo $person['name'] ?>" <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?> id="client_img" <?php } ?> >
         <?php } else { ?>
-            <img src="images/users/img_default.jpg" alt="<?php echo $person['name'] ?>">
+            <img src="images/users/img_default.jpg" alt="<?php echo $person['name'] ?>" <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?> id="client_img" <?php } ?> >
         <?php } ?>
 
         <?php if (!($_SESSION['edit_on'] == 0 && !isset($_POST['edit']))) { ?>
