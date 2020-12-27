@@ -79,7 +79,7 @@
                 <?php if (isset($_SESSION['error_pass_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_pass_msg'];
                                                                                 unset($_SESSION['error_pass_msg']); ?> </p> <?php } ?>
                 <p> This is a random password! The client may change it in his profile page. </p>
-                <input id="submit_add" type="submit" value="Submit"> </br>
+                <input id="submit_add" type="submit" value="Add"> </br>
             </form>
         </section>
         </br>
@@ -97,7 +97,7 @@
                 </select>
                 <?php if (isset($_SESSION['msg'])) { ?> <p id="err"> <?php echo $_SESSION['msg'];
                                                                                                                 unset($_SESSION['msg']); ?> </p> <?php } ?>
-               <br> <input id="submit_remove" type="submit" value="Submit">
+               <br> <input id="submit_remove" type="submit" value="Remove">
             </form>
         </section>
 

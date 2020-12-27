@@ -58,9 +58,9 @@
                 <?php if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' ||$_SERVER['PHP_SELF'] == '/material_per_service.php'|| $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
                     <li><a href='dentalAuxiliary.php' title="Profile"> Profile </a></li>
                     <li><a href='dentalAuxiliary.php#Schedule' title="Schedule"> Schedule </a></li>
-                    <li><a href='dentalAuxiliary_appointments.php' title="Appointments"> Appointments </a></li>
+                    <li><a href='dentalAuxiliary_appointments.php#search' title="Appointments"> Appointments </a></li>
                     <li><a href= 'manage_material.php' title="Material"> Manage Material </a></li>
-                    <li><a href= 'manage_clients.php' title="Manage Clients"> Manage Clients </a></li>
+                    <li><a href= 'manage_clients.php#client_mng' title="Manage Clients"> Manage Clients </a></li>
                     <li><a href='action_logout.php' title="Logout"> Logout </a></li>
                 <?php }?>
 

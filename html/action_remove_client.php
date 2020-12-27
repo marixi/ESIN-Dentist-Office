@@ -27,7 +27,7 @@
         header('Location: \manage_clients.php#remove_client');  
     }
 
-    $_SESSION['final_msg'] = "Employee fired successfully!";
+    $_SESSION['final_msg'] = "Client removed successfully!";
     header('Location: \manage_clients.php#client_mng');
     
 ?>

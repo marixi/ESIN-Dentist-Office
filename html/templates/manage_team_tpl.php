@@ -1,3 +1,16 @@
+
+<?php
+if (isset($_POST['fire'])) {
+    unset($_SESSION['name']);
+    unset($_SESSION['address']);
+    unset($_SESSION['phone_number']);
+    unset($_SESSION['date_of_admission']);
+    unset($_SESSION['salary']);
+    unset($_SESSION['username']);
+    unset($_SESSION['password']);
+}
+?>
+
 <!-- Section to manage the auxiliaries -->
 <h2 id = "team_mng"> Manage Team </h2>
     <section id="manage">
@@ -32,7 +45,7 @@
                     <br> <label> <?php $label=str_pad("Date of Admission:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="text" name="date_of_admission" value=<?php if(isset($_SESSION['date_of_admission'])) { echo $_SESSION['date_of_admission']; } else {echo date('d').'-'.date('m').'-'.date('Y');} ?> > </br>
                     <br> <?php if(isset($_SESSION['msg'])) { ?> <p id="err"> <?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?> </p> <?php } ?>
-                    <input id="submit_add" type="submit" value="Submit"> </br>      
+                    <input id="submit_add" type="submit" value="Hire"> </br>      
                 </form>
             </section>
                 </br>
@@ -49,7 +62,7 @@
                     </select>
 
                     <?php if(isset($_SESSION['msg'])) { ?> <p id="err"> <?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?> </p> <?php } ?>
-                    <br> <input id='submit_remove' type="submit" value="Submit">
+                    <br> <input id='submit_remove' type="submit" value="Fire">
                 </form>
                 </section>
                 

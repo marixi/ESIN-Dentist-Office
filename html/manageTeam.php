@@ -9,16 +9,6 @@
   
     $auxiliaries = getAllAuxiliaries();
 
-    if (isset($_POST['fire'])) {
-        unset($_SESSION['name']);
-        unset($_SESSION['address']);
-        unset($_SESSION['phone_number']);
-        unset($_SESSION['date_of_admission']);
-        unset($_SESSION['salary']);
-        unset($_SESSION['username']);
-        unset($_SESSION['password']);
-    }
-
     include('templates/profile_header_tpl.php'); 
     include('templates/profile_info_tpl.php');
     include('templates/manage_team_tpl.php'); 
