@@ -53,5 +53,11 @@
         return $availability;
     }
 
+    function removeAuxiliariesAssigned($app_id) {
+        global $dbh;
+        $stmt = $dbh->prepare('DELETE FROM auxiliariesAssigned WHERE appointment_id = ?');
+        $stmt->execute(array($app_id));
+    }
+
 
 ?>

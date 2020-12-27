@@ -65,7 +65,7 @@
     font-weight: bold;
 }
 
-/* Style for the search for clients */
+/* Style for the search for employees */
 
 #search label {
     font-size: 130%;
@@ -88,4 +88,14 @@
     margin-left: 1%;
     margin-top: 1%;
     border-radius: 20%;
+}
+
+/* Style the cancel appointment for clients */
+
+#delete {
+    color: rgb(199, 21, 21);
+    font-size: 130%;
+    border: none;
+    margin-left: 100%;
+    margin-top: 3%;
 }

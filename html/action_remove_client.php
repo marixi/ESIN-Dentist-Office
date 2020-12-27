@@ -20,6 +20,13 @@
         header('Location: \manage_clients.php#remove_client');  
     }
 
+    try {
+        removeClientAppointments($id_to_fire);
+    } catch (Exception $e) {
+        $_SESSION['msg'] = "Something went wrong! Please try again.";
+        header('Location: \manage_clients.php#remove_client');  
+    }
+
     $_SESSION['final_msg'] = "Employee fired successfully!";
     header('Location: \manage_clients.php#client_mng');
     

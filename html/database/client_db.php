@@ -44,4 +44,10 @@
         $stmt->execute(array($value,$id));
     }
 
+    function removeClientAppointments($client_id) {
+        global $dbh;
+        $stmt = $dbh->prepare('DELETE FROM appointment WHERE client_id = ?');
+        $stmt->execute(array($client_id));
+    }
+
 ?>

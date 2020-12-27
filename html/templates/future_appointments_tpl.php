@@ -77,6 +77,16 @@
                             } ?>     
                         </li>
                     </ul>
+
+                    <?php if ($_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
+                        <form action="action_deleteAppointment.php" method="post">
+                            <button type="submit" id="delete" name="delete" value=<?php echo $app['app_id']?> title="Cancel Appointment"><i class="fa fa-ban"></i></button> 
+                        </form>
+                        <?php if (isset($_SESSION['remove_msg'])) { ?> 
+                            <p> <?php echo $_SESSION['remove_msg'] ?> </p> 
+                        <?php }
+                    } ?>
+
                 </section>
 
             <?php } ?>
