@@ -176,6 +176,16 @@
         left: 87%;
     }
 
+    #img_sel{
+        font-size:110%;
+    }
+
+    #profileImg input[type="file"]{
+        font-size:75%;
+    }
+
+    
+
     #Schedule>h2 {
         font-size: 180%;
         margin-left: 40%;
@@ -365,6 +375,15 @@
     }
 
 }
+
+
+
+
+
+
+
+
+
 
 /* When the width of the window reaches 30em */
 
@@ -784,6 +803,18 @@
         height: 100px;
         margin-top: 4%;
         margin-left: 1%;
+    }
+
+    #profileImg input[type="file"]{
+        font-size:70%;
+    }
+
+    #img_sel{
+        font-size:90%;
+    }
+
+    #editing>input[type="submit"]{
+        width:35%;
     }
 
     #info {

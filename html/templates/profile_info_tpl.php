@@ -50,7 +50,7 @@ if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistA
                 <input type="file" name="image" form="editing" accept="image/png, image/jpeg, image/jpg"> </p>
                 <?php if (isset($_SESSION['error_image'])) { ?> <p id="err"> <?php echo $_SESSION['error_image'];
                                                                                 unset($_SESSION['error_image']); ?> </p> <?php } ?> 
-        <?php } ?>
+        <?php } ?> 
 
     </div>
 
