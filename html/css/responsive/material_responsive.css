@@ -1,0 +1,138 @@
+@media (max-width: 60em) {
+
+    #stock, #manage_title {
+        font-size: 180%;
+        margin-left: 35%;
+        margin-right: 35%;
+    }
+
+    #service_applied > label {
+        padding: 2% 20%;
+        font-size: 100%;
+    }
+
+    #service_applied > select {
+        margin: 0 28%;
+        font-size: 100%;
+    }
+
+    #service_applied > input {
+        margin: 2% 28%;
+        font-size: 100%;
+    }
+
+    #mat_per_serv {
+        font-size: 110%;
+    }
+
+    #management > h2 {
+        font-size: 160%;
+        margin-left: 34%;
+        margin-right: 34%;
+        margin-bottom: 10%;
+    }
+
+    #remove_from_stock p, #add_to_stock p {
+        margin-top: 0;
+    }
+
+    #remove_from_stock input, #xtra_mat {
+        font-size: 80%;
+    }
+
+    #stock_to_stock input, #add_material {
+        font-size: 80%;
+    }
+
+    #remove_mat, #add_mat {
+        font-size: 140%;
+        width: 30%;
+    }
+
+    #mat {
+        font-size: 160%;
+        margin-left: 21%;
+        margin-right: 21%;
+    }
+
+}
+
+@media (max-width: 30em) {
+    
+    #stock, #manage_title {
+        font-size: 140%;
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+
+    #service_applied > label {
+        padding: 2% 2%;
+    }
+
+    #service_applied > select {
+        font-size: 90%;
+    }
+
+    #service_applied > input {
+        font-size: 90%;
+    }
+
+    #mat_per_serv {
+        font-size: 100%;
+    }
+
+    #management {
+        display:grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    #management h2 {
+        font-size: 130%;
+        margin-left: 37%;
+        margin-right: 37%;
+        margin-bottom: 5%;
+    }
+
+    #management h2:first-child {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    #remove_from_stock {
+        grid-column: 1;
+        grid-row: 2;       
+    }
+
+    #remove_mat {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    #management h2:nth-child(2) {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    #add_to_stock {
+        grid-column: 1;
+        grid-row: 5;       
+    }
+
+    #add_mat {
+        grid-column: 1;
+        grid-row: 6;
+    }
+
+    #remove_mat, #add_mat {
+        font-size: 120%;
+        width: 22%;
+    }
+
+    #mat {
+        font-size: 130%;
+        margin-left: 21%;
+        margin-right: 21%;
+    }
+
+}

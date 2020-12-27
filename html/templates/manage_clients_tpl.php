@@ -1,3 +1,15 @@
+<?php 
+if (isset($_POST['remove_client'])) {
+    unset($_SESSION['name']);
+    unset($_SESSION['address']);
+    unset($_SESSION['phone_number']);
+    unset($_SESSION['date_of_birth']);
+    unset($_SESSION['tax_number']);
+    unset($_SESSION['insurance_code']);
+    unset($_SESSION['username']);
+    unset($_SESSION['password']);
+}?>
+
 <!-- Section to manage the clients -->
 <h2 id="client_mng"> Client Management </h2>
 <section id="manage">

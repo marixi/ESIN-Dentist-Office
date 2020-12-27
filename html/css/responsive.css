@@ -127,6 +127,14 @@
 
     footer p, footer>ul.breadcrumb li {
         font-size: 90%;
+    } 
+    
+    body>h1 {
+        font-size: 200%;
+    }
+    
+    #goUpButton {
+        display: none;
     }
 
     #tableTitle {
@@ -141,10 +149,6 @@
 
     #table {
         margin: 2em 8em;
-    }
-
-    body>h1 {
-        font-size: 200%;
     }
 
     #profileTitle {
@@ -211,7 +215,7 @@
 
     #scheduleTable tbody {
         font-size: 90%;
-    }
+    } 
     
     #search label {
         font-size: 120%;
@@ -267,7 +271,7 @@
 
     #manage>form:first-of-type {
         font-size: 120%;
-    }
+    } 
 
     #hire, #fire {
         margin-left: 20%;
@@ -291,6 +295,22 @@
     #remove_client select{
         font-size: 84%;
         margin:2% 10%;
+    }
+
+    #submit_remove {
+        margin-left:35%;
+        width:30%;
+    }
+    
+    #client_mng {
+        font-size: 170%;
+        margin-left: 35%;
+        margin-right: 35%;
+    }
+
+    #add_client {
+        margin-left: 20%;
+        margin-right: 20%;
     }
 
     #stock, #manage_title {
@@ -356,17 +376,6 @@
         margin: 8% 4%;
     }
 
-    #client_mng {
-        font-size: 170%;
-        margin-left: 35%;
-        margin-right: 35%;
-    }
-
-    #add_client {
-        margin-left: 20%;
-        margin-right: 20%;
-    }
-
     #bookAppTitle {
         font-size: 160%;
         margin-left: 35%;
@@ -377,10 +386,6 @@
         margin-left: 20%;
         margin-right: 20%;
         height: 23em;
-    }
-
-    #goUpButton {
-        display: none;
     }
 
 }
@@ -946,6 +951,17 @@
 
     #fire select, #remove_client select {
         font-size: 90%;
+    } 
+    
+    #client_mng {
+        font-size: 130%;
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+
+    #add_client, #remove_client {
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
     #stock, #manage_title {
@@ -1030,17 +1046,6 @@
 
     #serv_material #service_list {
         margin: 4% 10%;
-    }
-
-    #client_mng {
-        font-size: 130%;
-        margin-left: 30%;
-        margin-right: 30%;
-    }
-
-    #add_client, #remove_client {
-        margin-left: 5%;
-        margin-right: 5%;
     }
 
     #bookAppTitle {

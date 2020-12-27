@@ -1,0 +1,103 @@
+@media (max-width: 60em) {
+
+    #profileTitle {
+        font-size: 200%;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+
+    #change {
+        font-size: 110%;
+        margin-left: 48%;
+        margin-right: 48%;
+    }
+    
+    #profileInfo {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    #profileInfo img {
+        height: 180px;
+    }
+
+    #client_img {
+        margin-top: 10%;
+    }
+
+    #info {
+        font-size: 100%;
+    }
+
+    #edit_profile>#edit_button {
+        left: 87%;
+    }
+
+    #img_sel{
+        font-size:110%;
+    }
+
+    #profileImg input[type="file"]{
+        font-size:75%;
+    }
+
+}
+
+@media (max-width: 30em) {
+    
+    #profileTitle {
+        font-size: 160%;
+        margin-left: 37%;
+        margin-right: 37%;
+    }
+
+    #change {
+        font-size: 100%;
+        margin-left: 47%;
+        margin-right: 47%;
+    }
+   
+    #profileInfo {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #profileInfo img {
+        height: 100px;
+    }
+
+    #profileInfo img:not(#client_img) {
+        margin-top: 9%;
+        margin-left: 1%;
+    }
+
+    #client_img {
+        margin-top: 22%;
+    }
+
+    #profileImg input[type="file"]{
+        font-size:70%;
+    }
+
+    #img_sel{
+        font-size:90%;
+    }
+
+    #editing>input[type="submit"]{
+        width:35%;
+    }
+
+    #info {
+        font-size: 80%;
+        padding-left: 0;
+    }
+
+    #edit_profile>#edit_button {
+        left: 90%;
+    }
+
+    #good_msg, #bad_msg{
+        font-size: 90%;
+    }
+
+}

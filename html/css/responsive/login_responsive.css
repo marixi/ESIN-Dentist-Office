@@ -1,0 +1,24 @@
+@media (max-width: 60em) {
+
+}
+
+@media (max-width: 30em) {
+    
+    .input-field input {
+        width: 70%;
+        margin-left: 15%;
+        font-size: 1.2em;
+    }
+
+    .input-field label {
+        left: 20%;
+        font-size: 1.2em;
+    }
+
+    #loginButton {
+        margin-left: 30%;
+        width: 40%;
+        font-size: 1.3em;
+    }
+
+}

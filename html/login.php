@@ -14,7 +14,10 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <!-- <link href="css/responsive.css" rel="stylesheet"> -->
+    <link href="css/responsive/layout_responsive.css" rel="stylesheet">
+    <link href="css/responsive/style_responsive.css" rel="stylesheet">
+    <link href="css/responsive/login_responsive.css" rel="stylesheet">
     <title> Login Page </title>
 </head>
 

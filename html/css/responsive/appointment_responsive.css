@@ -1,0 +1,90 @@
+@media (max-width: 60em) {
+
+    #search label {
+        font-size: 120%;
+    }
+
+    #search button:first-of-type {
+        font-size: 100%;
+    }
+
+    #trash {
+        font-size: 110%;
+    }
+
+    .appointment h2 {
+        font-size: 160%;
+        margin-left: 35%;
+        margin-right: 35%;
+    }
+
+    .appointment:not(h2) {
+        font-size: 90%;
+    }
+
+    .appointment>section {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .appointment>section h3, .appointment>section ul {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    .appointment>section form {
+        margin-left: 3%;
+        margin-right: 0;
+    }
+
+    .appointment>section form textarea {
+        width: 90%;
+    }
+
+    #delete {
+        font-size: 110%;
+        margin-left: 90%;
+    }
+
+}
+
+@media (max-width: 30em) {
+    
+    #search label {
+        font-size: 100%;
+    }
+
+    #search select {
+        font-size: 70%;
+    }
+
+    #search button:first-of-type {
+        font-size: 90%;
+    }
+
+    #trash {
+        font-size: 90%;
+    }
+
+    .appointment h2 {
+        font-size: 120%;
+    }
+
+    .appointment:not(h2) {
+        font-size: 70%;
+    }
+
+    .appointment>section form textarea {
+        width: 90%;
+        font-size: 90%;
+    }
+
+    .appointment>section form input {
+        font-size: 80%;
+    }
+
+    #delete {
+        margin-left: 85%;
+    }
+
+}

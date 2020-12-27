@@ -10,10 +10,16 @@
     <link href="css/profilePage.css" rel="stylesheet">
     <link href="css/appointments.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
+    <link href="css/responsive/layout_responsive.css" rel="stylesheet">
+    <link href="css/responsive/style_responsive.css" rel="stylesheet">
+    <link href="css/responsive/profilePage_responsive.css" rel="stylesheet">
+    <link href="css/responsive/appointments_responsive.css" rel="stylesheet">
+
     <?php if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/manageTeam.php') { ?>
         <link href="css/schedule.css" rel="stylesheet">
         <link href="css/managePeople.css" rel="stylesheet">
+        <link href="css/responsive/schedule_responsive.css" rel="stylesheet">
+        <link href="css/responsive/managePeople_responsive.css" rel="stylesheet">
         <title> Dentist </title>
     <?php } ?>
 
@@ -23,15 +29,24 @@
         <link href="css/material.css" rel="stylesheet">
         <link href="css/mat_per_service.css" rel="stylesheet">
         <link href="css/managePeople.css" rel="stylesheet">
+        <link href="css/responsive/schedule_responsive.css" rel="stylesheet">
+        <link href="css/responsive/priceTable_responsive.css" rel="stylesheet">
+        <link href="css/responsive/material_responsive.css" rel="stylesheet">
+        <link href="css/responsive/mat_per_service_responsive.css" rel="stylesheet">
+        <link href="css/responsive/managePeople_responsive.css" rel="stylesheet">
+
         <title> Dental Auxiliary </title>
     <?php } ?>
 
     <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
         <link href="css/bookAppointment.css" rel="stylesheet">
+        <link href="css/responsive/bookAppointment_responsive.css" rel="stylesheet">
         <title> Client </title>
     <?php } ?>
 
-    <link href="css/responsive.css" rel="stylesheet">
+    <!-- <link href="css/responsive.css" rel="stylesheet"> -->
+    
+
 
 </head>
 

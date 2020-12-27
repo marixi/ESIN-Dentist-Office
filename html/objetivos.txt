@@ -6,6 +6,7 @@ Eu acho que o plano de trabalhos geral é:
 - adicionar algumas fotos para os clientes
 - responsive->selects do manage material + font size
 - date of birth must be lower than the current date
+- css actual page number css + responsive
 
 super xtra:
 make some things extra beautiful - buttons, forms, fonts, color, hover transitions

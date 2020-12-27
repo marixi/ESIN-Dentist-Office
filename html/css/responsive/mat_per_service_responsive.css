@@ -1,0 +1,21 @@
+@media (max-width: 60em) {
+
+    #serv_material {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #serv_material #service_list {
+        margin: 8% 4%;
+    }
+
+}
+
+@media (max-width: 30em) {
+    #serv_material {
+        grid-template-columns: 1fr;
+    }
+
+    #serv_material #service_list {
+        margin: 4% 10%;
+    }
+}

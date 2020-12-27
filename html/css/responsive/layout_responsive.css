@@ -1,0 +1,45 @@
+@media (max-width: 60em) {
+
+    #main {
+        grid-template-columns: [logo] 1fr [menu] 3fr [end];
+    }
+
+    body>header:not(main) {
+        grid-template-columns: [logo] 1fr [menu] 4fr [end];
+    }
+
+    #beauty {
+        grid-column: logo/end;
+        z-index: 0;
+    }
+
+    body>header h1, body>header h2 {
+        grid-column: logo/end;
+        z-index: 1;
+    }
+
+
+
+}
+
+@media (max-width: 30em) {
+    
+    #services {
+        display: grid;
+        grid-template-rows: [start] auto [desc] auto [specs] auto [prices] auto [end];
+        grid-template-columns: [start] auto [info] auto [end];
+    }
+
+    #team {
+        display: grid;
+        grid-template-rows: [start] auto [dentist] auto [auxiliar] auto [end];
+        grid-template-columns: 1fr 2fr;
+    }
+
+    #contacts {
+        display: grid;
+        grid-template-rows: [title] auto [place] auto [hours] auto [contacts] auto [map] auto [end];
+        grid-template-columns: auto;
+    }
+
+}

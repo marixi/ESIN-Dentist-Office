@@ -1,0 +1,57 @@
+@media (max-width: 60em) {
+
+    #Schedule>h2 {
+        font-size: 180%;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+
+    #scheduleTitle {
+        font-size: 120%;
+    }
+
+    #Schedule>form input {
+        margin-top: 2.5%;
+        margin-bottom: 2.5%;
+        font-size: 110%;
+    }
+
+    #scheduleTable {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    #scheduleTable tbody {
+        font-size: 90%;
+    }
+
+}
+
+@media (max-width: 30em) {
+    
+    #Schedule>h2 {
+        font-size: 110%;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+
+    #scheduleTitle {
+        font-size: 100%;
+    }
+
+    #Schedule>form input {
+        margin-top: 3.5%;
+        margin-bottom: 3.5%;
+        font-size: 90%;
+    }
+
+    #scheduleTable {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    #scheduleTable tbody {
+        font-size: 60%;
+    }
+    
+}
