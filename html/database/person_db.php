@@ -107,5 +107,27 @@
         }
         return $exists;
     } 
+
+    function getAllEmployees() {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM employee JOIN person USING(id)');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function getNonClientEmployee() {
+        global $dbh;
+        
+        $employees = getAllEmployees();
+
+        $nonClients = array();
+        foreach ($employees as $emp) {
+            if (!getClientInfo($emp['id'])) {
+                array_push($nonClients, $emp);
+            }
+        }
+        
+        return $nonClients;
+    }
     
 ?>

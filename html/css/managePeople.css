@@ -131,5 +131,14 @@ h2 {
     color: green;
 }
 
+/* Style for changing between adding new client or adding already existing employee as client */
 
+#here_form {
+    text-align: center;
+    font-size: 150%;
+}
 
+#here {
+    background-color: transparent;
+    border: none;
+}
