@@ -254,6 +254,11 @@
         width: 90%;
     }
 
+    #delete {
+        font-size: 110%;
+        margin-left: 90%;
+    }
+
     #team_mng {
         font-size: 160%;
         margin-left: 37%;
@@ -896,6 +901,10 @@
 
     .appointment>section form input {
         font-size: 80%;
+    }
+
+    #delete {
+        margin-left: 85%;
     }
 
     #team_mng {
