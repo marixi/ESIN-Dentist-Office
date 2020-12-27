@@ -310,7 +310,7 @@
 
     function sendToAppointmentsPage($appointmentDesired) {
 
-        if (!isset($_SESSION['clientSearch'])) {
+        if (isset($_SESSION['clientSearch'])) {
             unset($_SESSION['clientSearch']);
         }
 
