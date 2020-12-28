@@ -14,6 +14,7 @@
         array_push($ins_codes, $value['insurance_code']);
     }
     
+    $correct_date_display=$person['birth_date'];
 
     $day = substr($person['birth_date'], 0, 2);
     $month = substr($person['birth_date'], 3, 2);
@@ -86,7 +87,7 @@
                 <p> <strong> Date of Admission: </strong> <?php echo $person['date_of_admission'] ?> </p>
             <?php } ?>
             <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
-                <p> <strong> Birth Date: </strong> <?php echo $person['birth_date'] ?> </p>
+                <p> <strong> Birth Date: </strong> <?php echo $correct_date_display ?> </p>
                 <p> <strong> Tax Number: </strong> <?php echo $person['tax_number'] ?> </p>
                 <p> <strong> Insurance: </strong> <?php echo $person['insurance_code'] ?> </p>
             <?php } ?>
