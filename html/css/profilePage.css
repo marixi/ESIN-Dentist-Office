@@ -98,6 +98,14 @@ body>header:not(main) {
     margin: 7% 0;
 }
 
+#add_client input[type="number"]{
+    -moz-appearance: textfield; /*remove the arrows from mozilla firefox*/
+}
+
+#add_client input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none; /*remove the arrows from Chrome, Safari, Edge, Opera*/
+}
+
 #editing>input[type="submit"] {
     margin-top: 3%;
     margin-bottom: 2%;
@@ -117,6 +125,10 @@ body>header:not(main) {
 #editing>input[type="submit"]:hover {
     background: -webkit-linear-gradient(right, #14c8e7, #33acac, #33acac, #14c8e7);
     font-weight: bold;
+}
+
+#err{
+    color:red;
 }
 
 /* Hide the hamburger menu */

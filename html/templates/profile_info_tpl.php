@@ -8,6 +8,18 @@
         $person = getClientInfo($_SESSION['id']);
     }
 
+    $ins_codes_arr = getInsuranceCodes();
+    $ins_codes = array();
+    foreach ($ins_codes_arr as $value) {
+        array_push($ins_codes, $value['insurance_code']);
+    }
+    
+
+    $day = substr($person['birth_date'], 0, 2);
+    $month = substr($person['birth_date'], 3, 2);
+    $year = substr($person['birth_date'], 6, 4);
+    $person['birth_date'] = $year.'-'.$month.'-'.$day;
+
 ?>
 
     <!-- Title for the profile page -->
@@ -114,12 +126,8 @@
                 <?php } ?>
 
                 <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
-                    <p> <strong> Birth Date: </strong>
-                        <input type="text" name="birth_date" value="<?php if (isset($_SESSION['birth_date'])) {
-                                                                        echo $_SESSION['birth_date'];
-                                                                    } else {
-                                                                        echo $person['birth_date'];
-                                                                    } ?>" required></p>
+                    <p> <strong> Birth Date: </strong>                                                                    
+                        <input type="date" name="birth_date" max="<?php echo date("Y-m-d", strtotime("-1 day")); ?>" <?php if (isset($_SESSION['birth_date'])) { ?> value="<?php echo $_SESSION['birth_date'];?>" <?php } else {?> value="<?php echo $person['birth_date'];?>"<?php } ?> required></p>
                     <p> <strong> Tax Number: </strong>
                         <input type="text" name="tax_number" value="<?php if (isset($_SESSION['tax_number'])) {
                                                                         echo $_SESSION['tax_number'];
@@ -131,16 +139,23 @@
                                         unset($_SESSION['error_tax_msg']); ?> </p>
                     <?php } ?>
                     <p> <strong> Insurance: </strong>
-                        <input type="text" name="insurance_code" value="<?php if (isset($_SESSION['insurance_code'])) {
-                                                                            echo $_SESSION['insurance_code'];
-                                                                        } else {
-                                                                            echo $person['insurance_code'];
-                                                                        } ?>"></p>
-                    <?php if (isset($_SESSION['error_ins_msg'])) { ?>
-                        <p id="err"> <?php echo $_SESSION['error_ins_msg'];
-                                        unset($_SESSION['error_ins_msg']); ?> </p> <?php } ?>
-                <?php } ?>
+                                                                        
+                    <select name="insurance_code" value="insurance_code">
+                    <?php if (isset($_SESSION['insurance_code'])) { ?>
+                        <option hidden selected value="<?php echo $_SESSION['insurance_code']; ?>"><?php echo $_SESSION['insurance_code']; ?></option>
+                    <?php } else if (isset($person['insurance_code'])) {?>
+                            <option hidden selected value="<?php echo $person['insurance_code']; ?>"><?php echo $person['insurance_code']; ?></option>
+                    <?php } else { ?>
+                        <option hidden disabled selected value>Select an insurance code</option>
+                    <?php } ?>
 
+                    <?php foreach ($ins_codes as $code) { ?>
+                        <option value="<?php echo $code ?>"> <?php echo $code; ?> </option>
+                    <?php } ?>
+                    <option value=""> None </option>
+                </select></p>
+
+                <?php } ?>
                 <p> <strong> Username: </strong>
                     <input type="text" name="username" value="<?php if (isset($_SESSION['username'])) {
                                                                     echo $_SESSION['username'];
@@ -168,5 +183,6 @@
 
 <p id="good_msg"> <?php echo $_SESSION['final_msg'];
                     unset($_SESSION['final_msg']); ?> </p>
+
 <p id="bad_msg"><?php echo $_SESSION['msg'];
                 unset($_SESSION['msg']); ?> </p>

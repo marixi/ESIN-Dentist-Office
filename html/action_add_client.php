@@ -3,15 +3,8 @@
     require_once('database/init_db.php');
     require_once('database/person_db.php');
     require_once('database/client_db.php');
-    require_once('database/insurance_db.php');
-
+    
     $_SESSION['keepOpen'] = 1;
-     
-    $ins_codes_arr=getInsuranceCodes();
-    $ins_codes=array();
-    foreach ($ins_codes_arr as $value) {
-        array_push($ins_codes,$value['insurance_code']);
-    }
 
     if (!isset($_SESSION['new_client'])) {
         $_SESSION['name'] = $_POST['name'];
@@ -31,6 +24,7 @@
     $_SESSION['birth_date'] = $day.'-'.$month.'-'.$year; //correct way to add to the database
 
     $_SESSION['tax_number'] = $_POST['tax_number'];
+
     $_SESSION['insurance_code'] = $_POST['insurance_code']; 
     if(strlen($_SESSION['insurance_code']) == 0)
         unset($_SESSION['insurance_code']);

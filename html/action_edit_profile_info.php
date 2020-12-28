@@ -3,7 +3,7 @@
     require_once('database/init_db.php');
     require_once('database/person_db.php');
     require_once('database/client_db.php');
-    require_once('database/insurance_db.php');
+    
 
     $go_back=$_SERVER['HTTP_REFERER'];
 
@@ -11,12 +11,6 @@
         $fileSize = $_FILES['image']['size'];
         $fileName = $_FILES["image"]["tmp_name"];
         uploadProfileImage($fileSize, $fileName, $_SESSION['id']);
-    }
-
-    $ins_codes_arr = getInsuranceCodes();
-    $ins_codes = array();
-    foreach ($ins_codes_arr as $value) {
-        array_push($ins_codes, $value['insurance_code']);
     }
             
     $changes = array();
@@ -46,13 +40,23 @@
     if($Cspecs){
         $clientChanges = array();
 
-        $_SESSION['birth_date'] = $_POST['birth_date'];
-        $clientChanges['birth_date'] = $_SESSION['birth_date'];
+        $_SESSION['birth_date'] = $_POST['birth_date']; //to save the date in the form in case any error occurs
+
+        $day = substr($_POST['birth_date'], 8, 2);
+        $month = substr($_POST['birth_date'], 5, 2);
+        $year = substr($_POST['birth_date'], 0, 4);
+        $_SESSION['birth_date_correct'] = $day.'-'.$month.'-'.$year; //correct way to add to the database
+        $clientChanges['birth_date'] = $_SESSION['birth_date_correct'];
 
         $_SESSION['tax_number'] = $_POST['tax_number'];
         $clientChanges['tax_number'] = $_SESSION['tax_number'];
 
-        $_SESSION['insurance_code'] = $_POST['insurance_code'];
+        if(strlen($_POST['insurance_code'] == 0)){
+            $_SESSION['insurance_code'] = NULL;
+        }else { 
+            $_SESSION['insurance_code'] = $_POST['insurance_code'];
+        }
+
         $clientChanges['insurance_code'] = $_SESSION['insurance_code'];
     }
 
@@ -89,9 +93,6 @@
         header("Location: $go_back");
     } else if (isset($_SESSION['tax_number']) && strlen($_SESSION['tax_number'])!=9){
         $_SESSION['error_tax_msg'] = "The tax number consists of 9 numbers!";
-        header("Location: $go_back");
-    } else if (isset($_SESSION['insurance_code']) && strlen($_SESSION['insurance_code']) != 0 && !in_array($_SESSION['insurance_code'],$ins_codes)){
-        $_SESSION['error_ins_msg'] = "That insurance code is not available for our clinic!";
         header("Location: $go_back");
     } else {
       
