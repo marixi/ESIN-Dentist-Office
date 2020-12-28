@@ -6,9 +6,6 @@
     require_once('database/person_db.php');
     require_once('database/insurance_db.php');
 
-    $auxiliary = getAuxiliaryInfo($_SESSION['id']);
-    $clients = getClients();
-
     include('templates/profile_header_tpl.php');
     include('templates/profile_info_tpl.php');
     include('templates/manage_clients_tpl.php'); 

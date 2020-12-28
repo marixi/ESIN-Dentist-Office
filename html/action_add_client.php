@@ -69,9 +69,6 @@
     } else if (isset($_SESSION['tax_number']) && strlen($_SESSION['tax_number']) > 0 && strlen($_SESSION['tax_number'])!=9){
         $_SESSION['error_tax_msg'] = "The tax number must have 9 numbers!";
         header('Location: \manage_clients.php#add_client');
-    } else if(isset($_SESSION['insurance_code']) && strlen($_SESSION['insurance_code']) > 0 && !in_array($_SESSION['insurance_code'],$ins_codes)){
-        $_SESSION['error_ins_msg'] = "That insurance code is not available for our clinic!";
-        header('Location: \manage_clients.php#add_client');
     } else {
 
         if (!isset($_SESSION['new_client'])) {

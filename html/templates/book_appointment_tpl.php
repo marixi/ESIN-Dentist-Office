@@ -7,6 +7,8 @@
         <p> Use the form bellow to book an appointment. </p>
         <p> In need of an urgent appointment for today? <a href='\index.php#contacts' title="Call Us"> Call us! </a> </p>
         <section id="bookApp">
+
+            <!-- Choose date -->
             <form action="action_checkDate.php" method="post">
                 <label> Date: </label>
                 <input type="date" name="date" min="<?php echo date("Y-m-d", strtotime("+1 day"));?>" <?php if(isset($_SESSION['date'])) { ?> value="<?php echo $_SESSION['date']; }?>" required="required">
@@ -14,6 +16,7 @@
                 <?php if(isset($_SESSION['date']) && !isset($_SESSION['err_msg'])) { ?> <i style="font-size:24px" class="fa" id="tick">&#xf00c;</i> <?php } ?>
             </form> 
 
+            <!-- Choose hour -->
             <?php if(isset($_SESSION['date'])) { ?>
                 <form action="action_setTime.php" method="post">
                     <?php 
@@ -52,6 +55,7 @@
                 </form>
             <?php }
 
+            /* Choose specialty and dentist */
             if (isset($_SESSION['time'])) { ?>
                 <form action="action_bookAppointment.php" method="post">
                 <?php if (isset($_SESSION['err_client_msg'])) { ?>

@@ -1,27 +1,34 @@
 <?php
-if (isset($_POST['remove_client'])) {
-    unset($_SESSION['name']);
-    unset($_SESSION['address']);
-    unset($_SESSION['phone_number']);
-    unset($_SESSION['date_of_birth']);
-    unset($_SESSION['tax_number']);
-    unset($_SESSION['insurance_code']);
-    unset($_SESSION['username']);
-    unset($_SESSION['password']);
-    unset($_SESSION['keepOpen']);
-    unset($_SESSION['employee']);   
-}
 
-$ins_codes_arr = getInsuranceCodes();
-$ins_codes = array();
-foreach ($ins_codes_arr as $value) {
-    array_push($ins_codes, $value['insurance_code']);
-}
+    if (isset($_POST['remove_client'])) {
+        unset($_SESSION['name']);
+        unset($_SESSION['address']);
+        unset($_SESSION['phone_number']);
+        unset($_SESSION['date_of_birth']);
+        unset($_SESSION['tax_number']);
+        unset($_SESSION['insurance_code']);
+        unset($_SESSION['username']);
+        unset($_SESSION['password']);
+        unset($_SESSION['keepOpen']);
+        unset($_SESSION['employee']);   
+    }
+
+    $auxiliary = getAuxiliaryInfo($_SESSION['id']);
+    $clients = getClients();
+
+    $ins_codes_arr = getInsuranceCodes();
+    $ins_codes = array();
+    foreach ($ins_codes_arr as $value) {
+        array_push($ins_codes, $value['insurance_code']);
+    }
+
 ?>
 
 <!-- Section to manage the clients -->
 <h2 id="client_mng"> Client Management </h2>
 <section id="manage">
+
+    <!-- Choose whether to register or remove a client -->
     <form action="manage_clients.php#client_mng" method="post">
         <label> Select whether you want to register or remove a client </label>
         <section id="inputs">
@@ -33,6 +40,7 @@ foreach ($ins_codes_arr as $value) {
                                                                     unset($_SESSION['final_msg']); ?> </p> <?php } ?>
     <?php if (isset($_POST['add_client']) || $_SESSION['keepOpen'] == 1) { ?>
 
+        <!-- Change between registering a new client or adding an employee as a client -->
         <?php if (!isset($_SESSION['new_client'])) { ?>
             <form action="action_add_client_aux.php" mehtod="post" id="here_form">
                 <p> Add employee as a client? Press here
@@ -48,7 +56,8 @@ foreach ($ins_codes_arr as $value) {
         <?php } ?>
 
         <br>
-
+        
+        <!-- Form to add client -->
         <section id="add_client">
 
             <form action="action_add_client.php" method="post">
@@ -131,9 +140,7 @@ foreach ($ins_codes_arr as $value) {
                     <option value=""> None </option>
                 </select>
 
-                <br> <?php if (isset($_SESSION['error_ins_msg'])) { ?> <p id="err"> <?php echo $_SESSION['error_ins_msg'];
-                                                                                    unset($_SESSION['error_ins_msg']); ?> </p> <?php } ?>
-
+                <br>
                 <?php if (!isset($_SESSION['new_client'])) { ?>
                     <br> <label> <?php $label = str_pad("Username:", 15, " ");
                                     $label = str_replace(" ", "&nbsp;", $label);
@@ -163,7 +170,9 @@ foreach ($ins_codes_arr as $value) {
     <?php }
     if (isset($_SESSION['final_msg'])) { ?> <p id="final"> <?php echo $_SESSION['final_msg'];
                                                             unset($_SESSION['final_msg']); ?> </p> <?php }
-                                                                                                if (isset($_POST['remove_client'])) {  ?>
+        if (isset($_POST['remove_client'])) {  ?>
+        
+        <!-- Form to remove client -->
         <section id="remove_client">
             <form action="action_remove_client.php" method="post">
                 <select name="who" required="required" id="select_rem">
