@@ -1,14 +1,8 @@
 Eu acho que o plano de trabalhos geral é:
 
-- resolver footers no responsive nas que esta mal -> ecrã grande mariana
-
 - css do botao de edit (tentar resolver position absolute senao cagar) -> noite sem net não dá
 
-- try catches para tudinho (login, appointment, schedules) -> já não estamos bastante bem?
-
 - css actual page number css + responsive
-
-- se eliminar o client que é dentista, so elimina da tabela de client e não da tabela de dentista? -> iguess
 
 - validatio com o gnomo
 

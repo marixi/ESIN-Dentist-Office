@@ -64,6 +64,14 @@
         font-size: 100%;
     }
 
+    #manage {
+        margin-bottom: 20%;
+    }
+
+    #manage input[type=submit] {
+        margin-top: 7%;
+    }
+
     #hire, #fire {
         margin-left: 5%;
         margin-right: 5%;
@@ -95,15 +103,25 @@
         font-size: 90%;
     }
 
-    #client_mng {
+    #client_mng, #team_mng {
         font-size: 130%;
         margin-left: 30%;
         margin-right: 30%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+
+    #here_form {
+        font-size: 110%;
     }
 
     #add_client, #remove_client {
         margin-left: 5%;
         margin-right: 5%;
+    }
+
+    #profileInfo {
+        margin-top: 10%;
     }
 
 }
