@@ -1,3 +1,12 @@
+<?php 
+
+    $material = getAllMaterial();
+    $service = getAllServices();
+    $specialty = getAllSpecialties();
+
+?>
+
+
 <!-- Table to display the stock of material still available -->
 <h1 id="stock"> Available Stock </h1>
 
@@ -17,8 +26,9 @@
 
 <h1 id="manage_title"> Manage Material </h1>
 
+<!-- Withdrawal of the standard material of a service -->
 <form action="/action_manage_material.php" id="service_applied" method="post">
-    <label> Service performed to withdraw the predifined material from stock: </label><br>
+    <label> Service performed to withdraw the predefined material from stock: </label><br>
     <select name="service" id="service_mat" value="Services">
         <option hidden disabled selected value>------------ select a service ------------ </option>
         <?php 
@@ -34,10 +44,12 @@
     <input type="submit" value="Checkout service material" id="checkout">
 </form>
 
+<!-- Link to material per service page -->
 <p id='mat_per_serv'>To check the materials that each service takes, <a href="material_per_service.php"> click here.</a> </p>
 
 <?php if (isset($_SESSION['mat_error'])) ?> <p id="err"> <?php { echo $_SESSION['mat_error']; UNSET($_SESSION['mat_error']); } ?>
 
+<!-- Section to remove or add material individually -->
 <div id="management">
 
     <h2>Withdrawal</h2>

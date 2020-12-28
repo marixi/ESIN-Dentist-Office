@@ -5,12 +5,6 @@
     require_once('database/service_db.php');
     require_once('database/specialty_db.php');
 
-    $material = getAllMaterial();
-
-    $service = getAllServices();
-
-    $specialty = getAllSpecialties();
-
     include('templates/profile_header_tpl.php'); 
     include('templates/manage_material_tpl.php'); 
     include('templates/footer_tpl.php'); 

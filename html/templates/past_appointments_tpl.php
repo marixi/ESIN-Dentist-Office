@@ -52,7 +52,7 @@
 
                         <?php if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php') { ?>
                             <li> <strong> Service Performed: </strong> <?php echo $app['procedure'] ?> </li>
-                        <?php } else if ($_SERVER['PHP_SELF'] == '/clientRecord.php') {
+                        <?php } else if ($_SERVER['PHP_SELF'] == '/clientRecord.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php') {
                             $service = getServicePerformed($app['app_id']); ?>
                             <li> <strong> Service Performed: </strong> <?php echo $service['procedure'] ?> </li>
                         <?php } ?>

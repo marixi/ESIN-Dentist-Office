@@ -1,3 +1,9 @@
+<?php
+
+    $quantity_list = getAllQuantities();
+
+?>
+
 <h1 id="mat">Material needed for each specific service </h1>
 
     <ul id='serv_material'>

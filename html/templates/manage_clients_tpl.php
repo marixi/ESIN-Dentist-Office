@@ -98,7 +98,7 @@ foreach ($ins_codes_arr as $value) {
                     </select></br> <br>
                 <?php } ?>
 
-                <label> <?php $label = str_pad("Date of birth:", 15, " ");
+                <label> <?php $label = str_pad("Birth date:", 15, " ");
                                 $label = str_replace(" ", "&nbsp;", $label);
                                 echo $label; ?> </label>
                 <input type="date" name="date_of_birth" max="<?php echo date("Y-m-d", strtotime("-1 day")); ?>" <?php if (isset($_SESSION['date_of_birth'])) { ?> value="<?php echo $_SESSION['date_of_birth'];
