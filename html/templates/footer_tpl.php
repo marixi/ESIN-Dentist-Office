@@ -1,3 +1,4 @@
+    <!-- Button to scroll to the top of the page -->
     <form action="action_goUp.php" method = "post">
         <input type="submit" value=&#x21EA name="goUpButton" id="goUpButton">
     </form>
@@ -78,7 +79,7 @@
             <?php if ($_SERVER['PHP_SELF'] == '/clientRecord.php') { ?> 
                 <li><a href='index.php'> Home </a></li>
                 <li><a href='client.php'> Profile </a></li>
-                <li> Record </li>
+                <li> Record of Appointments </li>
             <?php } ?>
 
         </ul>

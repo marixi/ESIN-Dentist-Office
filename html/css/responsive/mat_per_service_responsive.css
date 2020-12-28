@@ -21,4 +21,8 @@
     #serv_material #service_list {
         margin: 4% 10%;
     }
+
+    footer p {
+        margin-top: 8%;
+    }
 }

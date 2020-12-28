@@ -7,7 +7,6 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
     <link href="css/priceTable.css" rel="stylesheet">
-    <!-- <link href="css/responsive.css" rel="stylesheet"> -->
     <link href="css/responsive/layout_responsive.css" rel="stylesheet">
     <link href="css/responsive/style_responsive.css" rel="stylesheet">
     <link href="css/responsive/priceTable_responsive.css" rel="stylesheet">

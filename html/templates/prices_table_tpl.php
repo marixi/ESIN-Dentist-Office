@@ -1,4 +1,4 @@
-<!-- Table to display the services performed and respective prices -->
+    <!-- Table to display the services performed and respective prices -->
     <h1 id="tableTitle"> Prices </h1>
     <table id='table'>
         <tr>
@@ -11,4 +11,4 @@
                     <td id="price"> <?php echo $service['price'] ?> </td>
                 </tr>
         <?php } ?>
-    </table> 
+    </table>

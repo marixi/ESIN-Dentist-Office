@@ -5,10 +5,6 @@
     require_once('database/dentalAuxiliary_db.php');
     require_once('database/person_db.php');
 
-    $id = $_SESSION['id'];
-  
-    $auxiliaries = getAllAuxiliaries();
-
     include('templates/profile_header_tpl.php'); 
     include('templates/profile_info_tpl.php');
     include('templates/manage_team_tpl.php'); 

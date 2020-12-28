@@ -1,4 +1,5 @@
 <?php
+
     /* Section to insert pagination */
     function addPastPagination() { ?>
         <div id="pagination">
@@ -29,5 +30,6 @@
                 <?php } ?>
         </div>
     <?php }
+    
 ?>
         

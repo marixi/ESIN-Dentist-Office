@@ -1,38 +1,40 @@
 <?php
 
-if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/manageTeam.php') {
-    $person = getDentistInfo($_SESSION['id']);
-} else if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') {
-    $person = getAuxiliaryInfo($_SESSION['id']);
-} else if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') {
-    $person = getClientInfo($_SESSION['id']);
-}
+    if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/manageTeam.php') {
+        $person = getDentistInfo($_SESSION['id']);
+    } else if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') {
+        $person = getAuxiliaryInfo($_SESSION['id']);
+    } else if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') {
+        $person = getClientInfo($_SESSION['id']);
+    }
 
 ?>
-<!-- Title for the profile page -->
-<?php if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/manageTeam.php') { ?>
-    <h1 id="profileTitle"> Dentist </h1>
-<?php } ?>
-<?php if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
-    <h1 id="profileTitle"> Assistant </h1>
-<?php } ?>
-<?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
-    <h1 id="profileTitle"> Client </h1>
-<?php } ?>
 
-<?php if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/manageTeam.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
-    <?php if ($_SESSION['multiple'] == 1) { ?>
-        <form action="client.php" method="post">
-            <button type="submit" id="change" title="Change to Client Mode"> <i class="fa fa-refresh"></i></button>
-        </form>
-    <?php }
-} else if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
-    <?php if ($_SESSION['multiple'] == 1) { ?>
-        <form action="action_decideProfile.php" method="post">
-            <button type="submit" id="change" title="Change to Employee Mode"> <i class="fa fa-refresh"></i></button>
-        </form>
-<?php }
-} ?>
+    <!-- Title for the profile page -->
+    <?php if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/manageTeam.php') { ?>
+        <h1 id="profileTitle"> Dentist </h1>
+    <?php } ?>
+    <?php if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
+        <h1 id="profileTitle"> Assistant </h1>
+    <?php } ?>
+    <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
+        <h1 id="profileTitle"> Client </h1>
+    <?php } ?>
+
+    <!-- Button to change between employee and client mode -->
+    <?php if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/manageTeam.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
+        <?php if ($_SESSION['multiple'] == 1) { ?>
+            <form action="client.php" method="post">
+                <button type="submit" id="change" title="Change to Client Mode"> <i class="fa fa-refresh"></i></button>
+            </form>
+        <?php }
+    } else if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
+        <?php if ($_SESSION['multiple'] == 1) { ?>
+            <form action="action_decideProfile.php" method="post">
+                <button type="submit" id="change" title="Change to Employee Mode"> <i class="fa fa-refresh"></i></button>
+            </form>
+        <?php }
+    } ?>
 
 <!-- Section to display the information about the person -->
 <section id="profileInfo">
@@ -40,27 +42,31 @@ if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistA
     <!-- Profile image -->
     <div id="profileImg">
         <?php if (file_exists('images/users/' . $person['id'] . '.jpg')) { ?>
-            <img src="images/users/<?php echo $person['id'] ?>.jpg" alt="<?php echo $person['name'] ?>" <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?> id="client_img" <?php } ?> >
+            <img src="images/users/<?php echo $person['id'] ?>.jpg" alt="<?php echo $person['name'] ?>" <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?> id="client_img" <?php } ?>>
         <?php } else { ?>
-            <img src="images/users/img_default.jpg" alt="<?php echo $person['name'] ?>" <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?> id="client_img" <?php } ?> >
+            <img src="images/users/img_default.jpg" alt="<?php echo $person['name'] ?>" <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?> id="client_img" <?php } ?>>
         <?php } ?>
 
         <?php if (!($_SESSION['edit_on'] == 0 && !isset($_POST['edit']))) { ?>
-                <p id="img_sel"> <strong> Image: </strong>
+            <p id="img_sel"> <strong> Image: </strong>
                 <input type="file" name="image" form="editing" accept="image/png, image/jpeg, image/jpg"> </p>
-                <?php if (isset($_SESSION['error_image'])) { ?> <p id="err"> <?php echo $_SESSION['error_image'];
-                                                                                unset($_SESSION['error_image']); ?> </p> <?php } ?> 
-        <?php } ?> 
-
+            <?php if (isset($_SESSION['error_image'])) { ?> <p id="err"> <?php echo $_SESSION['error_image'];
+                                                                            unset($_SESSION['error_image']); ?> </p> <?php } ?>
+        <?php } ?>
     </div>
 
     <!-- Profile information -->
     <div id="info">
+
         <!-- Non editable -->
         <?php if ($_SESSION['edit_on'] == 0 && !isset($_POST['edit'])) { ?>
+
+            <!-- Button to change to edit mode -->
             <form action="action_openCloseEdit.php" method="post" id="edit_profile">
                 <button type="submit" id="edit_button" name="edit" form="edit_profile"><i class="fa fa-edit"></i></button>
             </form>
+
+            <!-- Display of personal information -->
             <p> <strong> Name: </strong> <?php echo $person['name'] ?> </p>
             <p> <strong> Address: </strong> <?php echo $person['address'] ?> </p>
             <p> <strong> Phone Number: </strong> <?php echo $person['phone_number'] ?> </p>
@@ -76,10 +82,12 @@ if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistA
         <?php } else { ?>
             <!-- Editable -->
 
+            <!-- Button to change to read only mode -->
             <form action="action_openCloseEdit.php" method="post" id="edit_profile">
                 <button type="submit" id="edit_button" name="edit" form="edit_profile"><i class="fa fa-times-circle"></i></button>
             </form>
 
+            <!-- Form to update personal information -->
             <form enctype="multipart/form-data" action="action_edit_profile_info.php" method="post" id="editing">
 
                 <p> <strong> Name: </strong>
@@ -104,6 +112,7 @@ if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistA
                     <p id="err"> <?php echo $_SESSION['error_num_msg'];
                                     unset($_SESSION['error_num_msg']); ?> </p>
                 <?php } ?>
+
                 <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
                     <p> <strong> Birth Date: </strong>
                         <input type="text" name="birth_date" value="<?php if (isset($_SESSION['birth_date'])) {
@@ -131,6 +140,7 @@ if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistA
                         <p id="err"> <?php echo $_SESSION['error_ins_msg'];
                                         unset($_SESSION['error_ins_msg']); ?> </p> <?php } ?>
                 <?php } ?>
+
                 <p> <strong> Username: </strong>
                     <input type="text" name="username" value="<?php if (isset($_SESSION['username'])) {
                                                                     echo $_SESSION['username'];
@@ -149,13 +159,13 @@ if ($_SERVER['PHP_SELF'] == '/dentist.php' || $_SERVER['PHP_SELF'] == '/dentistA
                                     unset($_SESSION['error_pass_msg']); ?> </p>
                 <?php } ?>
 
-
                 <input id="submit" type="submit" value="Submit">
             </form>
-
+        
         <?php } ?>
     </div>
 </section>
+
 <p id="good_msg"> <?php echo $_SESSION['final_msg'];
                     unset($_SESSION['final_msg']); ?> </p>
 <p id="bad_msg"><?php echo $_SESSION['msg'];

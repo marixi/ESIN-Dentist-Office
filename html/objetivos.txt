@@ -10,3 +10,12 @@ fazer pags com a lista de todos os auxiliares/clients e respetivos dados (anchor
 
 reunião:
 não faz sentido aparecer pagination quando não tem coisa nenhuma
+
+POS REUNIAO
+- edit mode por data como date e tirar setinhas tax number e insurance como select
+. url na pagination
+
+
+
+- schedule resolver e comentar
+- pq que nao aparece no past do auxiliar se o dentista nao completar

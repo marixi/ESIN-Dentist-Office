@@ -1,9 +1,5 @@
 <?php
 
-    if (isset($_POST['clientSearch'])) {
-        $_SESSION['clientSearch'] = $_POST['clientSearch'];
-    }
-
     if (!isset($_SESSION['clientSearch'])) {
         $appointments = getNonCompletePastDentistAppointments($_SESSION['id']);
         $past = array_slice($appointments, ($_SESSION['past_page']-1)*3, 3);
@@ -48,6 +44,7 @@
                         </li>
                     </ul>
 
+                    <!-- Select the service that was performed in the appointment -->
                     <?php $services = getServiceOfSpecialty($app['specialty']); ?> 
                     <form action="action_updateObservationsAndService.php" method="post">
 
@@ -60,6 +57,7 @@
                             } ?>
                         </select>
 
+                        <!-- Write some observations about the appointment -->
                         <p><strong>Observations:</strong></p>
                         <textArea name="observations" rows="5" cols="50"><?php foreach ($record as $obs) { if ($obs['appointment_id'] == $app['app_id']) { echo $obs['observations']; } } ?></textArea>
                         <input type="hidden" name="specialty" value = <?php echo $app['specialty'] ?>>

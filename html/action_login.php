@@ -12,6 +12,8 @@
     if ($userTry) {
         if ($passTry) {
             $_SESSION['id'] = $userTry['id'];
+            unset($_SESSION['user_try']);
+            unset($_SESSION['pass_try']);
             header('Location: action_decideProfile.php');
         }  
         else {

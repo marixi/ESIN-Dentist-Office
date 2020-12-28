@@ -29,11 +29,11 @@
     include('templates/profile_info_tpl.php');
     include('templates/search_tpl.php');
     include('templates/future_appointments_tpl.php'); 
-    if (!isset($_SESSION['clientSearch'])) {
+    if (!isset($_SESSION['clientSearch']) && count($future)!=0) {
         addFuturePagination();
     }
     include('templates/past_appointments_tpl.php'); 
-    if (!isset($_SESSION['clientSearch'])) {
+    if (!isset($_SESSION['clientSearch']) && count($past)!=0) {
         addPastPagination();
     }
     include('templates/footer_tpl.php'); 

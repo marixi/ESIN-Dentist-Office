@@ -1,8 +1,4 @@
 <?php
-    
-    if (isset($_POST['clientSearch'])) {
-        $_SESSION['clientSearch'] = $_POST['clientSearch'];
-    }
 
     if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php') {
         if (!isset($_SESSION['clientSearch'])) {
@@ -78,6 +74,7 @@
                         <?php } ?>
                     </ul>
 
+                    <!-- Modify the observations about the appointment if employee -->
                     <?php if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
                         <form action="action_updateObservations.php" method="post"> 
                             <p><strong>Observations:</strong></p>

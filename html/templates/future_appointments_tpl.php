@@ -45,6 +45,8 @@
                         <li> <strong> Date: </strong> <?php echo $app['date'] ?> </li> 
                         <li> <strong> Time: </strong> <?php echo $app['time'] ?> </li> 
                         <li> <strong> Specialty: </strong> <?php echo $app['specialty'] ?> </li>
+
+                        <!-- Assign the auxiliaries to be in the future appointment -->
                         <?php if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php') { ?>
                             <li> <strong> Auxiliary Assigned: </strong> 
                             <?php
@@ -73,6 +75,7 @@
                         </li>
                     </ul>
 
+                    <!-- Clients may delete previously booked appointments -->
                     <?php if ($_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
                         <form action="action_deleteAppointment.php" method="post">
                             <button type="submit" id="delete" name="delete" value=<?php echo $app['app_id']?> title="Cancel Appointment"><i class="fa fa-ban"></i></button> 
@@ -87,3 +90,4 @@
             <?php } ?>
 
     </section>
+    

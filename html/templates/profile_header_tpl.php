@@ -23,7 +23,7 @@
         <title> Dentist </title>
     <?php } ?>
 
-    <?php if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/material_per_service.php'|| $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
+    <?php if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/material_per_service.php' || $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
         <link href="css/schedule.css" rel="stylesheet">
         <link href="css/priceTable.css" rel="stylesheet">
         <link href="css/material.css" rel="stylesheet">
@@ -34,7 +34,6 @@
         <link href="css/responsive/material_responsive.css" rel="stylesheet">
         <link href="css/responsive/mat_per_service_responsive.css" rel="stylesheet">
         <link href="css/responsive/managePeople_responsive.css" rel="stylesheet">
-
         <title> Dental Auxiliary </title>
     <?php } ?>
 
@@ -43,10 +42,6 @@
         <link href="css/responsive/bookAppointment_responsive.css" rel="stylesheet">
         <title> Client </title>
     <?php } ?>
-
-    <!-- <link href="css/responsive.css" rel="stylesheet"> -->
-    
-
 
 </head>
 
@@ -58,7 +53,7 @@
             <img src="images/logo.png" alt="Dentist Clinic Logo">
         </a>
         <nav id="menu">
-            <input type="checkbox" id="hamburger"> 
+            <input type="checkbox" id="hamburger">
             <label class="hamburger" for="hamburger"></label>
             <ul>
 
@@ -70,14 +65,14 @@
                     <li><a href='action_logout.php' title="Log Out"> Logout </a></li>
                 <?php } ?>
 
-                <?php if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' ||$_SERVER['PHP_SELF'] == '/material_per_service.php'|| $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
+                <?php if ($_SERVER['PHP_SELF'] == '/dentalAuxiliary.php' || $_SERVER['PHP_SELF'] == '/dentalAuxiliary_appointments.php' || $_SERVER['PHP_SELF'] == '/material_per_service.php' || $_SERVER['PHP_SELF'] == '/manage_material.php' || $_SERVER['PHP_SELF'] == '/manage_clients.php') { ?>
                     <li><a href='dentalAuxiliary.php' title="Profile"> Profile </a></li>
                     <li><a href='dentalAuxiliary.php#Schedule' title="Schedule"> Schedule </a></li>
                     <li><a href='dentalAuxiliary_appointments.php#search' title="Appointments"> Appointments </a></li>
-                    <li><a href= 'manage_material.php' title="Material"> Manage Material </a></li>
-                    <li><a href= 'manage_clients.php#client_mng' title="Manage Clients"> Manage Clients </a></li>
+                    <li><a href='manage_material.php' title="Material"> Manage Material </a></li>
+                    <li><a href='manage_clients.php#client_mng' title="Manage Clients"> Manage Clients </a></li>
                     <li><a href='action_logout.php' title="Logout"> Logout </a></li>
-                <?php }?>
+                <?php } ?>
 
                 <?php if ($_SERVER['PHP_SELF'] == '/client.php' || $_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
                     <li><a href='client.php' title="Profile"> Profile </a></li>
@@ -85,7 +80,7 @@
                     <li><a href='clientRecord.php' title="Appointments"> Record of Appointments </a></li>
                     <li><a href='action_logout.php' title="Log Out"> Logout </a></li>
                 <?php } ?>
-                
+
             </ul>
         </nav>
     </header>
