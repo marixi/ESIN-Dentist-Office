@@ -8,6 +8,7 @@
     require_once('database/dentalAuxiliary_db.php');
     require_once('database/auxiliariesAssigned_db.php');
     require_once('database/client_db.php');
+    require_once('database/insurance_db.php');
     include('templates/pagination_tpl.php');
 
     if (!isset($_GET['past_page'])) {

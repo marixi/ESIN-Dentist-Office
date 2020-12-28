@@ -8,7 +8,7 @@
         $person = getClientInfo($_SESSION['id']);
     }
 
-    $ins_codes_arr = getInsuranceCodes();
+    $ins_codes_arr = getInsuranceCodes(); 
     $ins_codes = array();
     foreach ($ins_codes_arr as $value) {
         array_push($ins_codes, $value['insurance_code']);
