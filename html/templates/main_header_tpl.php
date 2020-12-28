@@ -18,7 +18,7 @@
     <!-- Header -->
     <header id="main">
         <a href='index.php' title="Home">
-            <img src="images/Logo.png" alt="Dentist Clinic Logo" id="logo_img">
+            <img src="images/logo.png" alt="Dentist Clinic Logo" id="logo_img">
         </a>
         <nav id="menu">
             <input type="checkbox" id="hamburger"> 

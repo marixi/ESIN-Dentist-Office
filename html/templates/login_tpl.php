@@ -32,10 +32,11 @@
         </div>
         <input type="submit" value="Login" id="loginButton">
     </form>
-    <p id='login_error'> <?php echo $_SESSION['err_msg'] ?> </p>
     
-    <?php if (isset($_SESSION['err_msg'])) {
-        unset($_SESSION['err_msg']);
+    
+    <?php if (isset($_SESSION['err_msg'])) { ?>
+        <p id='login_error'> <?php echo $_SESSION['err_msg'] ?> </p>
+        <?php unset($_SESSION['err_msg']);
         unset($_SESSION['user_try']);
         unset($_SESSION['pass_try']);
-    } ?>
+        } ?>
