@@ -67,6 +67,7 @@
 
     #service_applied > label {
         padding: 2% 2%;
+        font-size:90%;
     }
 
     #service_applied > select {

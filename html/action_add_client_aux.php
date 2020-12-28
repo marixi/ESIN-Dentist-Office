@@ -8,6 +8,7 @@
         unset($_SESSION['new_client']);
     }
 
+    $_SESSION['keepOpen'] = 1;
     header('Location: /manage_clients.php#manage');
     
 ?>

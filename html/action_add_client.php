@@ -21,11 +21,19 @@
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['password'] = $_POST['password'];  
         $nonUnique = getPersonUsernameId($_SESSION['username']);
-    }
+    }else{$_SESSION['employee'] = $_POST['employee'];}
 
-    $_SESSION['date_of_birth'] = $_POST['date_of_birth'];
+    $_SESSION['date_of_birth'] = $_POST['date_of_birth']; //to save the date in the form in case any error occurs
+
+    $day = substr($_POST['date_of_birth'], 8, 2);
+    $month = substr($_POST['date_of_birth'], 5, 2);
+    $year = substr($_POST['date_of_birth'], 0, 4);
+    $_SESSION['birth_date'] = $day.'-'.$month.'-'.$year; //correct way to add to the database
+
     $_SESSION['tax_number'] = $_POST['tax_number'];
     $_SESSION['insurance_code'] = $_POST['insurance_code']; 
+    if(strlen($_SESSION['insurance_code']) == 0)
+        unset($_SESSION['insurance_code']);
 
     if (isset($_SESSION['phone_number']) && substr($_SESSION['phone_number'], 0, 1) != '+') {
         $_SESSION['error_num_msg'] = "Please use +351 (for example) in the beginning of the phone number!";
@@ -82,7 +90,7 @@
         }
 
         try {
-            insertIntoClient($id, $_SESSION['date_of_birth'], $_SESSION['tax_number'], $_SESSION['insurance_code']);
+            insertIntoClient($id, $_SESSION['birth_date'], $_SESSION['tax_number'], $_SESSION['insurance_code']);
         } catch (Exception $e) {
             $_SESSION['msg'] = "Something went wrong! Please try again.";
             header('Location: \manage_clients.php#add_client');  
@@ -94,12 +102,14 @@
         unset($_SESSION['address']);
         unset($_SESSION['phone_number']);
         unset($_SESSION['date_of_birth']);
+        unset($_SESSION['birth_date']);
         unset($_SESSION['tax_number']);
         unset($_SESSION['insurance_code']);
         unset($_SESSION['username']);
         unset($_SESSION['password']);  
         unset($_SESSION['new_client']);
         unset($_SESSION['keepOpen']);   
+        unset($_SESSION['employee']);   
 
         header('Location: \manage_clients.php#client_mng');
     }

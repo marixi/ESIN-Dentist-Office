@@ -11,7 +11,12 @@
     $_SESSION['username'] = $_POST['username'];
     $_SESSION['password'] = $_POST['password'];
     $_SESSION['salary'] = $_POST['salary'];
-    $_SESSION['date_of_admission'] = $_POST['date_of_admission'];
+    $_SESSION['date_of_admission']=$_POST['date_of_admission'];
+
+    $day = substr($_POST['date_of_admission'], 8, 2);
+    $month = substr($_POST['date_of_admission'], 5, 2);
+    $year = substr($_POST['date_of_admission'], 0, 4);
+    $_SESSION['admission_date'] = $day.'-'.$month.'-'.$year;
 
     $nonUnique = getPersonUsernameId($_SESSION['username']);
 
@@ -53,7 +58,7 @@
         $id = getPersonId($_SESSION['username']) ;
 
         try {
-            insertIntoEmployee($id['id'], $_SESSION['salary'], $_SESSION['date_of_admission']);
+            insertIntoEmployee($id['id'], $_SESSION['salary'], $_SESSION['admission_date']);
         } catch (Exception $e) {
             $_SESSION['msg'] = "Something went wrong! Please try again.";
             header('Location: \manageTeam.php#hire');  
@@ -75,6 +80,8 @@
         unset($_SESSION['password']);
         unset($_SESSION['salary']);
         unset($_SESSION['date_of_admission']);
+        unset($_SESSION['admission_date']);
+        
 
         header('Location: \manageTeam.php#team_mng');
     }

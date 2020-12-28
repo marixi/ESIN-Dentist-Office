@@ -4,6 +4,7 @@
     require_once('database/dentalAuxiliary_db.php');
     require_once('database/client_db.php');
     require_once('database/person_db.php');
+    require_once('database/insurance_db.php');
 
     $id = $_SESSION['id'];
     $auxiliary = getAuxiliaryInfo($id);

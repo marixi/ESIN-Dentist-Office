@@ -42,8 +42,8 @@ if (isset($_POST['fire'])) {
                     <p> This is a random password! The employee may change it in his profile page. </p>
                     <br> <label><?php $label=str_pad("Salary:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
                     <input type="number" name="salary" min="0" max="2000" value="<?php if(isset($_SESSION['salary'])) { echo $_SESSION['salary']; } else{ echo "1000";}?>" step="100"> </br>
-                    <br> <label> <?php $label=str_pad("Date of Admission:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>
-                    <input type="text" name="date_of_admission" value=<?php if(isset($_SESSION['date_of_admission'])) { echo $_SESSION['date_of_admission']; } else {echo date('d').'-'.date('m').'-'.date('Y');} ?> > </br>
+                    <br> <label> <?php $label=str_pad("Date of Admission:",18," "); $label = str_replace(" ", "&nbsp;",$label); echo $label;?> </label>                    
+                    <input type="date" name="date_of_admission" max="<?php echo date("Y-m-d", strtotime("-1 day"));?>" <?php if(isset($_SESSION['date_of_admission'])) { ?> value="<?php echo $_SESSION['date_of_admission']; }?>"></br>
                     <br> <?php if(isset($_SESSION['msg'])) { ?> <p id="err"> <?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?> </p> <?php } ?>
                     <input id="submit_add" type="submit" value="Hire"> </br>      
                 </form>
