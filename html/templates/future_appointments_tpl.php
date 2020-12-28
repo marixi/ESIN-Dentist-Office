@@ -1,9 +1,5 @@
 <?php
 
-    if (isset($_POST['clientSearch'])) {
-        $_SESSION['clientSearch'] = $_POST['clientSearch'];
-    }
-
     if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php') {
         if (!isset($_SESSION['clientSearch'])) {
             $appointments = getCompleteFutureDentistAppointments($_SESSION['id']);
@@ -19,7 +15,7 @@
             $future = array_slice($appointments, ($_SESSION['future_page']-1)*3, 3);
             $_SESSION['max_future'] =  ceil(count($appointments)/3);
         } else {
-            $appointments = getCompleteFutureAuxiliaryAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
+            $future = getCompleteFutureAuxiliaryAppointmentsForClient($_SESSION['id'], $_SESSION['clientSearch']);
         }  
     } else if ($_SERVER['PHP_SELF'] == '/clientRecord.php') {
         $appointments = getCompleteFutureClientAppointments($_SESSION['id']);

@@ -1,3 +1,6 @@
+/* Dentist Office - Layout Responsive */
+/* Authors: Duarte Rodrigues, Mariana Xavier */
+
 @media (max-width: 60em) {
 
     #main {
@@ -17,8 +20,6 @@
         grid-column: logo/end;
         z-index: 1;
     }
-
-
 
 }
 
