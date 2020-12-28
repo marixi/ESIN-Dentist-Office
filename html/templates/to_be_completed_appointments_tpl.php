@@ -64,7 +64,7 @@
                         <textArea name="observations" rows="5" cols="50"><?php foreach ($record as $obs) { if ($obs['appointment_id'] == $app['app_id']) { echo $obs['observations']; } } ?></textArea>
                         <input type="hidden" name="specialty" value = <?php echo $app['specialty'] ?>>
                         <input type="hidden" name="appointment_to_change" value = <?php echo $app['app_id'] ?>>
-                        <input type="submit" value="Update">
+                        <input type="submit" value="Update" id="update">
 
                     </form>
 

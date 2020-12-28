@@ -163,3 +163,17 @@
     background-color: red;
     color: white;
 }
+
+#checkout{
+    color: white;
+    background-color: rgba(96, 185, 201, 0.932);
+    border:2px solid rgb(57, 124, 136);
+    border-radius: 0.5em;
+    width:20%;
+    margin-top: 2%;
+}
+
+#checkout:hover{
+    font-weight: bold;
+    border-radius: 2em;
+}

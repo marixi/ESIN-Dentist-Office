@@ -84,7 +84,7 @@
                             <?php if ($_SERVER['PHP_SELF'] == '/dentistAppointments.php') { ?>
                                 <textArea name="observations" rows="5" cols="50"><?php foreach ($record as $obs) { if ($obs['appointment_id'] == $app['app_id']) { echo $obs['observations']; } } ?></textArea>
                                 <input type="hidden" name="appointment_to_change" value = <?php echo $app['app_id'] ?>>
-                                <input type="submit" value="Update">
+                                <input type="submit" value="Update" id="update">
                             <?php } else if ($_SERVER['PHP_SELF'] == '/clientRecord.php') { ?>
                                 <textArea disabled name="observations" rows="5" cols="50" ><?php echo getRecordFromAppointmentsForClient($_SESSION['id'], $app['app_id'])['observations']; ?></textArea>
                             <?php } ?>

@@ -115,8 +115,9 @@
     filter: sepia(60%);
 }
 
+/* Style assign button */
+
 #assign{
-    font-size:90%;
     color: white;
     background-color: rgba(96, 185, 201, 0.932);
     border:2px solid rgb(57, 124, 136);
@@ -126,6 +127,23 @@
 }
 
 #assign:hover{
+    font-weight: bold;
+    border-radius: 2em;
+}
+
+
+/* Style update services/observations button */
+
+#update{
+    color: white;
+    background-color: rgba(96, 185, 201, 0.932);
+    border:2px solid rgb(57, 124, 136);
+    border-radius: 0.5em;
+    width:25%;
+    margin-top: 2%;
+}
+
+#update:hover{
     font-weight: bold;
     border-radius: 2em;
 }

@@ -35,7 +35,7 @@
         margin-right: 3%;
     }
 
-    .appointment>section form {
+    .appointment>section form, #update {
         margin-left: 3%;
         margin-right: 0;
     }
@@ -82,7 +82,7 @@
         font-size: 90%;
     }
 
-    .appointment>section form input {
+    .appointment>section form input, #update {
         font-size: 80%;
     }
 

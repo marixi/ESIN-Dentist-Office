@@ -31,7 +31,7 @@
                 }
             } ?>
     </select>
-    <input type="submit" value="Checkout service material">
+    <input type="submit" value="Checkout service material" id="checkout">
 </form>
 
 <p id='mat_per_serv'>To check the materials that each service takes, <a href="material_per_service.php"> click here.</a> </p>
