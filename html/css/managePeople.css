@@ -92,6 +92,14 @@ h2 {
     margin-left: 10%;
 }
 
+#add_client input[type="number"]{
+    -moz-appearance: textfield; /*remove the arrows from mozilla firefox*/
+}
+
+#add_client input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none; /*remove the arrows from Chrome, Safari, Edge, Opera*/
+}
+
 /* Form to remove person from the database */
 
 #submit_add, #submit_remove {
