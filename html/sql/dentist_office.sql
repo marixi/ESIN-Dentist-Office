@@ -202,9 +202,18 @@ INSERT INTO appointment VALUES (20, '27-11-2020', '11:00', 2, 12, 2, 'endodontic
 INSERT INTO appointment VALUES (21, '23-12-2020', '15:00', 2, 15, 2, 'pediatric', NULL);
 INSERT INTO appointment VALUES (22, '23-12-2020', '16:00', 2, 16, 2, 'pediatric', NULL);
 INSERT INTO appointment VALUES (23, '28-12-2020', '14:00', 2, 11, 2, 'prosthodontics', NULL);
-INSERT INTO appointment VALUES (24, '12-01-2021', '11:00', 1, 9, 1, 'orthodontics', NULL);
-INSERT INTO appointment VALUES (25, '16-01-2021', '09:00', 1, 14, 1, 'orthodontics', NULL);
-INSERT INTO appointment VALUES (26, '02-02-2021', '16:00', 2, 10, 2, 'general', NULL);
+INSERT INTO appointment VALUES (24, '30-12-2020', '09:00', 2, 1, 2, 'endodontics', NULL);
+INSERT INTO appointment VALUES (25, '30-12-2020', '10:00', 2, 4, 2, 'general', NULL);
+INSERT INTO appointment VALUES (26, '30-12-2020', '10:00', 1, 10, 1, 'general', NULL);
+INSERT INTO appointment VALUES (27, '30-12-2020', '11:00', 1, 12, 1, 'general', NULL);
+INSERT INTO appointment VALUES (28, '30-12-2020', '12:00', 1, 13, 1, 'general', NULL);
+INSERT INTO appointment VALUES (29, '31-12-2020', '10:00', 2, 14, 2, 'orthodontics', NULL);
+INSERT INTO appointment VALUES (30, '31-12-2020', '13:00', 2, 16, 2, 'pediatric', NULL);
+INSERT INTO appointment VALUES (31, '31-12-2020', '15:00', 1, 12, 1, 'general', NULL);
+INSERT INTO appointment VALUES (32, '31-12-2020', '18:00', 1, 5, 1, 'endodontics', NULL);
+INSERT INTO appointment VALUES (33, '12-01-2021', '11:00', 1, 9, 1, 'orthodontics', NULL);
+INSERT INTO appointment VALUES (34, '16-01-2021', '09:00', 1, 14, 1, 'orthodontics', NULL);
+INSERT INTO appointment VALUES (35, '02-02-2021', '16:00', 2, 10, 2, 'general', NULL);
 
 INSERT INTO auxiliariesAssigned VALUES (1, 4);
 INSERT INTO auxiliariesAssigned VALUES (2, 3);
@@ -232,9 +241,10 @@ INSERT INTO auxiliariesAssigned VALUES (20, 7);
 INSERT INTO auxiliariesAssigned VALUES (21, 3);
 INSERT INTO auxiliariesAssigned VALUES (22, 4);
 INSERT INTO auxiliariesAssigned VALUES (23, 5);
-INSERT INTO auxiliariesAssigned VALUES (24, 6);
-INSERT INTO auxiliariesAssigned VALUES (25, 7);
-INSERT INTO auxiliariesAssigned VALUES (26, 3);
+INSERT INTO auxiliariesAssigned VALUES (25, 5);
+INSERT INTO auxiliariesAssigned VALUES (33, 6);
+INSERT INTO auxiliariesAssigned VALUES (34, 7);
+INSERT INTO auxiliariesAssigned VALUES (35, 3);
 
 INSERT INTO record VALUES (8, 1, 'Everything normal in the check up.');
 INSERT INTO record VALUES (9, 2, 'Everything ready for the braces placement.');
