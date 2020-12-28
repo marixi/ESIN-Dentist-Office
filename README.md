@@ -30,18 +30,18 @@ As said before, employees may also be clients of the clinic. In those cases ther
 
 ## Login Access:
 
-####Dentists:
+Dentists:
 - raquel.pires rqpmed20
 - miguel.paredes mgpmed20
 
-####Auxiliaries:
+Auxiliaries:
 - joana.fonseca joaninha4440
 - ricardo.brioso ricardo4Work
 - sara.fernandes sara1234fer
 - lara.guerreiro lGo17dr
 - erica.freitas brLdgr262
 
-####Clients:
+Clients:
 - clara.tavares jBUDBKb164
 - francisco.amaral chico15M
 - andreia.baptista gdVBU864M
