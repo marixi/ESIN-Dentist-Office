@@ -56,7 +56,6 @@
         <?php } ?>
 
         <br>
-        <?php echo $_SESSION['date_of_birth'];?>
         <!-- Form to add client -->
         <section id="add_client">
 
